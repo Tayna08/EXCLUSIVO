@@ -23,7 +23,7 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Entrega (entregador_ent, bairro_ent, cidade_ent, rua_ent, data_ent, valor_ent, complemento_ent, numero_ent, id_fun_fk, venda_id_ven) " +
+                query.CommandText = $"INSERT INTO Entrega (entregador_ent, bairro_ent, cidade_ent, rua_ent, data_hora_ent, valor_ent, complemento_ent, numero_ent, id_fun_fk, venda_id_ven) " +
                     $"VALUES (@entregador, @bairro, @cidade, @rua, @data, @valor, @complemento, @numero, @id_fun, @id_ven)";
 
                 query.Parameters.AddWithValue("@entregador", entrega.Entregador);
