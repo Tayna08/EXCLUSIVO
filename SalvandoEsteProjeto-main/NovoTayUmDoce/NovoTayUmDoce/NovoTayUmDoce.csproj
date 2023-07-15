@@ -52,11 +52,11 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=3.0.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.3.0.0-ci321\lib\net462\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.5.0.0-ci321\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
@@ -110,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Janelas\CadastrarCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarEntrega.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +139,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Janelas\ListarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\ListarCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\ListarEntrega.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -171,6 +183,9 @@
     <Compile Include="Janelas\CadastrarCliente.xaml.cs">
       <DependentUpon>CadastrarCliente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Janelas\CadastrarCompra.xaml.cs">
+      <DependentUpon>CadastrarCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\CadastrarEntrega.xaml.cs">
       <DependentUpon>CadastrarEntrega.xaml</DependentUpon>
     </Compile>
@@ -191,6 +206,12 @@
     </Compile>
     <Compile Include="Janelas\ListarCliente.xaml.cs">
       <DependentUpon>ListarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\ListarCompra.xaml.cs">
+      <DependentUpon>ListarCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\ListarEntrega.xaml.cs">
+      <DependentUpon>ListarEntrega.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\ListarEstoque.xaml.cs">
       <DependentUpon>ListarEstoque.xaml</DependentUpon>
@@ -256,13 +277,15 @@
   <ItemGroup>
     <Resource Include="Logo\TayUmDoce.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="image\TayUmDoce.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets'))" />
   </Target>
 </Project>

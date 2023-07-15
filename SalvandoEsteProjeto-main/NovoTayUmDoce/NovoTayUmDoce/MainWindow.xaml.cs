@@ -104,5 +104,23 @@ namespace NovoTayUmDoce
             CadastrarEntrega entrega = new CadastrarEntrega();
             entrega.ShowDialog();
         }
+
+        private void btCompra_Click(object sender, RoutedEventArgs e)
+        {
+            CadastrarCompra compra = new CadastrarCompra();
+            compra.ShowDialog();
+        }
+
+        private void btListarEntrega_Click(object sender, RoutedEventArgs e)
+        {
+            ListarEntrega listarEntrega = new ListarEntrega();
+            listarEntrega.ShowDialog();
+        }
+
+        private void btListarCompra_Click(object sender, RoutedEventArgs e)
+        {
+            ListarCompra listarCompra = new ListarCompra();
+            listarCompra.ShowDialog();
+        }
     }
 }
