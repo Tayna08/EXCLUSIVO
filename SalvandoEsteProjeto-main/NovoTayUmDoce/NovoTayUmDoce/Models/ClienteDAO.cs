@@ -25,21 +25,21 @@ namespace TayUmDoceProjeto.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Cliente (nome_cli, cpf_cli, rg_cli, contato_cli, email_cli, bairro_cli, cidade_cli, complemento_cli, data_nasc_cli, rua_cli, numero_cli, cep_cli) " +
-                    $"VALUES (@nome, @cpf, @rg, @contato, @email, @bairro, @cidade, @complemento, @data_nasc, @rua, @numero, @cep)";
+                query.CommandText = $"INSERT INTO Cliente (nome_cli, cpf_cli, contato_cli, bairro_cli, cidade_cli, complemento_cli, data_nasc_cli, rua_cli, numero_cli) " +
+                    $"VALUES (@nome, @cpf, @contato, @bairro, @cidade, @complemento, @data_nasc, @rua, @numero)";
 
                 query.Parameters.AddWithValue("@nome", cliente.Nome);
                 query.Parameters.AddWithValue("@cpf", cliente.Cpf);
-                query.Parameters.AddWithValue("@rg", cliente.Rg);
+
                 query.Parameters.AddWithValue("@contato", cliente.Contato);
-                query.Parameters.AddWithValue("@email", cliente.Email);
+       
                 query.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 query.Parameters.AddWithValue("@cidade", cliente.Cidade);
                 query.Parameters.AddWithValue("@complemento", cliente.Complemento);
                 query.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@rua", cliente.Rua);
                 query.Parameters.AddWithValue("@numero", cliente.Numero);
-                query.Parameters.AddWithValue("@cep", cliente.Cep);
+             
 
                 var result = query.ExecuteNonQuery();
 

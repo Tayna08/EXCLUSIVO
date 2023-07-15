@@ -38,16 +38,13 @@ namespace TayUmDoceProjeto.Janelas
                 Cliente cliente = new Cliente();
                 cliente.Nome = tbNome.Text;
                 cliente.Cpf = tbCpf.Text;
-                cliente.Email = tbEmail.Text;
                 cliente.DataNasc = dtpData.SelectedDate;
                 cliente.Rua = tbRua.Text;
                 cliente.Bairro = tbBairro.Text;
                 cliente.Cidade = tbCidade.Text;
                 cliente.Numero = Convert.ToInt16(tbNumero.Text);
-                cliente.Rg = tbRg.Text;
                 cliente.Complemento = tbComplemento_.Text;
                 cliente.Contato = tbContato.Text;
-                cliente.Cep = tbCep.Text;
 
                 //Inserindo os Dados           
                 ClienteDAO clienteDAO = new ClienteDAO();
@@ -65,16 +62,13 @@ namespace TayUmDoceProjeto.Janelas
         private void Clear()
         {
             tbNome.Clear();
-            tbCpf.Clear();
-            tbEmail.Clear();
+            tbCpf.Clear();     
             tbRua.Clear();
             tbBairro.Clear();
             tbNumero.Clear();
-            tbCep.Clear();
             tbCidade.Clear();
             tbComplemento_.Clear();
             tbContato.Clear();
-            tbRg.Clear();
             dtpData.SelectedDate = null;
             
         }
