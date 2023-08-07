@@ -6,15 +6,11 @@
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
         Title="CadastrarFuncionario" 
-             Height="800"
-        Width="1400"
-        MinWidth="428"
-        WindowStyle="None"
-        AllowsTransparency="True"
-        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        FontSize="36"
-        FontFamily="Lato">
+        Height="500" Width="800"
+        MinHeight="400" MinWidth="300"
+        FontFamily="Arial"
+        FontSize="16">
     <Window.Resources>
         <Style x:Key="MeuTextBox" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
@@ -72,11 +68,11 @@
 
         <!--Imagem-->
 
-        <Border Background="#FFFFD3D3" CornerRadius="50" Margin="40,89,33,34" />
+        <Border Background="#FFFFD3D3" CornerRadius="50" Margin="40,39,33,34" />
 
         <!--Imagem-->
 
-        <Grid Margin="991,39,33,441">
+        <Grid Margin="195,39,-480,396" Grid.Column="1">
             <Grid.Resources>
                 <Style x:Key="RoundImageStyle" TargetType="{x:Type Image}">
                     <Setter Property="Width" Value="200"/>
@@ -92,24 +88,50 @@
                 </Style>
             </Grid.Resources>
             <Grid.RowDefinitions>
-                <RowDefinition Height="277*"/>
-                <RowDefinition Height="151*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.jpg" Style="{StaticResource RoundImageStyle}" RenderTransformOrigin="-2.093,0.225" Margin="145,77,0,43" VerticalAlignment="Stretch" Width="200" Grid.RowSpan="2" HorizontalAlignment="Left"/>
+            <Image Source="/logo/TayUmDoce.jpg" Style="{StaticResource RoundImageStyle}" RenderTransformOrigin="-2.093,0.225" Margin="-443,8,0,-159" VerticalAlignment="Stretch" Width="199" HorizontalAlignment="Left" Grid.RowSpan="2"/>
 
         </Grid>
 
         <StackPanel Margin="70,0,63,0" VerticalAlignment="Center">
 
-            <Grid Width="773">
+            <Grid Width="329" Height="103" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="130"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="NOME:" Margin="-243,180,237,-115" RenderTransformOrigin="0.066,0.453" />
-                <TextBox x:Name="tbNome" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" Background="White" Margin="-126,184,81,-112" Grid.ColumnSpan="2" />
+                <Label Content="NOME:" Margin="-168,42,233,33" RenderTransformOrigin="0.287,0.41" >
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+                <TextBox x:Name="tbNome" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" Background="White" Margin="-110,36,74,37" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
             </Grid>
 
             <Grid Margin="0 5">
@@ -117,9 +139,6 @@
                     <ColumnDefinition Width="350"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="DATA NASCIMENTO:" Margin="28,124,532,-125" Grid.Column="1"  />
-                <DatePicker x:Name="dtpData" Margin="363,124,198,-124" Grid.Column="1"/>
             </Grid>
 
             <Grid Margin="0 5">
@@ -129,19 +148,20 @@
                     <ColumnDefinition Width="223*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label  Content="CPF:" RenderTransformOrigin="0.526,1.4" Margin="4,62,785,-62" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="tbCpf" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="#FFF9F9F9" Margin="84,63,515,-55" Grid.ColumnSpan="2" />
+                <Label  Content="CPF:" RenderTransformOrigin="0.526,1.4" Margin="-2,18,6,-19"/>
+                <TextBox x:Name="tbCpf" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="#FFF9F9F9" Margin="43,16,285,-2" Grid.ColumnSpan="2" />
+                <Label  Content="DATA NASCIMENTO:" Margin="107,18,82,-19" Grid.Column="1"  />
+                <DatePicker x:Name="dtpData" Height="28" RenderTransformOrigin="0.425,0.481" Margin="271,17,16,0" Grid.Column="1" VerticalAlignment="Top">
+                    <DatePicker.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform AngleY="0"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="1.064"/>
+                        </TransformGroup>
+                    </DatePicker.RenderTransform>
+                </DatePicker>
 
-            </Grid>
-
-            <Grid Margin="0 5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Label  Content="RG:" RenderTransformOrigin="0.526,1.4" Margin="6,62,4,-62"/>
-                <TextBox x:Name="tbRg" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="89,67,848,-59" Grid.ColumnSpan="2" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -150,9 +170,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label  Content="TELEFONE:" Margin="-1,71,1077,-71" Grid.ColumnSpan="2"/>
-                <TextBox x:Name="tbContato" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="52,73,707,-65" Grid.Column="1" />
-                <TextBox x:Name="tbFuncao" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="42,141,717,-133" Grid.Column="1" />
+                <Label  Content="CONTATO:" Margin="-4,-79,47,79"/>
+                <TextBox x:Name="tbContato" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="83,-81,242,77" Grid.ColumnSpan="2" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -163,9 +182,6 @@
                     <ColumnDefinition Width="42*"/>
                     <ColumnDefinition Width="515*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="BAIRRO:" Grid.Column="2" Margin="469,76,455,-76" Grid.ColumnSpan="3"/>
-                <TextBox x:Name="tbBairro" Grid.Column="4" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="0,76,0,-40" HorizontalAlignment="Center" Width="388" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -179,9 +195,10 @@
                     <ColumnDefinition Width="47*"/>
                     <ColumnDefinition Width="671*"/>
                 </Grid.ColumnDefinitions>
-                <Label
-                 Content="FUNÇÃO:" Grid.ColumnSpan="3" Margin="-2,-13,238,13"></Label>
             </Grid>
+            <TextBox x:Name="tbFuncao" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="#FFFDFDFD" Width="419" />
+            <Label
+                 Content="FUNÇÃO:" Height="26" Width="100"/>
 
             <Grid Margin="0 5">
                 <Grid.ColumnDefinitions>
@@ -190,20 +207,18 @@
                     <ColumnDefinition Width="515*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label  Content="SALARIO:" RenderTransformOrigin="1.233,-1.139" Grid.Column="1" Margin="393,-213,0,210" HorizontalAlignment="Left" Width="165"/>
-                <TextBox x:Name="tbSalario" Grid.Column="1" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="#FFFDFDFD" Margin="576,-212,0,0" HorizontalAlignment="Left" Width="419" Grid.ColumnSpan="2" />
+                <Label  Content="SALARIO:" RenderTransformOrigin="1.233,-1.139" Margin="-12,16,0,-53" HorizontalAlignment="Left" Width="183" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="tbSalario" Grid.Column="1" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="#FFFDFDFD" Margin="34,24,0,0" HorizontalAlignment="Left" Width="419" Grid.ColumnSpan="2" />
             </Grid>
 
             <Grid Margin="0 5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="24.8"/>
                     <ColumnDefinition Width="95.2"/>
-                    <ColumnDefinition Width="111*"/>
-                    <ColumnDefinition Width="478*"/>
+                    <ColumnDefinition Width="215*"/>
+                    <ColumnDefinition Width="112*"/>
+                    <ColumnDefinition Width="813*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="COMPLEMENTO:" Margin="-1,-51,61,50" Grid.ColumnSpan="3"/>
-                <TextBox x:Name="tbComplemento" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap"  RenderTransformOrigin="-0.146,-0.247" Background="White" Grid.ColumnSpan="2" Margin="170,-51,10,58" Grid.Column="2" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -213,8 +228,8 @@
                     <ColumnDefinition Width="461*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label  Content="E-MAIL:" Grid.Column="1" Margin="348,-270,52,269"/>
-                <TextBox x:Name="tbEmail" Grid.Column="1" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="492,-267,131,0" Grid.ColumnSpan="2" />
+                <Label  Content="E-MAIL:" Margin="0,-135,144,133"/>
+                <TextBox x:Name="tbEmail" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="111,-132,39,0" />
             </Grid>
 
             <!--Label-->
@@ -227,11 +242,6 @@
                     <ColumnDefinition Width="266*"/>
                     <ColumnDefinition Width="605*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="RUA:" Margin="1,-43,207,43" Grid.ColumnSpan="3"/>
-                <TextBox x:Name="tbRua" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="95,-44,140,0" Grid.ColumnSpan="4" />
-                <Label  Content="CIDADE:" Margin="3,-107,205,107" Grid.ColumnSpan="3"/>
-                <TextBox x:Name="tbCidade" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="3,-104,90,0" Grid.ColumnSpan="2" Grid.Column="2" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -239,9 +249,6 @@
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="1140.232"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="CEP:" Margin="443,-111,558,109" Grid.Column="1"/>
-                <TextBox x:Name="tbCep" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="531,-108,373,0" Grid.Column="1" />
             </Grid>
 
             <Grid Margin="0 5">
@@ -249,9 +256,6 @@
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
-                <Label  Content="N°:" Margin="472,-229,529,227" Grid.Column="1"/>
-                <TextBox x:Name="tbNumero" Style="{StaticResource MeuTextBox}" TextWrapping="Wrap" VerticalAlignment="Top"  RenderTransformOrigin="-0.146,-0.247" Background="White" Margin="538,-226,442,0" Grid.Column="1" />
             </Grid>
 
             <!--Button-->
@@ -261,8 +265,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="btSalvar" Style="{StaticResource MeuBotaoRedondo}"  Content="Salvar" HorizontalAlignment="Left"  Height="68" Width="241" Background="#FFFFA4A4" Margin="226,-172,0,128" Click="btSalvar_Click"/>
-                <Button x:Name="btCancelar" Grid.Column="1" Style="{StaticResource MeuBotaoRedondo}" Content="Cancelar"  HorizontalAlignment="Left"  Height="68" Width="240" Background="#FFFFA4A4" Margin="72,-169,0,125"/>
+                <Button x:Name="btSalvar" Style="{StaticResource MeuBotaoRedondo}"  Content="Salvar" HorizontalAlignment="Left"  Height="68" Width="241" Background="#FFFFA4A4" Margin="98,-76,0,32" Click="btSalvar_Click" Grid.ColumnSpan="2"/>
+                <Button x:Name="btCancelar" Grid.Column="1" Style="{StaticResource MeuBotaoRedondo}" Content="Cancelar"  HorizontalAlignment="Left"  Height="68" Width="240" Background="#FFFFA4A4" Margin="51,-76,0,32"/>
 
             </Grid>
         </StackPanel>
