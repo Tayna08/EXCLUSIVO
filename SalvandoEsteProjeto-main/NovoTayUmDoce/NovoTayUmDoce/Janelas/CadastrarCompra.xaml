@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
-        Title="CadastrarCompra" Height="450" Width="800">
-    <Grid>
-        
+        Title="CadastrarCompra"
+        Height="450" 
+        Width="800"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        FontSize="36"
+        FontFamily="Lato">
+    
+    <Grid Background="#FFDDA2B1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition MinHeight="920"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Row="1" Background="#FFFFD3D3" Margin="35,43,35,497" Height="450" Width="850" />
+
     </Grid>
 </Window>
