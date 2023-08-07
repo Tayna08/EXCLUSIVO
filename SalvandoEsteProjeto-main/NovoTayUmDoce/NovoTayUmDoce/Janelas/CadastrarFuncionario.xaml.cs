@@ -33,14 +33,7 @@ namespace NovoTayUmDoce.Janelas
                 Funcionario funcionario = new Funcionario();
                 funcionario.Nome = tbNome.Text;
                 funcionario.Cpf = tbCpf.Text;
-                funcionario.Cep = tbCep.Text;
                 funcionario.Data = dtpData.SelectedDate;
-                funcionario.Rua = tbRua.Text;
-                funcionario.Bairro = tbBairro.Text;
-                funcionario.Cidade = tbCidade.Text;
-                funcionario.Numero = Convert.ToInt16(tbNumero.Text);
-                funcionario.Rg = tbRg.Text;
-                funcionario.Complemento = tbComplemento.Text;
                 funcionario.Contato = tbContato.Text;
                 funcionario.Funcao = tbFuncao.Text;
                 funcionario.Salario = tbSalario.Text;
