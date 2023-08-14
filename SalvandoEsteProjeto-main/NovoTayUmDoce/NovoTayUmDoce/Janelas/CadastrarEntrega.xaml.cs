@@ -32,14 +32,8 @@ namespace NovoTayUmDoce.Janelas
                 //Setando informações na tabela cliente
                 Entrega entrega = new Entrega();
                 entrega.Entregador = tbEntregador.Text;
-                entrega.Bairro = tbBairro.Text;
-                entrega.Cidade = tbCidade.Text;
-                entrega.Rua = tbRua.Text;
                 entrega.Data = dtpData.SelectedDate;
-                entrega.Valor = tbTotalCompra.Text;
                 entrega.Numero = tbNumero.Text;
-                entrega.Complemento = tbComplemento.Text;
-                entrega.FuncionarioId = tbFuncionario.Text;
                 entrega.VendaId = tbVenda.Text;
 
                 //Inserindo os Dados           
@@ -63,12 +57,7 @@ namespace NovoTayUmDoce.Janelas
         {
             tbEntregador.Clear();
             tbVenda.Clear();
-            tbFuncionario.Clear();
-            tbRua.Clear();
-            tbBairro.Clear();
             tbNumero.Clear();
-            tbTotalCompra.Clear();
-            tbCidade.Clear();
             dtpData.SelectedDate = null;
 
         }
