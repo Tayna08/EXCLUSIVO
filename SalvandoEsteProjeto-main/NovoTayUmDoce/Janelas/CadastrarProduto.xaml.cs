@@ -57,5 +57,10 @@ namespace TayUmDoceProjeto.Janelas
         {
             MessageBoxResult result = MessageBox.Show("Cancelado", "3B T.I");
         }
+
+        private void Numero_Copy_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
