@@ -19,11 +19,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20">
-            <Border Background="#FFFFD3D3" CornerRadius="50" Padding="10" MaxWidth="742" Height="443" Width="723">
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10" />
 
-            </Border>
-        </StackPanel>
+
 
         <Grid Margin="0,28,0,0">
             <Grid.RowDefinitions>
