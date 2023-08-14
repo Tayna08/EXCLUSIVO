@@ -36,7 +36,7 @@
 
         <StackPanel Margin="50,10,208,100">
             <Label Content="CONTROLE N°"/>
-            <TextBox x:Name="Numero" TextWrapping="Wrap" Background="White" Height="30" Width="120" Margin="0,1,420,100"/>
+            <TextBox x:Name="Numero" TextWrapping="Wrap" Background="White" Margin="0,2,0,184"/>
         </StackPanel>
 
         <StackPanel Margin="50,80,208,100">
@@ -56,16 +56,16 @@
 
         <StackPanel Margin="50,195,100,19">
             <Label Content="QUANTIDADE:"/>
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Margin="3,2,535,184" Width="113"/>
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
         </StackPanel>
 
         <StackPanel Margin="50,250,100,19">
             <Label Content="PESO:"/>
-            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Margin="3,2,535,184" Width="113"/>
+            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
         </StackPanel>
         <StackPanel Margin="50,305,100,19">
             <Label Content="VALOR:"/>
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Margin="3,2,535,184" Width="113"/>
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
         </StackPanel>
     </Grid>
 </Window>
