@@ -26,20 +26,14 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_fornecedor_for, contato_for, bairro_for, cidade_for, complemento_for, rua_for, cnpj_for, numero_for, id_est_fk, id_fun_fk)" +
-                    $"VALUES (@nome_fantasia, @nome_fornecedor, @contato, @bairro, @cidade, @complemento, @rua, @cnpj, @numero, @id_est, @id_fun)";
+                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for)" +
+                    $"VALUES (@nome_fantasia, @nome_fornecedor, @contato, @nome_representante, @cnpj, @razao_social)";
 
                 query.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome_Fantasia);
-                query.Parameters.AddWithValue("@nome_fornecedor", fornecedor.Nome_Fornecedor);
+                query.Parameters.AddWithValue("@nome_fornecedor", fornecedor.Nome_Representante);
                 query.Parameters.AddWithValue("@contato", fornecedor.Contato);
-                query.Parameters.AddWithValue("@bairro", fornecedor.Bairro);
-                query.Parameters.AddWithValue("@cidade", fornecedor.Cidade);
-                query.Parameters.AddWithValue("@complemento", fornecedor.Complemento);
-                query.Parameters.AddWithValue("@rua", fornecedor.Rua);
                 query.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
-                query.Parameters.AddWithValue("@numero", fornecedor.Numero);
-                query.Parameters.AddWithValue("@id_est", fornecedor.Nome_estoque);
-                query.Parameters.AddWithValue("@id_fun", fornecedor.Nome_funcionario);
+                query.Parameters.AddWithValue("@numero", fornecedor.Razao_Social);
 
                 var result = query.ExecuteNonQuery();
 
