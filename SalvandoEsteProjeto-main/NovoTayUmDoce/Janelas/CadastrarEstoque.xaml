@@ -34,25 +34,21 @@
         <Button x:Name="btCancelar" Content="CANCELAR"  Background="#FFFFA4A4" Margin="0,0,213,8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="tbCancelar_Click"/>
 
         <StackPanel Margin="50,45,208,100">
-            <Label Content="PRODUTO:"/>
-            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Height="30"/>
+            <Label Content="NOME:"/>
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
         <StackPanel Margin="50,120,208,100">
-            <Label Content="MARCA:"/>
-            <TextBox x:Name="tbMarca" TextWrapping="Wrap" Background="White" Height="27"/>
+            <Label Content="QUANTIDADE:"/>
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,200,100,100">
-            <Label Content="TIPO:"/>
-            <TextBox x:Name="tbTipo" TextWrapping="Wrap" Background="White" Height="27"/>
-
+        <StackPanel Margin="50,200,100,159">
+            <Label Content="DATA:"/>
+            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="50,280,100,100">
-            <Label Content="DESCRIÇÃO:"/>
-            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
-        </StackPanel>
+
     </Grid>
 
 </Window>

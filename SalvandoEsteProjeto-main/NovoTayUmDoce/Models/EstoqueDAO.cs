@@ -22,13 +22,13 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Estoque (marca_est, descricao_est, tipo_est, id_pro_fk) " +
-                    $"VALUES (@marca, @descricao, @tipo, @id_pro)";
+                query.CommandText = $"INSERT INTO Estoque (nome_est, quantidade_est, data_est, id_pro_fk) " +
+                    $"VALUES (@nome, @quantidade, @data, @id_pro)";
 
-                query.Parameters.AddWithValue("@marca", estoque.Marca);
-                query.Parameters.AddWithValue("@descricao", estoque.Descricao);
-                query.Parameters.AddWithValue("@tipo", estoque.Tipo);
-                query.Parameters.AddWithValue("@id_pro", estoque.Produto);
+                query.Parameters.AddWithValue("@nome", estoque.Nome);
+                query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
+                query.Parameters.AddWithValue("@data", estoque.Data?.ToString("yyyy-MM-dd")); ;
+     
 
                 var result = query.ExecuteNonQuery();
 

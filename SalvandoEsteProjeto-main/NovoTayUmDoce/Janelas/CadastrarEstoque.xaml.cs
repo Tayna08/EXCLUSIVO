@@ -35,10 +35,9 @@ namespace TayUmDoceProjeto.Janelas
             try
             {
                 Estoque estoque = new Estoque();
-                estoque.Marca = tbMarca.Text;
-                estoque.Descricao = tbDescricao.Text;
-                estoque.Tipo = tbTipo.Text;
-                estoque.Produto = tbProduto.Text;
+                estoque.Nome = tbNome.Text;
+                estoque.Quantidade = tbQuantidade.Text;
+                estoque.Data = dtpData.SelectedDate;
                 EstoqueDAO estoqueDAO = new EstoqueDAO();
                 estoqueDAO.Insert(estoque);
                 MessageBox.Show("Dados salvos com sucesso!");

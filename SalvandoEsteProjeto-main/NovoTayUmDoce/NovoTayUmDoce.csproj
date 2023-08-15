@@ -106,11 +106,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Janelas\CadastrarCaixa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarCliente.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Janelas\CadastrarCompra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\CadastrarDespesa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\CadastrarEndereco.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,9 +142,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\CadastrarPagamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\CadastrarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarProduto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Janelas\CadastrarRecebimento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Janelas\CadastrarVenda.xaml">
       <SubType>Designer</SubType>
@@ -178,13 +202,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Conexão\Conexao.cs" />
+    <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
+    <Compile Include="Janelas\CadastrarCaixa.xaml.cs">
+      <DependentUpon>CadastrarCaixa.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\CadastrarCliente.xaml.cs">
       <DependentUpon>CadastrarCliente.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\CadastrarCompra.xaml.cs">
       <DependentUpon>CadastrarCompra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarDespesa.xaml.cs">
+      <DependentUpon>CadastrarDespesa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarEndereco.xaml.cs">
+      <DependentUpon>CadastrarEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\CadastrarEntrega.xaml.cs">
       <DependentUpon>CadastrarEntrega.xaml</DependentUpon>
@@ -198,8 +231,17 @@
     <Compile Include="Janelas\CadastrarFuncionario.xaml.cs">
       <DependentUpon>CadastrarFuncionario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Janelas\CadastrarPagamento.xaml.cs">
+      <DependentUpon>CadastrarPagamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarPedido.xaml.cs">
+      <DependentUpon>CadastrarPedido.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Janelas\CadastrarProduto.xaml.cs">
       <DependentUpon>CadastrarProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarRecebimento.xaml.cs">
+      <DependentUpon>CadastrarRecebimento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\CadastrarVenda.xaml.cs">
       <DependentUpon>CadastrarVenda.xaml</DependentUpon>
