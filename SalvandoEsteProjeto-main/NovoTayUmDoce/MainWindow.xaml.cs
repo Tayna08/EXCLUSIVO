@@ -122,5 +122,41 @@ namespace NovoTayUmDoce
             ListarCompra listarCompra = new ListarCompra();
             listarCompra.ShowDialog();
         }
+
+        private void btCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            ListarCaixa listarCaixa= new ListarCaixa();
+            listarCaixa.ShowDialog();
+        }
+
+        private void btDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            ListarDespesa listDespesa= new ListarDespesa();
+            listDespesa.ShowDialog();
+        }
+
+        private void btEndereco_Click(object sender, RoutedEventArgs e)
+        {
+            ListarEndereco listEndereco= new ListarEndereco();
+            listEndereco.ShowDialog();
+        }
+
+        private void btPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            ListarPagamento listPagamento= new ListarPagamento();
+            listPagamento.ShowDialog();
+        }
+
+        private void btPedido_Click(object sender, RoutedEventArgs e)
+        {
+            ListarPedido listpedido= new ListarPedido();    
+            listpedido.ShowDialog();
+        }
+
+        private void btRecebimento_Click(object sender, RoutedEventArgs e)
+        {
+            ListarRecebimento listarRecebimento= new ListarRecebimento();
+            listarRecebimento.ShowDialog();
+        }
     }
 }
