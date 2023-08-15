@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:TayUmDoceProjeto.Janelas"
         mc:Ignorable="d"
         Title="CadastrarProduto" 
-        x:Name="ResponsiveWindow"
         WindowStartupLocation="CenterScreen"
         Height="500" Width="800"
         MinHeight="400" MinWidth="300"
@@ -15,57 +14,58 @@
 
     <Grid Background="#FFD18D9F">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="667.4"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,100" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" />
 
-        <Grid Margin="0,28,0,0">
+        <Grid Margin="0,28,0,221">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,4,18,0"/>
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
 
         </Grid>
 
-        <Button x:Name="brSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="188,0,0,105" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
-        <Button x:Name="brCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,238,103" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="196,0,0,239" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+        <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,227,239" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
 
-        <StackPanel Margin="50,10,208,100">
-            <Label Content="CONTROLE N°"/>
-            <TextBox x:Name="Numero" TextWrapping="Wrap" Background="White" Margin="0,2,0,184"/>
+        <StackPanel Margin="50,45,610,572">
+            <Label Content="CONTROLE N°:"/>
+            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,80,208,100">
+        <StackPanel Margin="50,110,208,407">
             <Label Content="NOME:"/>
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,140,208,100">
+        <StackPanel Margin="50,180,208,377">
             <Label Content="DESCRIÇÃO:"/>
-            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,360,580,100">
-            <Label Content="DATA FABRICAÇÃO:"/>
-            <DatePicker x:Name="dtpData" Height="30"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,195,100,19">
+        <StackPanel Margin="50,240,509,329">
             <Label Content="QUANTIDADE:"/>
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,250,100,19">
-            <Label Content="PESO:"/>
-            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
+        <StackPanel Margin="355,240,45,329">
+            <Label Content="DATA FABRICAÇÃO:"/>
+            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
-        <StackPanel Margin="50,305,100,19">
+
+        <StackPanel Margin="50,300,509,304">
+            <Label Content="PESO:"/>
+            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="355,300,45,264">
             <Label Content="VALOR:"/>
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Margin="3,2,110,184"/>
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Grid.Row="1" Width="397"/>
         </StackPanel>
     </Grid>
+
 </Window>
