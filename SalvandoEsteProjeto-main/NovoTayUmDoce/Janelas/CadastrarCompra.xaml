@@ -30,8 +30,8 @@
 
         </Grid>
 
-        <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="184,0,0,20" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
-        <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,239,18" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="190,0,0,28" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+        <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,233,26" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
 
         <StackPanel Margin="50,45,208,100">
             <Label Content="NOME:"/>
