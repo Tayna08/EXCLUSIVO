@@ -53,9 +53,16 @@ namespace NovoTayUmDoce.Janelas
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
+
+       
     }
 }

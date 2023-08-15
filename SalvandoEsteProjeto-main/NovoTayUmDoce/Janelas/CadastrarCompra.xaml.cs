@@ -23,5 +23,20 @@ namespace NovoTayUmDoce.Janelas
         {
             InitializeComponent();
         }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro da Campra?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

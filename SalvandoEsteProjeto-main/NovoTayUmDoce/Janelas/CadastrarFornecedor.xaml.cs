@@ -51,5 +51,15 @@ namespace TayUmDoceProjeto.Janelas
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }
         }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro do Fornecedor?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }

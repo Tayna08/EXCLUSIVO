@@ -69,8 +69,7 @@ namespace TayUmDoceProjeto.Janelas
 
             if (result == MessageBoxResult.Yes)
             {
-                Clear();
-                MessageBox.Show("Campos limpos com sucesso!");
+                Close();  
             }
         }
     }

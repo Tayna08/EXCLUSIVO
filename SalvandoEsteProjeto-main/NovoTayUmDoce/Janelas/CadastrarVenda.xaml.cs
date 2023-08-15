@@ -33,12 +33,10 @@ namespace NovoTayUmDoce.Janelas
             try
             {
                 Venda venda = new Venda();
-                venda.Nome_cliente = tbNome.Text;
-                venda.Nome_funcionario = tbFuncionario.Text;
                 venda.Desconto = tbDesconto.Text;
                 venda.Valor = Convert.ToDouble(tbValor.Text);
-                venda.Forma_pagamento = cbForma.SelectionBoxItem.ToString();
-                venda.Data = dtpData.SelectedDate;
+                venda.Forma_pagamento = tbFormaPagamento.ToString();
+                venda.Data = dtpDataVenda.SelectedDate;
                 //Inserindo os Dados           
                 VendaDAO vendaDAO = new VendaDAO();
                 vendaDAO.Insert(venda);
@@ -52,7 +50,12 @@ namespace NovoTayUmDoce.Janelas
         }
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Cancelado", "3B T.I");
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro da Venda?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -65,6 +68,8 @@ namespace NovoTayUmDoce.Janelas
         {
 
         }
+
+        
     }
     
 }

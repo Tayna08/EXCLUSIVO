@@ -19,7 +19,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,25" Grid.RowSpan="2" />
 
 
 
@@ -29,12 +29,12 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.jpg" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="154" Height="130" Margin="0,30,48,0"/>
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
 
         </Grid>
 
-        <Button Content="SALVAR" Background="#FFFFA4A4" Margin="184,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold"/>
-        <Button Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,239,8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold"/>
+        <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="184,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+        <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="0,0,239,8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
 
         <StackPanel Margin="50,45,208,100">
             <Label Content="NOME:"/>

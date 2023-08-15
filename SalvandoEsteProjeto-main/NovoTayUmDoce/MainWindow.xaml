@@ -62,7 +62,7 @@
                         <RowDefinition Height="151*"/>
                     </Grid.RowDefinitions>
 
-                    <Image Source="image/TayUmDoce.jpg" Style="{StaticResource RoundImageStyle}" RenderTransformOrigin="-2.093,0.225" Margin="1516,68,-1652,0" Width="NaN" HorizontalAlignment="Stretch" Height="316" VerticalAlignment="Top" Grid.RowSpan="2">
+                    <Image Source="image/TayUmDoce.jpg" Style="{StaticResource RoundImageStyle}" RenderTransformOrigin="-2.093,0.225" Margin="1516,68,-1652,0" Width="NaN" Height="316" VerticalAlignment="Center" Grid.RowSpan="2">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform ScaleX="-1"/>

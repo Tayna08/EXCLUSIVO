@@ -25,7 +25,7 @@ namespace NovoTayUmDoce.Janelas
             InitializeComponent();
         }
 
-        private void btFinalizar_Click(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -64,13 +64,14 @@ namespace NovoTayUmDoce.Janelas
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar a entrega?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
-                Clear();
-                MessageBox.Show("Campos limpos com sucesso!");
+                Close();
             }
         }
+
+     
     }
 }

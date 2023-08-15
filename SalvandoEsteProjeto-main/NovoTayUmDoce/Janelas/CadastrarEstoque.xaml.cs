@@ -52,9 +52,15 @@ namespace TayUmDoceProjeto.Janelas
            
         }
 
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
+
+        private void tbCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Cancelado", "3B T.I");
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro do estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
