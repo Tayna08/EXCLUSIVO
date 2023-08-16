@@ -61,6 +61,9 @@ namespace NovoTayUmDoce.Janelas
             }
         }
 
-       
+        private void tbSalario_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

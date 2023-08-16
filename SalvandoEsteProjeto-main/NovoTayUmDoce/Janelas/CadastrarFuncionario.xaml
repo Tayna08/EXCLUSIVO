@@ -30,12 +30,12 @@
 
         </Grid>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,388,0,0" Width="420" Height="67">
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
             <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
         </StackPanel>
 
-        <StackPanel Margin="50,25,208,392" Grid.ColumnSpan="2">
+        <StackPanel Margin="50,27,208,495">
             <Label Content="NOME:"/>
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
@@ -72,7 +72,12 @@
         </StackPanel>
 
 
-        <StackPanel Margin="50,317,499,207">
+        <StackPanel Margin="50,325,562,207">
+            <Label Content="COMPLEMENTO"/>
+            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="259,325,307,207">
             <Label Content="FUNÇÃO:"/>
             <TextBox x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
@@ -87,9 +92,9 @@
             <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="400,317,56,207">
+        <StackPanel Margin="522,325,56,207">
             <Label Content="SALÀRIO:"/>
-            <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbSalario_TextChanged"/>
         </StackPanel>
     </Grid>
 

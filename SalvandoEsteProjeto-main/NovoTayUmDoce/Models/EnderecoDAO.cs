@@ -3,37 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Helpers;
 using TayUmDoceProjeto.Conexão;
+using System.Windows;
 
-namespace TayUmDoceProjeto.Models
+namespace NovoTayUmDoce.Models
 {
-    class ClienteDAO
+    class EnderecoDAO
     {
         private static Conexao conn;
 
-        public ClienteDAO()
+        public EnderecoDAO()
         {
             conn = new Conexao();
         }
 
-        public void Insert(Cliente cliente)
+        public void Insert(Endereco endereco)
         {
             try
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Cliente (nome_cli, cpf_cli, contato_cli, data_nascimento_cli) " +
-                    $"VALUES (@nome, @cpf, @contato, @data_nascimento)";
+                query.CommandText = $"INSERT INTO Endereco (bairro_end, cidade_end, rua_end, complemento_end, numero_end) " +
+                    $"VALUES (@bairro, @cidade, @rua, @complemento, @numero)";
 
-                query.Parameters.AddWithValue("@nome", cliente.Nome);
-                query.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                query.Parameters.AddWithValue("@bairro", endereco.Bairro);
+                query.Parameters.AddWithValue("@cidade", endereco.Cidade);
+                query.Parameters.AddWithValue("@rua", endereco.Rua);
+                query.Parameters.AddWithValue("@complemento", endereco.Complemento);
+                query.Parameters.AddWithValue("@numero", endereco.Numero);
 
-                query.Parameters.AddWithValue("@contato", cliente.Contato);
-                query.Parameters.AddWithValue("@data_nascimento", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-             
 
                 var result = query.ExecuteNonQuery();
 
@@ -54,6 +54,5 @@ namespace TayUmDoceProjeto.Models
             }
         }
 
-     
     }
 }
