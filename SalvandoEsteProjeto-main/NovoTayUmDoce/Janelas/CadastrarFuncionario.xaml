@@ -68,7 +68,7 @@
 
         <StackPanel Margin="400,280,56,153">
             <Label Content="SALÀRIO:"/>
-            <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbSalario_TextChanged"/>
         </StackPanel>
     </Grid>
 
