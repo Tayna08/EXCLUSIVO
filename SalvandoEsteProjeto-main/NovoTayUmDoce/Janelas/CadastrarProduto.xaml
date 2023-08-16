@@ -49,7 +49,7 @@
             <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,240,509,329">
+        <StackPanel Margin="50,240,469,329">
             <Label Content="QUANTIDADE:"/>
             <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
@@ -59,7 +59,7 @@
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="50,300,509,304">
+        <StackPanel Margin="50,300,469,304">
             <Label Content="PESO:"/>
             <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
