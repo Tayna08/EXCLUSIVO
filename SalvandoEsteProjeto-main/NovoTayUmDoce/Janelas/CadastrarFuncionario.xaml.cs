@@ -51,8 +51,6 @@ namespace NovoTayUmDoce.Janelas
             }
 
         }
-
-
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
