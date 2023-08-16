@@ -5,29 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
-        Title="CadastrarEndereco"
-        Height="500" Width="800"
-        MinHeight="400" MinWidth="300"
-        FontFamily="Arial"
-        FontSize="16">
-
-    <Grid Background="#FFD18D9F">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="667.4"/>
-        </Grid.RowDefinitions>
-
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" />
-
-        <Grid Margin="0,28,0,221">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
-
-        </Grid>
-
+        Title="CadastrarEndereco" Height="450" Width="800">
+    <Grid>
+        
     </Grid>
-
 </Window>

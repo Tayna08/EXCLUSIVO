@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TayUmDoceProjeto.Models;
-using NovoTayUmDoce.Models;
 
 namespace TayUmDoceProjeto.Janelas
 {
@@ -37,23 +36,14 @@ namespace TayUmDoceProjeto.Janelas
             {
                 //Setando informações na tabela cliente
                 Cliente cliente = new Cliente();
-                Endereco endereco = new Endereco();
                 cliente.Nome = tbNome.Text;
                 cliente.Cpf = tbCpf.Text;
                 cliente.DataNasc = dtpData.SelectedDate;
                 cliente.Contato = tbContato.Text;
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Rua = tbRua.Text;
 
                 //Inserindo os Dados           
                 ClienteDAO clienteDAO = new ClienteDAO();
                 clienteDAO.Insert(cliente);
-
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                enderecoDAO.Insert(endereco);
 
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();

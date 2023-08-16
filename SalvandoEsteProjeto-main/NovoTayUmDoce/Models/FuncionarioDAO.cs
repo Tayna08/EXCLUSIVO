@@ -23,22 +23,24 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Funcionario ( nome_fun, data_nasc_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, bairro_fun, cidade_fun, rua_fun, complemento_fun, numero_fun) " +
-                    $"VALUES (@nome, @data_nasc, @cidade, @cpf, @contato, @funcao, @email, @salario, @bairro, @cidade, @rua, @complemento, @numero)";
+                query.CommandText = $"INSERT INTO Funcionario (cidade_fun, funcao_fun, complemento_fun, cpf_fun, salario_fun, rg_fun, nome_fun, contato_fun, bairro_fun, rua_fun, cep_fun, numero_fun, data_nasc_fun) " +
+                    $"VALUES (@cidade, @funcao, @complemento, @cpf, @salario, @rg, @nome, @contato, @bairro, @rua, @cep, @numero, @data_nasc)";
 
 
-                query.Parameters.AddWithValue("@nome", funcionario.Nome);
-                query.Parameters.AddWithValue("@data_nasc", funcionario.Data?.ToString("yyyy-MM-dd"));
-                query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                query.Parameters.AddWithValue("@contato", funcionario.Contato);
+                query.Parameters.AddWithValue("@cidade", funcionario.Cidade);
                 query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
-                query.Parameters.AddWithValue("@email", funcionario.Email);
+                query.Parameters.AddWithValue("@complemento", funcionario.Complemento);
+                query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
                 query.Parameters.AddWithValue("@salario", funcionario.Salario);
+                query.Parameters.AddWithValue("@rg", funcionario.Rg);
+                query.Parameters.AddWithValue("@nome", funcionario.Nome);
+                query.Parameters.AddWithValue("@contato", funcionario.Contato);
                 query.Parameters.AddWithValue("@bairro", funcionario.Bairro);
-                query.Parameters.AddWithValue("@cidade", funcionario.Cidade); 
                 query.Parameters.AddWithValue("@rua", funcionario.Rua);
-                query.Parameters.AddWithValue("@complemento", funcionario.Complemento);   
+                query.Parameters.AddWithValue("@cep", funcionario.Cep);
                 query.Parameters.AddWithValue("@numero", funcionario.Numero);
+                query.Parameters.AddWithValue("@data_nasc", funcionario.Data?.ToString("yyyy-MM-dd"));
+
 
                 var result = query.ExecuteNonQuery();
 
