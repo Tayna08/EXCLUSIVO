@@ -37,7 +37,6 @@
         </StackPanel>
 
 
-
         <StackPanel Margin="50,45,208,100">
             <Label Content="NOME:"/>
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
