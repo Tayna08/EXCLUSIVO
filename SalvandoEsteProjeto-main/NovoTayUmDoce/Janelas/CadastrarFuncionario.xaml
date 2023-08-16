@@ -18,7 +18,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,34" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,25" Grid.RowSpan="2" />
 
         <Grid Margin="0,28,0,0">
             <Grid.RowDefinitions>
@@ -49,22 +49,22 @@
         </StackPanel>
 
 
-        <StackPanel Margin="50,220,466,213">
+        <StackPanel Margin="50,220,499,213">
             <Label Content="CONTATO:"/>
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
         </StackPanel>
 
-        <StackPanel Margin="364,220,56,207">
+        <StackPanel Margin="400,220,56,207">
             <Label Content="E-MAIL:"/>
             <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="27" Grid.Row="2"/>
         </StackPanel>
 
-        <StackPanel Margin="50,280,466,153">
+        <StackPanel Margin="50,280,499,153">
             <Label Content="FUNÇÃO:"/>
             <TextBox x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="364,280,56,153">
+        <StackPanel Margin="400,280,56,153">
             <Label Content="SALÀRIO:"/>
             <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
