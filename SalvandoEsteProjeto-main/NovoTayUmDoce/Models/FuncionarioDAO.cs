@@ -24,7 +24,7 @@ namespace NovoTayUmDoce.Models
 
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Funcionario ( nome_fun, data_nasc_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, bairro_fun, cidade_fun, rua_fun, complemento_fun, numero_fun) " +
-                    $"VALUES (@nome, @data_nasc@cidade, @cpf, @contato, @funcao, @email, @salario, @bairro, @cidade, @rua, @complemento, @numero)";
+                    $"VALUES (@nome, @data_nasc, @cidade, @cpf, @contato, @funcao, @email, @salario, @bairro, @cidade, @rua, @complemento, @numero)";
 
 
                 query.Parameters.AddWithValue("@nome", funcionario.Nome);
