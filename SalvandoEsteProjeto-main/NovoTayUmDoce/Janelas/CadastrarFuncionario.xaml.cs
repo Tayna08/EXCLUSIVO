@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Janelas
 {
