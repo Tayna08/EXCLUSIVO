@@ -320,8 +320,6 @@
   <ItemGroup>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
-    <Compile Include="Models\Endereco.cs" />
-    <Compile Include="Models\EnderecoDAO.cs" />
     <Compile Include="Models\Entrega.cs" />
     <Compile Include="Models\EntregadorDAO.cs" />
     <Compile Include="Models\Estoque.cs" />
@@ -332,6 +330,8 @@
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
+    <Compile Include="Models\Recebimento.cs" />
+    <Compile Include="Models\RecebimentoDAO.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

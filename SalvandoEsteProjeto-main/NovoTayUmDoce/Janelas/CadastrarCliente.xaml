@@ -37,58 +37,24 @@
         </StackPanel>
 
 
-        <StackPanel Margin="50,40,208,100">
+        <StackPanel Margin="50,45,208,100">
             <Label Content="NOME:"/>
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,95,500,100">
+        <StackPanel Margin="50,120,208,100">
             <Label Content="CPF:"/>
             <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,155,500,100">
+        <StackPanel Margin="50,200,100,100">
             <Label Content="DATA NASCIMENTO:"/>
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="335,155,208,100">
-            <Label Content="BAIRRO:"/>
-            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="335,215,208,100">
-            <Label Content="CIDADE:"/>
-            <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,215,500,100">
-            <Label Content="RUA:"/>
-            <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="335,270,208,100">
-            <Label Content="NÚMERO:"/>
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,270,500,100">
-            <Label Content="COMPLEMENTO:"/>
-            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="335,95,208,100">
+        <StackPanel Margin="50,280,100,100">
             <Label Content="CONTATO:"/>
-            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1" Width="493" RenderTransformOrigin="0.5,0.5">
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="-0.022"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
+            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
         </StackPanel>
     </Grid>
 
