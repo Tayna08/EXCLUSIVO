@@ -34,7 +34,7 @@ namespace NovoTayUmDoce.Janelas
             {
                 Venda venda = new Venda();
                 venda.Desconto = tbDesconto.Text;
-                venda.Valor = Convert.ToDouble(tbValor.Text);
+             
                 venda.Forma_pagamento = tbFormaPagamento.ToString();
                 venda.Data = dtpDataVenda.SelectedDate;
                 //Inserindo os Dados           
