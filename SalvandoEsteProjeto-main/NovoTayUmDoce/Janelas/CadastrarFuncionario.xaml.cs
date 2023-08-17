@@ -31,17 +31,27 @@ namespace NovoTayUmDoce.Janelas
             {
                 //Setando informações na tabela cliente
                 Funcionario funcionario = new Funcionario();
+                Endereco endereco = new Endereco();
                 funcionario.Nome = tbNome.Text;
                 funcionario.Cpf = tbCpf.Text;
                 funcionario.Data = dtpData.SelectedDate;
                 funcionario.Contato = tbContato.Text;
                 funcionario.Funcao = tbFuncao.Text;
                 funcionario.Salario = tbSalario.Text;
+                endereco.Bairro = tbBairro.Text;
+                endereco.Cidade = tbCidade.Text;
+                endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                endereco.Rua = tbRua.Text;
+                endereco.Complemento = tbComplemento.Text;
+                
 
 
                 //Inserindo os Dados           
                 FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
                 funcionarioDAO.Insert(funcionario);
+
+                EnderecoDAO enderecoDAO = new EnderecoDAO();
+                enderecoDAO.Insert(endereco);
 
                 MessageBox.Show("Dados salvos com sucesso!");
             }

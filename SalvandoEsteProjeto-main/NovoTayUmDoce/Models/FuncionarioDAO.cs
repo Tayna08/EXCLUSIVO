@@ -23,8 +23,8 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Funcionario ( nome_fun, data_nasc_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, bairro_fun, cidade_fun, rua_fun, complemento_fun, numero_fun) " +
-                    $"VALUES (@nome, @data_nasc, @cidade, @cpf, @contato, @funcao, @email, @salario, @bairro, @cidade, @rua, @complemento, @numero)";
+                query.CommandText = $"INSERT INTO Funcionario (nome_fun, data_nascimento_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun) " +
+                    $"VALUES (@nome, @data_nasc, @cidade, @cpf, @contato, @funcao, @email, @salario)";
 
 
                 query.Parameters.AddWithValue("@nome", funcionario.Nome);
@@ -34,11 +34,6 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
                 query.Parameters.AddWithValue("@email", funcionario.Email);
                 query.Parameters.AddWithValue("@salario", funcionario.Salario);
-                query.Parameters.AddWithValue("@bairro", funcionario.Bairro);
-                query.Parameters.AddWithValue("@cidade", funcionario.Cidade); 
-                query.Parameters.AddWithValue("@rua", funcionario.Rua);
-                query.Parameters.AddWithValue("@complemento", funcionario.Complemento);   
-                query.Parameters.AddWithValue("@numero", funcionario.Numero);
 
                 var result = query.ExecuteNonQuery();
 
