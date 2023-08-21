@@ -40,7 +40,7 @@ namespace TayUmDoceProjeto.Janelas
                 fornecedor.Cnpj = tbCnpj.Text;
                 fornecedor.Nome_Fantasia = tbNome.Text;
                 fornecedor.Contato=tbContato.Text;
-                fornecedor.Nome_Representante = tbNomeRepresentante.Text;                      
+                fornecedor.Nome_Representante = tbNomeRepresentante.Text;
                 FornecedorDAO fornecedorDAO = new FornecedorDAO();
                 fornecedorDAO.Insert(fornecedor);
 

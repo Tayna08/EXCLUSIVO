@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using TayUmDoceProjeto.Models;
 namespace NovoTayUmDoce.Janelas
 {
     /// <summary>
@@ -24,14 +25,56 @@ namespace NovoTayUmDoce.Janelas
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
 
+=======
+       
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                Caixa caixa = new Caixa();
+
+                caixa.SaldoInicial = Convert.ToDouble(tbSaldoInicial.Text);
+                caixa.SaldoFinal = Convert.ToDouble(tbSaldoFinal.Text);
+                caixa.ValorEntrada = Convert.ToDouble(tbValorEntrada.Text);
+                caixa.ValorSaida = Convert.ToDouble(tbValorSaida.Text);
+                caixa.Data = dtpDataCaixa.SelectedDate;
+
+                CaixaDAO caixaDAO = new CaixaDAO();
+                caixaDAO.Insert(caixa);
+
+                MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Erro 3007: Contate o suporte");
+            }
+           
+
         }
+        private void Clear()
+        {
+            tbSaldoFinal.Clear();
+            tbSaldoFinal.Clear();
+            tbValorEntrada.Clear();
+            tbValorSaida.Clear();
+            dtpDataCaixa.SelectedDate = null;
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }
