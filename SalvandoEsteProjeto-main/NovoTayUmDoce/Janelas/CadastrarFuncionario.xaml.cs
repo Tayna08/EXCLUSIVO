@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
-using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Janelas
 {
@@ -43,7 +42,7 @@ namespace NovoTayUmDoce.Janelas
                 endereco.Cidade = tbCidade.Text;
                 endereco.Numero = Convert.ToInt32(tbNumero.Text);
                 endereco.Rua = tbRua.Text;
-                endereco.Complemento = tbComplemento.Text;
+                //endereco.Complemento = tbComplemento.Text;
                 
 
 

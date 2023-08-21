@@ -322,6 +322,8 @@
     <Compile Include="Models\ClienteDAO.cs" />
     <Compile Include="Models\Entrega.cs" />
     <Compile Include="Models\EntregadorDAO.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\EnderecoDAO.cs" />
     <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\EstoqueDAO.cs" />
     <Compile Include="Models\Fornecedor.cs" />

@@ -23,5 +23,15 @@ namespace NovoTayUmDoce.Janelas
         {
             InitializeComponent();
         }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
