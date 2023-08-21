@@ -26,14 +26,19 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for)" +
-                    $"VALUES (@nome_fantasia, @nome_fornecedor, @contato, @nome_representante, @cnpj, @razao_social)";
+                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for, @bairro, @cidade, @complemento, @rua, @numero)" +
+                    $"VALUES (@nome_fantasia, @nome_fornecedor, @contato, @nome_representante, @cnpj, @razao_social, @bairro, @cidade, @complemento, @rua, @numero)";
 
                 query.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome_Fantasia);
                 query.Parameters.AddWithValue("@nome_fornecedor", fornecedor.Nome_Representante);
                 query.Parameters.AddWithValue("@contato", fornecedor.Contato);
                 query.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 query.Parameters.AddWithValue("@numero", fornecedor.Razao_Social);
+                query.Parameters.AddWithValue("@bairro", fornecedor.Bairro);
+                query.Parameters.AddWithValue("@cidade", fornecedor.Cidade);
+                query.Parameters.AddWithValue("@complemento", fornecedor.Complemento);
+                query.Parameters.AddWithValue("@rua", fornecedor.Rua);
+                query.Parameters.AddWithValue("@numero", fornecedor.Numero);
 
                 var result = query.ExecuteNonQuery();
 

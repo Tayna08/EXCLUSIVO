@@ -30,9 +30,7 @@ namespace TayUmDoceProjeto.Models
 
                 query.Parameters.AddWithValue("@nome", cliente.Nome);
                 query.Parameters.AddWithValue("@cpf", cliente.Cpf);
-
                 query.Parameters.AddWithValue("@contato", cliente.Contato);
-       
                 query.Parameters.AddWithValue("@bairro", cliente.Bairro);
                 query.Parameters.AddWithValue("@cidade", cliente.Cidade);
                 query.Parameters.AddWithValue("@complemento", cliente.Complemento);
