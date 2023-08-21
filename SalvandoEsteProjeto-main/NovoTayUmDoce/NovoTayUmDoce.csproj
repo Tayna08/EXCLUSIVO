@@ -311,6 +311,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Caixa.cs" />
+    <Compile Include="Models\CaixaDAO.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
     <Compile Include="Models\Entrega.cs" />

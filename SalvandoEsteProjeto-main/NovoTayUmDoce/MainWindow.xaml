@@ -38,13 +38,13 @@
             </StackPanel>
         </Grid>
 
-        <Grid Margin="0,28,0,0">
+        <Grid Margin="255,35,216,-30" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="353" Height="422" Margin="0,70,-191,0"/>
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Center" HorizontalAlignment="Left" Width="351" Height="422" Margin="-11,0,0,0"/>
 
         </Grid>
 
