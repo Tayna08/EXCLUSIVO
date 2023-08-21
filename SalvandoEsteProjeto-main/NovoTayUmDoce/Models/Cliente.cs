@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,6 @@ namespace TayUmDoceProjeto.Models
         public string Cpf { get; set; }
         public string Contato { get; set; }
         public DateTime? DataNasc { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }
