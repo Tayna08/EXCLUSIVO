@@ -174,10 +174,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Janelas\ListarEndereco.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Janelas\ListarEntrega.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -274,9 +270,6 @@
     </Compile>
     <Compile Include="Janelas\ListarDespesa.xaml.cs">
       <DependentUpon>ListarDespesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarEndereco.xaml.cs">
-      <DependentUpon>ListarEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\ListarEntrega.xaml.cs">
       <DependentUpon>ListarEntrega.xaml</DependentUpon>
