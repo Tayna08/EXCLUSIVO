@@ -122,10 +122,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Janelas\CadastrarEndereco.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Janelas\CadastrarEntrega.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,9 +235,6 @@
     </Compile>
     <Compile Include="Janelas\CadastrarDespesa.xaml.cs">
       <DependentUpon>CadastrarDespesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarEndereco.xaml.cs">
-      <DependentUpon>CadastrarEndereco.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\CadastrarEntrega.xaml.cs">
       <DependentUpon>CadastrarEntrega.xaml</DependentUpon>
