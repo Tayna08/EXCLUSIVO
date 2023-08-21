@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
-        Title="CadastrarVenda"
+        Title="CadastrarCaixa"
         WindowStartupLocation="CenterScreen"
         Height="500" Width="800"
         MinHeight="400" MinWidth="300"
@@ -42,13 +42,13 @@
         <!--Saldo Inicial-->
         <StackPanel Margin="50,45,208,100">
             <Label Content="Saldo Inicial:"/>
-            <TextBlock x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30"/>
+            <TextBox x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
         
         <!--Saldo Final-->
         <StackPanel Margin="50,120,200,242">
             <Label Content="Saldo Final:"/>
-            <TextBlock  x:Name="tbSaldoFinal" TextWrapping="Wrap" Background="White" Height="30"/>
+            <TextBox  x:Name="tbSaldoFinal" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
         <!--valor entrada-->
         <StackPanel Margin="50,210,390,10">
@@ -57,7 +57,7 @@
         </StackPanel>
 
         <StackPanel Margin="160,210,400,10">
-            <TextBlock x:Name="tbValorEntrada" TextWrapping="Wrap" Background="White" Height="30" />
+            <TextBox x:Name="tbValorEntrada" TextWrapping="Wrap" Background="White" Height="30" />
         </StackPanel>
         
         <!--valor saida-->
@@ -66,15 +66,15 @@
         </StackPanel>
 
         <StackPanel Margin="510,210,45,184">
-            <TextBlock x:Name="tbValorSaida" TextWrapping="Wrap" Background="White" Height="30" />
+            <TextBox x:Name="tbValorSaida" TextWrapping="Wrap" Background="White" Height="30" />
         </StackPanel>
 
         
         <!--Data-->
 
         <StackPanel Margin="50,260,100,100">
-            <Label Content="DATA VENDA:"/>
-            <DatePicker x:Name="dtpDataVenda" Height="28" VerticalAlignment="Top"/>
+            <Label Content="DATA CAIXA:"/>
+            <DatePicker x:Name="dtpDataCaixa" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
 

@@ -117,6 +117,7 @@ namespace NovoTayUmDoce
             listarEntrega.ShowDialog();
         }
 
+
         private void btListarCompra_Click(object sender, RoutedEventArgs e)
         {
             ListarCompra listarCompra = new ListarCompra();
@@ -125,8 +126,8 @@ namespace NovoTayUmDoce
 
         private void btCaixa_Click(object sender, RoutedEventArgs e)
         {
-            ListarCaixa listarCaixa= new ListarCaixa();
-            listarCaixa.ShowDialog();
+            CadastrarCaixa caixa = new CadastrarCaixa();
+            caixa.ShowDialog();
         }
 
         private void btDespesa_Click(object sender, RoutedEventArgs e)
