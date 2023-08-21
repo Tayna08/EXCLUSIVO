@@ -148,37 +148,50 @@ namespace NovoTayUmDoce
         //Cadastrar e listar despesa
         private void btDespesa_Click(object sender, RoutedEventArgs e)
         {
-            ListarDespesa listDespesa= new ListarDespesa();
-            listDespesa.ShowDialog();
+            CadastrarDespesa cadastrarDespesa = new CadastrarDespesa();
+            cadastrarDespesa.ShowDialog();
         }
         private void btListarDespesa_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void btEndereco_Click(object sender, RoutedEventArgs e)
-        {
-            ListarEndereco listEndereco= new ListarEndereco();
-            listEndereco.ShowDialog();
+            ListarDespesa listDespesa = new ListarDespesa();
+            listDespesa.ShowDialog();
         }
 
+        //Cadastrar e listar Pagamento
         private void btPagamento_Click(object sender, RoutedEventArgs e)
         {
-            ListarPagamento listPagamento= new ListarPagamento();
+            CadastrarPagamento cadastrarPagamento = new CadastrarPagamento();
+            cadastrarPagamento.ShowDialog();
+        }
+        private void btListarPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            ListarPagamento listPagamento = new ListarPagamento();
             listPagamento.ShowDialog();
         }
 
+        //Cadastrar e listar Pedido
         private void btPedido_Click(object sender, RoutedEventArgs e)
         {
-            ListarPedido listpedido= new ListarPedido();    
+            CadastrarPedido cadastrarPedido = new CadastrarPedido();
+            cadastrarPedido.ShowDialog();
+        }
+        private void btListarPedido_Click(object sender, RoutedEventArgs e)
+        {
+            ListarPedido listpedido = new ListarPedido();
             listpedido.ShowDialog();
         }
 
+
+        //Cadastrar e listar Recebimmento
         private void btRecebimento_Click(object sender, RoutedEventArgs e)
         {
-            ListarRecebimento listarRecebimento= new ListarRecebimento();
+            CadastrarRecebimento cadastrarRecebimento = new CadastrarRecebimento();
+            cadastrarRecebimento.ShowDialog();
+        }
+        private void btListarRecebimento_Click(object sender, RoutedEventArgs e)
+        {
+            ListarRecebimento listarRecebimento = new ListarRecebimento();
             listarRecebimento.ShowDialog();
         }
-
-        
     }
 }
