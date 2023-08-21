@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TayUmDoceProjeto.Janelas"
         mc:Ignorable="d"
         Title="CadastrarFornecedor" 
-         WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"
         Height="500" Width="800"
         MinHeight="400" MinWidth="300"
         FontFamily="Arial"
@@ -18,8 +18,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,170" />
-
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,170" Grid.RowSpan="2"/>
 
         <Grid Margin="0,28,0,0">
             <Grid.RowDefinitions>
@@ -27,7 +26,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,2,28,0"/>
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
 
         </Grid>
 
