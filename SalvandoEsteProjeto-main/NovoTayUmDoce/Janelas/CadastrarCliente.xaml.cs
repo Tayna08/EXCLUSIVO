@@ -45,20 +45,18 @@ namespace TayUmDoceProjeto.Janelas
                 endereco.Complemento = tbComplemento.Text;
                 endereco.Rua = tbRua.Text;
 
+                cliente.Endereco = endereco;
+
                 cliente.Nome = tbNome.Text;
                 cliente.Cpf = tbCpf.Text;
                 cliente.DataNasc = dtpData.SelectedDate;
                 cliente.Contato = tbContato.Text;
 
-
                 //Inserindo os Dados           
                 ClienteDAO clienteDAO = new ClienteDAO();
                 clienteDAO.Insert(cliente);
 
-                EnderecoDAO enderecoDAO = new EnderecoDAO();
-                enderecoDAO.Insert(endereco);
-
-                
+                              
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
