@@ -19,13 +19,13 @@ namespace NovoTayUmDoce.Models
             conn = new Conexao();
         }
 
-        public void Insert(Endereco endereco)
+        public long Insert(Endereco endereco)
         {
             try
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Endereco (bairro_end, cidade_end, rua_end, complemento_end, numero_end) " +
+                query.CommandText = $"INSERT INTO endereco (bairro_end, cidade_end, rua_end, complemento_end, numero_end) " +
                     $"VALUES (@bairro, @cidade, @rua, @complemento, @numero)";
 
                 query.Parameters.AddWithValue("@bairro", endereco.Bairro);
@@ -40,13 +40,18 @@ namespace NovoTayUmDoce.Models
                 if (result == 0)
                 {
                     MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
+                    return 0;
                 }
-            }
 
+
+                return query.LastInsertedId;
+
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
+                return 0;
             }
             finally
             {

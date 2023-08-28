@@ -25,7 +25,6 @@ namespace NovoTayUmDoce.Janelas
             InitializeComponent();
         }
 
-       
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -46,11 +45,11 @@ namespace NovoTayUmDoce.Janelas
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro 3007: Contate o suporte");
             }
-           
+
 
         }
         private void Clear()
@@ -61,7 +60,6 @@ namespace NovoTayUmDoce.Janelas
             tbValorSaida.Clear();
             dtpDataCaixa.SelectedDate = null;
         }
-
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -70,7 +68,8 @@ namespace NovoTayUmDoce.Janelas
             {
                 Close();
             }
-        }
 
+        }
     }
 }
+
