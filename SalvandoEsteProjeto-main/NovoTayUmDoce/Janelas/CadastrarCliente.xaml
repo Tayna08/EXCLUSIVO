@@ -54,7 +54,7 @@
 
         <StackPanel Margin="335,155,208,221">
             <Label Content="BAIRRO:"/>
-            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27" Width="226"/>
         </StackPanel>
 
         <StackPanel Margin="385,215,52,161">

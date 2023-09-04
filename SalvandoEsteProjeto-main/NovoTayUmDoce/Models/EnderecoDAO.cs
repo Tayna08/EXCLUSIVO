@@ -50,12 +50,8 @@ namespace NovoTayUmDoce.Models
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
+                MessageBox.Show("Erro 3007endereco : Contate o suporte!");
                 return 0;
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 

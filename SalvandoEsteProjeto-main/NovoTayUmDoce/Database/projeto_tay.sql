@@ -1,24 +1,8 @@
 create database Projeto_Tay_bd;
 use Projeto_Tay_bd;
 
-create table Cliente(
-id_cli int primary key not null,
-nome_cli varchar(300),
-cpf_cli varchar(50),
-data_nascimento_cli date,
-contato_cli varchar(250)
-);
-
-create table Despesa(
-id_des int primary key not null,
-forma_pag_des varchar(200),
-data_des date,
-valor_des double,
-vencimento_des date
-);
-
 create table Endereco(
-id_end int primary key not null,
+id_end int primary key auto_increment,
 bairro_end varchar(200),
 cidade_end varchar(200),
 rua_end varchar(200),
@@ -26,8 +10,26 @@ complemento_end varchar(200),
 numero_end int
 );
 
+create table Cliente(
+id_cli int primary key auto_increment,
+nome_cli varchar(300),
+cpf_cli varchar(50),
+data_nascimento_cli date,
+contato_cli varchar(250),
+id_end_fk int, 
+foreign key (id_end_fk) references Endereco(id_end)
+);
+
+create table Despesa(
+id_des int primary key auto_increment,
+forma_pag_des varchar(200),
+data_des date,
+valor_des double,
+vencimento_des date
+);
+
 create table Funcionario(
-id_fun int primary key not null,
+id_fun int primary key auto_increment,
 nome_fun varchar(200),
 data_nascimento_fun date,
 cpf_fun varchar(100),
@@ -40,7 +42,7 @@ foreign key(id_end_fk) references Endereco (id_end)
 );
 
 create table Pedido(
-id_ped int primary key not null,
+id_ped int primary key auto_increment,
 data_ped date,
 quantidade_ped int,
 valor_ped double,
@@ -53,7 +55,7 @@ foreign key (id_cli_fk) references cliente (id_cli)
 );
 
 create table Produto(
-id_pro int primary key not null,
+id_pro int primary key auto_increment,
 controle_numero_pro int,
 peso_pro varchar(100),
 valor_pro double,
@@ -66,7 +68,7 @@ foreign key (id_ped_fk) references Pedido (id_ped)
 );
 
 create table Estoque(
-id_est int primary key not null,
+id_est int primary key auto_increment,
 nome_est varchar(100),
 quantidade_est int,
 data_est date,
@@ -75,7 +77,7 @@ foreign key (id_pro_fk) references produto(id_pro)
 );
 
 create table Fornecedor(
-id_for int primary key not null,
+id_for int primary key auto_increment,
 nome_fantasia_for varchar(200),
 nome_representante_for varchar(200),
 contato_for varchar(200),
@@ -88,7 +90,7 @@ foreign key (id_est_fk) references Estoque (id_est)
 );
 
 create table Compra(
-id_com int primary key not null,
+id_com int primary key auto_increment,
 valor_com double,
 nome_com varchar(200),
 data_com date,
@@ -103,7 +105,7 @@ foreign key (id_for_fk) references Fornecedor (id_for)
 );
 
 create table Venda(
-id_ven int primary key not null,
+id_ven int primary key auto_increment,
 valor_ven double,
 forma_pagamento_ven varchar(200),
 data_ven date,
@@ -115,7 +117,7 @@ foreign key (id_fun_fk) references Funcionario(id_fun)
 );
 
 create table Entrega(
-id_ent int primary key not null,
+id_ent int primary key auto_increment,
 controle_numero_ent int,
 entregador_ent varchar(200),
 data_ent date,
@@ -129,7 +131,7 @@ foreign key(id_fun_fk) references Funcionario(id_fun)
 );
 
 create table Caixa(
-id_cai int primary key not null,
+id_cai int primary key auto_increment,
 saldo_inicial_cai double,
 saldo_final_cai double,
 valor_entrada_cai double,
@@ -140,7 +142,7 @@ foreign key(id_fun_fk) references Funcionario(id_fun)
 );
 
 create table Pagamento(
-id_pag int primary key not null,
+id_pag int primary key auto_increment,
 valor_pag double,
 data_pag date,
 parcela_pag varchar(50),
@@ -151,7 +153,7 @@ foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
 create table Recebimento(
-id_rec int primary key not null,
+id_rec int primary key auto_increment,
 valor_rec double,
 forma_recebimento_rec varchar(200),
 quant_parcelas_rec int,
@@ -163,7 +165,7 @@ foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
 create table Compra_Produto(
-id_comp int primary key not null,
+id_comp int primary key auto_increment,
 id_com_fk int,
 id_pro_fk int,
 foreign key (id_com_fk) references Compra(id_com),
@@ -171,9 +173,10 @@ foreign key (id_pro_fk) references Produto(id_pro)
 );
 
 create table Venda_Produto(
-id_venp int primary key not null,
+id_venp int primary key auto_increment,
 id_ven_fk int,
 id_pro_fk int,
 foreign key (id_ven_fk) references Venda(id_ven),
 foreign key (id_pro_fk) references Produto(id_pro)
 );
+
