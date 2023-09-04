@@ -29,7 +29,7 @@ namespace NovoTayUmDoce.Models
         public int Numero { get; set; }
        
 
-
+        public Endereco Endereco { get; set; }
 
     }
 

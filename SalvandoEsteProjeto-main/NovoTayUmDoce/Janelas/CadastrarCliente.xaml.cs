@@ -72,6 +72,11 @@ namespace TayUmDoceProjeto.Janelas
             tbCpf.Clear();     
             tbContato.Clear();
             dtpData.SelectedDate = null;
+            tbBairro.Clear();
+            tbNumero.Clear();
+            tbCidade.Clear();
+            tbComplemento.Clear();
+            tbRua.Clear();
             
         }
 
