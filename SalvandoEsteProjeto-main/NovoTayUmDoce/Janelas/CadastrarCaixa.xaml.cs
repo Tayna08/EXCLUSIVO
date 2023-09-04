@@ -28,6 +28,7 @@ namespace NovoTayUmDoce.Janelas
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
 
+
             try
             {
                 Caixa caixa = new Caixa();
