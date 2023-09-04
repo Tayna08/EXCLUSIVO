@@ -23,20 +23,25 @@ namespace NovoTayUmDoce.Models
             {
 
                 var enderecoId = new EnderecoDAO().Insert(funcionario.Endereco);
+                MessageBox.Show(enderecoId.ToString());
 
                 var query = conn.Query();
 
-                query.CommandText = $"INSERT INTO Funcionario (nome_fun, data_nascimento_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, id_end_fk) " +
+                query.CommandText = $"INSERT INTO funcionario (nome_fun, data_nascimento_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, id_end_fk) " +
                     $"VALUES (@nome, @data_nasc, @cpf, @contato, @funcao, @email, @salario, @id_end)";
 
-
-                query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
-                query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                query.Parameters.AddWithValue("@salario", funcionario.Salario);
-                query.Parameters.AddWithValue("@rg", funcionario.Rg);
                 query.Parameters.AddWithValue("@nome", funcionario.Nome);
-                query.Parameters.AddWithValue("@contato", funcionario.Contato);
                 query.Parameters.AddWithValue("@data_nasc", funcionario.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                query.Parameters.AddWithValue("@contato", funcionario.Contato);
+                query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
+                query.Parameters.AddWithValue("@email", funcionario.Email);
+
+                query.Parameters.AddWithValue("@salario", funcionario.Salario);
+                //query.Parameters.AddWithValue("@rg", funcionario.Rg);
+                                
+               
+                query.Parameters.AddWithValue("@id_end", enderecoId);
 
                 var result = query.ExecuteNonQuery();
 
@@ -50,10 +55,7 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
-            finally
-            {
-                conn.Close();
-            }
+            
         }
     }
 
