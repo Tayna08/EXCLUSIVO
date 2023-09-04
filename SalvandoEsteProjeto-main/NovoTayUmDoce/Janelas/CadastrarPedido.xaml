@@ -52,5 +52,16 @@
             <Label Content="DATA:"/>
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
+        
+        <StackPanel Margin="50,305,500,270">
+            <Label Content="FUNCIONÁRIO:"/>
+            <ComboBox x:Name="cbFuncionario" Background="White" Height="27"/>
+        </StackPanel>
+        
+        <StackPanel Margin="360,305,200,270">
+            <Label Content="CLIENTE:"/>
+            <ComboBox x:Name="cbCliente" Background="White" Height="27"
+                      DisplayMemberPath="Nome" SelectedValuePath="Id" />
+        </StackPanel>
     </Grid>
 </Window>
