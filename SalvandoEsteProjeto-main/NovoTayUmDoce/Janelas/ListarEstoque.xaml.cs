@@ -47,15 +47,14 @@ namespace NovoTayUmDoce.Janelas
                
                 var estoque = new
                 {
-                    Marca = reader.GetString(0),
-                    Descricao = reader.GetString(1),
-                    Tipo = reader.GetString(2),
-                    Produto = reader.GetString(3),
+                    nome_est = reader.GetString(0),
+                    quantidade_est = reader.GetString(1),
+                    data = reader.GetString(2),
 
                 };
                 lista.Add(estoque);
             }
-            dtg.ItemsSource = lista;
+           // dataGridEstoque.ItemsSource = lista;
         }
 
         private void dtg_SelectionChanged(object sender, SelectionChangedEventArgs e)

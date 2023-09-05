@@ -52,23 +52,16 @@ namespace NovoTayUmDoce.Janelas
                 catch { }
 
                 var cliente = new
-                {
-                    DataNasc = data,
+                {   
+
                     Nome = reader.GetString(1),
                     Cpf = reader.GetString(2),
-                    Rg = reader.GetString(3),
-                    Contato = reader.GetString(4),
-                    Email = reader.GetString(5),
-                    Bairro = reader.GetString(6),
-                    Cidade = reader.GetString(7),
-                    Complemento = reader.GetString(8),
-                    Rua = reader.GetString(10),
-                    Numero = reader.GetString(11),
-                    Cep = reader.GetString(12),
+                    DataNasc = data,
+                    Contato = reader.GetString(3),                   
                 };
                 lista.Add(cliente);
             }
-            dtg.ItemsSource = lista;
+            dataGridClientes.ItemsSource = lista;
         }
 
         private void dtg_SelectionChanged(object sender, SelectionChangedEventArgs e)
