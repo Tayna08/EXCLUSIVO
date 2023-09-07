@@ -36,11 +36,7 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@contato", funcionario.Contato);
                 query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
                 query.Parameters.AddWithValue("@email", funcionario.Email);
-
                 query.Parameters.AddWithValue("@salario", funcionario.Salario);
-                //query.Parameters.AddWithValue("@rg", funcionario.Rg);
-                                
-               
                 query.Parameters.AddWithValue("@id_end", enderecoId);
 
                 var result = query.ExecuteNonQuery();

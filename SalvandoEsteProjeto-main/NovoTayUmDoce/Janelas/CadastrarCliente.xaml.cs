@@ -90,10 +90,6 @@ namespace TayUmDoceProjeto.Janelas
             }
         }
 
-        private void tbBairro_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 
 }

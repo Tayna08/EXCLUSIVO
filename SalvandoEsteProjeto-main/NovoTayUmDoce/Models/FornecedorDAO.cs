@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using System.Windows;
+using NovoTayUmDoce.Models;
+using TayUmDoceProjeto.Models;
 
 
 
@@ -25,20 +27,24 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
+                var enderecoId = new EnderecoDAO().Insert(fornecedor.Endereco);
+                MessageBox.Show(enderecoId.ToString());
+
+                var estoqueId = new EnderecoDAO().Insert(fornecedor.Endereco);
+                MessageBox.Show(estoqueId.ToString());
+
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for, @bairro, @cidade, @complemento, @rua, @numero)" +
-                    $"VALUES (@nome_fantasia, @nome_fornecedor, @contato, @nome_representante, @cnpj, @razao_social, @bairro, @cidade, @complemento, @rua, @numero)";
+                query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for, id_end_fk, id_est_fk)" +
+                    $"VALUES (@nome_fantasia, @nome_representante, @contato, @cnpj, @razao_social, @id_end, @id_est_fk)";
 
                 query.Parameters.AddWithValue("@nome_fantasia", fornecedor.Nome_Fantasia);
-                query.Parameters.AddWithValue("@nome_fornecedor", fornecedor.Nome_Representante);
+                query.Parameters.AddWithValue("@nome_representante", fornecedor.Nome_Representante);
                 query.Parameters.AddWithValue("@contato", fornecedor.Contato);
                 query.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
-                query.Parameters.AddWithValue("@numero", fornecedor.Razao_Social);
-                query.Parameters.AddWithValue("@bairro", fornecedor.Bairro);
-                query.Parameters.AddWithValue("@cidade", fornecedor.Cidade);
-                query.Parameters.AddWithValue("@complemento", fornecedor.Complemento);
-                query.Parameters.AddWithValue("@rua", fornecedor.Rua);
-                query.Parameters.AddWithValue("@numero", fornecedor.Numero);
+                query.Parameters.AddWithValue("@razao_social", fornecedor.Razao_Social);
+                query.Parameters.AddWithValue("@id_end", enderecoId);
+                query.Parameters.AddWithValue("@id_est", estoqueId);
+
 
                 var result = query.ExecuteNonQuery();
 
@@ -52,10 +58,7 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
-            finally
-            {
-                conn.Close();
-            }
+
         }
     }
 }

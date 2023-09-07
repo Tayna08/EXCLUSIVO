@@ -24,7 +24,10 @@ namespace NovoTayUmDoce.Janelas
         {
             InitializeComponent();
         }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -35,9 +38,9 @@ namespace NovoTayUmDoce.Janelas
 
                 endereco.Bairro = tbBairro.Text;
                 endereco.Cidade = tbCidade.Text;
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
                 endereco.Rua = tbRua.Text;
                 endereco.Complemento = tbComplemento.Text;
+                endereco.Numero = Convert.ToInt32(tbNumero.Text);
 
                 funcionario.Endereco = endereco;
 
@@ -48,13 +51,13 @@ namespace NovoTayUmDoce.Janelas
                 funcionario.Email = tbEmail.Text;
                 funcionario.Funcao = tbFuncao.Text;
                 funcionario.Salario = tbSalario.Text;
-                //endereco.Complemento = tbComplemento.Text;
 
                 //Inserindo os Dados           
                 FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
                 funcionarioDAO.Insert(funcionario);
 
                 MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
             }
             catch (Exception ex)
             {
