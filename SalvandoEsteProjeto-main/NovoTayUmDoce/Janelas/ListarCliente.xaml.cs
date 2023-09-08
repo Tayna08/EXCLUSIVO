@@ -30,7 +30,7 @@ namespace NovoTayUmDoce.Janelas
         }
         private void Conexao()
         {
-            string conexaoString = "server=localhost;database=tayumdoce_bd;user=root;password=root;port=3306";
+            string conexaoString = "server=localhost;database=Projeto_Tay_bd;user=root;password=root;port=3306";
             _conexao = new MySqlConnection(conexaoString);
             _conexao.Open();
         }
@@ -47,17 +47,17 @@ namespace NovoTayUmDoce.Janelas
                 string data = "";
                 try
                 {
-                    data = reader.GetDateTime("data_nasc_cli").ToString("dd/MM/yyyy");
+                    data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
                 }
                 catch { }
 
                 var cliente = new
                 {   
-
+                    Id = reader.GetString(0),
                     Nome = reader.GetString(1),
                     Cpf = reader.GetString(2),
-                    DataNasc = data,
-                    Contato = reader.GetString(3),                   
+                    Contato = reader.GetString(4),
+                    DataNasc = data,                                   
                 };
                 lista.Add(cliente);
             }
