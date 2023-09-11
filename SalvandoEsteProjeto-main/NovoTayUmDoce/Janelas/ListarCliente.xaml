@@ -29,7 +29,7 @@
         </StackPanel>
 
         <DataGrid Grid.Row="2" Margin="5,5,5,5" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -38,6 +38,7 @@
                 <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btSair" Content="X" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Margin="992,4,31,14" Cursor="Hand" Click="btSair_Click"/>
     </Grid>
 </Window>
     

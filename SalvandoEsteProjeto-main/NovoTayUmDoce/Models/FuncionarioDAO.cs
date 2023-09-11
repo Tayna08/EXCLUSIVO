@@ -23,7 +23,6 @@ namespace NovoTayUmDoce.Models
             {
 
                 var enderecoId = new EnderecoDAO().Insert(funcionario.Endereco);
-                MessageBox.Show(enderecoId.ToString());
 
                 var query = conn.Query();
 
