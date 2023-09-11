@@ -64,11 +64,6 @@ namespace NovoTayUmDoce.Janelas
             dataGridClientes.ItemsSource = lista;
         }
 
-        private void dtg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void btSair_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
