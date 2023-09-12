@@ -36,6 +36,7 @@
                 <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
                 <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc}"/>
+                <DataGridTextColumn Header="Endereço FK" Binding="{Binding Endereco}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btSair" Content="X" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Margin="992,4,31,14" Cursor="Hand" Click="btSair_Click"/>
