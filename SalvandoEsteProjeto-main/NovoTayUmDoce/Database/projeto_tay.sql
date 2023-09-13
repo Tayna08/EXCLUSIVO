@@ -180,6 +180,8 @@ foreign key (id_ven_fk) references Venda(id_ven),
 foreign key (id_pro_fk) references Produto(id_pro)
 );
 
+insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525);
+
 
 
 delimiter $$ 
