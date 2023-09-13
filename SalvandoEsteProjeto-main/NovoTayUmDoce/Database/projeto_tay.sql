@@ -180,6 +180,8 @@ foreign key (id_ven_fk) references Venda(id_ven),
 foreign key (id_pro_fk) references Produto(id_pro)
 );
 
+
+
 delimiter $$ 
 create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int)
 begin
@@ -190,13 +192,14 @@ else
 	select 'Todos os campos devem ser preenchidos' as Erro;
 end if;
 end
-&& delimiter ;
+$$ delimiter ;
 
 delimiter $$ 
 create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), fk_end int)
 begin
-declare Ende int;
+declare fkEnde int;
 set fkEnd=(select id_end from endereco where (id_end= fk_end));
+
 if ((nome <> '') and (cpf <> '') and (data_nascimento <> '') and (contato <> '') and (fkEnd <> '')) then
 	insert into Cliente values(null, nome, cpf, data_nascimento, contato, fkEnd);
 	select 'Todos os campos foram preenchidos' as Confirmação;
@@ -210,10 +213,48 @@ delimiter $$
 create procedure Campo_Despesa (forma_pag varchar(200), dataDes date, valor double, vencimento date)
 begin
 if((forma <> ''), (dataDes <> ''), (valor <> ''), (vencimento <> '')) then
-insert into Despesa values (null, forma, dataDes, valor, vencimento);
-select 'Todos os campos foram preenchidos' as Confirmação;
+	insert into Despesa values (null, forma, dataDes, valor, vencimento);
+	select 'Todos os campos foram preenchidos' as Confirmação;
 else
 select 'Todos os campos devem ser preenchidos' as Erro;
 end if;
 end
 $$ delimiter ;
+
+delimiter $$ 
+create procedure Campo_Funcionario (nome varchar(200), data_nascimento date, cpf varchar(45), contato varchar(200), funcao varchar(200), email varchar(200), salario double, fk_end int)
+begin
+if ((nome <> ''), (data_nascimento <> ''), (cpf <> ''), (contato <> ''), (funcao <> ''), (email <> ''), (salario <> ''), (
+end
+$$ delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
