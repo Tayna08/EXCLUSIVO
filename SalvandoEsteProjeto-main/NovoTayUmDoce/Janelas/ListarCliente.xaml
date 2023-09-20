@@ -24,7 +24,6 @@
             <TextBlock Text="Clientes"
                        TextAlignment="center"
                        Background="pink"
-                       Style="{StaticResource MaterialDesignHeadline4TextBlock}"
                        Padding="10"/>
         </StackPanel>
 

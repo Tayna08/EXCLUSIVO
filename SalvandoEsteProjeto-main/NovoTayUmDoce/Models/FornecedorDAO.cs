@@ -29,8 +29,6 @@ namespace NovoTayUmDoce.Models
             {
                 var enderecoId = new EnderecoDAO().Insert(fornecedor.Endereco);
 
-                var estoqueId = new EnderecoDAO().Insert(fornecedor.Estoque);
-
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for, id_end_fk, id_est_fk)" +
                     $"VALUES (@nome_fantasia, @nome_representante, @contato, @cnpj, @razao_social, @id_end, @id_est_fk)";
@@ -41,8 +39,6 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
                 query.Parameters.AddWithValue("@razao_social", fornecedor.Razao_Social);
                 query.Parameters.AddWithValue("@id_end", enderecoId);
-                query.Parameters.AddWithValue("@id_est", estoqueId);
-
 
                 var result = query.ExecuteNonQuery();
 
