@@ -29,7 +29,7 @@ namespace NovoTayUmDoce.Models
             {
                 var enderecoId = new EnderecoDAO().Insert(fornecedor.Endereco);
 
-                var estoqueId = new EnderecoDAO().Insert(fornecedor.Endereco);
+                var estoqueId = new EnderecoDAO().Insert(fornecedor.Estoque);
 
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Fornecedor (nome_fantasia_for, nome_Representante_for, contato_for, cnpj_for, razao_social_for, id_end_fk, id_est_fk)" +
