@@ -3,8 +3,8 @@ use Projeto_Tay_bd;
 
 create table Endereco(
 id_end int primary key auto_increment,
-bairro_end varchar(200),
-cidade_end varchar(200),
+bairro_end varchar(200) not null,
+cidade_end varchar(200) not null,
 rua_end varchar(200),
 complemento_end varchar(200),
 numero_end int
@@ -184,53 +184,75 @@ foreign key (id_pro_fk) references Produto(id_pro)
 insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525);
 
 
-
 delimiter $$ 
 create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int)
 begin
-if ((bairro <> '') and (cidade <> '') and (rua <> '') and (complemento <> '') and (numero <> '')) then
+if ((bairro <> '' ) and (cidade <> '') and (rua <> '') and (numero <> '')) then
 	insert into Endereco values(null, bairro, cidade, rua, complemento, numero);
-	select 'Todos os campos foram preenchidos' as Confirmação;
+	select 'Os campos obrigatórios foram preenchidos' as Confirmação;
 else
-	select 'Todos os campos devem ser preenchidos' as Erro;
+	select 'Os campos obrigatórios devem ser preenchidos' as Erro;
 end if;
-end
+end;
 $$ delimiter ;
+call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431);
+select * from Endereco;
+
+############################################################
 
 delimiter $$ 
 create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), fk_end int)
 begin
-declare fkEnde int;
-set fkEnd=(select id_end from endereco where (id_end= fk_end));
+declare fkEnd int;
+set fkEnd = (select id_end from endereco where (id_end = fk_end));
 
-if ((nome <> '') and (cpf <> '') and (data_nascimento <> '') and (contato <> '') and (fkEnd <> '')) then
-	insert into Cliente values(null, nome, cpf, data_nascimento, contato, fkEnd);
-	select 'Todos os campos foram preenchidos' as Confirmação;
+if ((nome <> '') and (cpf <> '') and (contato <> '')) then
+	if(fkEnd is not null) then
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		select 'Todos os campos foram preenchidos' as Confirmação;
+	else
+	select 'Essa fk não existe' as Erro;
+    end if;
 else
-	select 'Todos os campos devem ser preenchidos' as Erro;
+select 'Preencha os campos obrigatórios' as Erro;
 end if;
-end
+end;
 $$ delimiter ;
+call Campo_Cliente ('Samara Hespanhol', '022.420.402-51', '2023-01-01', '69992096461', 1);
+
+###############################################################
 
 delimiter $$ 
-create procedure Campo_Despesa (forma_pag varchar(200), dataDes date, valor double, vencimento date)
+create procedure Campo_Despesa (forma_pag varchar(200), dataDes varchar(25), valor double, vencimento varchar(25))
 begin
-if((forma <> ''), (dataDes <> ''), (valor <> ''), (vencimento <> '')) then
-	insert into Despesa values (null, forma, dataDes, valor, vencimento);
+if((forma_pag <> '') and (dataDes <> '') and (valor <> '') and (vencimento <> '')) then
+	insert into Despesa values (null, forma_pag, dataDes, valor, vencimento);
 	select 'Todos os campos foram preenchidos' as Confirmação;
 else
 select 'Todos os campos devem ser preenchidos' as Erro;
 end if;
 end
 $$ delimiter ;
+call Campo_Despesa ('Pix', '2022-02-02', 1000.50, '2022-05-06');
+
+
+##################################################################
 
 delimiter $$ 
-create procedure Campo_Funcionario (nome varchar(200), data_nascimento date, cpf varchar(45), contato varchar(200), funcao varchar(200), email varchar(200), salario double, fk_end int)
+create procedure Campo_Funcionario (nome varchar(200), data_nascimento varchar(25), cpf varchar(45), contato varchar(200), funcao varchar(200), email varchar(200), salario double, endereco_fk int)
 begin
-if ((nome <> ''), (data_nascimento <> ''), (cpf <> ''), (contato <> ''), (funcao <> ''), (email <> ''), (salario <> ''), (fk_end)) then
+declare fkEnd int;
+set fkEnd = (select id_end from endereco where (id_end = fk_End));
 
+if ((nome <> '') and (cpf <> '') and (contato <> '') and (funcao <> '') and (salario <> '')) then
+	if(fkEnd is not null) then
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		select 'Todos os campos foram preenchidos' as Confirmação;
+	else
+	select 'Essa fk não existe' as Erro;
+    end if;
 else
-
+select 'Preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
