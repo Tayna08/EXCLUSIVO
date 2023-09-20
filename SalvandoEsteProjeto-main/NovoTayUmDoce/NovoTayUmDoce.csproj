@@ -308,6 +308,8 @@
     <Compile Include="Models\CaixaDAO.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
+    <Compile Include="Models\Despesa.cs" />
+    <Compile Include="Models\DespesaDAO.cs" />
     <Compile Include="Models\Entrega.cs" />
     <Compile Include="Models\EntregadorDAO.cs" />
     <Compile Include="Models\Endereco.cs" />

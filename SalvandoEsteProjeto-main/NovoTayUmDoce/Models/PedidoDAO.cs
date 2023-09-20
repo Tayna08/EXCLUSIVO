@@ -8,8 +8,7 @@ using NovoTayUmDoce.Janelas;
 using System.Windows;
 using TayUmDoceProjeto.Models;
 using MySqlX.XDevAPI;
-using NovoTayUmDoceProjeto.Conexão;
-
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Models
 {
@@ -28,6 +27,7 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var funcionarioId= new FuncionarioDAO().Insert(pedido.Funcionario);
+                var clienteId = new ClienteDAO().Insert(pedido.Cliente);
 
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Pedido (data_ped, quantidade_ped, valor_ped, forma_Pagamento_ped, tipo_doce_ped, id_fun_fk, id_cli_fk) " +
@@ -39,6 +39,7 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@forma_Pagamento",pedido.FormaPagamento);
                 query.Parameters.AddWithValue("@tipo_doce", pedido.TipoDoce);
                 query.Parameters.AddWithValue("@id_fun", funcionarioId);
+                query.Parameters.AddWithValue("@id_cli", clienteId);
 
 
                 var result = query.ExecuteNonQuery();
