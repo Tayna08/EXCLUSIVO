@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
+using NovoTayUmDoce.Janelas;
+
 
 namespace NovoTayUmDoce.Janelas
 {
@@ -41,8 +43,7 @@ namespace NovoTayUmDoce.Janelas
                 despesa.Valor = tbValor.Text;
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
 
-                //Inserindo os Dados           
-                Despesa despesa = new Despesa();
+                DespesaDAO despesaDAO = new DespesaDAO();
                 despesaDAO.Insert(despesa);
 
                 MessageBox.Show("Dados salvos com sucesso!");
@@ -74,4 +75,4 @@ namespace NovoTayUmDoce.Janelas
 
     }
 }
-}
+
