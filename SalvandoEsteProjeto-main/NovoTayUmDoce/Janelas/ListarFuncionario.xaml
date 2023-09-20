@@ -5,12 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
-        Title="ListarFuncionario" Height="450" Width="800">
-    <Grid Margin="0,48,0,0">
-        <Grid.ColumnDefinitions>
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Funcionarios" Height="800" Width="1100" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Funcionários"
+                       TextAlignment="center"
+                       Background="pink"
+                       Style="{StaticResource MaterialDesignHeadline4TextBlock}"
+                       Padding="10"/>
+        </StackPanel>
 
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dtg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" Grid.ColumnSpan="5"/>
-        <Button Content="X" HorizontalAlignment="Left" Margin="705,-40,0,396" Width="81" Grid.ColumnSpan="5" RenderTransformOrigin="0.803,-0.011" Click="Button_Click"/>
+        <DataGrid Grid.Row="2" Margin="5,5,5,5" x:Name="dataGridFuncionario" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc}"/>
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
+                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
+                <DataGridTextColumn Header="Função" Binding="{Binding Funcao}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}"/>
+                <DataGridTextColumn Header="Endereço FK" Binding="{Binding Endereco}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btSair" Content="X" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Margin="992,4,31,14" Cursor="Hand" Click="btSair_Click"/>
     </Grid>
 </Window>

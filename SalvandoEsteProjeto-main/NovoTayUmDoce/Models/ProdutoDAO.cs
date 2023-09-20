@@ -47,10 +47,7 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
-            finally
-            {
-                conn.Close();
-            }
+          
         }
     }
 }
