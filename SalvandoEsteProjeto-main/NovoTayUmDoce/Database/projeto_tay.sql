@@ -241,12 +241,12 @@ call Campo_Despesa ('Pix', '2022-02-02', 1000.50, '2022-05-06');
 delimiter $$ 
 create procedure Campo_Funcionario (nome varchar(200), data_nascimento varchar(25), cpf varchar(45), contato varchar(200), funcao varchar(200), email varchar(200), salario double, endereco_fk int)
 begin
-declare fkEnd int;
-set fkEnd = (select id_end from endereco where (id_end = fk_End));
+declare endfk int;
+set endfk = (select id_end from endereco where (id_end = endereco_fk));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '') and (funcao <> '') and (salario <> '')) then
-	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+	if(endfk is not null) then
+		insert into Funcionario values(null, nome, data_nascimento, cpf, contato, funcao, email, salario, endereco_fk);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
@@ -254,5 +254,111 @@ if ((nome <> '') and (cpf <> '') and (contato <> '') and (funcao <> '') and (sal
 else
 select 'Preencha os campos obrigatórios' as Erro;
 end if;
+end;
+$$ delimiter ;
+call Campo_Funcionario ('Tayná', '2022-01-01', '02242040251', '69992096461', 'Gerente', 'tayna@gmail.com', 2150.40, 1);
+
+#####################################################################
+
+delimiter $$
+create procedure Campo_Pedido (dataP varchar(25), quantidade int, valor double, pagamento varchar(100), tipo varchar(150), funcionario_fk int, cliente_fk int)
+begin 
+declare fun_fk int;
+declare cli_fk int;
+
+set cli_fk = (select id_cli from cliente where (id_cli = cliente_fk));
+set fun_fk = (select id_fun from funcionario where (id_fun = funcionario_fk));
+
+if((dataP <> '') and (valor <> '')) then
+	if(funcionario_fk <> '') or (funcionario_fk is not null) then
+		if(cliente_fk <> '') or (cliente_fk is not null) then 
+			insert into Pedido values (null, dataP, quantidade, valor, pagamento, tipo, funcionario_fk, cliente_fk);
+            select 'O cadastro foi realizado com sucesso' as Erro;
+        else
+        select 'A fk de cliente não existe' as Erro;
+        end if;
+    
+    else
+    select 'A fk do funcionario não existe' as Erro;
+    end if;
+
+else
+select 'Os campos obrigatórios não foram preenchidos' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Pedido ('2022-01-01', 32, 5.50, 'Pix', 'Brigadeiro', 1, 1);
+
+###############################################################
+
+delimiter $$
+create procedure Campo_Produto (controle int, peso double, valor double, nome varchar(150), quantidade int, dataPro varchar(25), descricao varchar(200), pedido_fk int)
+begin
+
+declare fkPed int;
+set fkPed = (select id_ped from Pedido where (id_ped = pedido_fk));
+
+if((nome <> '') and (quantidade <> '') and (controle <> '') and (dataPro <> '') and (peso <> '')) then 
+	if(fkPed <> '') or (fkPed is not null) then 
+		insert into Produto values (null, controle, peso, valor, nome, quantidade, dataPro, descricao, pedido_fk);
+        select 'cadastro realizado com sucesso' as Erro;
+	else 
+    select 'essa fk não existe' as Erro;
+    end if;
+else
+select 'Os campos obrigatórios devem ser preenchidos' as Erro;
+end if;
+end;
+ $$ delimiter ;
+ call Campo_Produto(001, 21.100, 5.5, 'Bolo', 3, '2022-01-01', 'Bolo com cobertura de brigadeiro', 1);
+  
+##############################################################
+
+delimiter $$
+create procedure Campo_Estoque (nome varchar(100), quantidade int, dataEst varchar(25), produto_fk int)
+begin
+declare fkPro int;
+set fkPro = (select id_pro from produto where (id_pro = produto_fk));
+
+if((nome <> '') and (quantidade <> '') and (dataEst <> '')) then
+	if(fkPro is not null) or (fkPro <> '')then
+    insert into Estoque values(null, nome,  quantidade, dataEst, produto_fk);
+    select 'Todos os campos foram preenchidos' as Confirmação;
+    
+    else
+    select 'Essa fk não existe' as Erro;
+    end if;
+else
+select 'preencha os campos obrigatórios' as Erro;
+end if;
 end
 $$ delimiter ;
+call Campo_Estoque('Leite Condensado', 2, '2022-01-01', 1);
+
+delimiter $$ 
+create procedure Campo_Fornecedor (nome_fantasia varchar(200), nome_representante varchar(200), contato varchar(200), cnpj varchar(200), 
+razao_social varchar(200), endereco_fk int, estoque_fk int)
+begin
+declare fkEnd int;
+declare fkEst int;
+set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
+set fkEst = (select id_est from estoque where (id_est = estoque_fk));
+
+if((nome_fantasia <>'') and (nome_representante <>'') and (contato <>'') and (cnpj <> '')) then 
+	if((fkEnd is not null) or (fkEnd <> '')) then
+		if((fkEst is not null) or (fkEst <> '')) then 
+			insert fornecedor values(null, nome_fantasia, nome_representante, contato, cnpj, razao_social, endereco_fk, estoque_fk);
+			select 'Todos os campos foram preenchidos' as Confirmação;
+		else
+		select 'A fk de estoque não existe' as Erro;
+		end if;
+	else
+    select 'A fk de endereco não existe' as Erro;
+    end if;
+else
+select 'preencha os campos obrigatórios' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Fornecedor('Maria Helena Industria LTDA', 'Silvania Ribeiro', '69992096461', '001.457
+
