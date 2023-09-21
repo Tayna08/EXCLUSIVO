@@ -136,7 +136,7 @@ saldo_inicial_cai double,
 saldo_final_cai double,
 valor_entrada_cai double,
 valor_saida_cai double,
-data_cai double,
+data_cai ,
 id_fun_fk int,
 foreign key(id_fun_fk) references Funcionario(id_fun)
 );
@@ -273,7 +273,7 @@ if((dataP <> '') and (valor <> '')) then
 	if(funcionario_fk <> '') or (funcionario_fk is not null) then
 		if(cliente_fk <> '') or (cliente_fk is not null) then 
 			insert into Pedido values (null, dataP, quantidade, valor, pagamento, tipo, funcionario_fk, cliente_fk);
-            select 'O cadastro foi realizado com sucesso' as Erro;
+            select 'O cadastro foi realizado com sucesso' as Confirmação;
         else
         select 'A fk de cliente não existe' as Erro;
         end if;
@@ -301,7 +301,7 @@ set fkPed = (select id_ped from Pedido where (id_ped = pedido_fk));
 if((nome <> '') and (quantidade <> '') and (controle <> '') and (dataPro <> '') and (peso <> '')) then 
 	if(fkPed <> '') or (fkPed is not null) then 
 		insert into Produto values (null, controle, peso, valor, nome, quantidade, dataPro, descricao, pedido_fk);
-        select 'cadastro realizado com sucesso' as Erro;
+        select 'cadastro realizado com sucesso' as Confirmação;
 	else 
     select 'essa fk não existe' as Erro;
     end if;
@@ -360,5 +360,229 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Fornecedor('Maria Helena Industria LTDA', 'Silvania Ribeiro', '69992096461', '001.457
+call Campo_Fornecedor('Maria Helena Industria LTDA', 'Silvania Ribeiro', '69992096461', '001.457.144215/0001', 'Maria Helena', 1, 1);
 
+########################################################
+
+delimiter $$
+create procedure Campo_Compra(valor double, nome varchar(200), dataCom varchar(25), quantidade int, descricao varchar(300), funcionario_fk int, despesa_fk int, fornecedor_fk int)
+begin 
+declare fkFun int;
+declare fkDes int;
+declare fkFor int;
+set fkFun = (select id_fun from Funcionario where (id_fun = funcionario_fk));
+set fkDes = (select id_des from Despesa where (id_des = despesa_fk));
+set fkFor = (select id_for from Fornecedor where (id_for = fornecedor_fk));
+
+if((valor <> '') and (dataCom <> '') and (descricao <> '')) then
+	if(fkFun is not null) then
+		if(fkDes is not null) then
+			if(fkFor is not null) then 
+				insert into Compra values(null, valor, nome, dataCom, quantidade, descricao, funcionario_fk, despesa_fk, fornecedor_fk);
+                select 'O cadastro foi realizado com sucesso' as Confirmação;
+            else
+            select 'A fk de fornecedor não existe' as Erro;
+            end if;
+		else
+		select 'A fk de despesa não existe' as Erro;
+        end if;
+    else
+    select 'A fk de funcionario não existe' as Erro;
+    end if;
+else
+select 'Os campos obrigatórios precisam ser preenchidos' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Compra(100.50, 'Caixas de leite', '2022-01-01', 15, 'Caixas de leite contendo 2 litros cada um', 1, 1, 1);
+
+#####################################################
+
+delimiter $$
+create procedure Campo_Venda(valor double, pagamento varchar(150), dataVen varchar(25), desconto varchar(25), cliente_fk int, funcionario_fk int)
+begin
+declare fkCli int;
+declare fkFun int;
+set fkCli = (select id_cli from Cliente where (id_cli = cliente_fk));
+set fkFun = (select id_fun from Funcionario where (id_fun = funcionario_fk));
+
+if((valor <> '') and (pagamento <> '') and (dataVen <> '')) then
+	if(fkCli is not null) then
+		if(fkFun is not null) then 
+			 insert into Venda values (null, valor, pagamento, dataVen, desconto, cliente_fk, funcionario_fk);
+             select 'O cadastro foi realizado com sucesso' as Confirmação;
+        else
+        select 'A fk de funcionario não existe' as Erro;
+        end if;
+	else
+    select 'A fk de cliente não existe' as Erro;
+    end if;
+else
+select 'Os campos obrigatórios precisam estar preenchidos' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Venda(60.60, 'Pix', '2022-01-01', '20%', 1, 1);
+
+######################################################
+
+delimiter $$
+create procedure Campo_Entrega (controle_numero int, entregador varchar(200), dataEnt varchar(100), valor double, venda_fk int, endereco_fk int, funcionario_fk int)
+begin
+declare fkVen int;
+declare fkEnd int;
+declare fkFun int;
+set fkVen = (select id_ven from venda where (id_ven = venda_fk));
+set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
+set fkFun = (select id_fun from funcionario where (id_fun = funcionario_fk));
+
+if((entregador <>'') and (dataEnt <>'') and (valor <>'')) then
+	if(fkVen is not null) then 
+		if(fkEnd is not null) then 
+			if(fkFun is not null) then 
+				insert entrega values (null, controle_numero, entregador, dataEnt, valor, venda_fk, endereco_fk, funcionario_fk);
+				select 'O cadastro foi realizado com sucesso' as Confirmação;
+			else
+			select 'A fk de funcionario não existe' as Erro;
+			end if;
+		else
+		select 'A fk de endereço não existe' as Erro;
+		end if;
+    else
+    select 'A fk de venda não existe' as Erro;
+    end if;
+else
+select 'preencha os campos obrigatórios' as Erro;
+end if;
+end
+$$ delimiter ;
+call Campo_Entrega(001, 'Roberto', '2022-01-01', 100.50, 1, 1, 1);
+
+####################################################
+
+delimiter $$
+create procedure Campo_Caixa(saldo_inicial double, saldo_final double, valor_entrada double, valor_saida double, dataCai varchar(100), funcionario_fk int)
+begin
+declare fkFun int;
+set fkFun = (select id_fun from funcionario where (id_fun = funcionario_fk));
+
+if((saldo_inicial <> '') and (valor_entrada <> '') and (dataCai <> '')) then
+	if(fkFun is not null) then
+		insert into caixa values (null, saldo_inicial, saldo_final, valor_entrada, valor_saida, dataCai, funcionario_fk);
+		select 'Todos os campos foram preenchidos' as Confirmação;
+    else
+    select 'Essa fk não existe' as Erro;
+    end if;
+else
+select 'preencha os campos obrigatórios' as Erro;
+end if;
+end
+$$ delimiter ;
+call Campo_Caixa(1000, 5000, 500, 500, '2022-01-01', 1);
+
+######################################################
+
+delimiter $$
+create procedure Campo_Pagamento (valor double, dataPag varchar(25), parcela varchar(100), despesa_fk int, caixa_fk int) 
+begin
+declare fkDes int;
+declare fkCai int;
+set fkDes = (select id_des from despesa where (id_des = despesa_fk));
+set fkCai = (select id_cai from caixa where (id_cai = caixa_fk));
+
+if((valor <> '') and (dataPag <> '') and (parcela <> '')) then
+	if((fkDes is not null) or (fkDes <> ''))then
+		if((fkCai is not null) or (fkCai <> ''))then
+			insert into pagamento values(null, valor, dataPag, parcela, despesa_fk, caixa_fk);
+            select 'Todos os campos foram preenchidos' as Confirmação;
+		else
+        select 'A fk de Caixa não existe' as Erro;
+        end if;
+	else
+    select 'A fk de Despesa não existe' as Erro;
+	end if;
+else
+select 'Preencha os Campos obrigatórios' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Pagamento (100.05, '2022-01-01', '2', 1, 1);
+
+#######################################################
+
+delimiter $$
+create procedure Campo_Recebimento (valor double, forma_recebimento varchar(200), quant_parcelas varchar(200), data_recebimento varchar(25), venda_fk int, caixa_fk int)
+begin
+declare fkVen int;
+declare fkCai int;
+set fkVen = (select id_ven from Venda where (id_ven = venda_fk));
+set fkCai = (select id_cai from Caixa where (id_cai = caixa_fk));
+
+if((valor <> '') and (forma_recebimento <> '') and (quant_parcelas <> '') and (data_recebimento <> '')) then
+	if(fkVen <> '') or (fkVen is not null) then
+		if(fkCai <> '') or (fkCai is not null) then
+		insert into Recebimento values(null, valor, forma_recebimento, quant_parcelas, data_recebimento, venda_fk, caixa_fk);
+		select 'Recebimento realizado com sucesso' as Erro;
+       
+       else
+        select 'A fk de caixa não existe' as Erro;
+	   end if;
+	else
+	select 'A fk de venda não existe' as Erro;
+	end if;
+else
+select 'Os campos obrigatórios não foram preenchidos' as Erro;
+end if;
+end;
+
+$$ delimiter ;
+call Campo_Recebimento (5000.00, 'Cartão de Débito', 10, '2022-01-01', 1, 1);
+
+#########################################
+
+delimiter $$ 
+create procedure Campo_Compra_Produto (compra_fk int, produto_fk int)
+begin
+declare fkCom int;
+declare fkPro int;
+set fkCom = (select id_com from Compra where (id_com = compra_fk));
+set fkPro = (select id_pro from Produto where (id_pro = produto_fk));
+
+if((fkCom is not null) or (fkCom <> '')) then
+	if((fkPro is not null) or (fkPro <> ''))then
+		insert Compra_Produto values(null, compra_fk, produto_fk);
+		select 'Todos os campos foram preenchidos' as Confirmação;
+    else 
+    select 'A fk de produto não existe' as Erro;
+    end if;
+else
+select 'A fk de compra não existe' as Erro;
+end if;
+end
+$$ delimiter ;
+call Campo_Compra_Produto(1,1);
+
+###################################################
+
+delimiter $$
+create procedure Campo_Venda_Produto (venda_fk int, produto_fk int)
+begin
+declare fkVen int;
+declare fkPro int;
+
+set fkVen = (select id_ven from Venda where (id_ven = venda_fk));
+set fkPro = (select id_pro from Produto where (id_pro = produto_fk));
+
+if((fkVen is not null) or (fkVen <> '')) then
+	if((fkPro is not null) or (fkPro <> '')) then
+		insert into Venda_Produto values(null, venda_fk, produto_fk);
+        select 'Todos os campos foram preenchidos' as Confirmação;
+	else 
+	select 'A fk de Produto não existe' as Erro;
+	end if;
+else
+select 'A fk de Venda não existe' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Venda_Produto(1,1);
