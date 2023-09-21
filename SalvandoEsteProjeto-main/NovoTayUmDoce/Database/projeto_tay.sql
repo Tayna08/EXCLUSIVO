@@ -195,7 +195,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431);
+call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 5281);
 select * from Endereco;
 
 ############################################################
@@ -218,7 +218,7 @@ select 'Preencha os campos obrigatórios' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Cliente ('Samara Hespanhol', '022.420.402-51', '2023-01-01', '69992096461', 1);
+call Campo_Cliente ('Kaick Damas dos Santos', '022.420.402-51', '2023-01-01', '69992096461', 1);
 
 ###############################################################
 
@@ -233,7 +233,7 @@ select 'Todos os campos devem ser preenchidos' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Despesa ('Pix', '2022-02-02', 1000.50, '2022-05-06');
+call Campo_Despesa ('Crédito', '2022-02-02', 1000.50, '2022-05-06');
 
 
 ##################################################################
@@ -256,7 +256,7 @@ select 'Preencha os campos obrigatórios' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Funcionario ('Tayná', '2022-01-01', '02242040251', '69992096461', 'Gerente', 'tayna@gmail.com', 2150.40, 1);
+call Campo_Funcionario ('Gilmar', '2022-01-01', '02242040251', '69992096461', 'Gerente', 'tayna@gmail.com', 2150.40, 1);
 
 #####################################################################
 
@@ -287,7 +287,7 @@ select 'Os campos obrigatórios não foram preenchidos' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Pedido ('2022-01-01', 32, 5.50, 'Pix', 'Brigadeiro', 1, 1);
+call Campo_Pedido ('2022-03-03', 32, 5.50, 'Pix', 'Brigadeiro', 1, 1);
 
 ###############################################################
 
@@ -310,7 +310,7 @@ select 'Os campos obrigatórios devem ser preenchidos' as Erro;
 end if;
 end;
  $$ delimiter ;
- call Campo_Produto(001, 21.100, 5.5, 'Bolo', 3, '2022-01-01', 'Bolo com cobertura de brigadeiro', 1);
+ call Campo_Produto(004, 21.100, 5.5, 'Bolo', 3, '2022-01-01', 'Bolo com cobertura de brigadeiro', 1);
   
 ##############################################################
 
@@ -333,7 +333,7 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Estoque('Leite Condensado', 2, '2022-01-01', 1);
+call Campo_Estoque('Leite Condensado', 10, '2023-01-01', 1);
 
 delimiter $$ 
 create procedure Campo_Fornecedor (nome_fantasia varchar(200), nome_representante varchar(200), contato varchar(200), cnpj varchar(200), 
@@ -360,7 +360,7 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Fornecedor('Maria Helena Industria LTDA', 'Silvania Ribeiro', '69992096461', '001.457.144215/0001', 'Maria Helena', 1, 1);
+call Campo_Fornecedor('Maria Helena Industria LTDA', 'Roberta', '69992096461', '001.457.144215/0004', 'Maria Helena', 1, 1);
 
 ########################################################
 
@@ -394,7 +394,7 @@ select 'Os campos obrigatórios precisam ser preenchidos' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Compra(100.50, 'Caixas de leite', '2022-01-01', 15, 'Caixas de leite contendo 2 litros cada um', 1, 1, 1);
+call Campo_Compra(100.50, 'Caixas de leite', '2022-01-01', 30, 'Caixas de leite contendo 2 litros cada um', 1, 1, 1);
 
 #####################################################
 
@@ -456,7 +456,7 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Entrega(001, 'Roberto', '2022-01-01', 100.50, 1, 1, 1);
+call Campo_Entrega(003, 'Roberto', '2022-01-01', 100.50, 1, 1, 1);
 
 ####################################################
 
@@ -478,7 +478,7 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Caixa(1000, 5000, 500, 500, '2022-01-01', 1);
+call Campo_Caixa(1000, 5000, 500, 502, '2022-01-01', 1);
 
 ######################################################
 
@@ -506,7 +506,7 @@ select 'Preencha os Campos obrigatórios' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Pagamento (100.05, '2022-01-01', '2', 1, 1);
+call Campo_Pagamento (100.05, '2022-01-01', '8', 1, 1);
 
 #######################################################
 
@@ -536,7 +536,7 @@ end if;
 end;
 
 $$ delimiter ;
-call Campo_Recebimento (5000.00, 'Cartão de Débito', 10, '2022-01-01', 1, 1);
+call Campo_Recebimento (5000.00, 'Pix', 10, '2022-01-01', 1, 1);
 
 #########################################
 
@@ -560,7 +560,7 @@ select 'A fk de compra não existe' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Compra_Produto(1,1);
+call Campo_Compra_Produto(2,2);
 
 ###################################################
 
@@ -585,4 +585,4 @@ select 'A fk de Venda não existe' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Venda_Produto(1,1);
+call Campo_Venda_Produto(1,3);
