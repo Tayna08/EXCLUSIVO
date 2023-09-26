@@ -30,20 +30,55 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67"/>
 
-        <StackPanel Margin="50,30,208,572">
+        <StackPanel Margin="50,80,208,560">
+           
             <Label Content="VALOR:"/>
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White"/>
+       
         </StackPanel>
 
-        <StackPanel Margin="50,90,208,407">
+        <StackPanel Margin="120,80,208,560">
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" TextChanged="tbValor_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,145,208,407">
             <Label Content="DATA:"/>
-            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="50,150,208,377">
+        <StackPanel Margin="102,145,208,407">
+
+            <DatePicker x:Name="dtpDataPag" Height="28" VerticalAlignment="Top"/>
+        
+        </StackPanel>
+
+        <StackPanel Margin="50,210,50,377">
             <Label Content="QUANTIDADE PARCELAS:"/>
+        </StackPanel>
+        
+        <StackPanel Margin="260,210,300,377">
             <TextBox x:Name="tbParcelas" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
-   
+
+        <StackPanel Margin="500,210,50,377">
+            <Label Content="DESPESA:"/>
+        </StackPanel>
+
+        <StackPanel Margin="590,210,20,377">
+            <TextBox x:Name="tbDespesa" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,260,50,377">
+            <Label Content="QUANTIDADE:"/>
+        </StackPanel>
+
+        <StackPanel Margin="180,260,20,377">
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,380,0,0" Width="420" Height="67">
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        </StackPanel>
+
+
     </Grid>
 </Window>
