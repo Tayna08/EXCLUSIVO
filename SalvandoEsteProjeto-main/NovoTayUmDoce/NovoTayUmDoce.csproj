@@ -320,6 +320,8 @@
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
+    <Compile Include="Models\Pagamento.cs" />
+    <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\PedidoDAO.cs" />
     <Compile Include="Models\Produto.cs" />
