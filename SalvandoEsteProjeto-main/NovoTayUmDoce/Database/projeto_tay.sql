@@ -136,7 +136,7 @@ saldo_inicial_cai double,
 saldo_final_cai double,
 valor_entrada_cai double,
 valor_saida_cai double,
-data_cai ,
+data_cai date,
 id_fun_fk int,
 foreign key(id_fun_fk) references Funcionario(id_fun)
 );

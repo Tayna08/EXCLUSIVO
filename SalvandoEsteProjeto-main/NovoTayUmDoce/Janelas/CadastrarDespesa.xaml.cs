@@ -60,6 +60,8 @@ namespace NovoTayUmDoce.Janelas
         {
            tbFormaPag.Clear();
            tbValor.Clear();
+           dtpData.SelectedDate = null;
+           dtpDataVenci.SelectedDate = null;
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
