@@ -136,7 +136,11 @@ saldo_inicial_cai double,
 saldo_final_cai double,
 valor_entrada_cai double,
 valor_saida_cai double,
+<<<<<<< Updated upstream
 data_cai date,
+=======
+data_cai date ,
+>>>>>>> Stashed changes
 id_fun_fk int,
 foreign key(id_fun_fk) references Funcionario(id_fun)
 );
@@ -145,7 +149,7 @@ create table Pagamento(
 id_pag int primary key auto_increment,
 valor_pag double,
 data_pag date,
-parcela_pag varchar(50),
+quantidade_pag varchar(50),
 id_des_fk int,
 id_cai_fk int,
 foreign key (id_des_fk) references Despesa(id_des),

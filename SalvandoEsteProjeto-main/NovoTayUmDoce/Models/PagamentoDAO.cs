@@ -24,10 +24,11 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO PAGAMENTO (valor_pag, data_pag)" +
-                                    $"VALUES (@Valor, @DataPag)";
+                query.CommandText = $"INSERT INTO PAGAMENTO (valor_pag, data_pag, quantidade_pag)" +
+                                    $"VALUES (@Valor, @DataPag, @Quantidade)";
 
                 query.Parameters.AddWithValue("@Valor", pagamento.Valor);
+                query.Parameters.AddWithValue("@Quantidade", pagamento.Quantidade);
                 query.Parameters.AddWithValue("@DataPag", pagamento.DataPag?.ToString("yyyy-MM-dd"));
 
                 var result = query.ExecuteNonQuery();
