@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySqlX.XDevAPI;
 using NovoTayUmDoce.Models;
 
 namespace TayUmDoceProjeto.Janelas
@@ -23,6 +24,7 @@ namespace TayUmDoceProjeto.Janelas
         public CadastrarProduto()
         {
             InitializeComponent();
+       
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -210,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\PedidoCancelado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -297,6 +301,9 @@
     </Compile>
     <Compile Include="Janelas\ListarVenda.xaml.cs">
       <DependentUpon>ListarVenda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\PedidoCancelado.xaml.cs">
+      <DependentUpon>PedidoCancelado.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
