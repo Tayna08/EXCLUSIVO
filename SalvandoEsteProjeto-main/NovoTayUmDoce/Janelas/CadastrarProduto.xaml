@@ -17,7 +17,25 @@
             <RowDefinition Height="667.4"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" >
+            <DataGrid Name="dataGrid" AutoGenerateColumns="False" GridLinesVisibility="All" Margin="0,17,0,52" SelectionChanged="dataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Destaque">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding Destaque}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Categoria" Binding="{Binding Categoria}" />
+                    <DataGridTextColumn Header="Código" Binding="{Binding Codigo}" />
+                    <DataGridTextColumn Header="Nome do Produto" Binding="{Binding NomeProduto}" />
+                    <DataGridTextColumn Header="Preço de Venda" Binding="{Binding PrecoVenda}" />
+                    <DataGridTextColumn Header="Adicionar" Binding="{Binding NomeProduto}" />
+                    <DataGridTextColumn Header="personalizar" Binding="{Binding PrecoVenda}" />
+                </DataGrid.Columns>
+            </DataGrid> 
+        </Border>
 
         <Grid Margin="0,28,0,221">
             <Grid.RowDefinitions>
@@ -25,49 +43,14 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
-
         </Grid>
         
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,397,0,0" Width="420" Height="67">
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
             <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
         </StackPanel>
         
-        <StackPanel Margin="50,45,610,572">
-            <Label Content="CONTROLE N°:"/>
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="30"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,110,208,407">
-            <Label Content="NOME:"/>
-            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,180,208,377">
-            <Label Content="DESCRIÇÃO:"/>
-            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,240,469,329">
-            <Label Content="QUANTIDADE:"/>
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="355,240,45,329">
-            <Label Content="DATA FABRICAÇÃO:"/>
-            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,300,469,304">
-            <Label Content="PESO:"/>
-            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="355,300,45,264">
-            <Label Content="VALOR:"/>
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Grid.Row="1" Width="397"/>
-        </StackPanel>
+       
     </Grid>
 
 </Window>
