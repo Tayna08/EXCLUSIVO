@@ -220,21 +220,21 @@ foreign key (id_pro_fk) references Produto(id_pro)
 );
 
 
-insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525);
+insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525,'920000');
 
 
 delimiter $$ 
-create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int)
+create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int, cep varchar(300))
 begin
 if ((bairro <> '' ) and (cidade <> '') and (rua <> '') and (numero <> '')) then
-	insert into Endereco values(null, bairro, cidade, rua, complemento, numero);
+	insert into Endereco values(null, bairro, cidade, rua, complemento, numero,cep);
 	select 'Os campos obrigatórios foram preenchidos' as Confirmação;
 else
 	select 'Os campos obrigatórios devem ser preenchidos' as Erro;
 end if;
 end;
 $$ delimiter ;
-call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431);
+call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431,'920000');
 select * from Endereco;
 
 ############################################################
@@ -262,17 +262,17 @@ call Campo_Cliente ('Samara Hespanhol', '022.420.402-51', '2023-01-01', '6999209
 ###############################################################
 
 delimiter $$ 
-create procedure Campo_Despesa (forma_pag varchar(200), dataDes varchar(25), valor double, vencimento varchar(25))
+create procedure Campo_Despesa (nome varchar(300), descricao varchar(300), forma_pag varchar(200), dataDes varchar(25), hora time, valor double, vencimento varchar(25))
 begin
-if((forma_pag <> '') and (dataDes <> '') and (valor <> '') and (vencimento <> '')) then
-	insert into Despesa values (null, forma_pag, dataDes, valor, vencimento);
+if((nome <> '') and (dataDes <> '') and (valor <> '') and (vencimento <> '')) then
+	insert into Despesa values (null,nome, descricao, forma_pag, dataDes, hora, valor, vencimento);
 	select 'Todos os campos foram preenchidos' as Confirmação;
 else
 select 'Todos os campos devem ser preenchidos' as Erro;
 end if;
 end
 $$ delimiter ;
-call Campo_Despesa ('Pix', '2022-02-02', 1000.50, '2022-05-06');
+call Campo_Despesa ('Agua','','Pix', '2022-02-02','20:00', 1000.50, '2022-05-06');
 
 
 ##################################################################
@@ -296,6 +296,7 @@ end if;
 end
 $$ delimiter ;
 
+###################################################################################
 delimiter $$
 create procedure Campo_Estoque (nome varchar(100), quantidade int, dataEst date, produto_fk int)
 begin
@@ -317,7 +318,7 @@ $$ delimiter ;
 
 delimiter $$ 
 create procedure Campo_fornecedor (nome_fantasia varchar(200), nome_representante varchar(200), contato varchar(200), cnpj varchar(200), 
-razao_social varchar(200), endereco_fk int, estoque_fk int)
+razao_social varchar(200), email varchar(300), endereco_fk int, estoque_fk int)
 begin
 declare fkEnd int;
 declare fkEst int;
@@ -326,7 +327,7 @@ set fkEst = (select id_est from estoque where (id_est = fk_est));
 
 if((nome_fantasia <>'') and (nome_representante <>'') and (contato <>'') and (cnpj <> '')) then 
 	if((fkEnd is not null) and (fkEst is not null)) then 
-    insert fornecedor values(null, nome_fantasia, nome_representante, contato, cnpj, razao_social, fk_end, fk_est);
+    insert fornecedor values(null, nome_fantasia, nome_representante, contato, cnpj, email, razao_social, fk_end, fk_est);
      select 'Todos os campos foram preenchidos' as Confirmação;
     else
     select 'Essa fk não existe' as Erro;
@@ -337,26 +338,17 @@ end if;
 end
 $$ delimiter ;
 
-create table Caixa(
-id_cai int primary key auto_increment,
-saldo_inicial_cai double,
-saldo_final_cai double,
-valor_entrada_cai double,
-valor_saida_cai double,
-data_cai double,
-id_fun_fk int,
-foreign key(id_fun_fk) references Funcionario(id_fun)
-);
+#####################################################################################
 
 delimiter $$
-create procedure campo_Caixa (saldo_inicial double, saldo_final double, valor_entrada double, valor_saida double, dataCai varchar (100), funcionario_fk int)
+create procedure campo_Caixa (saldo_inicial double, saldo_final double, valor_entrada double, valor_saida double, dataCai varchar (100), horaCai time, funcionario_fk int)
 begin
 declare fkFun int;
 set fkFun = (select id_fun from funcionario where (id_fun = funcionario_fk));
 
 if((saldo_inicial <> '') and (valor_entrada <> '') and (dataCai <> '')) then
 	if(fkFun is not null) then
-    insert caixa values (saldo_inicial, valor_entrada, valor_saida, dataCai, fk_fun);
+    insert caixa values (saldo_inicial, valor_entrada, valor_saida, dataCai,horaCai, fk_fun);
      select 'Todos os campos foram preenchidos' as Confirmação;
     else
     select 'Essa fk não existe' as Erro;
@@ -367,19 +359,7 @@ end if;
 end
 $$ delimiter ;
 
-create table Entrega(
-id_ent int primary key auto_increment,
-controle_numero_ent int,
-entregador_ent varchar(200),
-data_ent date,
-valor_ent double,
-id_ven_fk int,
-id_end_fk int,
-id_fun_fk int,
-foreign key(id_ven_fk) references Venda(id_ven),
-foreign key(id_end_fk) references Endereco(id_end),
-foreign key(id_fun_fk) references Funcionario(id_fun)
-)
+######################################################################
 
 delimiter $$
 create procedure Campo_Entrega (controle_numero int, entregador varchar(200), dataEnt varchar(100), varlor double, venda_fk int, endereco_fk int, funcionario_fk int)
@@ -402,4 +382,4 @@ else
 select 'preencha os campos obrigatórios' as Erro;
 end if;
 end
-$$ delimiter ;;
+$$ delimiter ;
