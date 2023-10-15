@@ -48,7 +48,7 @@ namespace NovoTayUmDoce.Janelas
         private void Clear()
         {
 
-            tbValor.Clear();
+      
             dtpDataPag.SelectedDate = null;
 
            
@@ -64,7 +64,6 @@ namespace NovoTayUmDoce.Janelas
 
                 
 
-                pagamento.Valor = Convert.ToDouble(tbValor.Text);
                 pagamento.DataPag = dtpDataPag.SelectedDate;
                
 
