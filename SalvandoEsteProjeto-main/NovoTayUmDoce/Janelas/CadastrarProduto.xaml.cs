@@ -34,7 +34,7 @@ namespace TayUmDoceProjeto.Janelas
         {
             try
             {
-                Produto produto = new Produto();
+                /*Produto produto = new Produto();
                 produto.Nome = tbNome.Text;
                 produto.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 produto.Descricao = tbDescricao.Text;
@@ -43,7 +43,7 @@ namespace TayUmDoceProjeto.Janelas
                 produto.Peso = tbPeso.Text;
                 //Inserindo os Dados           
                 ProdutoDAO produtoDAO = new ProdutoDAO();
-                produtoDAO.Insert(produto);
+                produtoDAO.Insert(produto);*/
 
                 MessageBox.Show("Dados salvos com sucesso!");
             }
@@ -63,6 +63,9 @@ namespace TayUmDoceProjeto.Janelas
             }
         }
 
-    
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

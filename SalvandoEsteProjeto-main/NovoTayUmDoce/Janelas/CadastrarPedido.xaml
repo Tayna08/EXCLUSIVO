@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
         mc:Ignorable="d"
-        Title="CadastrarPedido" Height="450" Width="800">
+        Title="CadastrarPedido" Height="470" Width="800">
     <Grid Background="#FFD18D9F">
         <Grid.RowDefinitions>
             <RowDefinition Height="667.4"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="12,28,8,221" >
+            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="24,55,21,73" SelectionChanged="DataGrid_SelectionChanged"/>
+        </Border>
 
         <Grid Margin="0,28,0,221">
             <Grid.RowDefinitions>
@@ -19,49 +21,23 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
-
         </Grid>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,383,0,0" Width="160" Height="67">
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
         </StackPanel>
 
-        <StackPanel Margin="50,25,208,572">
-            <Label Content="TIPO DOCE:"/>
-            <TextBox x:Name="tbTipo" TextWrapping="Wrap" Background="White" Height="30"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="622,31,0,0" Width="146" Height="67">
+            <Button x:Name="btProduto" Content="PRODUTO" Background="#FFFFA4A4" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btProduto_Click" RenderTransformOrigin="0.269,0.517"/>
         </StackPanel>
 
-        <StackPanel Margin="50,80,208,407">
-            <Label Content="QUANTIDADE:"/>
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="616,379,0,0" Width="146" Height="67">
+            <Button x:Name="btPagamento" Content="PAGAMENTO" Background="#FFFFA4A4" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btPagamento_Click" RenderTransformOrigin="0.269,0.517"/>
         </StackPanel>
 
-        <StackPanel Margin="50,135,208,377">
-            <Label Content="VALOR:"/>
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,379,0,0" Width="180" Height="67">
+            <Button x:Name="btCliente" Content="VINCULAR CLIENTE" Background="#FFFFA4A4" Height="50" Width="171" Foreground="#DD000000" FontWeight="Bold" Click="btCliente_Click" RenderTransformOrigin="0.269,0.517"/>
         </StackPanel>
 
-        <StackPanel Margin="50,190,208,329">
-            <Label Content="FORMA PAGAMENTO:"/>
-            <TextBox x:Name="tbFormaPag" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,245,208,309">
-            <Label Content="DATA:"/>
-            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
-        </StackPanel>
-        
-        <StackPanel Margin="50,305,500,270">
-            <Label Content="FUNCIONÁRIO:"/>
-            <ComboBox x:Name="cbFuncionario" Background="White" Height="27"/>
-        </StackPanel>
-        
-        <StackPanel Margin="360,305,200,270">
-            <Label Content="CLIENTE:"/>
-            <ComboBox x:Name="cbCliente" Background="White" Height="27"
-                      DisplayMemberPath="Nome" SelectedValuePath="Id" />
-        </StackPanel>
     </Grid>
 </Window>
