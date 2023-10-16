@@ -68,7 +68,13 @@ namespace NovoTayUmDoce
 
         }
 
-     
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EscolherProduto escolherProduto = new EscolherProduto();
+            escolherProduto.ShowDialog();
+        }
+
+
         /*Cadastrar e Listar Ciente
         private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
         {

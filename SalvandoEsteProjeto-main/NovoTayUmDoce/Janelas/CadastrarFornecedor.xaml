@@ -70,24 +70,15 @@
             <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27" Grid.Row="2"/>
         </StackPanel>
 
-        <StackPanel Margin="234,333,350,242">
-            <Label Content="COMPLEMENTO:"/>
-            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="480,333,60,242">
-            <Label Content="ESTOQUE:"/>
-            <TextBox x:Name="tbEstoque" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-        
+ 
         <StackPanel Margin="355,273,56,303">
             <Label Content="RUA:"/>
             <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,332,600,244">
-            <Label Content="N°:"/>
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="50,330,375,242">
+            <Label Content="EMAIL:"/>
+            <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
     </Grid>
 

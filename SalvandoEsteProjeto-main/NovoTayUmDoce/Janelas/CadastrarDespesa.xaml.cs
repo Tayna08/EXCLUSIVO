@@ -39,7 +39,7 @@ namespace NovoTayUmDoce.Janelas
                 Despesa despesa = new Despesa();
 
                 despesa.FormaPagamento = tbFormaPag.Text;
-                despesa.Data = dtpData.SelectedDate;
+               
                 despesa.Valor = tbValor.Text;
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
 
@@ -60,7 +60,7 @@ namespace NovoTayUmDoce.Janelas
         {
            tbFormaPag.Clear();
            tbValor.Clear();
-           dtpData.SelectedDate = null;
+      
            dtpDataVenci.SelectedDate = null;
         }
 
