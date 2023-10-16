@@ -82,7 +82,7 @@
 
         <StackPanel Margin="120,220,530,150">
 
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30"/>
+            <TextBox x:Name="tbvL" TextWrapping="Wrap" Background="White" Height="30"/>
 
         </StackPanel>
 

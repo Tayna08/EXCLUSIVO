@@ -68,12 +68,7 @@ namespace NovoTayUmDoce
 
         }
 
-        private void menuSchedule (object sender, RoutedEventArgs e))
-        {
-        
-            CadastrarCliente cliente = new CadastrarCliente();
-             cliente.ShowDialog();
-        }
+     
         /*Cadastrar e Listar Ciente
         private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
         {
