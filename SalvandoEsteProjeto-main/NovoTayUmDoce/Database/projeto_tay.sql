@@ -180,7 +180,6 @@ create table Pagamento(
 id_pag int primary key auto_increment,
 valor_pag double,
 data_pag date,
-hora_pag time,
 formaPagamento_pag varchar(300),
 parcela_pag varchar(50),
 observacao_pag varchar(300),
