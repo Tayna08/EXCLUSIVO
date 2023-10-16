@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySqlX.XDevAPI;
 using NovoTayUmDoce.Models;
+using NovoTayUmDoce.Janelas;
 
 namespace TayUmDoceProjeto.Janelas
 {
@@ -65,9 +66,50 @@ namespace TayUmDoceProjeto.Janelas
             }
         }
 
-        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       /* public List<Produto> List()
         {
+            try
+            {
+                List<Produto> listaProduto = new List<Produto>();
 
-        }
+                var query = conexao.Query();
+                query.CommandText = "select * from Funcionario";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhum Funcionario foi encotrado!");
+                }
+
+                while (reader.Read())
+                {
+                    listaFuncionario.Add(new Funcionario()
+                    {
+                        Id = AuxiliarDAO.GetInt(reader, "func_id"),
+                        Nome = AuxiliarDAO.GetString(reader, "func_nome"),
+                        Sexo = AuxiliarDAO.GetString(reader, "func_sexo"),
+                        Nascimento = AuxiliarDAO.GetDateTime(reader, "func_nascimento"),
+                        RG = AuxiliarDAO.GetString(reader, "func_rg"),
+                        CPF = AuxiliarDAO.GetString(reader, "func_cpf"),
+                        Email = AuxiliarDAO.GetString(reader, "func_email"),
+                        Contato = AuxiliarDAO.GetString(reader, "func_contato"),
+                        Funcao = AuxiliarDAO.GetString(reader, "func_funcao"),
+                        Salario = AuxiliarDAO.GetFloat(reader, "func_salario"),
+                        Endereco = new EnderecoDAO().GetById(AuxiliarDAO.GetInt(reader, "fk_ende_id"))
+                    });
+                }
+
+                return listaFuncionario;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }*/
     }
 }
