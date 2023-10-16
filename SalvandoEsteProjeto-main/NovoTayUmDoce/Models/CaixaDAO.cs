@@ -27,14 +27,17 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Caixa (saldo_inicial_cai, saldo_final_cai, valor_entrada_cai, valor_saida_cai, data_cai)" +
-                                    $"VALUES (@SaldoInicial, @SaldoFinal, @ValorEntrada, @ValorSaida, @Data)";
+                query.CommandText = $"INSERT INTO Caixa (saldo_inicial_cai, saldo_final_cai, valor_entrada_cai, valor_saida_cai, data_cai, pagamento_cai, descricao_cai, usuario_cai)" +
+                                    $"VALUES (@SaldoInicial, @SaldoFinal, @ValorEntrada, @ValorSaida, @Data, @Pagamento, @Descricao, @Usuario)";
 
                 query.Parameters.AddWithValue("@SaldoInicial", caixa.SaldoInicial);
                 query.Parameters.AddWithValue("@SaldoFinal", caixa.SaldoFinal);
                 query.Parameters.AddWithValue("@ValorEntrada", caixa.ValorEntrada);
                 query.Parameters.AddWithValue("@ValorSaida", caixa.ValorSaida);
                 query.Parameters.AddWithValue("@Data", caixa.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@Pagamento", caixa.Pagamento);
+                query.Parameters.AddWithValue("@Descricao", caixa.Descricao);
+                query.Parameters.AddWithValue("@Usuario", caixa.Usuario);
 
                 var result = query.ExecuteNonQuery();
 

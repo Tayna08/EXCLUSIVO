@@ -40,46 +40,68 @@
         </StackPanel>
         
         <!--Saldo Inicial-->
-        <StackPanel Margin="50,45,208,100">
+        <StackPanel Margin="50,30,500,400">
             <Label Content="Saldo Inicial:"/>
             <TextBox x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
+
+        <!--Hora-->
+        <StackPanel Margin="350,30,200,400">
+            <Label Content="Hora:"/>
+            <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <!--Pagamento-->
+        <StackPanel Margin="350,85,200,400">
+            <Label Content="Pagamento:"/>
+            <TextBox x:Name="tbPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <!--Descrição-->
+        <StackPanel Margin="350,140,200,400">
+            <Label Content="Descrição:"/>
+            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <!--Usuário-->
+        <StackPanel Margin="350,195,200,400">
+            <Label Content="Usuário:"/>
+            <TextBox x:Name="tbusuario" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
         
         <!--Saldo Final-->
-        <StackPanel Margin="50,120,200,242">
+        <StackPanel Margin="50,85,500,242">
             <Label Content="Saldo Final:"/>
             <TextBox  x:Name="tbSaldoFinal" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
         <!--valor entrada-->
-        <StackPanel Margin="50,210,390,10">
+        <StackPanel Margin="50,140,390,184">
             <Label Content="Valor Entrada:"/>
-           
+
         </StackPanel>
 
-        <StackPanel Margin="160,210,400,10">
+        <StackPanel Margin="50,170,500,10">
             <TextBox x:Name="tbValorEntrada" TextWrapping="Wrap" Background="White" Height="30" />
         </StackPanel>
         
         <!--valor saida-->
-        <StackPanel Margin="410,210,10,10">
+        <StackPanel Margin="50,200,10,10">
             <Label Content="Valor Saída:"/>
         </StackPanel>
 
-        <StackPanel Margin="510,210,45,184">
+        <StackPanel Margin="50,225,500,184">
             <TextBox x:Name="tbValorSaida" TextWrapping="Wrap" Background="White" Height="30" />
         </StackPanel>
 
         
         <!--Data-->
 
-        <StackPanel Margin="50,260,100,100">
+        <StackPanel Margin="50,260,500,100">
             <Label Content="DATA CAIXA:"/>
             <DatePicker x:Name="dtpDataCaixa" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
-
-
-
-
+        
+        
     </Grid>
     
 </Window>

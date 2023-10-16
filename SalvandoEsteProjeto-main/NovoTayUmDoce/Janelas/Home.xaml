@@ -20,22 +20,19 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+        <materialDesign:ColorZone Background="Aqua" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Grid>
-                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10"/>
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" HorizontalAlignment="Right" Margin="10" />
             </Grid>
         </materialDesign:ColorZone>
 
-        <Grid Grid.Row="1" Background="{StaticResource PrimaryHueMidBrush}" Height="388" VerticalAlignment="Bottom">
+        <Grid Grid.Row="1" Background="Aqua" Height="388" VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="326*"/>
 
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0"  >
-                <Image Source="Logo/TayUmDoce.png" HorizontalAlignment="Center"/>
-            </Grid>
-
+            
             <ScrollViewer HorizontalAlignment="Stretch" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Grid.Row="1">
                 <StackPanel x:Name="Menu" Margin="10"/>
             </ScrollViewer>
