@@ -43,10 +43,10 @@ namespace TayUmDoceProjeto.Janelas
                 Estoque estoque = new Estoque();
 
 
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
+               
                 endereco.Bairro = tbBairro.Text;
                 endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
+     
                 endereco.Rua = tbRua.Text;
 
                 fornecedor.Endereco = endereco;
@@ -78,9 +78,9 @@ namespace TayUmDoceProjeto.Janelas
             tbCnpj.Clear();
             tbRazaoSocial.Clear();
             tbBairro.Clear();
-            tbNumero.Clear();
+           
             tbCidade.Clear();
-            tbComplemento.Clear();
+          
             tbRua.Clear();
 
         }
