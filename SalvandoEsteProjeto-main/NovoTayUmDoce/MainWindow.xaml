@@ -40,6 +40,9 @@
             </ScrollViewer>
         </Grid>
 
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="20"/>
+
+
     </Grid>
 </Window>
 

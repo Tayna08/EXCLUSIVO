@@ -106,6 +106,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Componentes\CaixaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\ClienteFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\ClienteListarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarCaixa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,11 +170,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Janelas\ControleHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\Home.xaml">
+    <Page Include="ControleHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,6 +238,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Componentes\CaixaUC.xaml.cs">
+      <DependentUpon>CaixaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\ClienteFormUC.xaml.cs">
+      <DependentUpon>ClienteFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\ClienteListarUC.xaml.cs">
+      <DependentUpon>ClienteListarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Janelas\CadastrarCaixa.xaml.cs">
@@ -271,11 +288,8 @@
     <Compile Include="Janelas\CadastrarVenda.xaml.cs">
       <DependentUpon>CadastrarVenda.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Janelas\ControleHome.xaml.cs">
+    <Compile Include="ControleHome.xaml.cs">
       <DependentUpon>ControleHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\ListarCaixa.xaml.cs">
       <DependentUpon>ListarCaixa.xaml</DependentUpon>
@@ -341,7 +355,7 @@
     <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
-    <Compile Include="Models\ItemMenu.cs" />
+    <Compile Include="Menu\ItemMenu.cs" />
     <Compile Include="Models\Pagamento.cs" />
     <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />
@@ -350,7 +364,7 @@
     <Compile Include="Models\ProdutoDAO.cs" />
     <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Models\RecebimentoDAO.cs" />
-    <Compile Include="Models\SubItem.cs" />
+    <Compile Include="Menu\SubItem.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

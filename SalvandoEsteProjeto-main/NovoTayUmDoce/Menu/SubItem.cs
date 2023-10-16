@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace NovoTayUmDoce.Models
+namespace NovoTayUmDoce.Menu
 {
     public class SubItem
     {
