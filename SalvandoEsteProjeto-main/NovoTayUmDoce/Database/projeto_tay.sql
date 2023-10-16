@@ -27,6 +27,7 @@ nome_des varchar(300),
 descricao_des varchar(300),
 forma_pag_des varchar(200),
 data_des date,
+hora_des time,
 valor_des double,
 vencimento_des date
 );
@@ -50,7 +51,6 @@ total_ped double,
 desconto_ped varchar(300),
 produtos_ped varchar(300),
 data_ped date,
-hora_ped time,
 quantidade_ped int,
 forma_pagamento varchar(100),
 status_ped varchar(100),
@@ -101,7 +101,7 @@ foreign key (id_end_fk) references Endereco (id_end),
 foreign key (id_est_fk) references Estoque (id_est)
 );
 
-create table Compra(
+/*create table Compra(
 id_com int primary key auto_increment,
 valor_com double,
 nome_com varchar(200),
@@ -114,7 +114,7 @@ id_for_fk int,
 foreign key (id_fun_fk) references Funcionario (id_fun),
 foreign key (id_des_fk) references Despesa (id_des),
 foreign key (id_for_fk) references Fornecedor (id_for)
-);
+);*/
 
 create table Insumos(
 id_ins int primary Key auto_increment,
