@@ -30,7 +30,7 @@ namespace NovoTayUmDoce.Janelas
         }
         private void Conexao()
         {
-            string conexaoString = "server=localhost;database=tayumdoce_bd;user=root;password=root;port=3306";
+            string conexaoString = "server=localhost;database=Projeto_Tay_bd;user=root;password=root;port=3360";
             _conexao = new MySqlConnection(conexaoString);
             _conexao.Open();
         }
@@ -47,36 +47,25 @@ namespace NovoTayUmDoce.Janelas
                 string data = "";
                 try
                 {
-                    data = reader.GetDateTime("data_nasc_cli").ToString("dd/MM/yyyy");
+                    data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
                 }
                 catch { }
 
                 var cliente = new
-                {
-                    DataNasc = data,
+                {   
+                    Id = reader.GetString(0),
                     Nome = reader.GetString(1),
                     Cpf = reader.GetString(2),
-                    Rg = reader.GetString(3),
                     Contato = reader.GetString(4),
-                    Email = reader.GetString(5),
-                    Bairro = reader.GetString(6),
-                    Cidade = reader.GetString(7),
-                    Complemento = reader.GetString(8),
-                    Rua = reader.GetString(10),
-                    Numero = reader.GetString(11),
-                    Cep = reader.GetString(12),
+                    DataNasc = data,
+                    Endereco = reader.GetString(5),                   
                 };
                 lista.Add(cliente);
             }
-            dtg.ItemsSource = lista;
+            dataGridClientes.ItemsSource = lista;
         }
 
-        private void dtg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btSair_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

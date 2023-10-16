@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Janelas
 {
@@ -23,5 +25,62 @@ namespace NovoTayUmDoce.Janelas
         {
             InitializeComponent();
         }
+
+        private void tbValor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
+        }
+        private void Clear()
+        {
+
+      
+            dtpDataPag.SelectedDate = null;
+
+           
+            
+        }
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //Setando informações na tabela cliente
+                Pagamento pagamento = new Pagamento();
+             
+
+                
+
+                pagamento.DataPag = dtpDataPag.SelectedDate;
+               
+
+                //Inserindo os Dados           
+                PagamentoDAO pagamentoDAO = new PagamentoDAO();
+                pagamentoDAO.Insert(pagamento);
+
+
+                MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro 3008 : Contate o suporte");
+            }
+
+        }
+    
     }
 }

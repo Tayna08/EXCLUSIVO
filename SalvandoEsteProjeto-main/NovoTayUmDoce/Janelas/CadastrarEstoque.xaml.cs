@@ -35,21 +35,30 @@ namespace TayUmDoceProjeto.Janelas
             try
             {
                 Estoque estoque = new Estoque();
+
                 estoque.Nome = tbNome.Text;
                 estoque.Quantidade = tbQuantidade.Text;
                 estoque.Data = dtpData.SelectedDate;
+
                 EstoqueDAO estoqueDAO = new EstoqueDAO();
                 estoqueDAO.Insert(estoque);
+
                 MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }
-
-
            
         }
+        private void Clear()
+        {
+            tbNome.Clear();
+            tbQuantidade.Clear();
+            dtpData.SelectedDate = null;
+        }
+
 
 
         private void tbCancelar_Click(object sender, RoutedEventArgs e)

@@ -25,8 +25,8 @@ namespace NovoTayUmDoce.Models
             {
 
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO endereco (bairro_end, cidade_end, rua_end, complemento_end, numero_end) " +
-                    $"VALUES (@bairro, @cidade, @rua, @complemento, @numero)";
+                query.CommandText = "INSERT INTO endereco (bairro_end, cidade_end, rua_end, complemento_end, numero_end) " +
+                    "VALUES (@bairro, @cidade, @rua, @complemento, @numero)";
 
                 query.Parameters.AddWithValue("@bairro", endereco.Bairro);
                 query.Parameters.AddWithValue("@cidade", endereco.Cidade);
@@ -50,12 +50,8 @@ namespace NovoTayUmDoce.Models
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
+                MessageBox.Show("Erro 3007endereco : Contate o suporte!");
                 return 0;
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 

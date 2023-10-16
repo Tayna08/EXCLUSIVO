@@ -48,11 +48,7 @@ namespace TayUmDoceProjeto.Models
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
-            }
-            finally
-            {
-                conn.Close();
+                MessageBox.Show("Erro 3007cliente : Contate o suporte!");
             }
         }
 

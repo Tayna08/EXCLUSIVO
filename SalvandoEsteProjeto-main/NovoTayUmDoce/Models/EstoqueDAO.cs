@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using System.Windows;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Models
 {
@@ -42,10 +43,7 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
-            finally
-            {
-                conn.Close();
-            }
+         
         }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
+using TayUmDoceProjeto.Models;
+using TayUmDoceProjeto.Janelas;
 
 
 namespace TayUmDoceProjeto.Janelas
@@ -37,19 +39,50 @@ namespace TayUmDoceProjeto.Janelas
             try
             {
                 Fornecedor fornecedor = new Fornecedor();
-                fornecedor.Cnpj = tbCnpj.Text;
+                Endereco endereco = new Endereco();
+                Estoque estoque = new Estoque();
+
+
+                endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                endereco.Bairro = tbBairro.Text;
+                endereco.Cidade = tbCidade.Text;
+                endereco.Complemento = tbComplemento.Text;
+                endereco.Rua = tbRua.Text;
+
+                fornecedor.Endereco = endereco;
+
                 fornecedor.Nome_Fantasia = tbNome.Text;
-                fornecedor.Contato=tbContato.Text;
                 fornecedor.Nome_Representante = tbNomeRepresentante.Text;
+                fornecedor.Contato=tbContato.Text;
+                fornecedor.Cnpj = tbCnpj.Text;
+                fornecedor.Razao_Social= tbRazaoSocial.Text;
+
                 FornecedorDAO fornecedorDAO = new FornecedorDAO();
                 fornecedorDAO.Insert(fornecedor);
 
                 MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }
+
+        }
+        private void Clear()
+        {
+            tbNome.Clear();
+            tbNomeRepresentante.Clear();
+            tbContato.Clear();
+            tbCnpj.Clear();
+            tbRazaoSocial.Clear();
+            tbBairro.Clear();
+            tbNumero.Clear();
+            tbCidade.Clear();
+            tbComplemento.Clear();
+            tbRua.Clear();
+
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)

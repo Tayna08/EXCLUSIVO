@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
 using MySql.Data.MySqlClient;
 
-
 namespace NovoTayUmDoce.Janelas
 {
     /// <summary>
@@ -26,17 +25,12 @@ namespace NovoTayUmDoce.Janelas
         public ListarFuncionario()
         {
             InitializeComponent();
-            Listar();
             Conexao();
-        }
-
-        private void dtg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            Listar();         
         }
         private void Conexao()
         {
-            string conexaoString = "server=localhost;database=tayumdoce_bd;user=root;password=root;port=3306";
+            string conexaoString = "server=localhost;database=Projeto_Tay_bd;user=root;password=root;port=3306";
             _conexao = new MySqlConnection(conexaoString);
             _conexao.Open();
         }
@@ -53,33 +47,28 @@ namespace NovoTayUmDoce.Janelas
                 string data = "";
                 try
                 {
-                    data = reader.GetDateTime("data_nasc_fun").ToString("dd/MM/yyyy");
+                    data = reader.GetDateTime("data_nascimento_fun").ToString("dd/MM/yyyy");
                 }
                 catch { }
 
                 var funcionario = new
                 {
-                    Data = data,
-                    Cidade = reader.GetString(1),
-                    Funcao = reader.GetString(2),
-                    Complemento = reader.GetString(3),
-                    Cpf = reader.GetString(4),
-                    Salario = reader.GetString(5),
-                    Rg = reader.GetString(6),
-                    Nome = reader.GetString(7),
-                    Contato = reader.GetString(8),
-                    Bairro = reader.GetString(9),
-                    Rua = reader.GetString(10),
-                    Cep = reader.GetString(11),
-                    Numero = reader.GetString(12),
-                   
+                    Id = reader.GetString(0),
+                    Nome = reader.GetString(1),
+                    DataNasc = data,
+                    Cpf = reader.GetString(3),
+                    Contato = reader.GetString(4),
+                    Funcao = reader.GetString(5),
+                    Email = reader.GetString(6),
+                    Salario = reader.GetString(7),
+                    Endereco = reader.GetString(8),
                 };
                 lista.Add(funcionario);
             }
-            dtg.ItemsSource = lista;
+            dataGridFuncionario.ItemsSource = lista;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btSair_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
