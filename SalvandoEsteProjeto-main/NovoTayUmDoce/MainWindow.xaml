@@ -39,6 +39,7 @@
                 <StackPanel x:Name="Menu" Margin="10"/>
             </ScrollViewer>
         </Grid>
+        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="128,94,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
 
         <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="20"/>
 

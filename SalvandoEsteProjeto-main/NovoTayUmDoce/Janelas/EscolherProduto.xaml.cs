@@ -18,11 +18,11 @@ using NovoTayUmDoce.Janelas;
 namespace TayUmDoceProjeto.Janelas
 {
     /// <summary>
-    /// Lógica interna para CadastrarProduto.xaml
+    /// Lógica interna para EscolherProduto.xaml
     /// </summary>
-    public partial class CadastrarProduto : Window
+    public partial class EscolherProduto : Window
     {
-        public CadastrarProduto()
+        public EscolherProduto()
         {
             InitializeComponent();
        

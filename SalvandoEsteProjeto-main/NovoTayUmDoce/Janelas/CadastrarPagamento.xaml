@@ -31,9 +31,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67"/>
 
         <StackPanel Margin="50,50,208,560">
-
             <Label Content="N°"/>
-
         </StackPanel>
 
         <StackPanel Margin="80,50,650,560">
@@ -45,16 +43,11 @@
         </StackPanel>
 
         <StackPanel Margin="200,50,500,560">
-
             <DatePicker x:Name="dtpDataPag" Height="28" VerticalAlignment="Top"/>
-
         </StackPanel>
 
-
         <StackPanel Margin="310,50,429,560">
-
             <Label Content="HORA"/>
-
         </StackPanel>
 
         <StackPanel Margin="370,50,357,560">
@@ -62,9 +55,7 @@
         </StackPanel>
 
         <StackPanel Margin="50,90,50,493">
-
             <Label Content="DESPESA:"/>
-
         </StackPanel>
 
         <StackPanel Margin="145,90,200,500">
@@ -72,29 +63,39 @@
         </StackPanel>
 
         <StackPanel Margin="50,140,50,350">
-
             <Label Content="FORNECEDOR:"/>
-
         </StackPanel>
 
         <StackPanel Margin="185,140,200,350">
             <ComboBox x:Name="tbFornecedor"  Background="White"/>
         </StackPanel>
 
-
         <StackPanel Margin="60,195,50,447">
-
-            <Label Content="FORMA DE :"/>
-
+            <Label Content="FORMA DE :" Width="706"/>
         </StackPanel>
+
         <StackPanel Margin="50,215,50,350">
+            <Label Content="PAGAMENTO" Width="688"/>
+        </StackPanel>
 
-            <Label Content="RECEBIMENTO"/>
+        <StackPanel Margin="50,260,10,350">
+            <Label Content="PARCELA:" Width="688"/>
+        </StackPanel>
 
+        <StackPanel Margin="340,260,321,350">
+            <Label Content="OBSERVAÇÃO:" Width="688"/>
+        </StackPanel>
+        
+        <StackPanel Margin="479,260,140,356">
+            <ComboBox x:Name="tbObsPag"  Background="White"/>
+        </StackPanel>
+
+        <StackPanel Margin="185,260,480,356">
+            <ComboBox x:Name="tbParcelaPag"  Background="White"/>
         </StackPanel>
 
         <StackPanel Margin="185,200,480,356">
-            <ComboBox x:Name="tbFormPaga"  Background="White"/>
+            <ComboBox x:Name="tbFormPag"  Background="White"/>
         </StackPanel>
 
         <StackPanel Margin="340,200,360,356">
@@ -102,9 +103,7 @@
         </StackPanel>
 
         <StackPanel Margin="445,200,50,447">
-
             <Label Content="VALOR:"/>
-
         </StackPanel>
 
         <StackPanel Margin="520,200,190,350">
@@ -116,9 +115,7 @@
         </StackPanel>
 
         <StackPanel Margin="660,200,50,250">
-
             <DatePicker x:Name="dtpDataVencPag" Height="28" VerticalAlignment="Top"/>
-
         </StackPanel>
 
 
