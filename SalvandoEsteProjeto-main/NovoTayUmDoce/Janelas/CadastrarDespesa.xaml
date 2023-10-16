@@ -45,61 +45,47 @@
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,170,100,219">
-            <Label Content="DATA"/>
-            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
+        <StackPanel Margin="50,170,208,621">
+            <Label Content="DESCRIÇÃO"/>
+            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,250,100,145">
+        <StackPanel Margin="50,250,590,451">
             <Label Content="DATA VENCIMENTO"/>
             <DatePicker x:Name="dtpDataVenci" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
         
         <!--data_des date-->
-        <StackPanel Margin="50,110,100,100">
+        <StackPanel Margin="50,310,590,300">
             <Label Content="DATA DA DESPESA:"/>
         </StackPanel>
 
-        <StackPanel Margin="210,110,208,286">
+        <StackPanel Margin="50,330,590,286">
             <DatePicker x:Name="dtpDataDespesa" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
         <!--FormaDePagamento-->
 
-        <StackPanel Margin="50,160,50,245">
+        <StackPanel Margin="251,290,370,400">
             <Label Content="FORMA PAGAMENTO:"/>
         </StackPanel>
 
-        <StackPanel Margin="230,160,208,260">
-            <ComboBox x:Name="tbFormaPagamento"  Background="White" Height="27"/>
+        <StackPanel Margin="321,290,-13,400">
+            <ComboBox x:Name="tbFormaPagamento"  Background="White" Height="27" Width="275"/>
         </StackPanel>
-        
-        
+
+        <StackPanel Margin="321,320,208,472">
+            <Label Content="NOME DESPESA:"/>
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
         <!--valor_des double-->
-        <StackPanel Margin="50,220,208,100">
+        <StackPanel Margin="400,250,208,100">
             <Label Content="VALOR:"/>
         </StackPanel>
 
-        <StackPanel Margin="120,220,530,150">
-
-            <TextBox x:Name="tbvL" TextWrapping="Wrap" Background="White" Height="30"/>
-
+        <StackPanel Margin="475,250,179,400">
+            <TextBox x:Name="tbValorDesp" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
-
-        <!--vencimento_des date-->
-        <StackPanel Margin="280,220,100,100">
-            <Label Content="DATA DA DESPESA:"/>
-        </StackPanel>
-
-        <StackPanel Margin="435,220,50,100">
-            <DatePicker x:Name="dtpDataDespesaVencimento" Height="28" VerticalAlignment="Top"/>
-        </StackPanel>
-        
-
-
-
-
-
     </Grid>
-
 </Window>
