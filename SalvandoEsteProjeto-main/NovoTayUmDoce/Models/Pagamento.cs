@@ -13,6 +13,8 @@ namespace NovoTayUmDoce.Models
         public double Valor { get; set; }
         public DateTime? DataPag { get; set; }
         public double Quantidade { get; set; }
-
+        public double Forma { get; set; } 
+        public double Parcela { get; set; }
+        public double Observacao { get; set; }  
     }
 }

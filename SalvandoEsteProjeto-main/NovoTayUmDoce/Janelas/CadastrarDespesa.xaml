@@ -61,7 +61,7 @@
         </StackPanel>
 
         <StackPanel Margin="50,330,590,286">
-            <DatePicker x:Name="dtpDataDespesa" Height="28" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
         <!--FormaDePagamento-->
