@@ -27,11 +27,11 @@ namespace NovoTayUmDoce.Janelas
 
     
 
-        private void btProduto_Click(object sender, RoutedEventArgs e)
+        /*private void btProduto_Click(object sender, RoutedEventArgs e)
         {
             CadastrarProduto produto = new CadastrarProduto();
             produto.ShowDialog();
-        }
+        }*/
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -63,6 +63,12 @@ namespace NovoTayUmDoce.Janelas
         {
             CadastrarCliente cliente= new CadastrarCliente();
             cliente.ShowDialog();
+        }
+
+        private void btProduto_Click(object sender, RoutedEventArgs e)
+        {
+            EscolherProduto escolherProduto= new EscolherProduto();
+            escolherProduto.ShowDialog();
         }
     }
 }
