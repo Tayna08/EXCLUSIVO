@@ -38,6 +38,9 @@ namespace NovoTayUmDoce.Janelas
                 caixa.ValorEntrada = Convert.ToDouble(tbValorEntrada.Text);
                 caixa.ValorSaida = Convert.ToDouble(tbValorSaida.Text);
                 caixa.Data = dtpDataCaixa.SelectedDate;
+                caixa.Pagamento = Convert.ToDouble(tbPagamento.Text);
+                caixa.Descricao = tbDescricao.Text;
+                caixa.Usuario = tbUsuario.Text;
 
                 CaixaDAO caixaDAO = new CaixaDAO();
                 caixaDAO.Insert(caixa);
