@@ -38,9 +38,11 @@ namespace NovoTayUmDoce.Janelas
                 //Setando informações na tabela cliente
                 Despesa despesa = new Despesa();
 
+                despesa.NomeDespesa = tbNome.Text;
+                despesa.Descricao = tbDescricao.Text;
                 despesa.FormaPagamento = tbFormaPag.Text;
                 despesa.Data = dtpData.SelectedDate;
-                despesa.Valor = tbValor.Text;
+                despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
 
                 DespesaDAO despesaDAO = new DespesaDAO();

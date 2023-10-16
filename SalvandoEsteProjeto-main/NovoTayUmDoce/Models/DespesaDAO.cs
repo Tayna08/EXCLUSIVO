@@ -26,13 +26,15 @@ namespace NovoTayUmDoce.Models
             {
                
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Despesa (forma_pag_des, data_des, valor_des, vencimento_des) " +
-                    $"VALUES (@forma_pag, @data, @valor, @vencimento)";
+                query.CommandText = $"INSERT INTO Despesa (nome_des, descricao_des, forma_pag_des, data_des, valor_des, vencimento_des) " +
+                    $"VALUES (@NomeDespesa, @Descricao, @FormaPagamento, @Data, @Valor, @Vencimento)";
 
-                query.Parameters.AddWithValue("@forma_pag", despesa.FormaPagamento);
-                query.Parameters.AddWithValue("@data", despesa.Data?.ToString("yyyy-MM-dd"));
-                query.Parameters.AddWithValue("@valor", despesa.Valor);
-                query.Parameters.AddWithValue("@vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@NomeDespesa", despesa.NomeDespesa);
+                query.Parameters.AddWithValue("@Descricao", despesa.Descricao);
+                query.Parameters.AddWithValue("@Forma_pag", despesa.FormaPagamento);
+                query.Parameters.AddWithValue("@Data", despesa.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@Valor", despesa.Valor);
+                query.Parameters.AddWithValue("@Vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
 
 
                 var result = query.ExecuteNonQuery();
