@@ -101,7 +101,7 @@ foreign key (id_end_fk) references Endereco (id_end),
 foreign key (id_est_fk) references Estoque (id_est)
 );
 
-/*create table Compra(
+create table Compra(
 id_com int primary key auto_increment,
 valor_com double,
 nome_com varchar(200),
@@ -114,7 +114,7 @@ id_for_fk int,
 foreign key (id_fun_fk) references Funcionario (id_fun),
 foreign key (id_des_fk) references Despesa (id_des),
 foreign key (id_for_fk) references Fornecedor (id_for)
-);*/
+);
 
 create table Insumos(
 id_ins int primary Key auto_increment,
@@ -201,13 +201,13 @@ foreign key (id_ven_fk) references Venda(id_ven),
 foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
-/*create table Compra_Produto(
+create table Compra_Produto(
 id_comp int primary key auto_increment,
 id_com_fk int,
 id_pro_fk int,
 foreign key (id_com_fk) references Compra(id_com),
 foreign key (id_pro_fk) references Produto(id_pro)
-);*/
+);
 
 create table Venda_Produto(
 id_venp int primary key auto_increment,
