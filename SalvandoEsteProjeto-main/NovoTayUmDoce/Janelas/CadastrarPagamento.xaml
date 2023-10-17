@@ -94,37 +94,26 @@
             <ComboBox x:Name="tbParcelaPag"  Background="White"/>
         </StackPanel>
 
-        <StackPanel Margin="185,200,480,356">
+        <StackPanel Margin="165,200,500,356">
             <ComboBox x:Name="tbFormPag"  Background="White"/>
         </StackPanel>
 
-        <StackPanel Margin="340,200,360,356">
+        <StackPanel Margin="310,200,395,430">
             <ComboBox x:Name="tbDivisao"  Background="White"  />
         </StackPanel>
 
-        <StackPanel Margin="445,200,50,447">
+        <StackPanel Margin="415,200,50,447">
             <Label Content="VALOR:"/>
         </StackPanel>
 
-        <StackPanel Margin="520,200,190,350">
-            <ComboBox x:Name="tbValorPag"  Background="White"  />
+        <StackPanel Margin="450,200,190,350">
+            <ComboBox x:Name="tbValorPag"  Background="White" Width="100"  />
         </StackPanel>
-
-        <StackPanel Margin="610,200,50,407">
-            <Label Content="DATA:"/>
-        </StackPanel>
-
-        <StackPanel Margin="660,200,50,250">
-            <DatePicker x:Name="dtpDataVencPag" Height="28" VerticalAlignment="Top"/>
-        </StackPanel>
-
-
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,380,0,0" Width="420" Height="67">
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
             <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
         </StackPanel>
-
 
     </Grid>
 </Window>

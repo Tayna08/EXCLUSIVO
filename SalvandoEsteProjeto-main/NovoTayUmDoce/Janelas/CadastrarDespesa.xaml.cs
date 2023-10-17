@@ -41,13 +41,10 @@ namespace NovoTayUmDoce.Janelas
                 despesa.NomeDespesa = tbNome.Text;
                 despesa.Descricao = tbDescricao.Text;
                 despesa.FormaPagamento = tbFormaPag.Text;
-<<<<<<< HEAD
-               
-                despesa.Valor = tbValor.Text;
-=======
+              
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
->>>>>>> c88e292bc320a5044c3d42385052bb8cda78a095
+
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
 
                 DespesaDAO despesaDAO = new DespesaDAO();

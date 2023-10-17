@@ -88,14 +88,27 @@
 
         <StackPanel Margin="50,260,50,100">
             <Label Content="DESCONTO:"/>
-           
         </StackPanel>
         <StackPanel Margin="160,260,50,100">
             <TextBox x:Name="tbDesconto" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
         </StackPanel>
-       
+
+        <StackPanel Margin="50,300,50,100">
+            <Label Content="PRODUTO:"/>
+        </StackPanel>
         
-       
+        <StackPanel Margin="60,302,280,200">
+            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Width="298"/>
+        </StackPanel>
+
+        <StackPanel Margin="440,300,239,200">
+            <Label Content="QUANTIDADE:"/>
+        </StackPanel>
+
+        <StackPanel Margin="560,302,80,00">
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Width="298"/>
+        </StackPanel>
+
     </Grid>
 
 </Window>

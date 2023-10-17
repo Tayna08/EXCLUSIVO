@@ -18,6 +18,8 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,203" >
+            
+
             <DataGrid Name="dataGrid" AutoGenerateColumns="False" GridLinesVisibility="All" Margin="30,11,26,58" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Header="Destaque">
