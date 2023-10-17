@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="312*"/>
             <ColumnDefinition Width="45*"/>
@@ -28,6 +28,8 @@
 
         <StackPanel Margin="50,40,208,336" Grid.ColumnSpan="4">
             <Label Content="NOME:"/>
+        </StackPanel>
+        <StackPanel Margin="100,40,40,336" Grid.ColumnSpan="4">
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 

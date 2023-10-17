@@ -118,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\SalvarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarCaixa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -246,6 +250,9 @@
     </Compile>
     <Compile Include="Componentes\ClienteListarUC.xaml.cs">
       <DependentUpon>ClienteListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\SalvarUC.xaml.cs">
+      <DependentUpon>SalvarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
