@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using NovoTayUmDoce.Botoes;
 using MaterialDesignThemes.Wpf;
 
 namespace NovoTayUmDoce.Componentes
@@ -25,7 +24,7 @@ namespace NovoTayUmDoce.Componentes
         public SalvarUC()
         {
             InitializeComponent();
-            var item = new Botao( PackIconKind.Add);
+            var item =  PackIconKind.Add;
         }
     }
 }
