@@ -37,5 +37,10 @@ namespace NovoTayUmDoce.Componentes
         {
             _context.SwitchScreen(new ClienteFormUC(_context));
         }
+
+        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

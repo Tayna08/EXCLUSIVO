@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para FornecedorFormUC.xam
+    /// Interação lógica para FornecedorListarUC.xam
     /// </summary>
-    public partial class FornecedorFormUC : UserControl
+    public partial class FornecedorListarUC : UserControl
     {
-        public FornecedorFormUC()
+        public FornecedorListarUC()
         {
             InitializeComponent();
-        }
-
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
