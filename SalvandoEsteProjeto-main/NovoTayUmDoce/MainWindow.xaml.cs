@@ -85,8 +85,6 @@ namespace NovoTayUmDoce
             Menu.Children.Add(new ControleHome(item3, this));
             Menu.Children.Add(new ControleHome(item4, this));
         }
-<<<<<<< Updated upstream
-=======
 
      
        
