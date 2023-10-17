@@ -41,10 +41,14 @@ namespace NovoTayUmDoce.Janelas
                 despesa.NomeDespesa = tbNome.Text;
                 despesa.Descricao = tbDescricao.Text;
                 despesa.FormaPagamento = tbFormaPag.Text;
+<<<<<<< Updated upstream
               
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
 
+=======
+                despesa.Valor = tbValor.Text;
+>>>>>>> Stashed changes
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
 
                 DespesaDAO despesaDAO = new DespesaDAO();
@@ -64,7 +68,10 @@ namespace NovoTayUmDoce.Janelas
         {
            tbFormaPag.Clear();
            tbValor.Clear();
+<<<<<<< Updated upstream
       
+=======
+>>>>>>> Stashed changes
            dtpDataVenci.SelectedDate = null;
         }
 
