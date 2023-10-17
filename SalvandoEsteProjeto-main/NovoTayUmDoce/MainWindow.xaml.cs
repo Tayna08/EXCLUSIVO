@@ -87,7 +87,7 @@ namespace NovoTayUmDoce
         }
 
      
-       
+       /*
         private void btCadastrarCliente_Click(object sender, RoutedEventArgs e)
         {
             CadastrarCliente cliente = new CadastrarCliente();
@@ -257,7 +257,6 @@ namespace NovoTayUmDoce
         {
             CadastrarPedido cadastrarPedido = new CadastrarPedido();
             cadastrarPedido.ShowDialog();
-        }
->>>>>>> Stashed changes
+        }*/
     }
 }
