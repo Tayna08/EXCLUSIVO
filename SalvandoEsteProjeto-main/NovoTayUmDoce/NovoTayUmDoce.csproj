@@ -118,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\FornecedorFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\FuncionarioFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -262,6 +266,9 @@
     </Compile>
     <Compile Include="Componentes\ClienteListarUC.xaml.cs">
       <DependentUpon>ClienteListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\FornecedorFormUC.xaml.cs">
+      <DependentUpon>FornecedorFormUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\FuncionarioFormUC.xaml.cs">
       <DependentUpon>FuncionarioFormUC.xaml</DependentUpon>
