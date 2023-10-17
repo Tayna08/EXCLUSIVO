@@ -14,5 +14,6 @@ namespace NovoTayUmDoce.Models
         public string Rua { get; set; }
         public string Complemento { get; set; }
         public int Numero { get; set; }
+        public int Cep {get; set; }
     }
 }

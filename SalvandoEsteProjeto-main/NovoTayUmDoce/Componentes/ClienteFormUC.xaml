@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Bisque">
+    <Grid Background="Bisque" Margin="0,0,-26,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="312*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="200*"/>
             <ColumnDefinition Width="307*"/>
         </Grid.ColumnDefinitions>
@@ -41,7 +41,7 @@
         </StackPanel>
 
 
-        <StackPanel Margin="52,90,40,264" Grid.Column="3">
+        <StackPanel Margin="67,83,40,264" Grid.Column="3" RenderTransformOrigin="0.461,1.096">
             <Label Content="DATA NASCIMENTO:" Width="193"/>
             <DatePicker x:Name="dtpData" Height="22"/>
         </StackPanel>
@@ -57,16 +57,17 @@
             <Label Content="CIDADE:"/>
             <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-
         <StackPanel Margin="50,167,104,163" Grid.ColumnSpan="4">
             <Label Content="RUA:"/>
+        </StackPanel>
+        <StackPanel Margin="50,167,104,163" Grid.ColumnSpan="4">
             <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
         <StackPanel Margin="46,140,75,263" Grid.Column="2">
-            <Label Content="NÚMERO:" Width="414"/>
+            <Label Content="NÚMERO:" Width="86"/>
         </StackPanel>
-        <StackPanel Margin="113,141,259,263" Grid.Column="2" Grid.ColumnSpan="2">
+        <StackPanel Margin="113,140,254,263" Grid.Column="2" Grid.ColumnSpan="2">
             <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27" Width="124"/>
         </StackPanel>
 
@@ -78,8 +79,14 @@
         <StackPanel Margin="266,90,208,278" Grid.ColumnSpan="4">
             <Label Content="CONTATO:" Width="288"/>
         </StackPanel>
-        <StackPanel Margin="50,90,272,278" Grid.ColumnSpan="2" Grid.Column="2">
+        <StackPanel Margin="50,90,272,278" Grid.ColumnSpan="3" Grid.Column="2">
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+        <StackPanel Margin="266,200,208,278" Grid.ColumnSpan="4">
+            <Label Content="CEP:" Width="288"/>
+        </StackPanel>
+        <StackPanel Margin="50,200,272,278" Grid.ColumnSpan="3" Grid.Column="2">
+            <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
 

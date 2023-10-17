@@ -7,18 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="527*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24"/>
             <Button x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click"/>
         </StackPanel>
 
 
         <DataGrid Grid.Row="1" Margin="5,20,5,5" x:Name="dataGridFuncionario" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -31,6 +35,6 @@
                 <DataGridTextColumn Header="Endereço FK" Binding="{Binding Endereco}"/>
             </DataGrid.Columns>
         </DataGrid>
-      
+
     </Grid>
 </UserControl>
