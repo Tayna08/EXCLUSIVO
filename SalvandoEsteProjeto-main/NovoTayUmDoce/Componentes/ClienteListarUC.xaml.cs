@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -21,16 +22,20 @@ namespace NovoTayUmDoce.Componentes
     public partial class ClienteListarUC : UserControl
     {
         MainWindow _context;
+        private MySqlConnection _conexao;
 
         public ClienteListarUC()
         {
             InitializeComponent();
+            Conexao();
+            Listar();
         }
 
         public ClienteListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
+            
         }
 
         private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
@@ -41,6 +46,42 @@ namespace NovoTayUmDoce.Componentes
         private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        private void Conexao()
+        {
+            string conexaoString = "server=localhost;database=Projeto_Tay_bd;user=root;password=root;port=3360";
+            _conexao = new MySqlConnection(conexaoString);
+            _conexao.Open();
+        }
+
+        private void Listar()
+        {
+            string sql = "Select * from Cliente";
+            var comando = new MySqlCommand(sql, _conexao);
+            var reader = comando.ExecuteReader();
+            var lista = new List<Object>();
+
+            while (reader.Read())
+            {
+                string data = "";
+                try
+                {
+                    data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
+                }
+                catch { }
+
+                var cliente = new
+                {
+                    Id = reader.GetString(0),
+                    Nome = reader.GetString(1),
+                    Cpf = reader.GetString(2),
+                    Contato = reader.GetString(4),
+                    DataNasc = data,
+                    Endereco = reader.GetString(5),
+                };
+                lista.Add(cliente);
+            }
+            dataGridClientes.ItemsSource = lista;
         }
     }
 }
