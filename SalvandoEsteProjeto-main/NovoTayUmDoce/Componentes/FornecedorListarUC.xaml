@@ -4,9 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
-             mc:Ignorable="d" 
+              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Fornecedor" VerticalAlignment="Center" FontSize="24"/>
+            <Button x:Name="BtnAddFornecedor" Margin="10 0 0 0" Content="Novo Fornecedor" Click="BtnAddFornecedor_Click"/>
+        </StackPanel>
+
+
+        <DataGrid Grid.Row="1" Margin="5,20,5,5" x:Name="dataGridFornecedor" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome fantasia" Binding="{Binding Nome_fantasia}"/>
+                <DataGridTextColumn Header="Nome Representante" Binding="{Binding Nome_Representante}"/>
+                <DataGridTextColumn Header="CNPJ" Binding="{Binding CNPJ}"/>
+                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
+                <DataGridTextColumn Header="Razão Social" Binding="{Binding Razao_Social}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>

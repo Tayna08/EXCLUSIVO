@@ -20,9 +20,22 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class FornecedorListarUC : UserControl
     {
+        MainWindow _context;
+
         public FornecedorListarUC()
         {
             InitializeComponent();
+        }
+
+        public FornecedorListarUC(MainWindow context)
+        {
+            InitializeComponent();
+            _context = context;
+        }
+
+        private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
+        {
+            _context.SwitchScreen(new FornecedorFormUC(_context));
         }
     }
 }
