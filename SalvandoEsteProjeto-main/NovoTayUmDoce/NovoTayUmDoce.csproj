@@ -158,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Janelas\CadastrarProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\EscolherProduto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -278,6 +282,9 @@
     </Compile>
     <Compile Include="Janelas\CadastrarPedido.xaml.cs">
       <DependentUpon>CadastrarPedido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarProduto.xaml.cs">
+      <DependentUpon>CadastrarProduto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\EscolherProduto.xaml.cs">
       <DependentUpon>EscolherProduto.xaml</DependentUpon>
