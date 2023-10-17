@@ -39,5 +39,10 @@ namespace NovoTayUmDoce.Componentes
         {
             _context.SwitchScreen(new FornecedorListarUC(_context));
         }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

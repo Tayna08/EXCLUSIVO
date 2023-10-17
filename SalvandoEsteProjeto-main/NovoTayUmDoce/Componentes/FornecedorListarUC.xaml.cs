@@ -33,7 +33,8 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
         }
 
-        private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
+
+        private void BtnAddFornecedor_Click(object sender, RoutedEventArgs e)
         {
             _context.SwitchScreen(new FornecedorFormUC(_context));
         }
