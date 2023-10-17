@@ -49,7 +49,7 @@ namespace NovoTayUmDoce
         {
             var menuRegister = new List<SubItem>();
             menuRegister.Add(new SubItem("Clientes", new ClienteListarUC(this)));
-            menuRegister.Add(new SubItem("Funcionario"));
+            menuRegister.Add(new SubItem("Funcionario", new FuncionarioListarUC(this)));
             menuRegister.Add(new SubItem("Employees"));
             menuRegister.Add(new SubItem("Products"));
             var item6 = new ItemMenu("Registro", menuRegister, PackIconKind.Register);
