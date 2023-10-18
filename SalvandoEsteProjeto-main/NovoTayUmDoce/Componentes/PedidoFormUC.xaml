@@ -48,7 +48,7 @@
             <Label Content="STATUS:"/>
         </StackPanel>
         <StackPanel Margin="490,250,40,595">
-            <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbStatus_TextChanged"/>
+            <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="27" />
         </StackPanel>
 
         <StackPanel Margin="50,247,420,549">
