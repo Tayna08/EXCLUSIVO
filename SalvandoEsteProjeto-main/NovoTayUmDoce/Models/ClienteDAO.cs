@@ -37,7 +37,12 @@ namespace TayUmDoceProjeto.Models
                     var endereco = new Endereco()
                     {
                         Id = reader.GetInt32("id_end"),
-                        Cidade = reader.GetString("cidade_end")
+                        Bairro = reader.GetString("bairro_end"),
+                        Cidade = reader.GetString("cidade_end"),
+                        Rua = reader.GetString("rua_end"),
+                        Complemento = reader.GetString("complemento_end"),
+                        Numero = reader.GetInt32("numero_end"),
+                        Cep = reader.GetString("cep_end")
                     };
 
                     var data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
@@ -46,9 +51,9 @@ namespace TayUmDoceProjeto.Models
                     {
                         Id = reader.GetInt32("id_cli"),
                         Nome = reader.GetString("nome_cli"),
-                        //Cpf = reader.GetString(2),
-                        //Contato = reader.GetString(4),
-                        //DataNasc = data,
+                        Cpf = reader.GetString("cpf_cli"),
+                        Contato = reader.GetString("contato_cli"),
+                        DataNasc = reader.GetDateTime(data),
                         Endereco = endereco,
                     };
 

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +22,9 @@ namespace NovoTayUmDoce.Models
 
             try
             {
-                var funcionarioId = new FuncionarioDAO().Insert(compra.Funcionario);
-                var despesaId = new DespesaDAO().Insert(compra.Despesa);
-                var FornecedorId = new FornecedorDAO().Insert(compra.Fornecedor);
+                //var funcionarioId = new FuncionarioDAO().Insert(compra.Funcionario);
+                //var despesaId = new DespesaDAO().Insert(compra.Despesa);
+                //var FornecedorId = new FornecedorDAO().Insert(compra.Fornecedor);
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Compra (valor_com, nome_com, data_com, quantidade_com, descricao_com, id_fun_fk, id_des_fk, id_for_fk)" +
                                     $"VALUES (@Valor, @Nome, @Data, @Quantidade, @Descricao, @id_fun, @id_des, @id_for)";
