@@ -36,7 +36,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void BtnAddFornecedor_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new FornecedorFormUC(_context));
+            
         }
     }
 }
