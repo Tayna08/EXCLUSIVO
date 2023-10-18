@@ -22,18 +22,11 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
-        public FornecedorFormUC(MainWindow context)
-        {
-            InitializeComponent();
-            _context = context;
-        }
-
         public FornecedorFormUC(MainWindow context, int id)
         {
             InitializeComponent();
             _context = context;
         }
-
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
