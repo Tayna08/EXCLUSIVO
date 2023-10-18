@@ -25,11 +25,9 @@
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
                 <DataGridTextColumn Header="Descricao" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Fk Funcionario" Binding="{Binding Endereco.Bairro}"/>
-                <DataGridTextColumn Header="Fk Despesa" Binding="{Binding Endereco.Rua}"/>
-                <DataGridTextColumn Header="Fk Fornecedor" Binding="{Binding Endereco.Numero}"/>
-                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
-                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
+                <DataGridTextColumn Header="Fk Funcionario" Binding="{Binding Funcionario}"/>
+                <DataGridTextColumn Header="Fk Despesa" Binding="{Binding Despesa}"/>
+                <DataGridTextColumn Header="Fk Fornecedor" Binding="{Binding Fornecedor}"/>
             </DataGrid.Columns>
         </DataGrid>
 

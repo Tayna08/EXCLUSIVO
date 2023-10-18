@@ -30,7 +30,6 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
-
         }
 
         private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
