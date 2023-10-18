@@ -381,3 +381,5 @@ select 'preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
+
+select * from cliente;

@@ -6,13 +6,11 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Bisque">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,125" />
 
         <Grid Margin="0,28,0,0">
             <Grid.RowDefinitions>
@@ -34,7 +32,7 @@
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,85,208,333" Grid.ColumnSpan="2">
+        <StackPanel Margin="50,85,499,333">
             <Label Content="CPF:"/>
             <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
@@ -45,7 +43,7 @@
         </StackPanel>
 
 
-        <StackPanel Margin="321,150,208,213">
+        <StackPanel Margin="321,85,208,431">
             <Label Content="CONTATO:"/>
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
         </StackPanel>
@@ -61,7 +59,7 @@
         </StackPanel>
 
         <StackPanel Margin="400,210,56,312">
-            <Label Content="CIDADE::"/>
+            <Label Content="CIDADE:"/>
             <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27" Grid.Row="2"/>
         </StackPanel>
 
@@ -86,8 +84,12 @@
         </StackPanel>
 
         <StackPanel Margin="521,317,56,207">
-            <Label Content="SALÀRIO:"/>
+            <Label Content="SALÁRIO:"/>
             <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+        <StackPanel Margin="649,150,31,207">
+            <Label Content="CEP:"/>
+            <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
     </Grid>
 </UserControl>
