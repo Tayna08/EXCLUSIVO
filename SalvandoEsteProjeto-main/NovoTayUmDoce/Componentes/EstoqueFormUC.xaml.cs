@@ -12,25 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Models;
+using System.Runtime.Remoting.Contexts;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para FornecedorFormUC.xam
+    /// Interação lógica para EstoqueFormUC.xam
     /// </summary>
-    public partial class FornecedorFormUC : UserControl
+    public partial class EstoqueFormUC : UserControl
     {
         MainWindow _context;
-
-        public FornecedorFormUC(MainWindow context, int id)
+        public EstoqueFormUC(MainWindow context, int id)
         {
             InitializeComponent();
             _context = context;
-        }
-
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            _context.SwitchScreen(new FornecedorListarUC(_context));
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
