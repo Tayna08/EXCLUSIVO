@@ -12,12 +12,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="Pagamentos" VerticalAlignment="Center" FontSize="24"/>
+            <TextBlock Text="Pedidos" VerticalAlignment="Center" FontSize="24"/>
             <Button x:Name="BtnAddPedido" Margin="10 0 0 0" Content="Novo Pedido" Click="BtnAddPedido_Click"/>
         </StackPanel>
 
         <DataGrid Grid.Row="2" x:Name="dataGridPedidos" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>

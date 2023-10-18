@@ -47,7 +47,7 @@ namespace NovoTayUmDoce.Componentes
                 Despesa despesa = new Despesa();
                 Caixa caixa = new Caixa();
 
-                pagamento.Valor = Convert.ToInt32(tbValorPag.Text);
+                pagamento.Valor = Convert.ToInt32(tbValor.Text);
                 pagamento.DataPag = dtpDataPag.SelectedDate;
                 pagamento.Forma = Convert.ToInt32(tbPagamento.Text);
                 pagamento.Parcela = Convert.ToInt32(tbParcelaPag.Text);
