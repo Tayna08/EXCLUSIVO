@@ -40,8 +40,6 @@ namespace NovoTayUmDoce.Componentes
                 recebimento.Forma_Recebimento = tbFormPag.Text;
                 recebimento.Data = dtpData.SelectedDate;
                 recebimento.Valor = Convert.ToDouble(tbValor);
-             
-
 
                
                 //Inserindo os Dados           
