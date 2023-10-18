@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="312*"/>
@@ -98,3 +99,4 @@
 
     </Grid>
 </UserControl>
+

@@ -4,20 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
-             mc:Ignorable="d" >
-
-    <Grid Background="Bisque" Margin="10,0,-10,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Bisque" Margin="0,0,-26,0">
+
+    <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="312*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="200*"/>
-            <ColumnDefinition Width="307*"/>
-
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="332*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -26,155 +22,83 @@
         </Grid.RowDefinitions>
 
 
-
-        <Grid>
-            <StackPanel Margin="40,80,208,496">
-                <Label Content="NOME:"/>
-            </StackPanel>
-            <StackPanel Margin="90,80,40,511">
-                <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
-            </StackPanel>
-        </Grid>
-
-
-        <Grid>
-            
-            <StackPanel Margin="680,130,450,511">
-                <Label Content="CONTATO:" Width="288" HorizontalAlignment="Left"/>
-            </StackPanel>
-            <StackPanel Margin="750,130,40,461">
-                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
-            </StackPanel>
-           
-        </Grid>
-        <Grid>
-            <StackPanel Margin="40,130,911,461">
-                <Label Content="CPF:"/>
-            </StackPanel>
-            <StackPanel Margin="90,130,743,461">
-                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27"/>
-            </StackPanel>
-        </Grid>
-
-
-
-        <StackPanel Margin="40,185,990,422">
-            <Label Content="DATA NASCIMENTO:" Width="116" HorizontalAlignment="Left" />
-        </StackPanel>
-        <StackPanel Margin="457,185,420,422">
-            <DatePicker x:Name="dtpData" Height="25" Background="White"/>
-        </StackPanel>
-        <StackPanel Margin="687,185,40,403">
-            <Label Content="BAIRRO:"/>
-        </StackPanel>
-        <StackPanel Margin="747,185,40,403">
-            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-
-        <StackPanel Margin="40,230,711,352">
-            <Label Content="RUA:" Width="652"/>
-        </StackPanel>
-        <StackPanel  Margin="373,230,390,352">
-            <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-        <StackPanel Margin="717,230,272,352">
-            <Label Content="N°" Width="194"/>
-        </StackPanel>
-        <StackPanel  Margin="747,230,40,352">
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-
-
-        <StackPanel Margin="40,280,651,297">
-            <Label Content="COMPLEMENTO:"/>
-        </StackPanel>
-        <StackPanel  Margin="437,280,390,264">
-            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-        <StackPanel Margin="715,280,40,289">
-            <Label Content="CIDADE:"/>
-        </StackPanel>
-        <StackPanel Margin="767,280,40,301">
-            <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27" Width="294"/>
-        </StackPanel>
-
-
-
-
-
-
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="789,361,0,0" Width="420" Height="67">
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,361,0,0" Width="420" Height="67" Grid.ColumnSpan="5">
             <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 
-
-        <StackPanel Margin="40,40,208,336" Grid.ColumnSpan="4">
+        <StackPanel Margin="50,40,156,752">
             <Label Content="NOME:"/>
         </StackPanel>
-        <StackPanel Margin="90,40,40,336" Grid.ColumnSpan="4">
+        <StackPanel Margin="96,36,40,745" Grid.ColumnSpan="5">
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="40,90,36,281" Grid.ColumnSpan="2">
+        <StackPanel Margin="50,90,126,698">
             <Label Content="CPF:"/>
         </StackPanel>
-        <StackPanel Margin="76,90,36,281" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="81,90,5,691" Grid.ColumnSpan="2">
+            <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
 
-        <StackPanel Margin="67,83,40,264" Grid.Column="3" RenderTransformOrigin="0.461,1.096">
-            <Label Content="DATA NASCIMENTO:" Width="193"/>
-            <DatePicker x:Name="dtpData" Height="22"/>
-        </StackPanel>
-
-        <StackPanel Margin="40,140,100,221" Grid.ColumnSpan="3">
+        <StackPanel Margin="7,146,269,654" Grid.Column="3" Grid.ColumnSpan="2">
             <Label Content="BAIRRO:"/>
         </StackPanel>
-        <StackPanel Margin="21,140,100,221" Grid.ColumnSpan="3">
-            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27" Width="226"/>
+        <StackPanel  Margin="20,147,39,650" Grid.Column="4">
+            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="26"/>
         </StackPanel>
 
-        <StackPanel Margin="28,215,52,161" Grid.ColumnSpan="2" Grid.Column="2">
+        <StackPanel Margin="1,201,288,595" Grid.Column="3" Grid.ColumnSpan="2">
             <Label Content="CIDADE:"/>
+        </StackPanel>
+        <StackPanel Margin="16,201,40,595" Grid.Column="4">
             <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-        <StackPanel Margin="50,167,104,163" Grid.ColumnSpan="4">
+
+        <StackPanel Margin="50,247,5,549" Grid.ColumnSpan="2">
             <Label Content="RUA:"/>
         </StackPanel>
-        <StackPanel Margin="50,167,104,163" Grid.ColumnSpan="4">
+        <StackPanel Margin="87,245,12,551" Grid.ColumnSpan="3">
             <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="46,140,75,263" Grid.Column="2">
-            <Label Content="NÚMERO:" Width="86"/>
+        <StackPanel Margin="50,197,5,599" Grid.ColumnSpan="2">
+            <Label Content="CEP:"/>
         </StackPanel>
-        <StackPanel Margin="113,140,254,263" Grid.Column="2" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27" Width="124"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,270,18,100" Grid.ColumnSpan="3">
-            <Label Content="COMPLEMENTO:"/>
-            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="266,90,208,278" Grid.ColumnSpan="4">
-            <Label Content="CONTATO:" Width="288"/>
-        </StackPanel>
-        <StackPanel Margin="50,90,272,278" Grid.ColumnSpan="3" Grid.Column="2">
-            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-        <StackPanel Margin="266,200,208,278" Grid.ColumnSpan="4">
-            <Label Content="CEP:" Width="288"/>
-        </StackPanel>
-        <StackPanel Margin="50,200,272,278" Grid.ColumnSpan="3" Grid.Column="2">
+        <StackPanel Margin="87,193,12,603" Grid.ColumnSpan="3">
             <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
+        <StackPanel Margin="0,252,246,538" Grid.Column="4">
+            <Label Content="NÚMERO:"/>
+        </StackPanel>
+        <StackPanel Margin="66,252,40,538" Grid.Column="4">
+            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,299,161,491">
+            <Label Content="COMPLEMENTO:"/>
+        </StackPanel>
+        <StackPanel Margin="150,295,6,495" Grid.ColumnSpan="4">
+            <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="46,145,198,643">
+            <Label Content="CONTATO:" Width="65" Height="28"/>
+        </StackPanel>
+        <StackPanel Margin="114,145,5,654" Grid.ColumnSpan="2" >
+            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="10,90,288,691" Grid.Column="2" Grid.ColumnSpan="3">
+            <Label Content="DATA NASCIMENTO:" Width="115" Height="28"/>
+        </StackPanel>
+        <StackPanel Margin="0,79,40,702" Grid.Column="4">
+            <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
+        </StackPanel>
 
     </Grid>
+
 </UserControl>
+ 
