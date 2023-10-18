@@ -1,5 +1,4 @@
-﻿using NovoTayUmDoce.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using NovoTayUmDoce.Models;
-using System.Runtime.Remoting.Contexts;
-
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para PagamentoFormUC.xam
+    /// Interação lógica para PagamentoListarUC.xam
     /// </summary>
-    public partial class PagamentoFormUC : UserControl
+    public partial class PagamentoListarUC : UserControl
     {
-        public PagamentoFormUC()
+        public PagamentoListarUC()
         {
             InitializeComponent();
         }
