@@ -39,8 +39,8 @@
         </Grid>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,361,0,0" Width="420" Height="67" Grid.ColumnSpan="4">
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,-5" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,-5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
         </StackPanel>
 
         <StackPanel Margin="50,40,208,336" Grid.ColumnSpan="4">
@@ -58,7 +58,7 @@
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="23,155,208,221" Grid.ColumnSpan="3" Grid.Column="1">
+        <StackPanel Margin="35,155,204,221" Grid.ColumnSpan="3" Grid.Column="1">
             <Label Content="BAIRRO:"/>
             <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27" Width="226"/>
         </StackPanel>
@@ -81,6 +81,10 @@
         <StackPanel Margin="50,270,18,100" Grid.ColumnSpan="3">
             <Label Content="COMPLEMENTO:"/>
             <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+        <StackPanel Margin="50,320,18,100" Grid.ColumnSpan="3">
+            <Label Content="CEP:"/>
+            <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
         <StackPanel Margin="1,95,208,278" Grid.ColumnSpan="2" Grid.Column="2">

@@ -118,6 +118,46 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\CompraFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\CompraListarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\FornecedorFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\FornecedorListarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\FuncionarioFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\FuncionarioListarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
+    <Page Include="Componentes\RecebimentoFormUC.xaml">
+
+    <Page Include="Componentes\PagamentoFormUC.xaml">
+
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\PagamentoListarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\SalvarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarCaixa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Janelas\CadastrarPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Janelas\CadastrarProduto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,6 +291,38 @@
     <Compile Include="Componentes\ClienteListarUC.xaml.cs">
       <DependentUpon>ClienteListarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Componentes\CompraFormUC.xaml.cs">
+      <DependentUpon>CompraFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\CompraListarUC.xaml.cs">
+      <DependentUpon>CompraListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\FornecedorFormUC.xaml.cs">
+      <DependentUpon>FornecedorFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\FornecedorListarUC.xaml.cs">
+      <DependentUpon>FornecedorListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\FuncionarioFormUC.xaml.cs">
+      <DependentUpon>FuncionarioFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\FuncionarioListarUC.xaml.cs">
+      <DependentUpon>FuncionarioListarUC.xaml</DependentUpon>
+    </Compile>
+
+    <Compile Include="Componentes\RecebimentoFormUC.xaml.cs">
+      <DependentUpon>RecebimentoFormUC.xaml</DependentUpon>
+
+    <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
+      <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
+
+    </Compile>
+    <Compile Include="Componentes\PagamentoListarUC.xaml.cs">
+      <DependentUpon>PagamentoListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\SalvarUC.xaml.cs">
+      <DependentUpon>SalvarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Janelas\CadastrarCaixa.xaml.cs">
@@ -278,6 +354,9 @@
     </Compile>
     <Compile Include="Janelas\CadastrarPedido.xaml.cs">
       <DependentUpon>CadastrarPedido.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\CadastrarProduto.xaml.cs">
+      <DependentUpon>CadastrarProduto.xaml</DependentUpon>
     </Compile>
     <Compile Include="Janelas\EscolherProduto.xaml.cs">
       <DependentUpon>EscolherProduto.xaml</DependentUpon>

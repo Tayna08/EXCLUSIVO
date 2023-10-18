@@ -41,24 +41,7 @@ namespace NovoTayUmDoce
             _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
         }
 
-        /*
-         *  
-         *  
-         *  MainWindow _context;
-        public UserControlMenuItem(ItemMenu itemMenu, MainWindow context)
-        {
-            InitializeComponent();
-
-            _context = context;
-
-            ExpanderMenu.Visibility = itemMenu.SubItems == null ? Visibility.Collapsed : Visibility.Visible;
-            ListViewItemMenu.Visibility = itemMenu.SubItems == null ? Visibility.Visible : Visibility.Collapsed;
-
-            this.DataContext = itemMenu;
-        }
-
         
-         */
     }
 }
 

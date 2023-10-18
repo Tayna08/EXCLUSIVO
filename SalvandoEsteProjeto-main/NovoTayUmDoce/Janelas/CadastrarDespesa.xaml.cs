@@ -41,6 +41,7 @@ namespace NovoTayUmDoce.Janelas
                 despesa.NomeDespesa = tbNome.Text;
                 despesa.Descricao = tbDescricao.Text;
                 despesa.FormaPagamento = tbFormaPag.Text;
+
               
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
@@ -64,7 +65,6 @@ namespace NovoTayUmDoce.Janelas
         {
            tbFormaPag.Clear();
            tbValor.Clear();
-      
            dtpDataVenci.SelectedDate = null;
         }
 

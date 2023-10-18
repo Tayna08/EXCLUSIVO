@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,50 +13,57 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
 using NovoTayUmDoce.Models;
-
+using TayUmDoceProjeto.Models;
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para ClienteFormUC.xam
+    /// Interação lógica para FuncionarioFormUC.xam
     /// </summary>
-    public partial class ClienteFormUC : UserControl
+    public partial class FuncionarioFormUC : UserControl
     {
         MainWindow _context;
-
-        public ClienteFormUC(MainWindow context)
+        public FuncionarioFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
         }
-              
+
+        public FuncionarioFormUC(MainWindow context, int id)
+        {
+            InitializeComponent();
+            _context = context;
+        }
+
+
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 //Setando informações na tabela cliente
-                Cliente cliente = new Cliente();
+                Funcionario funcionario = new Funcionario();
                 Endereco endereco = new Endereco();
 
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
                 endereco.Bairro = tbBairro.Text;
                 endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
                 endereco.Rua = tbRua.Text;
+                endereco.Complemento = tbComplemento.Text;
+                endereco.Numero = Convert.ToInt32(tbNumero.Text);
                 endereco.Cep = tbCEP.Text;
 
-                cliente.Endereco = endereco;
+                funcionario.Endereco = endereco;
 
-                cliente.Nome = tbNome.Text;
-                cliente.Cpf = tbCpf.Text;
-                cliente.DataNasc = dtpData.SelectedDate;
-                cliente.Contato = tbContato.Text;
+                funcionario.Nome = tbNome.Text;
+                funcionario.Cpf = tbCpf.Text;
+                funcionario.Data = dtpData.SelectedDate;
+                funcionario.Contato = tbContato.Text;
+                funcionario.Email = tbEmail.Text;
+                funcionario.Funcao = tbFuncao.Text;
+                funcionario.Salario = tbSalario.Text;
 
                 //Inserindo os Dados           
-                ClienteDAO clienteDAO = new ClienteDAO();
-                clienteDAO.Insert(cliente);
-
+                FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                funcionarioDAO.Insert(funcionario);
 
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
@@ -67,17 +75,19 @@ namespace NovoTayUmDoce.Componentes
         }
         private void Clear()
         {
+            tbBairro.Clear();
+            tbCidade.Clear();
+            tbNumero.Clear();
+            tbRua.Clear();
+            tbComplemento.Clear();
             tbNome.Clear();
             tbCpf.Clear();
-            tbContato.Clear();
             dtpData.SelectedDate = null;
-            tbBairro.Clear();
-            tbNumero.Clear();
-            tbCidade.Clear();
-            tbComplemento.Clear();
-            tbRua.Clear();
+            tbContato.Clear();
+            tbEmail.Clear();
+            tbFuncao.Clear();
+            tbSalario.Clear();
             tbCEP.Clear();
-
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
@@ -86,9 +96,8 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ClienteListarUC(_context));
+                _context.SwitchScreen(new FuncionarioListarUC(_context));
             }
-            
         }
     }
 }

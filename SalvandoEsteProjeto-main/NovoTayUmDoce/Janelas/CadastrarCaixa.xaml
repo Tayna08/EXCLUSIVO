@@ -18,7 +18,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
           <!--interno-->
-        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,25" Grid.RowSpan="2" />
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,184" />
 
         
         <!--Imagem-->
@@ -40,25 +40,26 @@
         </StackPanel>
         
         <!--Saldo Inicial-->
-        <StackPanel Margin="50,30,500,400">
+        <StackPanel Margin="50,30,500,571">
             <Label Content="Saldo Inicial:"/>
             <TextBox x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
         <!--Hora-->
-        <StackPanel Margin="350,30,200,400">
+        <StackPanel Margin="350,30,200,571">
             <Label Content="Hora:"/>
             <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
         <!--Pagamento-->
-        <StackPanel Margin="350,85,200,400">
+        <StackPanel Margin="350,85,200,517">
             <Label Content="Pagamento:"/>
+            
             <TextBox x:Name="tbPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
         <!--Descrição-->
-        <StackPanel Margin="350,140,200,400">
+        <StackPanel Margin="350,140,200,463">
             <Label Content="Descrição:"/>
             <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
@@ -80,12 +81,12 @@
 
         </StackPanel>
 
-        <StackPanel Margin="50,170,500,10">
+        <StackPanel Margin="50,170,500,451">
             <TextBox x:Name="tbValorEntrada" TextWrapping="Wrap" Background="White" Height="30" />
         </StackPanel>
         
         <!--valor saida-->
-        <StackPanel Margin="50,200,10,10">
+        <StackPanel Margin="50,200,500,391">
             <Label Content="Valor Saída:"/>
         </StackPanel>
 
@@ -96,7 +97,7 @@
         
         <!--Data-->
 
-        <StackPanel Margin="50,260,500,100">
+        <StackPanel Margin="50,260,500,311">
             <Label Content="DATA CAIXA:"/>
             <DatePicker x:Name="dtpDataCaixa" Height="28" VerticalAlignment="Top"/>
         </StackPanel>

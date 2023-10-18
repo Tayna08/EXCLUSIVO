@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,35 +13,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using TayUmDoceProjeto.Conexão;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para ClienteListarUC.xam
+    /// Interação lógica para FuncionarioListarUC.xam
     /// </summary>
-    public partial class ClienteListarUC : UserControl
+    public partial class FuncionarioListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
 
-        public ClienteListarUC(MainWindow context)
+        public FuncionarioListarUC()
+        {
+            InitializeComponent();
+        }
+        public FuncionarioListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
-            Conexao();
-            Listar();
-
         }
-
-        private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
+        private void BtnAddFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new ClienteFormUC(_context));
-        }
-
-        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            _context.SwitchScreen(new  FuncionarioFormUC(_context));
         }
         private void Conexao()
         {
@@ -51,7 +47,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void Listar()
         {
-            string sql = "Select ";
+            string sql = "Select * from Funcionario";
             var comando = new MySqlCommand(sql, _conexao);
             var reader = comando.ExecuteReader();
             var lista = new List<Object>();
@@ -61,22 +57,25 @@ namespace NovoTayUmDoce.Componentes
                 string data = "";
                 try
                 {
-                    data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
+                    data = reader.GetDateTime("data_nascimento_fun").ToString("dd/MM/yyyy");
                 }
                 catch { }
 
-                var cliente = new
+                var funcionario = new
                 {
                     Id = reader.GetString(0),
                     Nome = reader.GetString(1),
-                    Cpf = reader.GetString(2),
-                    Contato = reader.GetString(4),
                     DataNasc = data,
-                    Endereco = reader.GetString(5),
+                    Cpf = reader.GetString(3),
+                    Contato = reader.GetString(4),
+                    Funcao = reader.GetString(5),
+                    Email = reader.GetString(6),
+                    Salario = reader.GetString(7),
+                    Endereco = reader.GetString(8),
                 };
-                lista.Add(cliente);
+                lista.Add(funcionario);
             }
-            dataGridClientes.ItemsSource = lista;
+            dataGridFuncionario.ItemsSource = lista;
         }
     }
 }
