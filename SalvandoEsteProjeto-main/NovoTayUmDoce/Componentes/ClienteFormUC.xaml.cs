@@ -43,7 +43,7 @@ namespace NovoTayUmDoce.Componentes
                 endereco.Cidade = tbCidade.Text;
                 endereco.Complemento = tbComplemento.Text;
                 endereco.Rua = tbRua.Text;
-                endereco.Cep = Convert.ToInt32(tbCEP.Text);
+                endereco.Cep = tbCEP.Text;
 
                 cliente.Endereco = endereco;
 
