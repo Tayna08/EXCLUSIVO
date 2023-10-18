@@ -16,8 +16,8 @@
             <Button x:Name="BtnAddPagamento" Margin="10 0 0 0" Content="Novo Pagamento" Click="BtnAddPagamento_Click"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="2" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged">
+        <DataGrid Grid.Row="2" x:Name="dataGridPagamentos" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand" SelectionChanged="dataGridPagamentos_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>

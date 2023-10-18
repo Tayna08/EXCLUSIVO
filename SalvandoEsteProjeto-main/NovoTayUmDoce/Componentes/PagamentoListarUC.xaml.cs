@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,25 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class PagamentoListarUC : UserControl
     {
-        public PagamentoListarUC()
+        MainWindow _context;
+        private MySqlConnection _conexao;
+
+        public PagamentoListarUC(MainWindow context)
         {
             InitializeComponent();
+            _context = context;
+      
+        }
+
+        private void dataGridPagamentos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnAddPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            _context.SwitchScreen(new PagamentoFormUC(_context));
         }
     }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,11 @@ namespace NovoTayUmDoce.Componentes
         public PedidoListarUC()
         {
             InitializeComponent();
+        }
+
+        private void BtnAddPedido_Click(object sender, RoutedEventArgs e)
+        {
+           // _context.SwitchScreen(new PedidoFormUC(_context));
         }
     }
 }

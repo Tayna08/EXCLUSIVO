@@ -18,22 +18,7 @@
         <StackPanel Margin="50,40,644,752"/>
         <StackPanel Margin="432,201,288,595"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="622,31,0,0" Width="146" Height="67">
-            <Button x:Name="btProduto" Content="PRODUTO" Background="#FFFFA4A4" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btProduto_Click" RenderTransformOrigin="0.269,0.517"/>
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,379,0,0" Width="180" Height="67">
-            <Button x:Name="btCliente" Content="VINCULAR CLIENTE" Background="#FFFFA4A4" Height="50" Width="171" Foreground="#DD000000" FontWeight="Bold" Click="btCliente_Click" RenderTransformOrigin="0.269,0.517"/>
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="436,383,0,0" Width="160" Height="67">
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
-        </StackPanel>
-
-        <Border>
-            <DataGrid Margin="24,100,41,422" SelectionChanged="DataGrid_SelectionChanged"/>
-        </Border>
-
+       
     </Grid>
     
 </UserControl>
