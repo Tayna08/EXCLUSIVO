@@ -24,12 +24,12 @@
                 <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
                 <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc}"/>
-                <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
                 <DataGridTextColumn Header="Bairro" Binding="{Binding Endereco.Bairro}"/>
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
                 <DataGridTextColumn Header="Rua" Binding="{Binding Endereco.Rua}"/>
+                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
                 <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
                 <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
-                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
             </DataGrid.Columns>
         </DataGrid>
 

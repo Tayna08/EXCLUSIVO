@@ -13,13 +13,79 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="796"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Margin="50,40,644,752"/>
-        <StackPanel Margin="432,201,288,595"/>
 
-       
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,90,614,698">
+            <Label Content="TOTAL:"/>
+        </StackPanel>
+        <StackPanel Margin="55,90,421,691">
+            <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="441,146,269,654">
+            <Label Content="DESCONTO:"/>
+        </StackPanel>
+        <StackPanel  Margin="528,147,39,650">
+            <TextBox x:Name="tbDesconto" TextWrapping="Wrap" Background="White" Height="26"/>
+        </StackPanel>
+
+        <StackPanel Margin="432,201,288,595">
+            <Label Content="PRODUTO:"/>
+        </StackPanel>
+        <StackPanel Margin="510,201,40,641">
+            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="432,250,288,595">
+            <Label Content="STATUS:"/>
+        </StackPanel>
+        <StackPanel Margin="490,250,40,595">
+            <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbStatus_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,247,420,549">
+            <Label Content="QUANTIDADE:"/>
+        </StackPanel>
+        <StackPanel Margin="140,245,479,551">
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,197,420,599">
+            <Label Content="FORMA PAGAMENTO:"/>
+        </StackPanel>
+        <StackPanel Margin="180,193,459,603">
+            <TextBox x:Name="tbFormaPag" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,299,649,491">
+            <Label Content="DELIVERY:"/>
+        </StackPanel>
+        <StackPanel Margin="120,295,338,495">
+            <TextBox x:Name="tbDelivery" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="3,145,634,643">
+            <Label Content="DESCONTO:" Width="73" Height="28"/>
+        </StackPanel>
+        <StackPanel Margin="135,145,420,654" >
+            <TextBox x:Name="tbDescontoPed" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="465,90,288,691">
+            <Label Content="DATA:" Width="115" Height="28"/>
+        </StackPanel>
+        <StackPanel Margin="468,79,40,702">
+            <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
+        </StackPanel>
+
     </Grid>
-    
+
 </UserControl>
- 
