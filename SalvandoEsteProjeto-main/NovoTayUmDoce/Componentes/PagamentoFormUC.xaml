@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1051"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -22,38 +22,46 @@
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 
-        <StackPanel Margin="50,40,644,478">
-            <Label Content="N°:"/>
+        <StackPanel Margin="50,40,644,978">
+            <Label Content="N°:" Width="105"/>
         </StackPanel>
-        <StackPanel Margin="84,37,626,481">
+        <StackPanel Margin="84,37,626,978">
             <TextBox x:Name="tbID" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
         </StackPanel>
 
-        <StackPanel Margin="220,39,488,489">
+        <StackPanel Margin="220,39,488,978">
             <Label Content="DATA:"/>
         </StackPanel>
-        <StackPanel Margin="259,36,429,574">
+        <StackPanel Margin="259,36,429,978">
             <DatePicker x:Name="dtpDataPag" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="404,41,345,569">
+        <StackPanel Margin="404,41,345,978">
             <Label Content="HORA:"/>
         </StackPanel>
-        <StackPanel Margin="454,40,266,570">
+        <StackPanel Margin="454,40,266,978">
             <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" TextChanged="tbValor_TextChanged"/>
         </StackPanel>
 
-        <StackPanel Margin="50,90,614,422">
+        <StackPanel Margin="50,90,683,929">
             <Label Content="DESPESA:"/>
         </StackPanel>
-        <StackPanel Margin="115,90,230,537">
+        <StackPanel Margin="114,90,231,935" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.165"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.612"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
             <ComboBox x:Name="tbPagamento"  Background="White" />
         </StackPanel>
 
-        <StackPanel Margin="50,142,658,478">
+        <StackPanel Margin="50,142,658,886">
             <Label Content="FORNECEDOR:" Height="37"/>
         </StackPanel>
-        <StackPanel Margin="119,142,201,485" RenderTransformOrigin="0.5,0.5">
+        <StackPanel Margin="121,142,199,878" RenderTransformOrigin="0.5,0.5">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -65,13 +73,13 @@
             <ComboBox x:Name="tbFornecedor"  Background="White" Width="428"/>
         </StackPanel>
 
-        <StackPanel Margin="50,195,427,314">
+        <StackPanel Margin="50,195,427,795">
             <Label Content="FORMA DE"/>
         </StackPanel>
         <StackPanel Margin="50,219,666,791">
             <Label Content="PAGAMENTO:" Width="255" Height="41"/>
         </StackPanel>
-        <StackPanel Margin="139,215,538,388">
+        <StackPanel Margin="139,215,538,811">
             <ComboBox x:Name="tbFormPag"  Background="White"/>
         </StackPanel>
 
@@ -94,7 +102,7 @@
         <StackPanel  Margin="491,214,38,795">
             <TextBox x:Name="tbValorPag" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-        <StackPanel Margin="151,294,381,329"/>
+        <StackPanel Margin="151,294,381,720"/>
 
         <StackPanel Margin="470,294,246,720">
             <Label Content="NÚMERO:"/>
