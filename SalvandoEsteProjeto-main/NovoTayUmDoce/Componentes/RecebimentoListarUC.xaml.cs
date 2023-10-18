@@ -13,33 +13,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para PagamentoListarUC.xam
+    /// Interação lógica para RecebimentoListarUC.xam
     /// </summary>
-    public partial class PagamentoListarUC : UserControl
+    public partial class RecebimentoListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
 
-        public PagamentoListarUC(MainWindow context)
+        public RecebimentoListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
-      
-        }
-
-        private void dataGridPagamentos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            Listar();
 
         }
 
-        private void BtnAddPagamento_Click(object sender, RoutedEventArgs e)
+        private void BtnAddRecebimento_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new PagamentoFormUC(_context));
+           
+        }
+
+        private void Listar()
+        {
+            try
+            {
+                var dao = new ClienteDAO();
+                dataGridRecebimento.ItemsSource = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
-
