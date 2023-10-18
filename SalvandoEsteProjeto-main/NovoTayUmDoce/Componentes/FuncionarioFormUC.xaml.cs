@@ -49,7 +49,7 @@ namespace NovoTayUmDoce.Componentes
                 endereco.Rua = tbRua.Text;
                 endereco.Complemento = tbComplemento.Text;
                 endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Cep = Convert.ToInt32(tbCEP.Text);
+                endereco.Cep = tbCEP.Text;
 
                 funcionario.Endereco = endereco;
 
