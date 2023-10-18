@@ -62,10 +62,8 @@ namespace NovoTayUmDoce
 
             var menuReports = new List<SubItem>();
             menuReports.Add(new SubItem("Despesa"));
-            menuReports.Add(new SubItem("Providers"));
-            menuReports.Add(new SubItem("Products"));
-            menuReports.Add(new SubItem("Stock"));
-            menuReports.Add(new SubItem("Sales"));
+            //menuReports.Add(new SubItem("Compra", new CompraListarUC(this)));
+            menuReports.Add(new SubItem("Pagamento"));
             var item2 = new ItemMenu("Financeiro", menuReports, PackIconKind.FileReport);
 
             var menuExpenses = new List<SubItem>();
