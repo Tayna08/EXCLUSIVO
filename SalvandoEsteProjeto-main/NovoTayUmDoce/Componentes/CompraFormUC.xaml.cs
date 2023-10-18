@@ -15,7 +15,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TayUmDoceProjeto.Models;
 using NovoTayUmDoce.Models;
+using NovoTayUmDoce.Janelas;
 using System.Windows.Media.Media3D;
+using MySqlX.XDevAPI;
+using System.Net.Sockets;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -36,8 +39,26 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 Compra compra = new Compra();
+                Funcionario funcionario = new Funcionario();
+                Despesa despesa = new Despesa();
+                Fornecedor fornecedor = new Fornecedor();
+
+                funcionario.Cpf = tbFuncionario.Text;
+                despesa.NomeDespesa = tbDespesa.Text;
+                fornecedor.Nome_Fantasia = tbFornecedor.Text;
+
+                compra.Valor = Convert.ToDouble(tbValor.Text);
+                compra.Nome = tbNome.Text;
+                compra.Data = (DateTime)dtpDataCompra.SelectedDate;
+                compra.Quantidade = Convert.ToDouble(tbQuantidade.Text);
+                compra.Descricao = tbDescricao.Text;
+
+                //Inserindo os Dados           
+                CompraDAO compraDAO = new CompraDAO();
+                compraDAO.Insert(compra);
 
 
+                MessageBox.Show("Dados salvos com sucesso!");               
             }
             catch (Exception ex)
             {
