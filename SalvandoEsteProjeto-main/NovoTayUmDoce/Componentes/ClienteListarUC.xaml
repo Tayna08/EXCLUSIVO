@@ -16,8 +16,8 @@
             <Button x:Name="BtnAddCliente" Margin="10 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="2" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged">
+        <DataGrid Grid.Row="1" x:Name="dataGridClientes" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged" Margin="0,0,-31,0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -25,8 +25,13 @@
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
                 <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc}"/>
                 <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
+                <DataGridTextColumn Header="Bairro" Binding="{Binding Endereco.Bairro}"/>
+                <DataGridTextColumn Header="Rua" Binding="{Binding Endereco.Rua}"/>
+                <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
+                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
+                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
             </DataGrid.Columns>
         </DataGrid>
-       
+
     </Grid>
 </UserControl>
