@@ -41,7 +41,7 @@
         </Grid>
         
 
-        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="20"/>
+        <StackPanel x:Name="StackPanelMain" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="35,20,35,25"/>
 
 
     </Grid>
