@@ -45,8 +45,6 @@ namespace TayUmDoceProjeto.Models
                         Cep = reader.GetString("cep_end")
                     };
 
-                    var data = reader.GetDateTime("data_nascimento_cli").ToString("dd/MM/yyyy");
-
                     var cliente = new Cliente()
                     {
                         Id = reader.GetInt32("id_cli"),
