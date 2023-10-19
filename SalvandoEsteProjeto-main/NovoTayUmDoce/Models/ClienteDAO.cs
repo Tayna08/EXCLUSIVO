@@ -53,7 +53,7 @@ namespace TayUmDoceProjeto.Models
                         Nome = reader.GetString("nome_cli"),
                         Cpf = reader.GetString("cpf_cli"),
                         Contato = reader.GetString("contato_cli"),
-                        DataNasc = reader.GetDateTime(data),
+                        DataNasc = reader.GetDateTime("data_nascimento_cli"),
                         Endereco = endereco,
                     };
 
