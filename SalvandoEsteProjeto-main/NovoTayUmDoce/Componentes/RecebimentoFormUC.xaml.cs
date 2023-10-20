@@ -11,44 +11,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using NovoTayUmDoce.Janelas;
+using TayUmDoceProjeto.Models;
 
-
-namespace NovoTayUmDoce.Janelas
+namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Lógica interna para CadastrarDespesa.xaml
+    /// Interação lógica para RecebimentoFormUC.xam
     /// </summary>
-    public partial class CadastrarDespesa : Window
+    public partial class RecebimentoFormUC : UserControl
     {
-        public CadastrarDespesa()
+        MainWindow _context;
+
+        public RecebimentoFormUC(MainWindow context,int id)
         {
             InitializeComponent();
+            _context = context;
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //Setando informações na tabela cliente
-                Despesa despesa = new Despesa();
+             
+                Recebimento recebimento = new Recebimento();
 
-                despesa.NomeDespesa = tbNome.Text;
-                despesa.Descricao = tbDescricao.Text;
-                despesa.FormaPagamento = tbFormaPag.Text;
+                recebimento.Forma_Recebimento = tbFormPag.Text;
+                recebimento.Data = dtpData.SelectedDate;
+                recebimento.Valor = Convert.ToDouble(tbValor);
 
-              
-                despesa.Data = dtpData.SelectedDate;
-                despesa.Valor = Convert.ToDouble(tbValor.Text);
+               
+                //Inserindo os Dados           
+                RecebimentoDAO recebimentoDAO = new RecebimentoDAO();
+                recebimentoDAO.Insert(recebimento);
 
-                despesa.Vencimento = dtpDataVenci.SelectedDate;
-
-                DespesaDAO despesaDAO = new DespesaDAO();
-                despesaDAO.Insert(despesa);
 
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
@@ -57,14 +54,11 @@ namespace NovoTayUmDoce.Janelas
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }
-
         }
-
         private void Clear()
         {
-           tbFormaPag.Clear();
-           tbValor.Clear();
-           dtpDataVenci.SelectedDate = null;
+           
+
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
@@ -73,11 +67,9 @@ namespace NovoTayUmDoce.Janelas
 
             if (result == MessageBoxResult.Yes)
             {
-                Close();
+                _context.SwitchScreen(new ClienteListarUC(_context));
             }
+
         }
-
-
     }
 }
-

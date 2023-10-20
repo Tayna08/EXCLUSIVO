@@ -21,6 +21,51 @@ namespace TayUmDoceProjeto.Models
             conn = new Conexao();
         }
 
+        public List<Cliente> List()
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM cliente LEFT JOIN endereco ON id_end = id_end_fk";
+                var reader = query.ExecuteReader();
+
+                var lista = new List<Cliente>();
+
+                while (reader.Read())
+                {
+
+                    var endereco = new Endereco()
+                    {
+                        Id = reader.GetInt32("id_end"),
+                        Bairro = reader.GetString("bairro_end"),
+                        Cidade = reader.GetString("cidade_end"),
+                        Rua = reader.GetString("rua_end"),
+                        Complemento = reader.GetString("complemento_end"),
+                        Numero = reader.GetInt32("numero_end"),
+                        Cep = reader.GetString("cep_end")
+                    };
+
+                    var cliente = new Cliente()
+                    {
+                        Id = reader.GetInt32("id_cli"),
+                        Nome = reader.GetString("nome_cli"),
+                        Cpf = reader.GetString("cpf_cli"),
+                        Contato = reader.GetString("contato_cli"),
+                        DataNasc = reader.GetDateTime("data_nascimento_cli"),
+                        Endereco = endereco,
+                    };
+
+                    lista.Add(cliente);
+                }
+
+                return lista;
+            }
+            catch (Exception e) 
+            {
+                throw e; 
+            }
+        }
+
         public void Insert(Cliente cliente)
         {
             try

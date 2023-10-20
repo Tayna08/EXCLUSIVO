@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,26 +17,29 @@ using System.Windows.Shapes;
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para FornecedorFormUC.xam
+    /// Interação lógica para PagamentoListarUC.xam
     /// </summary>
-    public partial class FornecedorFormUC : UserControl
+    public partial class PagamentoListarUC : UserControl
     {
         MainWindow _context;
+        private MySqlConnection _conexao;
 
-        public FornecedorFormUC(MainWindow context, int id)
+        public PagamentoListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
+      
         }
 
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        private void dataGridPagamentos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _context.SwitchScreen(new FornecedorListarUC(_context));
+
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        private void BtnAddPagamento_Click(object sender, RoutedEventArgs e)
         {
-
+            _context.SwitchScreen(new PagamentoFormUC(_context));
         }
     }
 }
+

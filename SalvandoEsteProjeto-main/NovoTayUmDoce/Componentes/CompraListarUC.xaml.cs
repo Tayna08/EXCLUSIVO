@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,44 +14,40 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
 using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para ClienteListarUC.xam
+    /// Interação lógica para CompraListarUC.xam
     /// </summary>
-    public partial class ClienteListarUC : UserControl
+    public partial class CompraListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
 
-        public ClienteListarUC(MainWindow context)
+        public CompraListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
         }
 
-        private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
+        private void BtnAddCompra_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new ClienteFormUC(_context));
-        }
-
-        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            _context.SwitchScreen(new CompraFormUC(_context));
         }
 
         private void Listar()
         {
             try
             {
-                var dao = new ClienteDAO();
-                dataGridClientes.ItemsSource = dao.List();
+                var dao = new CompraDAO();
+                dataGridCompras.ItemsSource = dao.List();
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }

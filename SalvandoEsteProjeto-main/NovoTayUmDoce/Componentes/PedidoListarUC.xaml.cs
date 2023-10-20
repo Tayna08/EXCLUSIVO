@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,26 +17,18 @@ using System.Windows.Shapes;
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para FornecedorFormUC.xam
+    /// Interação lógica para PedidoListarUC.xam
     /// </summary>
-    public partial class FornecedorFormUC : UserControl
+    public partial class PedidoListarUC : UserControl
     {
-        MainWindow _context;
-
-        public FornecedorFormUC(MainWindow context, int id)
+        public PedidoListarUC()
         {
             InitializeComponent();
-            _context = context;
         }
 
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        private void BtnAddPedido_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new FornecedorListarUC(_context));
-        }
-
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
+           // _context.SwitchScreen(new PedidoFormUC(_context));
         }
     }
 }

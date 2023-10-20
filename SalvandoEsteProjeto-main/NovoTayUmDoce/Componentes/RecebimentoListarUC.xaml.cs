@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,34 +13,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
 using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para ClienteListarUC.xam
+    /// Interação lógica para RecebimentoListarUC.xam
     /// </summary>
-    public partial class ClienteListarUC : UserControl
+    public partial class RecebimentoListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
 
-        public ClienteListarUC(MainWindow context)
+        public RecebimentoListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
+
         }
 
-        private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
+        private void BtnAddRecebimento_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new ClienteFormUC(_context));
-        }
-
-        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+           
         }
 
         private void Listar()
@@ -47,9 +43,10 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new ClienteDAO();
-                dataGridClientes.ItemsSource = dao.List();
+                dataGridRecebimento.ItemsSource = dao.List();
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
