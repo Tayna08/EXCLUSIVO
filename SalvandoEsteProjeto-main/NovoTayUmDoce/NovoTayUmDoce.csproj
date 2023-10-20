@@ -134,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\PagamentoFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\SalvarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -282,6 +286,9 @@
     </Compile>
     <Compile Include="Componentes\FuncionarioListarUC.xaml.cs">
       <DependentUpon>FuncionarioListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
+      <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
