@@ -36,14 +36,14 @@
             <DatePicker x:Name="dtpDataVenci" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="251,210,389,645">
+        <StackPanel Margin="53,274,587,581">
             <Label Content="DATA DA DESPESA:"/>
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
         <StackPanel Margin="50,34,469,853">
             <Label Content="FORMA PAGAMENTO:"/>
-            <ComboBox x:Name="tbFormaPagamento"  Background="White" Height="27" Width="280"/>
+            <TextBox x:Name="tbFormaPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
         <StackPanel Margin="373,34,156,832">
@@ -51,7 +51,7 @@
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="435,208,173,645">
+        <StackPanel Margin="559,208,49,645">
             <Label Content="VALOR:"/>
             <TextBox x:Name="tbValorDesp" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>

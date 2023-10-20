@@ -27,6 +27,7 @@
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
                 <DataGridTextColumn Header="Razão Social" Binding="{Binding Razao_Social}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+
             </DataGrid.Columns>
         </DataGrid>
 

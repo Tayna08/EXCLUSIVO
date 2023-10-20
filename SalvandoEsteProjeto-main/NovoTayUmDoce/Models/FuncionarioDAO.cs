@@ -17,6 +17,53 @@ namespace NovoTayUmDoce.Models
             conn = new Conexao();
         }
 
+        public List<Funcionario> List()
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM funcionario LEFT JOIN endereco ON id_end = id_end_fk";
+                var reader = query.ExecuteReader();
+
+                var lista = new List<Funcionario>();
+
+                while (reader.Read())
+                {
+
+                    var endereco = new Endereco()
+                    {
+                        Id = reader.GetInt32("id_end"),
+                        Bairro = reader.GetString("bairro_end"),
+                        Cidade = reader.GetString("cidade_end"),
+                        Rua = reader.GetString("rua_end"),
+                        Complemento = reader.GetString("complemento_end"),
+                        Numero = reader.GetInt32("numero_end"),
+                        Cep = reader.GetString("cep_end")
+                    };
+
+                    var funcionario = new Funcionario()
+                    {
+                        Id = reader.GetInt32("id_fun"),
+                        Nome = reader.GetString("nome_fun"),
+                        Data = reader.GetDateTime("data_nascimento_fun"),
+                        Cpf = reader.GetString("cpf_fun"),
+                        Contato = reader.GetString("contato_fun"),
+                        Funcao = reader.GetString("funcao_fun"),
+                        Email = reader.GetString("email_fun"),
+                        Salario = reader.GetString("salario_fun"),
+                        Endereco = endereco,
+                    };
+
+                    lista.Add(funcionario);
+                }
+
+                return lista;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         public void Insert(Funcionario funcionario)
         {
             try

@@ -26,13 +26,14 @@ namespace NovoTayUmDoce.Models
             {
                
                 var query = conn.Query();
-                query.CommandText = $"INSERT INTO Despesa (nome_des, descricao_des, forma_pag_des, data_des, valor_des, vencimento_des) " +
-                    $"VALUES (@NomeDespesa, @Descricao, @FormaPagamento, @Data, @Valor, @Vencimento)";
+                query.CommandText = $"INSERT INTO Despesa (nome_des, descricao_des, forma_pag_des, data_des, hora_des valor_des, vencimento_des) " +
+                    $"VALUES (@NomeDespesa, @Descricao, @FormaPagamento, @Data, @Hora, @Valor, @Vencimento)";
 
                 query.Parameters.AddWithValue("@NomeDespesa", despesa.NomeDespesa);
                 query.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                 query.Parameters.AddWithValue("@Forma_pag", despesa.FormaPagamento);
                 query.Parameters.AddWithValue("@Data", despesa.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@Hora", despesa.Hora?.ToString("00:00:00"));
                 query.Parameters.AddWithValue("@Valor", despesa.Valor);
                 query.Parameters.AddWithValue("@Vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
 
@@ -47,7 +48,7 @@ namespace NovoTayUmDoce.Models
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 cliente : Contate o suporte!");
+                MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
         }
 

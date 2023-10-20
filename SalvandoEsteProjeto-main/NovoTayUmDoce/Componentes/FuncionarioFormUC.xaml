@@ -18,7 +18,6 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
 
         </Grid>
 
@@ -87,7 +86,7 @@
             <Label Content="SALÁRIO:"/>
             <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-        <StackPanel Margin="649,150,31,207">
+        <StackPanel Margin="623,150,57,207">
             <Label Content="CEP:"/>
             <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
