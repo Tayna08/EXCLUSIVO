@@ -7,12 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Grid>
-            
-    </Grid>
-</UserControl>
-
-
     <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -24,8 +18,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand"/>
         </StackPanel>
 
         <StackPanel Margin="50,40,644,978">
@@ -108,7 +102,7 @@
         <StackPanel  Margin="491,214,38,795">
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-     
+
 
         <StackPanel Margin="470,294,246,720">
             <Label Content="NÚMERO:"/>
@@ -125,3 +119,6 @@
         </StackPanel>
     </Grid>
 </UserControl>
+
+
+  

@@ -38,7 +38,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void BtnAddPagamento_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new PagamentoFormUC(_context));
+            //_context.SwitchScreen(new PagamentoFormUC(_context));
         }
     }
 }

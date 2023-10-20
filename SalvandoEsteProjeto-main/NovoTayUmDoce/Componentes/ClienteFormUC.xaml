@@ -84,10 +84,10 @@
             <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="46,145,198,643">
+        <StackPanel Margin="-65,139,78,567">
             <Label Content="CONTATO:" Width="65" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="114,145,5,654" Grid.ColumnSpan="2" >
+        <StackPanel Margin="120,141,45,658" Grid.ColumnSpan="3" >
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
