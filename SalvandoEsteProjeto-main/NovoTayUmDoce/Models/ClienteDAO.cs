@@ -101,7 +101,7 @@ namespace TayUmDoceProjeto.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "delete from Cliente where (cli_id = @id)";
+                query.CommandText = "delete from Cliente where (id_cli = @id)";
 
                 query.Parameters.AddWithValue("@id", cliente.Id);
 

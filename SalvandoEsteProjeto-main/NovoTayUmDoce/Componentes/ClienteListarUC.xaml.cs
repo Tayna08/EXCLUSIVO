@@ -33,31 +33,27 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
-            Loaded += ClienteListWindow_Loaded;
-        }
-        private void ClienteListWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            LoadDataGrid();
-        }
 
-        private void LoadDataGrid()
-        {
-            try
-            {
-                var dao = new FuncionarioDAO();
-
-                dataGridClientes.ItemsSource = dao.List();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
         }
+       
         private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
         {
             _context.SwitchScreen(new ClienteFormUC(_context));
         }
 
+        private void Listar()
+        {
+            try
+            {
+                var dao = new ClienteDAO();
+
+                dataGridClientes.ItemsSource = dao.List();
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
         {
@@ -72,26 +68,11 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new ClienteDAO();
                     dao.Delete(clienteSelected);
-                    LoadDataGrid();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void Listar()
-        {
-            try
-            {
-                var dao = new ClienteDAO();
-                List<Cliente> clientes = dao.List();
-                dataGridClientes.ItemsSource = dao.List();
-
-            } catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
