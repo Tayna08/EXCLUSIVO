@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,9 +21,26 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class CaixaUC : UserControl
     {
-        public CaixaUC()
+        MainWindow _context;
+        public CaixaUC(MainWindow context)
         {
+            _context = context;
             InitializeComponent();
+        }
+
+        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnFecharCaixa_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

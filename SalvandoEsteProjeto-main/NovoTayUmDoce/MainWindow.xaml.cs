@@ -54,7 +54,7 @@ namespace NovoTayUmDoce
             var item6 = new ItemMenu("Registro", menuRegister, PackIconKind.Register);
 
             var menuSchedule = new List<SubItem>();
-            menuSchedule.Add(new SubItem("Abrir/Fechar Caixa"));
+            menuSchedule.Add(new SubItem("Abrir/Fechar Caixa", new CaixaUC(this)));
             menuSchedule.Add(new SubItem("Historico do Caixa"));
             var item1 = new ItemMenu("Caixa", menuSchedule, PackIconKind.BoxAdd);
 
