@@ -1,7 +1,6 @@
 ﻿using System;
 ﻿using MaterialDesignThemes.Wpf.Internal;
 using NovoTayUmDoce.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

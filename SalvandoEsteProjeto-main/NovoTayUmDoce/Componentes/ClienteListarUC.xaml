@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" Width="884">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -17,7 +17,7 @@
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged" Margin="0,0,-31,0">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -30,6 +30,17 @@
                 <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
                 <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
                 <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
+                <!-- Outras colunas existentes... -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Ações" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Excluir" Click="ExcluirCliente_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

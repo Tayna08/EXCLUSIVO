@@ -60,7 +60,7 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show("Dados salvos com sucesso!");
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }

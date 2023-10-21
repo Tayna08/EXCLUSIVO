@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Models;
 using TayUmDoceProjeto.Models;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -30,16 +33,52 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
+            Loaded += ClienteListWindow_Loaded;
+        }
+        private void ClienteListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
         }
 
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+
+                dataGridClientes.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void BtnAddCliente_Click(object sender, RoutedEventArgs e)
         {
             _context.SwitchScreen(new ClienteFormUC(_context));
         }
 
-        private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
+        {
+            var clienteSelected = dataGridClientes.SelectedItem as Cliente;
+
+            var result = MessageBox.Show($"Deseja realmente remover o cliente `{clienteSelected.Nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new ClienteDAO();
+                    dao.Delete(clienteSelected);
+                    LoadDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Listar()
@@ -47,12 +86,14 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new ClienteDAO();
+                List<Cliente> clientes = dao.List();
                 dataGridClientes.ItemsSource = dao.List();
 
             } catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

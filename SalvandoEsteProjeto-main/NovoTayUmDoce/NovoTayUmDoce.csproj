@@ -342,7 +342,6 @@
     <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
       <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="Componentes\PagamentoListarUC.xaml.cs">
       <DependentUpon>PagamentoListarUC.xaml</DependentUpon>
     </Compile>

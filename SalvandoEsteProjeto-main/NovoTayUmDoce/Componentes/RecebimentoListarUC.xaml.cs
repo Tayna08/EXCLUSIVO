@@ -46,7 +46,7 @@ namespace NovoTayUmDoce.Componentes
                 dataGridRecebimento.ItemsSource = dao.List();
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
             }

@@ -48,7 +48,7 @@ namespace NovoTayUmDoce.Componentes
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
