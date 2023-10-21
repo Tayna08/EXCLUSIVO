@@ -48,7 +48,28 @@ namespace NovoTayUmDoce.Componentes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro ao carregar os funcionários: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ExcluirFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionarioSelected = dataGridFuncionario.SelectedItem as Funcionario;
+
+            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{funcionarioSelected.Nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FuncionarioDAO();
+                    dao.Delete(funcionarioSelected);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }
