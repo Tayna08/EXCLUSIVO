@@ -106,7 +106,7 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "delete from Funcionário where (id_fun = @id)";
+                query.CommandText = "delete from Funcionario where (id_fun = @id)";
 
                 query.Parameters.AddWithValue("@id", funcionario.Id);
 
@@ -114,12 +114,16 @@ namespace NovoTayUmDoce.Models
 
                 if (result == 0)
                 {
-                    throw new Exception("Erro ao remover o funcionário. Verifique e tente novamente.");
+                    throw new Exception("Erro ao remover o funcionario. Verifique e tente novamente.");
                 }
             }
             catch (Exception e)
             {
                 throw e;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }
