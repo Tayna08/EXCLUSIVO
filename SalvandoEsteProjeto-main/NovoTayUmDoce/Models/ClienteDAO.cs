@@ -96,7 +96,32 @@ namespace TayUmDoceProjeto.Models
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
         }
+        public void Delete(Cliente cliente)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "delete from Cliente where (id_cli = @id)";
 
-     
+                query.Parameters.AddWithValue("@id", cliente.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("Erro ao remover o cliente. Verifique e tente novamente.");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
     }
 }

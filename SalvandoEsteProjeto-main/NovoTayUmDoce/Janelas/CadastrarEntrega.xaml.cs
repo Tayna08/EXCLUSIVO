@@ -43,7 +43,7 @@ namespace NovoTayUmDoce.Janelas
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }

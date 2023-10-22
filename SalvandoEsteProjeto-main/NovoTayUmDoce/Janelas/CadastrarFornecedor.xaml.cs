@@ -64,7 +64,7 @@ namespace TayUmDoceProjeto.Janelas
                 Clear();
                 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }

@@ -342,7 +342,6 @@
     <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
       <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
     </Compile>
-
     <Compile Include="Componentes\PagamentoListarUC.xaml.cs">
       <DependentUpon>PagamentoListarUC.xaml</DependentUpon>
     </Compile>
@@ -521,6 +520,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Logo\TayUmDoce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Componentes\trashcan1_114647.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.0.0-ci321\build\MaterialDesignThemes.targets')" />

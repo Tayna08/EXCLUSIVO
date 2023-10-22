@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using System.Windows;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Models
 {
@@ -98,6 +99,28 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
             
+        }
+
+        public void Delete(Funcionario funcionario)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "delete from Funcionário where (id_fun = @id)";
+
+                query.Parameters.AddWithValue("@id", funcionario.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("Erro ao remover o funcionário. Verifique e tente novamente.");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 
