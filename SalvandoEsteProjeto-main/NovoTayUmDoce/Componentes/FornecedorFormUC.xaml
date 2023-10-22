@@ -90,6 +90,13 @@
             <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
+        <StackPanel Margin="50,354,161,216">
+            <Label Content="Email:"/>
+        </StackPanel>
+        <StackPanel Margin="156,354,0,216" Grid.ColumnSpan="4">
+            <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
         <StackPanel Margin="10,142,10,374" Grid.Column="2" Grid.ColumnSpan="2">
             <Label Content="CONTATO:" Width="65" Height="28"/>
         </StackPanel>

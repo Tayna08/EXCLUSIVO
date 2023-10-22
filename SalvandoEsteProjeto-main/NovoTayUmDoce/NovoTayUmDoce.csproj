@@ -134,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\EstoqueFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\FornecedorFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -326,6 +330,9 @@
     </Compile>
     <Compile Include="Componentes\DespesaListarUC.xaml.cs">
       <DependentUpon>DespesaListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\EstoqueFormUC.xaml.cs">
+      <DependentUpon>EstoqueFormUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\FornecedorFormUC.xaml.cs">
       <DependentUpon>FornecedorFormUC.xaml</DependentUpon>

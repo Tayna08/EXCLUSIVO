@@ -12,27 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
-using NovoTayUmDoce.Models;
-using System.Runtime.Remoting.Contexts;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
     /// Interação lógica para EstoqueFormUC.xam
     /// </summary>
-    public partial class EstoqueFormUC : UserControl
+    public partial class EstoqueFormUC : Page
     {
-        MainWindow _context;
-        public EstoqueFormUC(MainWindow context, int id)
+        public EstoqueFormUC()
         {
             InitializeComponent();
-            _context = context;
-        }
-
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

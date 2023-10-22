@@ -12,6 +12,8 @@ namespace NovoTayUmDoce.Models
         public string Nome { get; set; }
         public string Quantidade { get; set; }
         public DateTime? Data { get; set; }
+
+        public Produto produto { get; set; }
        
     }
 }

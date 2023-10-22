@@ -15,6 +15,7 @@ namespace NovoTayUmDoce.Models
         public string Cnpj { get; set; }
         public string Razao_Social { get; set; }
       
+        public string Email { get; set; }
         public Endereco Endereco { get; set; }
         public Estoque Estoque { get; set; }
 

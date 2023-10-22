@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -22,19 +24,78 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
-        public FornecedorFormUC(MainWindow context, int id)
+        public FornecedorFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
         }
 
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            _context.SwitchScreen(new FornecedorListarUC(_context));
-        }
-
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Fornecedor fornecedor = new Fornecedor();
+                Endereco endereco = new Endereco();
+                Estoque estoque = new Estoque();
+
+                endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                endereco.Bairro = tbBairro.Text;
+                endereco.Cidade = tbCidade.Text;
+                endereco.Complemento = tbComplemento.Text;
+                endereco.Rua = tbRua.Text;
+
+                fornecedor.Endereco= endereco;
+              
+
+                fornecedor.Nome_Representante = tbNomeRe.Text;
+                fornecedor.Nome_Fantasia = tbNomeFan.Text;
+                fornecedor.Contato = tbContato.Text;
+                fornecedor.Cnpj = tbCNPJ.Text;
+                fornecedor.Razao_Social = tbRazaoSocial.Text;
+                fornecedor.Email = tbEmail.Text;
+
+                fornecedor.Estoque= estoque;
+
+               
+          
+
+                //Inserindo os Dados
+              
+
+
+                MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro 3008 : Contate o suporte");
+            }
+        }
+        private void Clear()
+        {
+            tbBairro.Clear();
+            tbNumero.Clear();
+            tbCidade.Clear();
+            tbComplemento.Clear();
+            tbRua.Clear();
+
+            tbNomeRe.Clear();
+            tbNomeFan.Clear();
+            tbContato.Clear();
+            tbCNPJ.Clear();
+            tbRazaoSocial.Clear();
+            tbEmail.Clear();
+
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                _context.SwitchScreen(new ClienteListarUC(_context));
+            }
 
         }
     }
