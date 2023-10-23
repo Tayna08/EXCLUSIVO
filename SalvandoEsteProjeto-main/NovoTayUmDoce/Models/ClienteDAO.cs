@@ -122,6 +122,42 @@ namespace TayUmDoceProjeto.Models
             }
         }
 
+        public Cliente GetById(int id)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "select * from Cliente where (id_cli = @id)";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhum Cliente foi encotrado!");
+                }
+
+                var cliente = new Cliente();
+
+                while (reader.Read())
+                {
+
+                    cliente.Id = DAOHelper.GetInt(reader, "id_cli");
+                    cliente.Nome = DAOHelper.GetString(reader, "nome_cli");
+                    cliente.Cpf = DAOHelper.GetString(reader, "cpf_cli");
+                    cliente.DataNasc = DAOHelper.GetDateTime(reader, "data_nascimento_cli");
+                    cliente.Contato = DAOHelper.GetString(reader, "contato_cli");
+                    cliente.Endereco = new EnderecoDAO().GetById(DAOHelper.GetInt(reader, "id_end_fk"));
+                }
+
+                return cliente;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

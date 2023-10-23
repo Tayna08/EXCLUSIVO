@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using System.Windows;
 using TayUmDoceProjeto.Models;
+using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Helpers;
 
 namespace NovoTayUmDoce.Models
 {
@@ -124,6 +126,46 @@ namespace NovoTayUmDoce.Models
             finally
             {
                 conn.Close();
+            }
+        }
+
+        public Funcionario GetById(int id)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "select * from Funcionario where (id_fun = @id)";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhum funcionário foi encotrado!");
+                }
+
+                var funcionario = new Funcionario();
+
+                while (reader.Read())
+                {
+
+                    funcionario.Id = DAOHelper.GetInt(reader, "id_fun");
+                    funcionario.Nome = DAOHelper.GetString(reader, "nome_fun");
+                    funcionario.Cpf = DAOHelper.GetString(reader, "cpf_fun");
+                    funcionario.Data = DAOHelper.GetDateTime(reader, "data_nascimento_fun");
+                    funcionario.Contato = DAOHelper.GetString(reader, "contato_fun");
+                    funcionario.Email = DAOHelper.GetString(reader, "email_fun");
+                    funcionario.Funcao = DAOHelper.GetString(reader, "funcao_fun");
+                    funcionario.Salario = DAOHelper.GetString(reader, "salario_fun");
+                    funcionario.Endereco = new EnderecoDAO().GetById(DAOHelper.GetInt(reader, "id_end_fk"));
+                }
+
+                return funcionario;
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
     }

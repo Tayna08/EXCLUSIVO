@@ -1,21 +1,10 @@
 ﻿using NovoTayUmDoce.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TayUmDoceProjeto.Conexão;
 using TayUmDoceProjeto.Models;
-using NovoTayUmDoce.Componentes;
-using TayUmDoceProjeto.Janelas;
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -25,26 +14,49 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
+        private static Conexao conn;
+
         public PedidoFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
+            CarregarData();
         }
 
+        private void CarregarData()
+        {
+            try
+            {
+                cbFun.ItemsSource = null;
+                cbFun.Items.Clear();
+                cbFun.ItemsSource = new FuncionarioDAO().List();
+                cbFun.DisplayMemberPath = "Nome";
+
+                cbCli.ItemsSource = null;
+                cbCli.Items.Clear();
+                cbCli.ItemsSource = new ClienteDAO().List();
+                cbCli.DisplayMemberPath = "Nome";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 //Setando informações na tabela pedido
                 Pedido pedido = new Pedido();
+
+                var ClienteDAO = new ClienteDAO();
+                var FuncionarioDAO = new FuncionarioDAO();
                 Funcionario funcionario = new Funcionario();
-                Cliente cliente = new Cliente();
 
-                //cliente.Nome = tbNome.Text;
-
-            
-                pedido.Cliente = cliente;
-
+                pedido.Cliente = ClienteDAO.GetById(cbCli.SelectedIndex + 1);
+                pedido.Funcionario = FuncionarioDAO.GetById(cbFun.SelectedIndex + 1);
                 pedido.Data = (DateTime)dtpData.SelectedDate;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.Valor = tbTotal.Text;
@@ -59,7 +71,7 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show("Dados salvos com sucesso!");
 
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }
@@ -73,6 +85,18 @@ namespace NovoTayUmDoce.Componentes
             {
                 _context.SwitchScreen(new PedidoFormUC(_context));
             }
+        }
+
+
+
+        private void cbFun_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
+
+        private void cbCli_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
         }
     }
 }

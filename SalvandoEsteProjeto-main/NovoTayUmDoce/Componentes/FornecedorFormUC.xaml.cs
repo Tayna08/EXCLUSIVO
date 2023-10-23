@@ -56,11 +56,11 @@ namespace NovoTayUmDoce.Componentes
 
                 fornecedor.Estoque= estoque;
 
-               
-          
+
+                
 
                 //Inserindo os Dados
-              
+
 
 
                 MessageBox.Show("Dados salvos com sucesso!");

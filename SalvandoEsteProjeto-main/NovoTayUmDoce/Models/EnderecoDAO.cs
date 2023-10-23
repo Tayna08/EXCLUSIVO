@@ -56,5 +56,44 @@ namespace NovoTayUmDoce.Models
             }
         }
 
+        public Endereco GetById(int id)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "select * from Endereco where (end_id = @id)";
+
+                query.Parameters.AddWithValue("@id", id);
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    throw new Exception("Nenhum endereço foi encotrado!");
+                }
+
+                var endereco = new Endereco();
+
+                while (reader.Read())
+                {
+                    endereco.Id = DAOHelper.GetInt(reader, "id");
+                    endereco.Bairro = DAOHelper.GetString(reader, "bairro_end");
+                    endereco.Rua = DAOHelper.GetString(reader, "rua_end");
+                    endereco.Numero = DAOHelper.GetInt(reader, "numero_end");
+                    endereco.Cidade = DAOHelper.GetString(reader, "cidade_end");
+                    endereco.Complemento = DAOHelper.GetString(reader, "complemento_end");
+                    endereco.Cep = DAOHelper.GetString(reader, "cep_end");
+                
+                }
+
+                return endereco;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+           
+        }
+
     }
 }

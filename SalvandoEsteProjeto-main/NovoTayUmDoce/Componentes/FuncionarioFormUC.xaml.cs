@@ -47,7 +47,6 @@ namespace NovoTayUmDoce.Componentes
                 endereco.Cep = tbCEP.Text;
 
                 funcionario.Endereco = endereco;
-
                 funcionario.Nome = tbNome.Text;
                 funcionario.Cpf = tbCpf.Text;
                 funcionario.Data = dtpData.SelectedDate;
