@@ -38,11 +38,11 @@ namespace NovoTayUmDoce.Componentes
                 //Setando informações na tabela pedido
                 Pedido pedido = new Pedido();
                 Funcionario funcionario = new Funcionario();
+
                 Cliente cliente = new Cliente();
 
-                //cliente.Nome = tbNome.Text;
-
-            
+               // cliente.Nome = tbNome.Text;
+                
                 pedido.Cliente = cliente;
 
                 pedido.Data = (DateTime)dtpData.SelectedDate;

@@ -26,7 +26,7 @@
         <StackPanel Margin="50,90,614,698">
             <Label Content="TOTAL:"/>
         </StackPanel>
-        <StackPanel Margin="55,90,421,691">
+        <StackPanel Margin="55,90,421,748">
             <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
         </StackPanel>
 
@@ -75,7 +75,7 @@
         <StackPanel Margin="3,145,634,643">
             <Label Content="DESCONTO:" Width="73" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="135,145,420,654" >
+        <StackPanel Margin="135,145,420,698" >
             <TextBox x:Name="tbDescontoPed" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 

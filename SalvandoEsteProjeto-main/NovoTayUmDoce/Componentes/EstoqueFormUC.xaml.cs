@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -24,5 +26,18 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
         }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+               
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Erro 3008 : Contate o suporte");
+            }
+        }
     }
+    
 }

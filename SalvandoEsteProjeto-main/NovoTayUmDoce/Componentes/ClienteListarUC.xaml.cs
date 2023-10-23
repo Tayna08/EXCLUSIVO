@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Models;
 using TayUmDoceProjeto.Models;
-using static MaterialDesignThemes.Wpf.Theme;
+
 
 namespace NovoTayUmDoce.Componentes
 {

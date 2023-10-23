@@ -9,115 +9,107 @@
 
     <Grid Background="Bisque">
         <Grid.RowDefinitions>
-            <RowDefinition Height="146*"/>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="51*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="393*"/>
             <ColumnDefinition Width="401*"/>
         </Grid.ColumnDefinitions>
 
 
 
-        <Grid Grid.Column="0" Grid.RowSpan="2" >
+        <Grid Grid.Column="0" Height="348" VerticalAlignment="Top" Grid.ColumnSpan="2" >
 
             <StackPanel Margin="10,40,156,60">
                 <Label Content="NOME:"/>
             </StackPanel>
-            <StackPanel Margin="60,42,10,60" Grid.ColumnSpan="5">
+            <StackPanel Margin="60,42,10,270">
                 <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
             </StackPanel>
 
+            <Grid HorizontalAlignment="Center" Width="379" Margin="0,107,0,204">
+                <StackPanel Margin="10,5,248,-29" >
+                    <Label Content="DATA NASCIMENTO:" Height="26" />
+                </StackPanel>
+                <DatePicker HorizontalAlignment="Left" Margin="128,0,0,0" Width="235" x:Name="dtpData" Height="26" RenderTransformOrigin="0.445,1.808"/>
+            </Grid>
 
-            <StackPanel Margin="10,110,126,60">
+
+            <StackPanel Margin="10,175,126,-5">
                 <Label Content="CPF:"/>
             </StackPanel>
-            <StackPanel  Margin="50,110,10,60" >
+            <StackPanel  Margin="50,175,10,130" >
                 <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30"/>
             </StackPanel>
 
-            <StackPanel Margin="10,170,78,60">
+            <StackPanel Margin="10,235,78,-5">
                 <Label Content="CONTATO:"  Height="28"/>
             </StackPanel>
-            <StackPanel Margin="80,170,10,60" >
+            <StackPanel Margin="80,235,10,60" >
                 <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,240,246,8" >
+            <StackPanel Margin="10,305,246,-57" >
                 <Label Content="NÚMERO:"/>
             </StackPanel>
-            <StackPanel Margin="70,242,200,8" >
+            <StackPanel Margin="70,307,10,-57" >
                 <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
-
-            <StackPanel Margin="200,240,5,9" >
-                <Label Content="CEP:"/>
-            </StackPanel>
-            <StackPanel Margin="240,242,10,6" >
-                <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
-            </StackPanel>
-
-
-
 
 
         </Grid>
 
 
-        <Grid Grid.Column="1" Grid.RowSpan="2" >
-            <StackPanel Margin="10,40,10,60" Grid.Column="3" Grid.ColumnSpan="2">
+        <Grid Grid.Column="2" >
+            <StackPanel Margin="10,40,10,373">
                 <Label Content="BAIRRO:"/>
             </StackPanel>
-            <StackPanel  Margin="65,40,10,60" Grid.Column="4">
+            <StackPanel  Margin="65,40,10,373">
                 <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="26"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,110,288,60">
+            <StackPanel Margin="10,110,288,305">
                 <Label Content="CIDADE:"/>
             </StackPanel>
-            <StackPanel Margin="65,110,10,35" Grid.Column="4">
+            <StackPanel Margin="65,110,10,305">
                 <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,170,10,60" >
+            <StackPanel Margin="10,170,10,235" >
                 <Label Content="RUA:"/>
             </StackPanel>
-            <StackPanel Margin="50,170,10,61" >
+            <StackPanel Margin="50,170,10,235" >
                 <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,240,10,61">
+            <StackPanel Margin="10,240,10,170">
                 <Label Content="COMPLEMENTO:"/>
             </StackPanel>
-            <StackPanel Margin="110,240,10,60" >
+            <StackPanel Margin="110,240,10,180" >
                 <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-
-
-
-        </Grid>
-
-        <Grid Grid.Row="1">
-            <StackPanel Margin="250,10,8,1" >
-                <Label Content="DATA NASCIMENTO:" />
+            <StackPanel Margin="10,307,350,100" >
+                <Label Content="CEP:"/>
             </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="2">
-            
-            <StackPanel Margin="0,10,150,2" >
-                <DatePicker x:Name="dtpData" />
+            <StackPanel Margin="51,307,11,102" >
+                <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27" Width="337"/>
             </StackPanel>
+
+
+
+
         </Grid>
 
-        <Grid  Grid.Row="2" >
+
+
+        <Grid Grid.ColumnSpan="2" Margin="0,348,0,0" >
 
             <StackPanel Margin="10" >
                 <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
@@ -125,15 +117,15 @@
 
         </Grid>
 
-        <Grid  Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Column="2" Margin="0,348,0,0">
 
             <StackPanel Margin="100,10,10,10" >
                 <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
             </StackPanel>
 
         </Grid>
-        
-        
+
+
 
 
         <!--
