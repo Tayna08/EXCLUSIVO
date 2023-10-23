@@ -1,0 +1,85 @@
+﻿<Window x:Class="TayUmDoceProjeto.Janelas.CadastrarFornecedor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TayUmDoceProjeto.Janelas"
+        mc:Ignorable="d"
+        Title="CadastrarFornecedor" 
+        WindowStartupLocation="CenterScreen"
+        Height="500" Width="800"
+        MinHeight="400" MinWidth="300"
+        FontFamily="Arial"
+        FontSize="16">
+
+    <Grid Background="#FFD18D9F" Cursor="Hand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,170" Grid.RowSpan="2"/>
+
+        <Grid Margin="0,28,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
+
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,392,0,0" Width="420" Height="67">
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,37,208,485">
+            <Label Content="NOME FANTASIA:"/>
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,100,208,439">
+            <Label Content="NOME REPRESENTANTE:"/>
+            <TextBox x:Name="tbNomeRepresentante" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,164,494,383">
+            <Label Content="CONTATO:"/>
+            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
+        </StackPanel>
+
+        <StackPanel Margin="331,164,208,383">
+            <Label Content="CNPJ:" Height="23"/>
+            <TextBox x:Name="tbCnpj" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,276,479,295">
+            <Label Content="RAZÃO SOCIAL:"/>
+            <TextBox x:Name="tbRazaoSocial" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,222,450,344">
+            <Label Content="BAIRRO:"/>
+            <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="27" Grid.Row="2"/>
+        </StackPanel>
+
+        <StackPanel Margin="376,220,56,346">
+            <Label Content="CIDADE:"/>
+            <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27" Grid.Row="2"/>
+        </StackPanel>
+
+ 
+        <StackPanel Margin="355,273,56,303">
+            <Label Content="RUA:"/>
+            <TextBox x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,330,375,242">
+            <Label Content="EMAIL:"/>
+            <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

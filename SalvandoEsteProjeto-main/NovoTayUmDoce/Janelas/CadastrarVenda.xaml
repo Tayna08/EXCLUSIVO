@@ -1,0 +1,114 @@
+﻿<Window x:Class="NovoTayUmDoce.Janelas.CadastrarVenda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
+        mc:Ignorable="d"
+        Title="CadastrarVenda"
+        WindowStartupLocation="CenterScreen"
+        Height="500" Width="800"
+        MinHeight="400" MinWidth="300"
+        FontFamily="Arial"
+        FontSize="16">
+
+    <Grid Background="#FFD18D9F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#FFFFD3D3" CornerRadius="50" Padding="10" Margin="10,28,10,45" Grid.RowSpan="2" />
+
+        <Grid Margin="0,28,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/logo/TayUmDoce.png" RenderTransformOrigin="-2.093,0.225" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200" Height="175" Margin="0,0,16,0"/>
+
+        </Grid>
+
+
+        <!--bOTOES-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,345,0,0" Width="420" Height="67">
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="137" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click"/>
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click"/>
+        </StackPanel>
+
+
+        <!--fUNCIONARIO-->
+
+        <StackPanel Margin="50,45,208,100">
+            <Label Content="FUNCIONÁRIO:"/>
+            <ComboBox x:Name="tbFuncionario" Background="White" Height="30"/>
+        </StackPanel>
+
+
+        <!--Cliente-->
+        <StackPanel Margin="50,100,208,100">
+            <Label Content="CLIENTE:"/>
+            <ComboBox x:Name="tbCliente"  Background="White" Height="30"/>
+        </StackPanel>
+
+
+        <!--Valor-->
+
+        <StackPanel Margin="50,170,208,100">
+            <Label Content="VALOR:"/>
+        </StackPanel>
+
+        <StackPanel Margin="120,170,530,150">
+           
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30"/>
+
+        </StackPanel>
+        
+            <!--DataVenda-->
+        <StackPanel Margin="280,170,100,100">
+            <Label Content="DATA VENDA:"/>
+        </StackPanel>
+
+        <StackPanel Margin="390,170,208,286">
+            <DatePicker x:Name="dtpDataVenda" Height="28" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <!--FormaDePagamento-->
+
+        <StackPanel Margin="50,220,50,245">
+            <Label Content="FORMA PAGAMENTO:"/>
+        </StackPanel>
+        
+             <StackPanel Margin="230,220,50,260">
+                <ComboBox x:Name="tbFormaPagamento"  Background="White" Height="27"/>
+            </StackPanel>
+
+        <!--Desconto-->
+
+        <StackPanel Margin="50,260,50,100">
+            <Label Content="DESCONTO:"/>
+        </StackPanel>
+        <StackPanel Margin="160,260,50,100">
+            <TextBox x:Name="tbDesconto" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,300,50,100">
+            <Label Content="PRODUTO:"/>
+        </StackPanel>
+        
+        <StackPanel Margin="60,302,280,200">
+            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Width="298"/>
+        </StackPanel>
+
+        <StackPanel Margin="440,300,239,200">
+            <Label Content="QUANTIDADE:"/>
+        </StackPanel>
+
+        <StackPanel Margin="560,302,80,00">
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Width="298"/>
+        </StackPanel>
+
+    </Grid>
+
+</Window>
