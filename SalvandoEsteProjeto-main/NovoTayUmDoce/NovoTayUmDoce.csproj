@@ -134,7 +134,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< Updated upstream
     <Page Include="Componentes\EstoqueFormUC.xaml">
+=======
+    <Page Include="Componentes\EstoqueUC.xaml">
+>>>>>>> Stashed changes
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -331,8 +335,13 @@
     <Compile Include="Componentes\DespesaListarUC.xaml.cs">
       <DependentUpon>DespesaListarUC.xaml</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
     <Compile Include="Componentes\EstoqueFormUC.xaml.cs">
       <DependentUpon>EstoqueFormUC.xaml</DependentUpon>
+=======
+    <Compile Include="Componentes\EstoqueUC.xaml.cs">
+      <DependentUpon>EstoqueUC.xaml</DependentUpon>
+>>>>>>> Stashed changes
     </Compile>
     <Compile Include="Componentes\FornecedorFormUC.xaml.cs">
       <DependentUpon>FornecedorFormUC.xaml</DependentUpon>

@@ -18,19 +18,16 @@ using NovoTayUmDoce.Models;
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para ProdutoFormUC.xam
+    /// Interação lógica para EstoqueUC.xam
     /// </summary>
-    public partial class ProdutoFormUC : UserControl
+    public partial class EstoqueUC : UserControl
     {
+
         MainWindow _context;
-        public ProdutoFormUC(MainWindow context, int id)
+        public EstoqueUC(MainWindow context, int id)
         {
             InitializeComponent();
             _context = context;
-        }
-
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
@@ -38,9 +35,14 @@ namespace NovoTayUmDoce.Componentes
         {
             try
             {
-                //Setando informações na tabela Produto
+                //Setando informações na tabela estoque
+                Estoque estoque = new Estoque();
                 Produto produto = new Produto();
-                Pedido pedido = new Pedido();
+
+                estoque.Nome = tbNome.Text;
+                estoque.Quantidade = Convert.ToInt32(tbQuant.Text);
+                estoque.Data = dtpData.SelectedDate;
+
 
             }
         }
