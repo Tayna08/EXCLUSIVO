@@ -29,11 +29,6 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
         }
 
-        public FuncionarioFormUC(MainWindow context, int id)
-        {
-            InitializeComponent();
-            _context = context;
-        }
 
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)

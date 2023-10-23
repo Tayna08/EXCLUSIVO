@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Componentes;
+using TayUmDoceProjeto.Janelas;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -29,12 +31,6 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
         }
 
-        public PedidoFormUC(MainWindow context, int id)
-        {
-            InitializeComponent();
-            _context = context;
-        }
-
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -44,13 +40,16 @@ namespace NovoTayUmDoce.Componentes
                 Funcionario funcionario = new Funcionario();
                 Cliente cliente = new Cliente();
 
+                //cliente.Nome = tbNome.Text;
+
+            
+                pedido.Cliente = cliente;
 
                 pedido.Data = (DateTime)dtpData.SelectedDate;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.Valor = tbTotal.Text;
                 pedido.FormaPagamento = tbFormaPag.Text;
                 pedido.TipoDoce = tbProduto.Text;
-
 
                 //Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
