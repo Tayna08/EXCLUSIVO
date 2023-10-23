@@ -53,10 +53,13 @@ namespace NovoTayUmDoce.Componentes
 
                 var ClienteDAO = new ClienteDAO();
                 var FuncionarioDAO = new FuncionarioDAO();
+
                 Funcionario funcionario = new Funcionario();
+                Cliente cliente = new Cliente();
 
                 pedido.Cliente = ClienteDAO.GetById(cbCli.SelectedIndex + 1);
                 pedido.Funcionario = FuncionarioDAO.GetById(cbFun.SelectedIndex + 1);
+
                 pedido.Data = (DateTime)dtpData.SelectedDate;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.Valor = tbTotal.Text;
@@ -67,13 +70,12 @@ namespace NovoTayUmDoce.Componentes
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 pedidoDAO.Insert(pedido);
 
-
                 MessageBox.Show("Dados salvos com sucesso!");
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show("Erro 3008 sou o erro : Contate o suporte");
             }
         }
 
