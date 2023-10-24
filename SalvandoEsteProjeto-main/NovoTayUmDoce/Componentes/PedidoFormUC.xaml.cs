@@ -60,7 +60,7 @@ namespace NovoTayUmDoce.Componentes
 
                 pedido.Total = Convert.ToDouble(tbTotal.Text);
                 pedido.Desconto = tbDesconto.Text;
-                pedido.Produto = tbProduto.Text;
+                pedido.Produtos = tbProduto.Text;
                 pedido.Data = (DateTime)dtpData.SelectedDate;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;

@@ -13,7 +13,7 @@ namespace NovoTayUmDoce.Models
         public int Id { get; set; }
         public double Total { get; set; }
         public string Desconto { get; set; }
-        public string Produto { get; set; }
+        public string Produtos { get; set; }
 
         public DateTime Data { get; set; }
         public int Quantidade { get; set; }
