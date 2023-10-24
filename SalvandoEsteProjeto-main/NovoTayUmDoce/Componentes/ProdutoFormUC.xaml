@@ -84,6 +84,14 @@
             <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
         </StackPanel>
 
+        <StackPanel Margin="20,296,232,816" Grid.Column="4">
+            <Label Content="Pedido:"/>
+        </StackPanel>
+        <StackPanel Margin="76,296,40,1034" Grid.Column="4">
+            <ComboBox x:Name="cbPed" Background="White"  Width="216" Height="35" SelectionChanged="cbPed_SelectionChanged"/>
+        </StackPanel>
+
+
     </Grid>
 
 </UserControl>

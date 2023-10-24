@@ -34,5 +34,10 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void cbPed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
     }
 }

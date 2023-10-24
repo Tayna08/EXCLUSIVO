@@ -52,16 +52,21 @@ namespace NovoTayUmDoce.Componentes
                 Pedido pedido = new Pedido();
 
                 var ClienteDAO = new ClienteDAO();
+  
                 var FuncionarioDAO = new FuncionarioDAO();
 
                 pedido.Cliente = ClienteDAO.GetById(cbCli.SelectedIndex + 1);
                 pedido.Funcionario = FuncionarioDAO.GetById(cbFun.SelectedIndex + 1);
 
+                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                pedido.Desconto = tbDesconto.Text;
+                pedido.Produto = tbProduto.Text;
                 pedido.Data = (DateTime)dtpData.SelectedDate;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                pedido.Valor = tbTotal.Text;
                 pedido.FormaPagamento = tbFormaPag.Text;
-                pedido.TipoDoce = tbProduto.Text; 
+                pedido.Status = tbStatus.Text;
+                pedido.Delivery= tbDelivery.Text;
+
 
                 //Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
