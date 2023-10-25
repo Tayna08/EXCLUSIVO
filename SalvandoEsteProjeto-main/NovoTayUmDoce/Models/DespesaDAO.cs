@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using NovoTayUmDoce.Models;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Models
 {

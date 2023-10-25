@@ -63,6 +63,8 @@ namespace NovoTayUmDoce.Componentes
             catch (Exception )
             {
                 MessageBox.Show("Não foi possível salvar o funcionário, verifique o erro");
+                MessageBox.Show("Erro 3008 : Contate o suporte");
+
             }
         }
         private void Clear()

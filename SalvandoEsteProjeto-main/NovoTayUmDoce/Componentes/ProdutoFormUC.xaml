@@ -27,6 +27,13 @@
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 
+        <StackPanel Margin="50,40,126,698">
+            <Label Content="NOME:"/>
+        </StackPanel>
+        <StackPanel Margin="55,40,6,691" Grid.ColumnSpan="2">
+            <TextBox x:Name="tbNOme" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+        
         <StackPanel Margin="50,90,126,698">
             <Label Content="TOTAL:"/>
         </StackPanel>
@@ -64,10 +71,10 @@
         </StackPanel>
 
         <StackPanel Margin="50,299,161,491">
-            <Label Content="DELIVRE:"/>
+            <Label Content="PESO:"/>
         </StackPanel>
         <StackPanel Margin="120,295,6,495" Grid.ColumnSpan="4">
-            <TextBox x:Name="tbDelivre" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
         <StackPanel Margin="3,145,177,643">
