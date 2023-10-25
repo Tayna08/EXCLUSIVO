@@ -89,11 +89,27 @@ namespace NovoTayUmDoce.Componentes
                 pedidoDAO.Insert(pedido);
 
                 MessageBox.Show("Dados salvos com sucesso!");
+                Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
+
+
+        }
+        private void Clear()
+        {
+            tbTotal.Clear();
+            tbDesconto.Clear();
+            tbDelivery.Clear();
+            tbProduto.Clear();
+            tbFormaPag.Clear();
+            tbQuantidade.Clear();
+            dtpData.SelectedDate = null;
+            tbStatus.Clear();
+            cbCli.Items.Clear();
+            cbFun.Items.Clear();
         }
     }
 }

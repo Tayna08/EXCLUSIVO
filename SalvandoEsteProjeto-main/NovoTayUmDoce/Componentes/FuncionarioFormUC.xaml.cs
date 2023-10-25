@@ -64,6 +64,7 @@ namespace NovoTayUmDoce.Componentes
             catch (Exception )
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
+
             }
         }
         private void Clear()
