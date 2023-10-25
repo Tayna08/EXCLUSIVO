@@ -38,7 +38,7 @@ namespace NovoTayUmDoce.Componentes
             {
                 cbPed.ItemsSource = null;
                 cbPed.Items.Clear();
-                //cbPed.ItemsSource = new PedidoDAO().List();
+                cbPed.ItemsSource = new PedidoDAO().List();
                 cbPed.DisplayMemberPath = "Nome";
 
             }
@@ -77,10 +77,11 @@ namespace NovoTayUmDoce.Componentes
                 produto.Descricao = tbDescricao.Text;
 
                 // Chaves estrangeiras
-               // produto.Pedido = (Pedido)cbPed.SelectedItem;
+                 produto.Pedido = (Pedido)cbPed.SelectedItem;
 
                 // Inserindo os Dados           
-                
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+                produtoDAO.Insert(produto);
                 MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }

@@ -1,6 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using NovoTayUmDoce.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -15,34 +13,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Componentes;
+using NovoTayUmDoce.Conexão;
+using NovoTayUmDoce.Helpers;
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para PedidoListarUC.xam
+    /// Interação lógica para ProdutoListarUC.xam
     /// </summary>
-    public partial class PedidoListarUC : UserControl
+    public partial class ProdutoListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
-
-        public PedidoListarUC(MainWindow context)
+        public ProdutoListarUC()
         {
             InitializeComponent();
-            _context = context;
+           // _context = context;
             Listar();
         }
-        private void BtnAddPedido_Click(object sender, RoutedEventArgs e)
-        {
-            _context.SwitchScreen(new PedidoFormUC(_context));
-        }
 
+        private void BtnAddProduto_Click(object sender, RoutedEventArgs e)
+        {
+            _context.SwitchScreen(new ProdutoFormUC(_context));
+
+        }
         private void Listar()
         {
             try
             {
-                var dao = new PedidoDAO();
-                dataGridPedidos.ItemsSource = dao.List();
+                var dao = new ProdutoDAO();
+                dataGridProduto.ItemsSource = dao.List();
 
             }
             catch (Exception ex)
@@ -51,19 +54,19 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void ExcluirFuncionario_Click(object sender, RoutedEventArgs e)
+        private void ExcluirProduto_Click(object sender, RoutedEventArgs e)
         {
-            var pedidoSelected = dataGridPedidos.SelectedItem as Pedido;
+            var produtoSelected = dataGridProduto.SelectedItem as Produto;
 
-            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{produtoSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    var dao = new PedidoDAO();
-                    dao.Delete(pedidoSelected);
+                    var dao = new ProdutoDAO();
+                   // dao.Delete(produtoSelected);
                 }
             }
             catch (Exception ex)
@@ -73,3 +76,6 @@ namespace NovoTayUmDoce.Componentes
         }
     }
 }
+
+    
+
