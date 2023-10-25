@@ -1,0 +1,16 @@
+﻿<Window x:Class="NovoTayUmDoce.Janelas.ListarProduto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NovoTayUmDoce.Janelas"
+        mc:Ignorable="d"
+        Title="ListarProduto" Height="450" Width="800">
+    <Grid Margin="0,48,0,0">
+        <Grid.ColumnDefinitions>
+
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dtg" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" Grid.ColumnSpan="2"/>
+        <Button Content="X" HorizontalAlignment="Left" Margin="629,-43,0,399" Width="81" RenderTransformOrigin="0.803,-0.011" Click="Button_Click"/>
+    </Grid>
+</Window>
