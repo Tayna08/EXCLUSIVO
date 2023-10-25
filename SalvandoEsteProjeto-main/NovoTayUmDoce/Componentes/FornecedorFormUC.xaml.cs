@@ -41,34 +41,35 @@ namespace NovoTayUmDoce.Componentes
                 }
                 else
                 {
-                     Fornecedor fornecedor = new Fornecedor();
-                     Endereco endereco = new Endereco();
+                    Fornecedor fornecedor = new Fornecedor();
+                    Endereco endereco = new Endereco();
                     Estoque estoque = new Estoque();
 
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Rua = tbRua.Text;
+                    endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                    endereco.Bairro = tbBairro.Text;
+                    endereco.Cidade = tbCidade.Text;
+                    endereco.Complemento = tbComplemento.Text;
+                    endereco.Rua = tbRua.Text;
 
-                fornecedor.Endereco= endereco;
-              
-
-                fornecedor.Nome_Representante = tbNomeRe.Text;
-                fornecedor.Nome_Fantasia = tbNomeFan.Text;
-                fornecedor.Contato = tbContato.Text;
-                fornecedor.Cnpj = tbCNPJ.Text;
-                fornecedor.Razao_Social = tbRazaoSocial.Text;
-                fornecedor.Email = tbEmail.Text;
-
-                fornecedor.Estoque= estoque;
+                    fornecedor.Endereco = endereco;
 
 
-                
+                    fornecedor.Nome_Representante = tbNomeRe.Text;
+                    fornecedor.Nome_Fantasia = tbNomeFan.Text;
+                    fornecedor.Contato = tbContato.Text;
+                    fornecedor.Cnpj = tbCNPJ.Text;
+                    fornecedor.Razao_Social = tbRazaoSocial.Text;
+                    fornecedor.Email = tbEmail.Text;
 
-                //Inserindo os Dados
+                    fornecedor.Estoque = estoque;
 
-                Clear();
+
+
+
+                    //Inserindo os Dados
+
+                    Clear();
+                }
             }
             catch (Exception)
             {
