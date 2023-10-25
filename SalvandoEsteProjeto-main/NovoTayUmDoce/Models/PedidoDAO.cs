@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using NovoTayUmDoce.Janelas;
 using System.Windows;
-using TayUmDoceProjeto.Models;
 using MySqlX.XDevAPI;
-using NovoTayUmDoce.Models;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Helpers;
-
+using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Models
 {
@@ -84,8 +83,9 @@ namespace NovoTayUmDoce.Models
                 var clienteId = new ClienteDAO().Insert(pedido.Cliente);
 
                 var query = conn.Query();
+
                 query.CommandText = $"INSERT INTO Pedido (total_ped, desconto_ped, produtos_ped, data_ped, quantidade_ped, forma_Pagamento_ped, status_ped, delivery_ped, id_fun_fk, id_cli_fk) " +
-                    $"VALUES (@data, @quantidade, @valor, @forma_Pagamento, @tipo_doce, @id_fun, @id_cli)";
+                    $"VALUES (@total, @desconto, @produtos, @data, @quantidade, @forma_Pagamento, @status, @delivery, @id_fun, @id_cli)";
 
                 query.Parameters.AddWithValue("@total", pedido.Total);
                 query.Parameters.AddWithValue("@desconto", pedido.Desconto);
