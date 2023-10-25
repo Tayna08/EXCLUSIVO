@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
 namespace NovoTayUmDoce.Componentes
 {
@@ -34,31 +35,40 @@ namespace NovoTayUmDoce.Componentes
         {
             try
             {
-                //Setando informações na tabela cliente
-                Funcionario funcionario = new Funcionario();
-                Endereco endereco = new Endereco();
 
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Rua = tbRua.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Cep = tbCEP.Text;
+                if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
+                {
+                    MessageBox.Show("Cpf digitado é inválido!");
+                }
+                else
+                {
+                    //Setando informações na tabela cliente
+                    Funcionario funcionario = new Funcionario();
+                    Endereco endereco = new Endereco();
 
-                funcionario.Endereco = endereco;
-                funcionario.Nome = tbNome.Text;
-                funcionario.Cpf = tbCpf.Text;
-                funcionario.Data = dtpData.SelectedDate;
-                funcionario.Contato = tbContato.Text;
-                funcionario.Email = tbEmail.Text;
-                funcionario.Funcao = tbFuncao.Text;
-                funcionario.Salario = tbSalario.Text;
+                   endereco.Bairro = tbBairro.Text;
+                   endereco.Cidade = tbCidade.Text;
+                   endereco.Rua = tbRua.Text;
+                   endereco.Complemento = tbComplemento.Text;
+                   endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                   endereco.Cep = tbCEP.Text;
 
-                //Inserindo os Dados           
-                FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                funcionarioDAO.Insert(funcionario);
+                   funcionario.Endereco = endereco;
+                   funcionario.Nome = tbNome.Text;
+                   funcionario.Cpf = tbCpf.Text;
+                   funcionario.Data = dtpData.SelectedDate;
+                   funcionario.Contato = tbContato.Text;
+                   funcionario.Email = tbEmail.Text;
+                   funcionario.Funcao = tbFuncao.Text;
+                   funcionario.Salario = tbSalario.Text;
+
+                  //Inserindo os Dados           
+                  FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                  funcionarioDAO.Insert(funcionario);
 
                 Clear();
+                }
+                
             }
             catch (Exception )
             {

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
+using NovoTayUmDoce.Helpers;
 
 namespace TayUmDoceProjeto.Janelas
 {
@@ -34,32 +35,39 @@ namespace TayUmDoceProjeto.Janelas
         {
             try
             {
-                //Setando informações na tabela cliente
-                Cliente cliente = new Cliente();
-                Endereco endereco = new Endereco();
+                if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
+                {
+                    MessageBox.Show("Cpf digitado é invalido! ");
+                }
+                else 
+                {
+                    //Setando informações na tabela cliente
+                    Cliente cliente = new Cliente();
+                    Endereco endereco = new Endereco();
 
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Rua = tbRua.Text;
+                    endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                    endereco.Bairro = tbBairro.Text;
+                    endereco.Cidade = tbCidade.Text;
+                    endereco.Complemento = tbComplemento.Text;
+                    endereco.Rua = tbRua.Text;
 
-                cliente.Endereco = endereco;
+                    cliente.Endereco = endereco;
 
-                cliente.Nome = tbNome.Text;
-                cliente.Cpf = tbCpf.Text;
-                cliente.DataNasc = dtpData.SelectedDate;
-                cliente.Contato = tbContato.Text;
+                    cliente.Nome = tbNome.Text;
+                    cliente.Cpf = tbCpf.Text;
+                    cliente.DataNasc = dtpData.SelectedDate;
+                    cliente.Contato = tbContato.Text;
 
-                //Inserindo os Dados           
-                ClienteDAO clienteDAO = new ClienteDAO();
-                clienteDAO.Insert(cliente);
+                    //Inserindo os Dados           
+                    ClienteDAO clienteDAO = new ClienteDAO();
+                    clienteDAO.Insert(cliente);
 
-                              
-                MessageBox.Show("Dados salvos com sucesso!");
-                Clear();
+
+                    MessageBox.Show("Dados salvos com sucesso!");
+                    Clear();
+                }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Erro 3008 : Contate o suporte");
             }

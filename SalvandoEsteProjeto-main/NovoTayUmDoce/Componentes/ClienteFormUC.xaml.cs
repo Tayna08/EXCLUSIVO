@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
@@ -34,29 +35,38 @@ namespace NovoTayUmDoce.Componentes
         {
             try
             {
-                //Setando informações na tabela cliente
-                Cliente cliente = new Cliente();
-                Endereco endereco = new Endereco();
 
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Rua = tbRua.Text;
-                endereco.Cep = tbCEP.Text;
+                if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
+                {
+                    MessageBox.Show("Cpf digitado é invalido! ");
+                }
+                else
+                {
+                    //Setando informações na tabela cliente
+                    Cliente cliente = new Cliente();
+                    Endereco endereco = new Endereco();
 
-                cliente.Endereco = endereco;
+                    endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                    endereco.Bairro = tbBairro.Text;
+                    endereco.Cidade = tbCidade.Text;
+                    endereco.Complemento = tbComplemento.Text;
+                    endereco.Rua = tbRua.Text;
+                    endereco.Cep = tbCEP.Text;
 
-                cliente.Nome = tbNome.Text;
-                cliente.Cpf = tbCpf.Text;
-                cliente.DataNasc = dtpData.SelectedDate;
-                cliente.Contato = tbContato.Text;
+                    cliente.Endereco = endereco;
 
-                //Inserindo os Dados           
-                ClienteDAO clienteDAO = new ClienteDAO();
-                clienteDAO.Insert(cliente);
+                    cliente.Nome = tbNome.Text;
+                    cliente.Cpf = tbCpf.Text;
+                    cliente.DataNasc = dtpData.SelectedDate;
+                    cliente.Contato = tbContato.Text;
 
-                Clear();
+                    //Inserindo os Dados           
+                    ClienteDAO clienteDAO = new ClienteDAO();
+                    clienteDAO.Insert(cliente);
+
+                    Clear();
+
+                }
             }
             catch (Exception )
             {
