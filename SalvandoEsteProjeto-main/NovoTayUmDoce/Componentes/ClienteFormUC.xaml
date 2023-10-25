@@ -41,7 +41,7 @@
                 <Label Content="CONTATO:"  Height="28"/>
             </StackPanel>
             <StackPanel Margin="80,170,10,60" >
-                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
+                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbContato_TextChanged"/>
             </StackPanel>
 
 
