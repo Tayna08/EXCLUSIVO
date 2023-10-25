@@ -35,7 +35,7 @@ namespace NovoTayUmDoce.Componentes
             try
             {
 
-                if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
+                if (ValidacaoCPFeCNPJ.ValidateCNPJ(tbCNPJ.Text) == "Erro")
                 {
                     MessageBox.Show("Cpf digitado é invalido! ");
                 }
