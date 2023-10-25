@@ -60,14 +60,11 @@ namespace NovoTayUmDoce.Componentes
 
                 //Inserindo os Dados
 
-
-
-                MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
             catch (Exception)
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show("Não foi possível salvar o fornecedor, verifique o erro");
             }
         }
         private void Clear()

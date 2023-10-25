@@ -89,17 +89,16 @@ namespace NovoTayUmDoce.Models
                         {
                             MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
                         }
+                        else
+                        {
+                            MessageBox.Show("Inserção bem-sucedida!");
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Erro ao inserir os dados do endereço.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007: Contate o suporte!");
+                MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
             }
         }
         public void Delete(Cliente cliente)

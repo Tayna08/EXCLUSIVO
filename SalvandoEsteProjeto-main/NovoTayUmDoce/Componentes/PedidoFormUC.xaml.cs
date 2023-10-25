@@ -88,7 +88,6 @@ namespace NovoTayUmDoce.Componentes
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 pedidoDAO.Insert(pedido);
 
-                MessageBox.Show("Dados salvos com sucesso!");
             }
             catch (Exception ex)
             {

@@ -42,15 +42,15 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
+                despesa.Hora = Hora.SelectedTime;
 
                 DespesaDAO despesaDAO = new DespesaDAO();
                 despesaDAO.Insert(despesa);
-
-                MessageBox.Show("Dados salvos com sucesso!");             
+          
             }
             catch (Exception )
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show("Não foi possível salvar a Despesa, verifique o erro");
             }
         }
 

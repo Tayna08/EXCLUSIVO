@@ -32,7 +32,7 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@Descricao", despesa.Descricao);
                 query.Parameters.AddWithValue("@Forma_pag", despesa.FormaPagamento);
                 query.Parameters.AddWithValue("@Data", despesa.Data?.ToString("yyyy-MM-dd"));
-                query.Parameters.AddWithValue("@Hora", despesa.Hora?.ToString("00:00:00"));
+                query.Parameters.AddWithValue("@Hora", despesa.Hora?.ToString("00:00"));
                 query.Parameters.AddWithValue("@Valor", despesa.Valor);
                 query.Parameters.AddWithValue("@Vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
 
@@ -43,11 +43,14 @@ namespace NovoTayUmDoce.Models
                 {
                     MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
                 }
+                else
+                {
+                    MessageBox.Show("Inserção bem-sucedida!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
+                MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
             }
         }
 

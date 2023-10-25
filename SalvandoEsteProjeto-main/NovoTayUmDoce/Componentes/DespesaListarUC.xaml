@@ -26,6 +26,7 @@
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
                 <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Vencimento}"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

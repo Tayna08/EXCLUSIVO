@@ -56,13 +56,11 @@ namespace NovoTayUmDoce.Componentes
                 ClienteDAO clienteDAO = new ClienteDAO();
                 clienteDAO.Insert(cliente);
 
-
-                MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
             catch (Exception )
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show("Não foi possível salvar o cliente, verifique o erro");
             }
         }
         private void Clear()

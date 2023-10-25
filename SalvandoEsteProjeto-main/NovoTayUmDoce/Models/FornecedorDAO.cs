@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TayUmDoceProjeto.Conexão;
 using System.Windows;
 using NovoTayUmDoce.Models;
+using NovoTayUmDoce.Helpers;
+using MySql.Data.MySqlClient;
 
 namespace NovoTayUmDoce.Models
 {
@@ -17,6 +19,49 @@ namespace NovoTayUmDoce.Models
         public FornecedorDAO()
         {
             conn = new Conexao();
+        }
+
+        public Fornecedor GetById (int id)
+        {
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "SELECT * FROM Fornecedor where (id_for = @id)";
+                    query.Parameters.AddWithValue("@id", id);
+
+                    using (MySqlDataReader reader = query.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Nenhum fornecedor foi encontrado!");
+                            return null;
+                        }
+
+                        var fornecedor = new Fornecedor();
+
+                        while (reader.Read())
+                        {
+                            fornecedor.Id = DAOHelper.GetInt(reader, "id_for");
+                            fornecedor.Nome_Fantasia = DAOHelper.GetString(reader, "nome_fantasia_for");
+                            fornecedor.Nome_Representante = DAOHelper.GetString(reader, "nome_representante_for");
+                            fornecedor.Contato = DAOHelper.GetString(reader, "contato_for");
+                            fornecedor.Cnpj = DAOHelper.GetString(reader, "cnpj_for");
+                            fornecedor.Razao_Social = DAOHelper.GetString(reader, "razao_social_for");
+                            fornecedor.Email = DAOHelper.GetString(reader, "email_for");
+                            fornecedor.Endereco = new EnderecoDAO().GetById(DAOHelper.GetInt(reader, "id_end_fk"));
+                            //fornecedor.Estoque = new EstoqueDAO().GetById(DAOHelper.GetInt(reader, "id_est_fk"));
+                        }
+
+                        return fornecedor;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
         }
 
         public List<Fornecedor> List()
@@ -96,11 +141,14 @@ namespace NovoTayUmDoce.Models
                 {
                     MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
                 }
+                else
+                {
+                    MessageBox.Show("Inserção bem-sucedida!");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
+                MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
             }
 
         }
@@ -124,10 +172,6 @@ namespace NovoTayUmDoce.Models
             catch (Exception e)
             {
                 throw e;
-            }
-            finally
-            {
-                conn.Close();
             }
         }
     }
