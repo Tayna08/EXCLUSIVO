@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using NovoTayUmDoce.Conexão;
+using NovoTayUmDoce.Helpers;
+using NovoTayUmDoce.Componentes;
 
 namespace NovoTayUmDoce.Models
 {
@@ -12,7 +15,80 @@ namespace NovoTayUmDoce.Models
         {
             conn = new Conexao();
         }
+        public List<Pedido> List()
+        {
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "SELECT * FROM produto LEFT JOIN pedido ON id_ped = id_ped_fk";
+                    using (var reader = query.ExecuteReader())
+                    {
+                        var lista = new List<Pedido>();
 
+                        while (reader.Read())
+                        {
+                            var pedido = new Pedido()
+                            {
+
+                                Id = DAOHelper.GetInt(reader, "id_ped"),
+                                Total = DAOHelper.GetDouble(reader, "total_ped"),
+                                Desconto = DAOHelper.GetString(reader, "desconto_ped"),
+                                Produtos = DAOHelper.GetString(reader, "produtos_ped"),
+                                Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped"),
+                                Quantidade = DAOHelper.GetInt(reader, "quantidade_ped"),
+                                FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
+                                Status = DAOHelper.GetString(reader, "status_ped"),
+                                Delivery = DAOHelper.GetString(reader, "delivery_ped"),
+
+                            };
+
+                            var endereco = new Endereco()
+                            {
+                                Id = DAOHelper.GetInt(reader, "id_end"),
+                                Bairro = DAOHelper.GetString(reader, "bairro_end"),
+                                Cidade = DAOHelper.GetString(reader, "cidade_end"),
+                                Rua = DAOHelper.GetString(reader, "rua_end"),
+                                Complemento = DAOHelper.GetString(reader, "complemento_end"),
+                                Numero = DAOHelper.GetInt(reader, "numero_end"),
+                                Cep = DAOHelper.GetString(reader, "cep_end")
+                            };
+
+                            var funcionario = new Funcionario()
+                            {
+                                Id = DAOHelper.GetInt(reader, "id_fun"),
+                                Nome = DAOHelper.GetString(reader, "nome_fun"),
+                                Data = DAOHelper.GetDateTime(reader, "data_nascimento_fun"),
+                                Cpf = DAOHelper.GetString(reader, "cpf_fun"),
+                                Contato = DAOHelper.GetString(reader, "contato_fun"),
+                                Funcao = DAOHelper.GetString(reader, "funcao_fun"),
+                                Email = DAOHelper.GetString(reader, "email_fun"),
+                                Salario = DAOHelper.GetString(reader, "salario_fun"),
+                                Endereco = endereco,
+                            };
+                            var cliente = new Cliente()
+                            {
+                                Id = DAOHelper.GetInt(reader, "id_cli"),
+                                Nome = DAOHelper.GetString(reader, "nome_cli"),
+                                Cpf = DAOHelper.GetString(reader, "cpf_cli"),
+                                Contato = DAOHelper.GetString(reader, "contato_cli"),
+                                DataNasc = DAOHelper.GetDateTime(reader, "data_nascimento_cli"),
+                                Endereco = endereco,
+                            };
+
+                            lista.Add(pedido);
+                        }
+
+                        return lista;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
         public void Insert(Pedido pedido)
         {
             try
@@ -67,6 +143,33 @@ namespace NovoTayUmDoce.Models
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
+            }
+        }
+        public void Delete(Pedido pedido)
+        {
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "DELETE FROM pedido WHERE (id_ped = @id)";
+
+                    query.Parameters.AddWithValue("@id", pedido.Id);
+
+                    var result = query.ExecuteNonQuery();
+
+                    if (result == 0)
+                    {
+                        MessageBox.Show("Erro ao remover o pedido. Verifique e tente novamente.");
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
             }
         }
     }

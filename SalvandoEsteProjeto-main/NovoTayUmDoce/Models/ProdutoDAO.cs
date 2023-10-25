@@ -20,7 +20,6 @@ namespace NovoTayUmDoce.Models
         {
             conn = new Conexao();
         }
-
         public List<Produto> List()
         {
             try
@@ -41,36 +40,22 @@ namespace NovoTayUmDoce.Models
                                 Total = DAOHelper.GetDouble(reader, "total_ped"),
                                 Desconto = DAOHelper.GetString(reader, "desconto_ped"),
                                 Produtos = DAOHelper.GetString(reader, "produtos_ped"),
-                                Data = (DateTime) DAOHelper.GetDateTime(reader, "data_ped"),
+                                Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped"),
                                 Quantidade = DAOHelper.GetInt(reader, "quantidade_ped"),
-                                FormaPagamento = DAOHelper.GetString(reader,"forma_pagamento_ped"),
-                                Status = DAOHelper.GetString(reader,"status_ped"),
-                                Delivery = DAOHelper.GetString(reader,"delivery_ped"),
+                                FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
+                                Status = DAOHelper.GetString(reader, "status_ped"),
+                                Delivery = DAOHelper.GetString(reader, "delivery_ped"),
 
                             };
-
                             var produto = new Produto()
                             {
-                                Id = DAOHelper.GetInt(reader, "id_pro"),
-                                Nome = DAOHelper.GetString(reader, "nome_pro"),
-                                Peso = DAOHelper.GetString(reader, "peso_pro"),
-                                Valor_Gasto = DAOHelper.GetDouble(reader, "valor_gasto_pro"),
-                                Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro"),
-                                Data = DAOHelper.GetDateTime(reader, "data_fabricacao_pro"),
-                                Hora = DAOHelper.GetDateTime(reader, "hora_pro"),
-                                Estoque_medio = DAOHelper.GetString(reader, "estoque_medio"),
-                                Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo"),
-                                Quantidade = DAOHelper.GetInt(reader, "quantidade_pro"),
-                                Tipo = DAOHelper.GetString(reader, "tipo_pro"),
-                                Descricao = DAOHelper.GetString(reader, "descricao_pro"),
-                                //Pedido = pedido,
-                               
+                                Id = DAOHelper.GetInt(reader,"id_pro"),
                             };
 
-                           // lista.Add(pedido);
+                            lista.Add(produto);
                         }
 
-                       return lista;
+                        return lista;
                     }
                 }
             }
@@ -80,7 +65,6 @@ namespace NovoTayUmDoce.Models
                 throw;
             }
         }
-
 
         public void Insert(Produto produto)
         {
@@ -104,6 +88,7 @@ namespace NovoTayUmDoce.Models
                     MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
