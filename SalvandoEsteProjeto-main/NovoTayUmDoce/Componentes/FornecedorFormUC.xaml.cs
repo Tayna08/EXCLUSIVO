@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NovoTayUmDoce.Helpers;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -33,9 +34,16 @@ namespace NovoTayUmDoce.Componentes
         {
             try
             {
-                Fornecedor fornecedor = new Fornecedor();
-                Endereco endereco = new Endereco();
-                Estoque estoque = new Estoque();
+
+                if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
+                {
+                    MessageBox.Show("Cpf digitado é invalido! ");
+                }
+                else
+                {
+                     Fornecedor fornecedor = new Fornecedor();
+                     Endereco endereco = new Endereco();
+                    Estoque estoque = new Estoque();
 
                 endereco.Numero = Convert.ToInt32(tbNumero.Text);
                 endereco.Bairro = tbBairro.Text;
