@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using MySql.Data.MySqlClient;
 
-namespace TayUmDoceProjeto.Conexão
+namespace NovoTayUmDoce.Conexão
 {
     class Conexao
     {

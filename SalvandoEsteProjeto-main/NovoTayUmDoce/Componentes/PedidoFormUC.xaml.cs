@@ -2,7 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Componentes
 {

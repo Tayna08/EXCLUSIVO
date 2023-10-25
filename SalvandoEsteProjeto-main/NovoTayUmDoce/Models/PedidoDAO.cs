@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Models
 {

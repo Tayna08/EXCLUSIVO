@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Models
 {

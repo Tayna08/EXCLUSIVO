@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Helpers;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 using System.Windows;
 
 namespace NovoTayUmDoce.Models

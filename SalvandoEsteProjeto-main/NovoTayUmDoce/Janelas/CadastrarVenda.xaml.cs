@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Models;
 using NovoTayUmDoce.Janelas;
-using TayUmDoceProjeto.Conexão;
+using NovoTayUmDoce.Conexão;
 using MySql.Data.MySqlClient;
 
 namespace NovoTayUmDoce.Janelas
