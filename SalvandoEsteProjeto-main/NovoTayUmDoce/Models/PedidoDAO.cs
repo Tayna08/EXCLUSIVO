@@ -24,9 +24,9 @@ namespace NovoTayUmDoce.Models
                     "produtos_ped, " +
                     "data_ped, " +
                     "quantidade_ped, " +
-                    "forma_Pagamento, " +
+                    "forma_Pagamento_ped, " +
                     "status_ped, " +
-                    "delivre_ped, " +
+                    "delivery_ped, " +
                     "id_fun_fk, " +
                     "id_cli_fk) " +
                     "VALUES " +
