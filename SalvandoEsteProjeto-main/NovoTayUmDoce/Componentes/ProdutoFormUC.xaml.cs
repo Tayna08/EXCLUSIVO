@@ -38,7 +38,7 @@ namespace NovoTayUmDoce.Componentes
             {
                 cbPed.ItemsSource = null;
                 cbPed.Items.Clear();
-                cbPed.ItemsSource = new FuncionarioDAO().List();
+                //cbPed.ItemsSource = new PedidoDAO().List();
                 cbPed.DisplayMemberPath = "Nome";
 
             }
@@ -65,12 +65,19 @@ namespace NovoTayUmDoce.Componentes
                 Produto produto = new Produto();
 
                 produto.Nome= tbNOme.Text;
-                //produto.Peso = tbP
-
+                produto.Peso = tbPeso.Text;
+                produto.Valor_Gasto = Convert.ToDouble(tbValorGas);
+                produto.Valor_Venda = Convert.ToDouble(tbValorVenda);
+                produto.Data = dtpData.SelectedDate;
+                produto.Hora = TiHORA.SelectedTime;
+                produto.Estoque_medio = tbEstMedio.Text;
+                produto.Estoque_maximo = tbEstMaximo.Text;
+                produto.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                produto.Tipo = tbTipoPro.Text;
+                produto.Descricao = tbDescricao.Text;
 
                 // Chaves estrangeiras
-                //pedido.Cliente = (Cliente)cbCli.SelectedItem;
-                // pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
+               // produto.Pedido = (Pedido)cbPed.SelectedItem;
 
                 // Inserindo os Dados           
                 
