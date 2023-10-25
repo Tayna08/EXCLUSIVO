@@ -34,7 +34,7 @@
                 <Label Content="CPF:"/>
             </StackPanel>
             <StackPanel  Margin="50,110,10,60" >
-                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbCpf_TextChanged"/>
             </StackPanel>
 
             <StackPanel Margin="10,170,78,60">

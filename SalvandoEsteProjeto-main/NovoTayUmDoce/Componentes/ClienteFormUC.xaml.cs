@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -97,6 +98,61 @@ namespace NovoTayUmDoce.Componentes
                 _context.SwitchScreen(new ClienteListarUC(_context));
             }
             
+        }
+
+        private void tbCpf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
+            {
+                e.Handled = true; // Impede caracteres não numéricos e limita o comprimento a 14 dígitos
+            }
+            else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
+            {
+                tbCpf.Text += ".";
+                tbCpf.CaretIndex = tbCpf.Text.Length; // Coloca o cursor na posição correta
+            }
+            else if (tbCpf.Text.Length == 11)
+            {
+                tbCpf.Text += "-";
+                tbCpf.CaretIndex = tbCpf.Text.Length;
+            }
+            else if (tbCpf.Text.Length >= 14)
+            {
+                e.Handled = true; // Impede caracteres não numéricos e limita o comprimento a 14 dígitos
+            }
+            else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
+            {
+                tbCpf.Text += ".";
+                tbCpf.CaretIndex = tbCpf.Text.Length; // Coloca o cursor na posição correta
+            }
+            else if (tbCpf.Text.Length == 11)
+            {
+                tbCpf.Text += "-";
+                tbCpf.CaretIndex = tbCpf.Text.Length;
+            }
+        }
+
+        private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(e.Text, "[0-9]") || txtTelefone.Text.Length >= 14)
+            {
+                e.Handled = true;
+            }
+            else if (txtTelefone.Text.Length == 1)
+            {
+                txtTelefone.Text = "(" + txtTelefone.Text;
+                txtTelefone.CaretIndex = txtTelefone.Text.Length;
+            }
+            else if (txtTelefone.Text.Length == 3)
+            {
+                txtTelefone.Text += ") ";
+                txtTelefone.CaretIndex = txtTelefone.Text.Length;
+            }
+            else if (txtTelefone.Text.Length == 9)
+            {
+                txtTelefone.Text += "-";
+                txtTelefone.CaretIndex = txtTelefone.Text.Length;
+            }
         }
     }
 }
