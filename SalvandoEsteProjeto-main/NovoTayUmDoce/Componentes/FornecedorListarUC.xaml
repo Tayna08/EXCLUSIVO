@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Fornecedor" VerticalAlignment="Center" FontSize="24"/>
-            <Button x:Name="BtnAddFornecedor" Margin="10 0 0 0" Content="Novo Fornecedor" Click="BtnAddFornecedor_Click"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddFornecedor" Margin="10 0 0 0" Content="Novo Fornecedor" Click="BtnAddFornecedor_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
 

@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Despesas" VerticalAlignment="Center" FontSize="24"/>
-            <Button x:Name="BtnAddDespesa" Margin="10 0 0 0" Content="Nova Despesa" Click="BtnAddDespesa_Click"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddDespesa" Margin="10 0 0 0" Content="Nova Despesa" Click="BtnAddDespesa_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dataGridDespesa" IsReadOnly="true"
