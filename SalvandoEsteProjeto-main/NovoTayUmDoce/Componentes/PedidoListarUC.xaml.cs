@@ -51,11 +51,11 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void ExcluirFuncionario_Click(object sender, RoutedEventArgs e)
+        private void ExcluirPedido_Click(object sender, RoutedEventArgs e)
         {
             var pedidoSelected = dataGridPedidos.SelectedItem as Pedido;
 
-            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o pedido `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try

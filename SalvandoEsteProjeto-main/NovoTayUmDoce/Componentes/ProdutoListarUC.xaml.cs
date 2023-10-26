@@ -28,10 +28,10 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
         private MySqlConnection _conexao;
-        public ProdutoListarUC()
+        public ProdutoListarUC(MainWindow context)
         {
             InitializeComponent();
-           // _context = context;
+            _context = context;
             Listar();
         }
 

@@ -4,6 +4,8 @@ using System.Windows;
 using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Componentes;
+using MySql.Data.MySqlClient;
+using System.Windows.Markup;
 
 namespace NovoTayUmDoce.Models
 {
@@ -14,6 +16,50 @@ namespace NovoTayUmDoce.Models
         public PedidoDAO()
         {
             conn = new Conexao();
+        }
+        public Pedido GetById(int id)
+        {
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "SELECT * FROM Pedido WHERE (id_ped = @id)";
+                    query.Parameters.AddWithValue("@id", id);
+
+                    using (MySqlDataReader reader = query.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Nenhum pedido foi encontrado!");
+                            return null;
+                        }
+
+                        var pedido = new Pedido();
+
+                        while (reader.Read())
+                        {
+                            pedido.Id = DAOHelper.GetInt(reader, "id_ped");
+                            pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
+                            pedido.Desconto = DAOHelper.GetString(reader, "desconto_ped");
+                            pedido.Produtos = DAOHelper.GetString(reader, "produtos_pd");
+                            pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            pedido.Quantidade = DAOHelper.GetInt(reader, "quantidade_ped");
+                            pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
+                            pedido.Status = DAOHelper.GetString(reader, "status_ped");
+                            pedido.Delivery = DAOHelper.GetString(reader, "delivery_ped");
+                            pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
+                            pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
+                        }
+
+                        return pedido;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
         }
         public List<Pedido> List()
         {

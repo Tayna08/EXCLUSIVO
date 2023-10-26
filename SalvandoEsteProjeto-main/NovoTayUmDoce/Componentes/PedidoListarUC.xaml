@@ -34,7 +34,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Click="ExcluirFuncionario_Click">
+                            <Button  Click="ExcluirPedido_Click">
                                 <Button.BorderBrush>
                                     <LinearGradientBrush >
                                         <GradientStop Color="Black"/>

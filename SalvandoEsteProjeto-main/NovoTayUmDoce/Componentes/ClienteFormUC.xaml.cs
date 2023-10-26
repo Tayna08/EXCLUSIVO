@@ -134,25 +134,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!Regex.IsMatch(e.Text, "[0-9]") || txtTelefone.Text.Length >= 14)
-            {
-                e.Handled = true;
-            }
-            else if (txtTelefone.Text.Length == 1)
-            {
-                txtTelefone.Text = "(" + txtTelefone.Text;
-                txtTelefone.CaretIndex = txtTelefone.Text.Length;
-            }
-            else if (txtTelefone.Text.Length == 3)
-            {
-                txtTelefone.Text += ") ";
-                txtTelefone.CaretIndex = txtTelefone.Text.Length;
-            }
-            else if (txtTelefone.Text.Length == 9)
-            {
-                txtTelefone.Text += "-";
-                txtTelefone.CaretIndex = txtTelefone.Text.Length;
-            }
+           
         }
     }
 }

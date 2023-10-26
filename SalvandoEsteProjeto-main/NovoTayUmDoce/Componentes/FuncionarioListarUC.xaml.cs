@@ -71,5 +71,10 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void dataGridFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
