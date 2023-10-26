@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using NovoTayUmDoce.Janelas;
 using NovoTayUmDoce.Conexão;
 using System.Windows;
+using NovoTayUmDoce.Helpers;
+using MySql.Data.MySqlClient;
 
 namespace NovoTayUmDoce.Models
 {
@@ -18,7 +20,51 @@ namespace NovoTayUmDoce.Models
         {
             conn = new Conexao();
         }
+        public List<Produto> List()
+        {
+            try
+            {
+                using (var query = conn.Query())
+                {
+                    query.CommandText = "SELECT * FROM produto LEFT JOIN pedido ON id_ped = id_ped_fk";
+                    using (var reader = query.ExecuteReader())
+                    {
+                        var lista = new List<Produto>();
 
+                        while (reader.Read())
+                        {
+                            var pedido = new Pedido()
+                            {
+
+                                Id = DAOHelper.GetInt(reader, "id_ped"),
+                                Total = DAOHelper.GetDouble(reader, "total_ped"),
+                                Desconto = DAOHelper.GetString(reader, "desconto_ped"),
+                                Produtos = DAOHelper.GetString(reader, "produtos_ped"),
+                                Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped"),
+                                Quantidade = DAOHelper.GetInt(reader, "quantidade_ped"),
+                                FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
+                                Status = DAOHelper.GetString(reader, "status_ped"),
+                                Delivery = DAOHelper.GetString(reader, "delivery_ped"),
+
+                            };
+                            var produto = new Produto()
+                            {
+                                Id = DAOHelper.GetInt(reader,"id_pro"),
+                            };
+
+                            lista.Add(produto);
+                        }
+
+                        return lista;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
+        }
 
         public void Insert(Produto produto)
         {
@@ -29,7 +75,7 @@ namespace NovoTayUmDoce.Models
                     $"VALUES (@nome, @valor, @peso, @descricao, @data_fabricacao, @quantidade)";
 
                 query.Parameters.AddWithValue("@nome", produto.Nome);
-                query.Parameters.AddWithValue("@valor", produto.Valor);
+                //query.Parameters.AddWithValue("@valor", produto.Valor_Maximo);
                 query.Parameters.AddWithValue("@peso", produto.Peso);
                 query.Parameters.AddWithValue("@descricao", produto.Descricao);
                 query.Parameters.AddWithValue("@data_fabricacao", produto.Data?.ToString("yyyy-MM-dd"));
@@ -42,6 +88,7 @@ namespace NovoTayUmDoce.Models
                     MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
                 }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

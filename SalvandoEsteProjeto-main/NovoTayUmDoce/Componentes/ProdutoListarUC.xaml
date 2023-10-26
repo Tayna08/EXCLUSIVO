@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="NovoTayUmDoce.Componentes.FuncionarioListarUC"
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.ProdutoListarUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" Width="1109">
+           mc:Ignorable="d" 
+             d:DesignHeight="450" Width="1210">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="273*"/>
@@ -16,35 +16,34 @@
             <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24"/>
-            <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
+            <TextBlock Text="Produto" VerticalAlignment="Center" FontSize="24"/>
+            <Button x:Name="BtnAddProduto" Margin="10 0 0 0" Content="Novo Produto" Click="BtnAddProduto_Click" />
         </StackPanel>
 
 
-        <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridFuncionario" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridFuncionario_SelectionChanged">
+        <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridProduto" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                <DataGridTextColumn Header="Data Nascimento" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
-                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
-                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
-                <DataGridTextColumn Header="Função" Binding="{Binding Funcao}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}"/>
-                <DataGridTextColumn Header="Bairro" Binding="{Binding Endereco.Bairro}"/>
-                <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
-                <DataGridTextColumn Header="Rua" Binding="{Binding Endereco.Rua}"/>
-                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
-                <DataGridTextColumn Header="Número" Binding="{Binding Endereco.Numero}"/>
-                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
+                <DataGridTextColumn Header="Peso" Binding="{Binding Peso}"/>
+                <DataGridTextColumn Header="Valor Gasto" Binding="{Binding Valor_Gasto}"/>
+                <DataGridTextColumn Header="Valor Venda" Binding="{Binding Valor_Venda}"/>
+                <DataGridTextColumn Header="Data Fabricação" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
+                <DataGridTextColumn Header="Estoque Médio" Binding="{Binding Estoque_medio}"/>
+                <DataGridTextColumn Header="Estoque Maxímo" Binding="{Binding Estoque_maximo}"/>
+                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
+                <DataGridTextColumn Header="Tipo Produto" Binding="{Binding Tipo}"/>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+               
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <TextBlock Text="Ação" />
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Click="ExcluirFuncionario_Click">
+                            <Button  Click="ExcluirProduto_Click">
                                 <Button.BorderBrush>
                                     <LinearGradientBrush >
                                         <GradientStop Color="Black"/>
