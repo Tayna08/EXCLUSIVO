@@ -111,8 +111,12 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="2">
-            
-            <StackPanel Margin="0,10,150,2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="257*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="0,10,150,2" Grid.ColumnSpan="2" >
                 <DatePicker x:Name="dtpData" />
             </StackPanel>
         </Grid>
@@ -132,8 +136,8 @@
             </StackPanel>
 
         </Grid>
-        
-        
+
+
 
 
         <!--

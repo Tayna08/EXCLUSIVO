@@ -45,7 +45,7 @@
             <Label Content="CNPJ:" Height="37"/>
         </StackPanel>
         <StackPanel Margin="87,142,10,374" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbCNPJ" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbCNPJ" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbCNPJ_TextChanged"/>
         </StackPanel>
 
         <StackPanel Margin="50,195,12,314" Grid.ColumnSpan="2">
@@ -80,7 +80,7 @@
             <Label Content="NÚMERO:"/>
         </StackPanel>
         <StackPanel Margin="66,294,40,216" Grid.Column="4">
-            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbNumero_TextChanged"/>
         </StackPanel>
 
         <StackPanel Margin="50,294,161,216">
@@ -101,7 +101,7 @@
             <Label Content="CONTATO:" Width="65" Height="28"/>
         </StackPanel>
         <StackPanel Margin="0,142,40,361" Grid.Column="4">
-            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbContato_TextChanged"/>
         </StackPanel>
 
     </Grid>

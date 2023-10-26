@@ -37,7 +37,7 @@
 
         <StackPanel Margin="50,85,499,333">
             <Label Content="CPF:"/>
-            <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbCpf_TextChanged"/>
         </StackPanel>
 
         <StackPanel Margin="50,150,499,366">
@@ -48,7 +48,7 @@
 
         <StackPanel Margin="321,85,208,431">
             <Label Content="CONTATO:"/>
-            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1"/>
+            <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Grid.Row="1" TextChanged="tbContato_TextChanged"/>
         </StackPanel>
 
         <StackPanel Margin="50,210,431,315">
