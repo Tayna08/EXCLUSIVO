@@ -61,7 +61,7 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "select * from Endereco where (end_id = @id)";
+                query.CommandText = "select * from Endereco where (id_end = @id)";
 
                 query.Parameters.AddWithValue("@id", id);
 
@@ -76,7 +76,7 @@ namespace NovoTayUmDoce.Models
 
                 while (reader.Read())
                 {
-                    endereco.Id = DAOHelper.GetInt(reader, "id");
+                    endereco.Id = DAOHelper.GetInt(reader, "id_end");
                     endereco.Bairro = DAOHelper.GetString(reader, "bairro_end");
                     endereco.Rua = DAOHelper.GetString(reader, "rua_end");
                     endereco.Numero = DAOHelper.GetInt(reader, "numero_end");

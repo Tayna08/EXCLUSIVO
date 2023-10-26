@@ -66,7 +66,7 @@ namespace NovoTayUmDoce.Componentes
                 if (result == MessageBoxResult.Yes)
                 {
                     var dao = new ProdutoDAO();
-                   // dao.Delete(produtoSelected);
+                    dao.Delete(produtoSelected);
                 }
             }
             catch (Exception ex)
