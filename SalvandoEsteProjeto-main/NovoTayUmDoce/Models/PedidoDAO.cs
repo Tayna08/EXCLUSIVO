@@ -147,7 +147,7 @@ namespace NovoTayUmDoce.Models
                     "produtos_ped, " +
                     "data_ped, " +
                     "quantidade_ped, " +
-                    "forma_Pagamento_ped, " +
+                    "forma_pagamento_ped, " +
                     "status_ped, " +
                     "delivery_ped, " +
                     "id_fun_fk, " +
