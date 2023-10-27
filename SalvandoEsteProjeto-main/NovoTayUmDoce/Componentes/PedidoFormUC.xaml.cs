@@ -24,6 +24,7 @@ namespace NovoTayUmDoce.Componentes
         private void CarregarData()
         {
             dtpData.SelectedDate = DateTime.Now;
+
             try
             {
                 cbFun.ItemsSource = null;
@@ -75,7 +76,7 @@ namespace NovoTayUmDoce.Componentes
                 pedido.Total = Convert.ToDouble(tbTotal.Text);
                 pedido.Desconto = tbDesconto.Text;
                 pedido.Produtos = tbProduto.Text;
-                pedido.Data = (DateTime)dtpData.SelectedDate;
+                
                 pedido.Hora = tbHora.Text;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;

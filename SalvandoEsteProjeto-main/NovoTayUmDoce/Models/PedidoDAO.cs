@@ -42,7 +42,7 @@ namespace NovoTayUmDoce.Models
                             pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
                             pedido.Desconto = DAOHelper.GetString(reader, "desconto_ped");
                             pedido.Produtos = DAOHelper.GetString(reader, "produtos_pd");
-                            pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            //pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
                             pedido.Quantidade = DAOHelper.GetInt(reader, "quantidade_ped");
                             pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
@@ -121,7 +121,7 @@ namespace NovoTayUmDoce.Models
                         query.Parameters.AddWithValue("@total", pedido.Total);
                         query.Parameters.AddWithValue("@desconto", pedido.Desconto);
                         query.Parameters.AddWithValue("@produtos", pedido.Produtos);
-                        query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
+                        //query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
                         query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
                         query.Parameters.AddWithValue("@quantidade", pedido.Quantidade);
                         query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
