@@ -1,9 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using NovoTayUmDoce.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Models;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -42,7 +43,7 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new PedidoDAO();
-                dataGridPedidos.ItemsSource = dao.List();
+                dataGridPedidos.ItemsControl.ItemsSource = dao.List();
 
             }
             catch (Exception ex)

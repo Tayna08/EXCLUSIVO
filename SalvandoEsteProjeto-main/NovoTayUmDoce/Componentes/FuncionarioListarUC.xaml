@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24"/>
-            <Button x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
 

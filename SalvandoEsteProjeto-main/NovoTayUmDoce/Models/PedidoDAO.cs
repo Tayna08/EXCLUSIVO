@@ -107,9 +107,33 @@ namespace NovoTayUmDoce.Models
 
             try
             {
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO Pedido (total_ped, desconto_ped,produtos_ped, data_ped, quantidade_ped, forma_Pagamento, status_ped, delivre_ped, id_fun_fk, id_cli_fk) VALUES (@total, @desconto, @produtos, @data_ped, @quantidade, @forma_Pagamento, @status, @delivery, @id_fun, @id_cli)";
+                query.CommandText = "INSERT INTO Pedido " +
+                    "(total_ped, " +
+                    "desconto_ped, " +
+                    "produtos_ped, " +
+                    "data_ped, " +
+                    "quantidade_ped, " +
+                    "forma_pagamento_ped, " +
+                    "status_ped, " +
+                    "delivery_ped, " +
+                    "id_fun_fk, " +
+                    "id_cli_fk) " +
+                    "VALUES " +
+                    "(@total, " +
+                    "@desconto, " +
+                    "@produtos, " +
+                    "@data_ped, " +
+                    "@quantidade, " +
+                    "@forma_Pagamento, " +
+                    "@status, " +
+                    "@delivery, " +
+                    "@id_fun, " +
+                    "@id_cli)";
                 var funcionarioId = new FuncionarioDAO().GetById(pedido.Funcionario.Id);
                 var clienteId = new ClienteDAO().GetById(pedido.Cliente.Id);
-
+                
                 if(funcionarioId.Id >0)
                 {
                     using (var query = conn.Query())
