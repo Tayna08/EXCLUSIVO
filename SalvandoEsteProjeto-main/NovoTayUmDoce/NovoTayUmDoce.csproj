@@ -179,6 +179,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\InsumosFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\InsumosListarUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\PagamentoFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -371,6 +379,12 @@
     <Compile Include="Componentes\FuncionarioListarUC.xaml.cs">
       <DependentUpon>FuncionarioListarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Componentes\InsumosFormUC.xaml.cs">
+      <DependentUpon>InsumosFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\InsumosListarUc.xaml.cs">
+      <DependentUpon>InsumosListarUc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
       <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
     </Compile>
@@ -512,6 +526,8 @@
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Menu\ItemMenu.cs" />
+    <Compile Include="Models\Insumos.cs" />
+    <Compile Include="Models\InsumosDAO.cs" />
     <Compile Include="Models\Pagamento.cs" />
     <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />
