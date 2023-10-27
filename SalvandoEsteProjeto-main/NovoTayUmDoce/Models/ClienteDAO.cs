@@ -70,9 +70,7 @@ namespace NovoTayUmDoce.Models
             {
                 var enderecoId = new EnderecoDAO().Insert(cliente.Endereco);
 
-                if (enderecoId > 0)
-                {
-                    using (var query = conn.Query())
+                using (var query = conn.Query())
                     {
                         query.CommandText = "INSERT INTO Cliente (nome_cli, cpf_cli, data_nascimento_cli, contato_cli, id_end_fk) " +
                             "VALUES (@nome, @cpf, @data_nasc, @contato, @id_end)";
@@ -94,7 +92,6 @@ namespace NovoTayUmDoce.Models
                             MessageBox.Show("Inserção bem-sucedida!");
                         }
                     }
-                }
             }
             catch (Exception ex)
             {

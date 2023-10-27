@@ -23,6 +23,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void CarregarData()
         {
+            dtpData.SelectedDate = DateTime.Now;
             try
             {
                 cbFun.ItemsSource = null;
@@ -75,6 +76,7 @@ namespace NovoTayUmDoce.Componentes
                 pedido.Desconto = tbDesconto.Text;
                 pedido.Produtos = tbProduto.Text;
                 pedido.Data = (DateTime)dtpData.SelectedDate;
+                pedido.Hora = tbHora.Text;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;
                 pedido.Status = tbStatus.Text;
@@ -87,7 +89,7 @@ namespace NovoTayUmDoce.Componentes
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
                 pedidoDAO.Insert(pedido);
-                MessageBox.Show("Dados salvos com sucesso!");
+
                 Clear();
             }
             catch (Exception ex)
@@ -106,6 +108,7 @@ namespace NovoTayUmDoce.Componentes
             tbFormaPag.Clear();
             tbQuantidade.Clear();
             dtpData.SelectedDate = null;
+            tbHora.Clear();
             tbStatus.Clear();
             cbCli.Items.Clear();
             cbFun.Items.Clear();

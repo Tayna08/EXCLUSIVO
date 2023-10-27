@@ -12,6 +12,7 @@ namespace NovoTayUmDoce.Models
         public double Valor { get; set; }
         public string Forma_Recebimento { get; set; }
         public string Quantidade_parcela { get; set; }
+        public string Hora { get; set; }
         public DateTime? Data { get; set; }
         public string Id_Venda { get; set; }
         public string Id_Caixa { get; set; }

@@ -14,7 +14,7 @@ namespace NovoTayUmDoce.Models
         public DateTime Data { get; set; }
         public double Quantidade { get; set; }
         public string Descricao { get; set; }
-
+        public string Hora { get; set; }
         public Funcionario Funcionario { get; set; }
         public Despesa Despesa { get; set; }
         public Fornecedor Fornecedor { get; set; }

@@ -13,6 +13,7 @@ namespace NovoTayUmDoce.Models
         public double Valor { get; set; }
         public string Produto { get; set; }
         public string Forma_pagamento { get; set; }
+        public string Hora { get; set; }
         public DateTime? Data { get; set; }
         public string Quantidade { get; set; }
         public string Desconto { get; set; }

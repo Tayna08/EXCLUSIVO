@@ -39,7 +39,7 @@ namespace NovoTayUmDoce.Componentes
                 cbPed.ItemsSource = null;
                 cbPed.Items.Clear();
                 cbPed.ItemsSource = new PedidoDAO().List();
-                cbPed.DisplayMemberPath = "Nome";
+                cbPed.DisplayMemberPath = "Id";
 
             }
             catch (Exception ex)
@@ -82,7 +82,6 @@ namespace NovoTayUmDoce.Componentes
                 // Inserindo os Dados           
                 ProdutoDAO produtoDAO = new ProdutoDAO();
                 produtoDAO.Insert(produto);
-                MessageBox.Show("Dados salvos com sucesso!");
                 Clear();
             }
             catch (Exception ex)

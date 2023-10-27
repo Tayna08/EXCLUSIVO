@@ -31,7 +31,7 @@
             <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
         </StackPanel>
 
-        <StackPanel Margin="40,146,269,654" Grid.Column="1">
+        <StackPanel Margin="40,146,269,712" Grid.Column="1">
             <Label Content="DESCONTO:"/>
         </StackPanel>
         <StackPanel  Margin="127,147,39,650" Grid.Column="1">
@@ -74,16 +74,16 @@
         </StackPanel>
 
         <StackPanel Margin="3,145,235,643">
-            <Label Content="DESCONTO:" Width="73" Height="28"/>
+            <Label Content="HORA:" Width="73" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="135,145,21,654" >
-            <TextBox x:Name="tbDescontoPed" TextWrapping="Wrap" Background="White" Height="27" Width="244"/>
+        <StackPanel Margin="135,145,21,694" >
+            <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" Height="27" Width="244"/>
         </StackPanel>
 
-        <StackPanel Margin="64,90,288,691" Grid.Column="1">
+        <StackPanel Margin="64,90,288,740" Grid.Column="1">
             <Label Content="DATA:" Width="115" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="67,79,40,702" Grid.Column="1">
+        <StackPanel Margin="67,79,40,740" Grid.Column="1">
             <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
         </StackPanel>
         <ComboBox Background="White" x:Name="cbCli" HorizontalAlignment="Left" Margin="224,370,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="cbCli_SelectionChanged"/>
