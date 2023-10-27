@@ -24,7 +24,7 @@ namespace NovoTayUmDoce.Models
     
         public string Descricao { get; set; }
 
-        public Pedido Pedido { get; set; }
+     
 
     }
 }

@@ -76,7 +76,7 @@ namespace NovoTayUmDoce.Componentes
 
                 // Inserindo os Dados           
                 InsumosDAO insumosDAO = new InsumosDAO();
-                insumosDAO.Insert(insumos);
+                //insumosDAO.Insert(insumos);
                 Clear();
             }
             catch (Exception ex)

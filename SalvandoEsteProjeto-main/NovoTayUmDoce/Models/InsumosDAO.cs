@@ -19,7 +19,7 @@ namespace NovoTayUmDoce.Models
         {
             conn = new Conexao();
         }
-        public Produto GetById(int id)
+        public Insumos GetById(int id)
         {
             try
             {
@@ -36,21 +36,21 @@ namespace NovoTayUmDoce.Models
                             return null;
                         }
 
-                        var insumo = new Insumos();
+                        var insumos = new Insumos();
 
                         while (reader.Read())
                         {
-                            insumo.Id = reader.GetInt32("id_ins");
-                            insumo.Nome = reader.GetString("nome_ins");
-                            insumo.Peso = reader.GetString("peso_ins");
-                            insumo.Valor_Gasto = reader.GetDouble("valor_gasto_ins");
-                            insumo.Estoque_medio = reader.GetString("estoque_medio_ins");
-                            insumo.Estoque_maximo = reader.GetString("estoque_maximo_ins");
+                            insumos.Id = reader.GetInt32("id_ins");
+                            insumos.Nome = reader.GetString("nome_ins");
+                            insumos.Peso = reader.GetString("peso_ins");
+                            insumos.Valor_Gasto = reader.GetDouble("valor_gasto_ins");
+                            insumos.Estoque_medio = reader.GetString("estoque_medio_ins");
+                            insumos.Estoque_maximo = reader.GetString("estoque_maximo_ins");
                            
 
                         }
 
-                        return insumo;
+                        return insumos;
                     }
                 }
             }
@@ -60,31 +60,24 @@ namespace NovoTayUmDoce.Models
                 return null;
             }
         }
-        public List<Produto> List()
+        public List<Insumos> List()
         {
             try
             {
                 using (var query = conn.Query())
                 {
-                    query.CommandText = "SELECT * FROM produto LEFT JOIN pedido ON id_ped = id_ped_fk";
+                    query.CommandText = "SELECT * FROM insumos LEFT JOIN fornecedor ON id_for = id_for_fk";
                     using (var reader = query.ExecuteReader())
                     {
-                        var lista = new List<Produto>();
+                        var lista = new List<Insumos>();
 
                         while (reader.Read())
                         {
-                            var pedido = new Pedido()
+                            var fornecedor = new Fornecedor()
                             {
 
-                                Id = DAOHelper.GetInt(reader, "id_ped"),
-                                Total = DAOHelper.GetDouble(reader, "total_ped"),
-                                Desconto = DAOHelper.GetString(reader, "desconto_ped"),
-                                Produtos = DAOHelper.GetString(reader, "produtos_ped"),
-                                Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped"),
-                                Quantidade = DAOHelper.GetInt(reader, "quantidade_ped"),
-                                FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
-                                Status = DAOHelper.GetString(reader, "status_ped"),
-                                Delivery = DAOHelper.GetString(reader, "delivery_ped"),
+                                Id = DAOHelper.GetInt(reader, "id_for"),
+                               
 
                             };
                             var produto = new Produto()
@@ -92,7 +85,7 @@ namespace NovoTayUmDoce.Models
                                 Id = DAOHelper.GetInt(reader, "id_pro"),
                             };
 
-                            lista.Add(produto);
+                            //lista.Add(produto);
                         }
 
                         return lista;
@@ -106,32 +99,26 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        public void Insert(Produto produto)
+        public void Insert(Insumos insumos)
         {
             try
             {
-                var pedidoId = new PedidoDAO().GetById(produto.Pedido.Id);
+                var fornecedorid = new PedidoDAO().GetById(insumos.Fornecedor.Id);
 
-                if (pedidoId.Id > 0)
+                if (fornecedorid.Id > 0)
                 {
                     using (var query = conn.Query())
                     {
 
-                        query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, hora_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro, id_ped_fk ) " +
-                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @hora, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao, @id_ped)";
+                        query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, estoque_medio, estoque_maximo, id_for_fk ) " +
+                            $"VALUES (@nome, @peso, @valor_gasto, @estoque_medio, @estoque_maximo, @id_for)";
 
-                        query.Parameters.AddWithValue("@nome", produto.Nome);
-                        query.Parameters.AddWithValue("@peso", produto.Peso);
-                        query.Parameters.AddWithValue("@valor_gasto", produto.Valor_Gasto);
-                        query.Parameters.AddWithValue("@valor_venda", produto.Valor_Venda);
-                        query.Parameters.AddWithValue("@data_fabricacao", produto.Data?.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@hora", produto.Hora);
-                        query.Parameters.AddWithValue("@estoque_medio", produto.Estoque_medio);
-                        query.Parameters.AddWithValue("@estoque_maximo", produto.Estoque_maximo);
-                        query.Parameters.AddWithValue("@quantidade", produto.Quantidade);
-                        query.Parameters.AddWithValue("@tipo", produto.Tipo);
-                        query.Parameters.AddWithValue("@descricao", produto.Descricao);
-                        query.Parameters.AddWithValue("@id_ped", pedidoId.Id);
+                        query.Parameters.AddWithValue("@nome", insumos.Nome);
+                        query.Parameters.AddWithValue("@peso", insumos.Peso);
+                        query.Parameters.AddWithValue("@valor_gasto", insumos.Valor_Gasto);                      
+                        query.Parameters.AddWithValue("@estoque_medio", insumos.Estoque_medio);
+                        query.Parameters.AddWithValue("@estoque_maximo", insumos.Estoque_maximo);
+                        query.Parameters.AddWithValue("@id_for", fornecedorid.Id);
 
                         var result = query.ExecuteNonQuery();
 
@@ -154,21 +141,21 @@ namespace NovoTayUmDoce.Models
             }
 
         }
-        public void Delete(Produto produto)
+        public void Delete(Insumos insumos)
         {
             try
             {
                 using (var query = conn.Query())
                 {
-                    query.CommandText = "DELETE FROM produto WHERE (id_pro = @id)";
+                    query.CommandText = "DELETE FROM Insumos WHERE (id_ins = @id)";
 
-                    query.Parameters.AddWithValue("@id", produto.Id);
+                    query.Parameters.AddWithValue("@id", insumos.Id);
 
                     var result = query.ExecuteNonQuery();
 
                     if (result == 0)
                     {
-                        MessageBox.Show("Erro ao remover o produto. Verifique e tente novamente.");
+                        MessageBox.Show("Erro ao remover o insumos. Verifique e tente novamente.");
                     }
                 }
             }
@@ -183,5 +170,5 @@ namespace NovoTayUmDoce.Models
         }
     }
 }
-    }
-}
+    
+

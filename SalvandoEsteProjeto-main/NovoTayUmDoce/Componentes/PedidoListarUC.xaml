@@ -28,6 +28,9 @@
                 <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding Forma_Pagamento}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Delivre}"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}"/>
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Funncionário}"/>
+                <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <TextBlock Text="Ação" />

@@ -29,24 +29,10 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            CarregarData();
+            
         }
 
-        private void CarregarData()
-        {
-            try
-            {
-                cbPed.ItemsSource = null;
-                cbPed.Items.Clear();
-                cbPed.ItemsSource = new PedidoDAO().List();
-                cbPed.DisplayMemberPath = "Id";
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+      
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -76,8 +62,7 @@ namespace NovoTayUmDoce.Componentes
                 produto.Tipo = tbTipoPro.Text;
                 produto.Descricao = tbDescricao.Text;
 
-                // Chaves estrangeiras
-                 produto.Pedido = (Pedido)cbPed.SelectedItem;
+                
 
                 // Inserindo os Dados           
                 ProdutoDAO produtoDAO = new ProdutoDAO();
@@ -96,9 +81,6 @@ namespace NovoTayUmDoce.Componentes
            
         }
 
-        private void cbPed_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-        }
+       
     }
 }

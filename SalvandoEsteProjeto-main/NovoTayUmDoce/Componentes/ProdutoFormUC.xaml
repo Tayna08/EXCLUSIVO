@@ -114,11 +114,8 @@
                     <TranslateTransform X="1.593"/>
                 </TransformGroup>
             </StackPanel.RenderTransform>
-            <Label Content="Pedido:"/>
         </StackPanel>
-        <StackPanel Margin="76,296,40,1238" Grid.Column="4">
-            <ComboBox x:Name="cbPed" Background="White"  Width="216" Height="35" SelectionChanged="cbPed_SelectionChanged"/>
-        </StackPanel>
+        <StackPanel Margin="76,296,40,1238" Grid.Column="4"/>
 
 
 

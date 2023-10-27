@@ -37,6 +37,11 @@ namespace NovoTayUmDoce.Componentes
                 cbCli.ItemsSource = new ClienteDAO().List();
                 cbCli.DisplayMemberPath = "Nome";
 
+                cbPro.ItemsSource = null;
+                cbPro.Items.Clear();
+                cbPro.ItemsSource = new ClienteDAO().List();
+                cbPro.DisplayMemberPath = "Nome";
+
 
             }
             catch (Exception ex)
@@ -86,6 +91,7 @@ namespace NovoTayUmDoce.Componentes
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCli.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
+                pedido.Produto = (Produto)cbPro.SelectedItem;
 
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
@@ -111,8 +117,12 @@ namespace NovoTayUmDoce.Componentes
             dtpData.SelectedDate = null;
             tbHora.Clear();
             tbStatus.Clear();
-            cbCli.Items.Clear();
-            cbFun.Items.Clear();
+            
+        }
+
+        private void cbPro_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
         }
     }
 }

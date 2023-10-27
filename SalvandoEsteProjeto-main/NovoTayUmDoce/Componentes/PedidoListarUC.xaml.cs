@@ -43,7 +43,7 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new PedidoDAO();
-                dataGridPedidos.ItemsControl.ItemsSource = dao.List();
+                dataGridPedidos.ItemsSource = dao.List();
 
             }
             catch (Exception ex)

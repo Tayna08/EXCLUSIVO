@@ -36,6 +36,7 @@
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
                 <DataGridTextColumn Header="Tipo Produto" Binding="{Binding Tipo}"/>
                 <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+
                
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>

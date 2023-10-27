@@ -50,7 +50,7 @@ namespace NovoTayUmDoce.Models
                             fornecedor.Razao_Social = DAOHelper.GetString(reader, "razao_social_for");
                             fornecedor.Email = DAOHelper.GetString(reader, "email_for");
                             fornecedor.Endereco = new EnderecoDAO().GetById(DAOHelper.GetInt(reader, "id_end_fk"));
-                            //fornecedor.Estoque = new EstoqueDAO().GetById(DAOHelper.GetInt(reader, "id_est_fk"));
+                           // fornecedor.Estoque = new EstoqueDAO().GetById(DAOHelper.GetInt(reader, "id_est_fk"));
                         }
 
                         return fornecedor;

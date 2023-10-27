@@ -53,7 +53,7 @@ namespace NovoTayUmDoce.Models
                             produto.Quantidade = reader.GetInt32("quantidade_pro");
                             produto.Tipo = reader.GetString("tipo_pro");
                             produto.Descricao = reader.GetString("descricao_pro");
-                            produto.Pedido = new PedidoDAO().GetById(DAOHelper.GetInt(reader, "id_ped_fk"));
+                            
                            
                         }
 
@@ -117,15 +117,11 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
-                var pedidoId = new PedidoDAO().GetById(produto.Pedido.Id);
 
-                if (pedidoId.Id > 0)
-                {
-                    using (var query = conn.Query())
-                    {
+                var query = conn.Query();
 
-                        query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, hora_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro, id_ped_fk ) " +
-                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @hora, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao, @id_ped)";
+                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, hora_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro ) " +
+                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @hora, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao)";
 
                         query.Parameters.AddWithValue("@nome", produto.Nome);
                         query.Parameters.AddWithValue("@peso", produto.Peso);
@@ -138,7 +134,7 @@ namespace NovoTayUmDoce.Models
                         query.Parameters.AddWithValue("@quantidade", produto.Quantidade);
                         query.Parameters.AddWithValue("@tipo", produto.Tipo);
                         query.Parameters.AddWithValue("@descricao", produto.Descricao);
-                        query.Parameters.AddWithValue("@id_ped", pedidoId.Id);
+                        
 
                         var result = query.ExecuteNonQuery();
 
@@ -150,8 +146,8 @@ namespace NovoTayUmDoce.Models
                         {
                             MessageBox.Show("Inserção bem-sucedida!");
                         }
-                    }
-                }
+                    
+                
             }
 
             catch (Exception ex)
