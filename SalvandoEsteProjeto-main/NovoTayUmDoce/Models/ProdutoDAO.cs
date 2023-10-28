@@ -47,8 +47,8 @@ namespace NovoTayUmDoce.Models
                             produto.Valor_Gasto = reader.GetDouble("valor_gasto_pro");
                             produto.Valor_Venda = reader.GetDouble("valor_venda_pro");
                             produto.Data = reader.GetDateTime("data_fabricacao_pro");
-                            produto.Estoque_medio = reader.GetString("estoque_medio_pro");
-                            produto.Estoque_maximo = reader.GetString("estoque_maximo_pro");
+                            produto.Estoque_medio = reader.GetString("estoque_medio");
+                            produto.Estoque_maximo = reader.GetString("estoque_maximo");
                             produto.Quantidade = reader.GetInt32("quantidade_pro");
                             produto.Tipo = reader.GetString("tipo_pro");
                             produto.Descricao = reader.GetString("descricao_pro");
@@ -72,7 +72,7 @@ namespace NovoTayUmDoce.Models
             {
                 using (var query = conn.Query())
                 {
-                    query.CommandText = "SELECT * FROM Produto WHERE (id_pro = @id) ";
+                    query.CommandText = "SELECT * FROM Produto";
                     using ( var reader = query.ExecuteReader())
                     {
                         var lista = new List<Produto>();
@@ -81,14 +81,14 @@ namespace NovoTayUmDoce.Models
                         {
                             var produto = new Produto();
                             {
-                                produto.Id = DAOHelper.GetInt(reader, "id_for");
+                                produto.Id = DAOHelper.GetInt(reader, "id_pro");
                                 produto.Nome = DAOHelper.GetString(reader, "nome_pro");
                                 produto.Peso = DAOHelper.GetString(reader, "peso_pro");
                                 produto.Valor_Gasto = DAOHelper.GetDouble(reader, "valor_gasto_pro");
                                 produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
                                 produto.Data = DAOHelper.GetDateTime(reader, "data_fabricacao_pro");
-                                produto.Estoque_medio = DAOHelper.GetString(reader, "estoque_medio_pro");
-                                produto.Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo_pro");
+                                produto.Estoque_medio = DAOHelper.GetString(reader, "estoque_medio");
+                                produto.Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo");
                                 produto.Quantidade = DAOHelper.GetInt(reader, "quantidade_pro");
                                 produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
                                 produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
@@ -175,10 +175,7 @@ namespace NovoTayUmDoce.Models
             {
                 MessageBox.Show(e.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
+         
         }
     }
 }

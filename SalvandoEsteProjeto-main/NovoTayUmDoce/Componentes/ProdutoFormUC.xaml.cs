@@ -52,8 +52,8 @@ namespace NovoTayUmDoce.Componentes
 
                 produto.Nome= tbNOme.Text;
                 produto.Peso = tbPeso.Text;
-                produto.Valor_Gasto = Convert.ToDouble(tbValorGas);
-                produto.Valor_Venda = Convert.ToDouble(tbValorVenda);
+                produto.Valor_Gasto = Convert.ToDouble(tbValorGas.Text);
+                produto.Valor_Venda = Convert.ToDouble(tbValorVenda.Text);
                 produto.Data = dtpData.SelectedDate;
                 produto.Estoque_medio = tbEstMedio.Text;
                 produto.Estoque_maximo = tbEstMaximo.Text;

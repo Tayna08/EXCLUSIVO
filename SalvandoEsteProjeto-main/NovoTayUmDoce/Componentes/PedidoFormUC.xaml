@@ -38,12 +38,7 @@
             <TextBox x:Name="tbDesconto" TextWrapping="Wrap" Background="White" Height="26"/>
         </StackPanel>
 
-        <StackPanel Margin="31,201,288,595" Grid.Column="1">
-            <Label Content="PRODUTO:"/>
-        </StackPanel>
-        <StackPanel Margin="109,201,40,641" Grid.Column="1">
-            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
+        
 
         <StackPanel Margin="31,250,288,595" Grid.Column="1">
             <Label Content="STATUS:"/>

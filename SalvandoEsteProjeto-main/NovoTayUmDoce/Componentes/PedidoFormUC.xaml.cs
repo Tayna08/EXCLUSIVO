@@ -56,7 +56,7 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new PedidoFormUC(_context));
+                _context.SwitchScreen(new PedidoListarUC(_context));
             }
         }
 
@@ -79,9 +79,7 @@ namespace NovoTayUmDoce.Componentes
                 Pedido pedido = new Pedido();
 
                 pedido.Total = Convert.ToDouble(tbTotal.Text);
-                pedido.Desconto = tbDesconto.Text;
-                pedido.Produtos = tbProduto.Text;
-                
+                pedido.Desconto = tbDesconto.Text;                
                 pedido.Hora = tbHora.Text;
                 pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;
@@ -111,7 +109,6 @@ namespace NovoTayUmDoce.Componentes
             tbTotal.Clear();
             tbDesconto.Clear();
             tbDelivery.Clear();
-            tbProduto.Clear();
             tbFormaPag.Clear();
             tbQuantidade.Clear();
             dtpData.SelectedDate = null;

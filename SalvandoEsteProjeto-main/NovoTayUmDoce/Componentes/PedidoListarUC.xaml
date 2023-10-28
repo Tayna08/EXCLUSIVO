@@ -17,19 +17,19 @@
         </StackPanel>
 
         <DataGrid Grid.Row="1" x:Name="dataGridPedidos" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" >
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridPedidos_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
                 <DataGridTextColumn Header="Desconto" Binding="{Binding Desconto}"/>
-                <DataGridTextColumn Header="Produtos" Binding="{Binding Produtos}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
-                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding Forma_Pagamento}"/>
+                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTextColumn Header="Delivery" Binding="{Binding Delivre}"/>
+                <DataGridTextColumn Header="Delivery" Binding="{Binding Delivery}"/>
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}"/>
-                <DataGridTextColumn Header="Funcionário" Binding="{Binding Funncionário}"/>
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Funcionario}"/>
                 <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>

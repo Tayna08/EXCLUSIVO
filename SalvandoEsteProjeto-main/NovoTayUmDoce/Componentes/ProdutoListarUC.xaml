@@ -22,7 +22,7 @@
 
 
         <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridProduto" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridProduto_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
