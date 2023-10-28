@@ -104,6 +104,8 @@
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
+        <ComboBox Background="White" x:Name="cbEst" HorizontalAlignment="Left" Margin="172,381,0,0" VerticalAlignment="Top" Width="120"  Grid.Column="4"/>
+
     </Grid>
 </UserControl>
 

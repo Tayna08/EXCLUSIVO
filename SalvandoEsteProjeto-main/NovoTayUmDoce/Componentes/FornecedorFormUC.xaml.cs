@@ -36,12 +36,7 @@ namespace NovoTayUmDoce.Componentes
             try
             {
 
-                if (ValidacaoCPFeCNPJ.ValidateCNPJ(tbCNPJ.Text) == "Erro")
-                {
-                    MessageBox.Show("CNPJ digitado é invalido! ");
-                }
-                else
-                {
+               
                     Fornecedor fornecedor = new Fornecedor();
                     Endereco endereco = new Endereco();
                     Estoque estoque = new Estoque();
@@ -64,13 +59,12 @@ namespace NovoTayUmDoce.Componentes
 
                     fornecedor.Estoque = estoque;
 
+                //Inserindo os Dados
 
-
-
-                    //Inserindo os Dados
-
-                    Clear();
-                }
+                FornecedorDAO fornecedorDAO = new FornecedorDAO();
+                fornecedorDAO.Insert(fornecedor);
+                Clear();
+                
             }
             catch (Exception)
             {

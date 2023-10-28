@@ -52,51 +52,51 @@ namespace NovoTayUmDoce.Helpers
             }
         }
 
-        public static string ValidateCNPJ(string cnpj)
-        {
+        //public static string ValidateCNPJ(string cnpj)
+        //{
          
-            string cnpjNumeros = Regex.Replace(cnpj, "[^0-9]", "");
+        //    string cnpjNumeros = Regex.Replace(cnpj, "[^0-9]", "");
 
-            if (cnpjNumeros.Length != 14)
-            {
-                return "Erro";
-            }
+        //    if (cnpjNumeros.Length != 14)
+        //    {
+        //        return "Erro";
+        //    }
 
          
-            int[] pesos = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+        //    int[] pesos = { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
 
-            int soma = 0;
-            for (int i = 0; i < 12; i++)
-            {
-               soma += int.Parse(cnpjNumeros[i].ToString()) * pesos[i];
-            }
-            int digitoVerificador1 = soma % 11;
-            digitoVerificador1 = (digitoVerificador1 < 2) ? 0 : (11 - digitoVerificador1);
+        //    int soma = 0;
+        //    for (int i = 0; i < 12; i++)
+        //    {
+        //       soma += int.Parse(cnpjNumeros[i].ToString()) * pesos[i];
+        //    }
+        //    int digitoVerificador1 = soma % 11;
+        //    digitoVerificador1 = (digitoVerificador1 < 2) ? 0 : (11 - digitoVerificador1);
 
-            soma = 0;
-            for (int i = 0; i < 13; i++)
-            {
-                soma += int.Parse(cnpjNumeros[i].ToString()) * pesos[i];
-            }
-            int digitoVerificador2 = soma % 11;
-            digitoVerificador2 = (digitoVerificador2 < 2) ? 0 : (11 - digitoVerificador2);
+        //    soma = 0;
+        //    for (int i = 0; i < 13; i++)
+        //    {
+        //        soma += int.Parse(cnpjNumeros[i].ToString()) * pesos[i];
+        //    }
+        //    int digitoVerificador2 = soma % 11;
+        //    digitoVerificador2 = (digitoVerificador2 < 2) ? 0 : (11 - digitoVerificador2);
 
            
-            if (int.Parse(cnpjNumeros[12].ToString()) == digitoVerificador1 &&
-                 int.Parse(cnpjNumeros[13].ToString()) == digitoVerificador2)
-            {
+        //    if (int.Parse(cnpjNumeros[12].ToString()) == digitoVerificador1 &&
+        //         int.Parse(cnpjNumeros[13].ToString()) == digitoVerificador2)
+        //    {
 
-                return string.Format("{0}.{1}.{2}/{3}-{4}",
-                    cnpjNumeros.Substring(0, 2),
-                    cnpjNumeros.Substring(2, 3),
-                    cnpjNumeros.Substring(5, 3),
-                    cnpjNumeros.Substring(8, 4),
-                    cnpjNumeros.Substring(12, 2));
-            }
-            else
-                {
-                return "Erro";
-            }
-        }
+        //        return string.Format("{0}.{1}.{2}/{3}-{4}",
+        //            cnpjNumeros.Substring(0, 2),
+        //            cnpjNumeros.Substring(2, 3),
+        //            cnpjNumeros.Substring(5, 3),
+        //            cnpjNumeros.Substring(8, 4),
+        //            cnpjNumeros.Substring(12, 2));
+        //    }
+        //    else
+        //        {
+        //        return "Erro";
+        //    }
+        //}
     }
 }

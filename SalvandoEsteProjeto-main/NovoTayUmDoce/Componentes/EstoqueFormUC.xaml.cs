@@ -1,9 +1,8 @@
-﻿using NovoTayUmDoce.Models;
+﻿using NovoTayUmDoce.Conexão;
+using NovoTayUmDoce.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,15 +14,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using NovoTayUmDoce.Conexão;
-using NovoTayUmDoce.Componentes;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
     /// Interação lógica para EstoqueFormUC.xam
     /// </summary>
-    public partial class EstoqueFormUC : Page
+    public partial class EstoqueFormUC : UserControl
     {
         MainWindow _context;
         private static Conexao conn;
@@ -41,7 +38,7 @@ namespace NovoTayUmDoce.Componentes
 
             try
             {
-                
+
                 cbPro.ItemsSource = null;
                 cbPro.Items.Clear();
                 cbPro.ItemsSource = new ProdutoDAO().List();
@@ -97,7 +94,7 @@ namespace NovoTayUmDoce.Componentes
         {
             tbNome.Clear();
             dtpData.SelectedDate = null;
-          
+
 
         }
 
@@ -106,6 +103,6 @@ namespace NovoTayUmDoce.Componentes
             ComboBox comboBox = (ComboBox)sender;
         }
 
-       
+
     }
 }
