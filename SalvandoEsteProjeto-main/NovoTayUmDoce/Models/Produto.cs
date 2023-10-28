@@ -16,7 +16,6 @@ namespace NovoTayUmDoce.Models
         public double Valor_Gasto { get; set; }
         public double Valor_Venda { get; set; }
         public DateTime? Data { get; set; }
-        public DateTime? Hora { get; set; }
         public string Estoque_medio { get; set; }
         public string Estoque_maximo { get; set; }
         public int Quantidade { get; set; }

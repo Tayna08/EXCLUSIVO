@@ -76,13 +76,8 @@
         <StackPanel Margin="140,245,64,1283" Grid.ColumnSpan="2">
             <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-
-        <StackPanel Margin="50,197,5,1332" Grid.ColumnSpan="2">
-            <Label Content="HORA:"/>
-        </StackPanel>
-        <StackPanel Margin="41,108,51,1349">
-            <materialDesign:TimePicker x:Name="TiHORA" HorizontalAlignment="Left" Margin="68,91,0,0" Grid.ColumnSpan="3" Width="137" Height="27"/>
-        </StackPanel>
+ 
+       
 
         <StackPanel Margin="50,299,161,1238">
             <Label Content="PESO:"/>

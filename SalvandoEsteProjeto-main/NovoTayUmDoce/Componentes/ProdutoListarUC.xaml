@@ -30,7 +30,6 @@
                 <DataGridTextColumn Header="Valor Gasto" Binding="{Binding Valor_Gasto}"/>
                 <DataGridTextColumn Header="Valor Venda" Binding="{Binding Valor_Venda}"/>
                 <DataGridTextColumn Header="Data Fabricação" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
-                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
                 <DataGridTextColumn Header="Estoque Médio" Binding="{Binding Estoque_medio}"/>
                 <DataGridTextColumn Header="Estoque Maxímo" Binding="{Binding Estoque_maximo}"/>
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>

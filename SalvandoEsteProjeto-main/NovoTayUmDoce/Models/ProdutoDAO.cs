@@ -47,7 +47,6 @@ namespace NovoTayUmDoce.Models
                             produto.Valor_Gasto = reader.GetDouble("valor_gasto_pro");
                             produto.Valor_Venda = reader.GetDouble("valor_venda_pro");
                             produto.Data = reader.GetDateTime("data_fabricacao_pro");
-                            produto.Hora = reader.GetDateTime("hora_pro");
                             produto.Estoque_medio = reader.GetString("estoque_medio_pro");
                             produto.Estoque_maximo = reader.GetString("estoque_maximo_pro");
                             produto.Quantidade = reader.GetInt32("quantidade_pro");
@@ -74,31 +73,28 @@ namespace NovoTayUmDoce.Models
                 using (var query = conn.Query())
                 {
                     query.CommandText = "SELECT * FROM Produto WHERE (id_pro = @id) ";
-                    using (MySqlDataReader reader = query.ExecuteReader())
+                    using ( var reader = query.ExecuteReader())
                     {
                         var lista = new List<Produto>();
-
-                        if (!reader.HasRows)
-                        {
-                            MessageBox.Show("Nenhum produto foi encontrado!");
-                            return null;
-                        }
-
-                        var produto = new Produto();
-
+                        
                         while (reader.Read())
                         {
-                            produto.Id = DAOHelper.GetInt(reader, "id_for");
-                            produto.Nome = DAOHelper.GetString(reader, "nome_pro");
-                            produto.Peso = DAOHelper.GetString(reader, "peso_pro");
-                            produto.Valor_Gasto = DAOHelper.GetDouble(reader, "valor_gasto_pro");
-                            produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
-                            produto.Data = DAOHelper.GetDateTime(reader, "data_fabricacao_pro");
-                            produto.Estoque_medio = DAOHelper.GetString(reader, "estoque_medio_pro");
-                            produto.Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo_pro");
-                            produto.Quantidade = DAOHelper.GetInt(reader, "quantidade_pro");
-                            produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
-                            produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
+                            var produto = new Produto();
+                            {
+                                produto.Id = DAOHelper.GetInt(reader, "id_for");
+                                produto.Nome = DAOHelper.GetString(reader, "nome_pro");
+                                produto.Peso = DAOHelper.GetString(reader, "peso_pro");
+                                produto.Valor_Gasto = DAOHelper.GetDouble(reader, "valor_gasto_pro");
+                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
+                                produto.Data = DAOHelper.GetDateTime(reader, "data_fabricacao_pro");
+                                produto.Estoque_medio = DAOHelper.GetString(reader, "estoque_medio_pro");
+                                produto.Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo_pro");
+                                produto.Quantidade = DAOHelper.GetInt(reader, "quantidade_pro");
+                                produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
+                                produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
+
+                            }
+
 
                             lista.Add(produto);
                         }
@@ -121,15 +117,14 @@ namespace NovoTayUmDoce.Models
 
                 var query = conn.Query();
 
-                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, hora_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro ) " +
-                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @hora, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao)";
+                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro ) " +
+                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao)";
 
                         query.Parameters.AddWithValue("@nome", produto.Nome);
                         query.Parameters.AddWithValue("@peso", produto.Peso);
                         query.Parameters.AddWithValue("@valor_gasto", produto.Valor_Gasto);
                         query.Parameters.AddWithValue("@valor_venda", produto.Valor_Venda);
                         query.Parameters.AddWithValue("@data_fabricacao", produto.Data?.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@hora", produto.Hora);
                         query.Parameters.AddWithValue("@estoque_medio", produto.Estoque_medio);
                         query.Parameters.AddWithValue("@estoque_maximo", produto.Estoque_maximo);
                         query.Parameters.AddWithValue("@quantidade", produto.Quantidade);

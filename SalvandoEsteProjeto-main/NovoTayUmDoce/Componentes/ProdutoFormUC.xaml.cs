@@ -36,11 +36,11 @@ namespace NovoTayUmDoce.Componentes
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o Pedido?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o Produto?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new PedidoFormUC(_context));
+                _context.SwitchScreen(new ProdutoFormUC(_context));
             }
         }
 
@@ -55,7 +55,6 @@ namespace NovoTayUmDoce.Componentes
                 produto.Valor_Gasto = Convert.ToDouble(tbValorGas);
                 produto.Valor_Venda = Convert.ToDouble(tbValorVenda);
                 produto.Data = dtpData.SelectedDate;
-                produto.Hora = TiHORA.SelectedTime;
                 produto.Estoque_medio = tbEstMedio.Text;
                 produto.Estoque_maximo = tbEstMaximo.Text;
                 produto.Quantidade = Convert.ToInt32(tbQuantidade.Text);

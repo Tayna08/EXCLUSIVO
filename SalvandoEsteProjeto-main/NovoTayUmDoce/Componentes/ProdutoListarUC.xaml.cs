@@ -50,7 +50,7 @@ namespace NovoTayUmDoce.Componentes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os pedidos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro ao carregar os produtos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -58,7 +58,7 @@ namespace NovoTayUmDoce.Componentes
         {
             var produtoSelected = dataGridProduto.SelectedItem as Produto;
 
-            var result = MessageBox.Show($"Deseja realmente remover o funcionário `{produtoSelected.Id}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o produto `{produtoSelected.Nome}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try

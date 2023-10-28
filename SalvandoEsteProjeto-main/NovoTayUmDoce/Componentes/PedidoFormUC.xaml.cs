@@ -39,7 +39,7 @@ namespace NovoTayUmDoce.Componentes
 
                 cbPro.ItemsSource = null;
                 cbPro.Items.Clear();
-                cbPro.ItemsSource = new ClienteDAO().List();
+                cbPro.ItemsSource = new ProdutoDAO().List();
                 cbPro.DisplayMemberPath = "Nome";
 
 
