@@ -37,7 +37,7 @@ namespace TayUmDoceProjeto.Janelas
                 Estoque estoque = new Estoque();
 
                 estoque.Nome = tbNome.Text;
-                estoque.Quantidade = tbQuantidade.Text;
+                estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 estoque.Data = dtpData.SelectedDate;
 
                 EstoqueDAO estoqueDAO = new EstoqueDAO();
