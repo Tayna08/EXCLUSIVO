@@ -48,17 +48,17 @@
 
         <StackPanel Margin="50,233,588,337">
             <Label Content="FUNCIONÁRIO:"/>
-            <ComboBox x:Name="tbFuncionario" Background="White" Height="27"/>
+            <ComboBox x:Name="cbFun" Background="White" Height="27" SelectionChanged="cbFun_SelectionChanged_1"/>
         </StackPanel>
 
         <StackPanel Margin="279,233,359,337">
             <Label Content="DESPESA:"/>
-            <ComboBox x:Name="tbDespesa" Background="White" Height="27"/>
+            <ComboBox x:Name="cbDes" Background="White" Height="27" SelectionChanged="cbDes_SelectionChanged_1"/>
         </StackPanel>
 
         <StackPanel Margin="512,233,126,337">
             <Label Content="FORNECEDOR:"/>
-            <ComboBox x:Name="tbFornecedor" Background="White" Height="27"/>
+            <ComboBox x:Name="cbFor" Background="White" Height="27" SelectionChanged="cbFor_SelectionChanged_1"/>
         </StackPanel>
 
     </Grid>

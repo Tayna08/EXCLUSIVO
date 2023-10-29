@@ -63,7 +63,7 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ClienteListarUC(_context));
+                _context.SwitchScreen(new DespesaListarUC(_context));
             }
         }
 

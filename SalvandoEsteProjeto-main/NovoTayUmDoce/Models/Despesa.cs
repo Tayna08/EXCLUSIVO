@@ -18,5 +18,7 @@ namespace NovoTayUmDoce.Models
         public double Valor { get; set;}
         public DateTime? Vencimento { get; set; }
 
+      
+
     }
 }

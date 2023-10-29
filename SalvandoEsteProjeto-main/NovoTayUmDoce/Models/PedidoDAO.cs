@@ -17,6 +17,7 @@ namespace NovoTayUmDoce.Models
         {
             conn = new Conexao();
         }
+
         public Pedido GetById(int id)
         {
             try

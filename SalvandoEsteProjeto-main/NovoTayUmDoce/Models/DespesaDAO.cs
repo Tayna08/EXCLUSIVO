@@ -44,13 +44,13 @@ namespace NovoTayUmDoce.Models
                         {
                             despesa.Id = reader.GetInt32("id_des");
                             despesa.NomeDespesa = reader.GetString("nome_des");
-                            despesa.Descricao = reader.GetString("peso_des");
+                            despesa.Descricao = reader.GetString("descricao_des");
                             despesa.FormaPagamento = reader.GetString("forma_pag_des");
                             despesa.Data = reader.GetDateTime("data_des");
                             despesa.Hora = reader.GetString("hora_des");
                             despesa.Valor = reader.GetDouble("valor_des");
                             despesa.Vencimento = reader.GetDateTime("vencimento_des");
-                          
+                            
                         }
 
                         return despesa;
@@ -82,7 +82,7 @@ namespace NovoTayUmDoce.Models
 
                                 despesa.Id = DAOHelper.GetInt(reader, "id_des");
                                 despesa.NomeDespesa = DAOHelper.GetString(reader, "nome_des");
-                                despesa.Descricao = DAOHelper.GetString(reader, "peso_des");
+                                despesa.Descricao = DAOHelper.GetString(reader, "descricao_des");
                                 despesa.FormaPagamento = DAOHelper.GetString(reader, "forma_pag_des");
                                 despesa.Data = DAOHelper.GetDateTime(reader, "data_des");
                                 despesa.Hora = DAOHelper.GetString(reader, "hora_des");

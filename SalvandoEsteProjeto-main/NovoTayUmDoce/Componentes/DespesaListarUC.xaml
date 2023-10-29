@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding NomeDespesa}"/>
                 <DataGridTextColumn Header="Descricao" Binding="{Binding Descricao}"/>
-                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagmento}"/>
+                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
                 <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Vencimento}"/>
