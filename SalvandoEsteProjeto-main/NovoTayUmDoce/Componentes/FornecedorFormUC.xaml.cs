@@ -29,6 +29,24 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            CarregarData();
+        }
+
+        private void CarregarData()
+        {
+
+            try
+            {
+                cbEst.ItemsSource = null;
+                cbEst.Items.Clear();
+                cbEst.ItemsSource = new EstoqueDAO().List();
+                cbEst.DisplayMemberPath = "Nome";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -58,11 +76,13 @@ namespace NovoTayUmDoce.Componentes
                     fornecedor.Email = tbEmail.Text;
 
                     fornecedor.Estoque = estoque;
-
+                //chave estrangeira
+                    fornecedor.Estoque = (Estoque)cbEst.SelectedItem;
                 //Inserindo os Dados
 
                 FornecedorDAO fornecedorDAO = new FornecedorDAO();
                 fornecedorDAO.Insert(fornecedor);
+
                 Clear();
                 
             }
@@ -78,7 +98,6 @@ namespace NovoTayUmDoce.Componentes
             tbCidade.Clear();
             tbComplemento.Clear();
             tbRua.Clear();
-
             tbNomeRe.Clear();
             tbNomeFan.Clear();
             tbContato.Clear();
@@ -90,14 +109,18 @@ namespace NovoTayUmDoce.Componentes
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o Fornecedor?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ClienteListarUC(_context));
+                _context.SwitchScreen(new FornecedorListarUC(_context));
             }
 
         }
-
+      
+        private void cbEst_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
     }
 }

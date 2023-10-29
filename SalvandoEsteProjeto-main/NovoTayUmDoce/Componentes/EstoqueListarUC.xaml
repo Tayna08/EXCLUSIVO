@@ -20,7 +20,7 @@
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Nome" Binding="{Binding Total}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
                 <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
                 <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>

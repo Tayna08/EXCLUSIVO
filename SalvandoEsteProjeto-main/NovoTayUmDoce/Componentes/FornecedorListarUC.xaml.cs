@@ -45,7 +45,6 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new FornecedorDAO();
-
                 dataGridFornecedor.ItemsSource = dao.List();
 
             }
@@ -55,7 +54,7 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
+        private void ExcluirFornecedor_Click(object sender, RoutedEventArgs e)
         {
             var fornecedorSelected = dataGridFornecedor.SelectedItem as Fornecedor;
 

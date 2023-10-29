@@ -73,19 +73,20 @@ namespace NovoTayUmDoce.Models
 
                         while (reader.Read())
                         {
-                            var fornecedor = new Fornecedor()
+                            var insumos = new Insumos()
                             {
 
-                                Id = DAOHelper.GetInt(reader, "id_for"),
-                               
+                                Id = reader.GetInt32("id_ins"),
+                                Nome = reader.GetString("nome_ins"),
+                                Peso = reader.GetString("peso_ins"),
+                                Valor_Gasto = reader.GetDouble("valor_gasto_ins"),
+                                Estoque_medio = reader.GetString("estoque_medio_ins"),
+                                Estoque_maximo = reader.GetString("estoque_maximo_ins"),
+
 
                             };
-                            var produto = new Produto()
-                            {
-                                Id = DAOHelper.GetInt(reader, "id_pro"),
-                            };
-
-                            //lista.Add(produto);
+                          
+                            lista.Add(insumos);
                         }
 
                         return lista;
@@ -103,14 +104,14 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
-                var fornecedorid = new PedidoDAO().GetById(insumos.Fornecedor.Id);
+                var fornecedorid = new FornecedorDAO().GetById(insumos.Fornecedor.Id);
 
                 if (fornecedorid.Id > 0)
                 {
                     using (var query = conn.Query())
                     {
 
-                        query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, estoque_medio, estoque_maximo, id_for_fk ) " +
+                        query.CommandText = $"INSERT INTO Produto (nome_ins, peso_ins, valor_gasto_ins, estoque_medio_ins, estoque_maximo_ins, id_for_fk ) " +
                             $"VALUES (@nome, @peso, @valor_gasto, @estoque_medio, @estoque_maximo, @id_for)";
 
                         query.Parameters.AddWithValue("@nome", insumos.Nome);

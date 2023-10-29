@@ -138,7 +138,7 @@ namespace NovoTayUmDoce.Models
                 {
                     query.CommandText = "DELETE FROM estoque WHERE (id_est = @id)";
 
-                    query.Parameters.AddWithValue("@id", estoque.Id);
+                    query.Parameters.AddWithValue("@id", estoque.Nome);
 
                     var result = query.ExecuteNonQuery();
 

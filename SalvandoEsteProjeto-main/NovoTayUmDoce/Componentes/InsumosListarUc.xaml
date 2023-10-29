@@ -7,6 +7,47 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Insumos" VerticalAlignment="Center" FontSize="24"/>
+            <Button x:Name="BtnAddInsumos" Margin="10 0 0 0" Content="Novo Insumo" Click="BtnAddInsumo_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="dataGridInsumos" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand">
+        <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Peso" Binding="{Binding Peso}"/>
+                <DataGridTextColumn Header="Valor Gasto" Binding="{Binding Valor_Gasto}"/>
+                <DataGridTextColumn Header="Estoque medio" Binding="{Binding Estoque_medio}"/>
+                <DataGridTextColumn Header="Estoque_maximo" Binding="{Binding Estoque_maximo}"/>
+                <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Ação" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Click="ExcluirInsumo_Click">
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush >
+                                        <GradientStop Color="Black"/>
+                                        <GradientStop Color="Black" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>
