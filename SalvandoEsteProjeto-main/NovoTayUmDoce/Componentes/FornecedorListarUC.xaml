@@ -21,9 +21,9 @@
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Nome fantasia" Binding="{Binding Nome_fantasia}"/>
+                <DataGridTextColumn Header="Nome fantasia" Binding="{Binding Nome_Fantasia}"/>
                 <DataGridTextColumn Header="Nome Representante" Binding="{Binding Nome_Representante}"/>
-                <DataGridTextColumn Header="CNPJ" Binding="{Binding CNPJ}"/>
+                <DataGridTextColumn Header="CNPJ" Binding="{Binding Cnpj}"/>
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
                 <DataGridTextColumn Header="Razão Social" Binding="{Binding Razao_Social}"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>

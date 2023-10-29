@@ -39,7 +39,7 @@ namespace NovoTayUmDoce.Componentes
                 cbFor.ItemsSource = null;
                 cbFor.Items.Clear();
                 cbFor.ItemsSource = new FornecedorDAO().List();
-                cbFor.DisplayMemberPath = "Nome";
+                cbFor.DisplayMemberPath = "Nome_Fantasia";
 
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new InsumosFormUC(_context));
+                _context.SwitchScreen(new InsumosListarUc(_context));
             }
         }
 
@@ -66,7 +66,7 @@ namespace NovoTayUmDoce.Componentes
 
                 insumos.Nome = tbNOme.Text;
                 insumos.Peso = tbPeso.Text;
-                insumos.Valor_Gasto = Convert.ToDouble(tbValorGas);
+                insumos.Valor_Gasto = Convert.ToDouble(tbValorGas.Text);
                 insumos.Estoque_medio = tbEstMedio.Text;
                 insumos.Estoque_maximo = tbEstMaximo.Text;
 
@@ -91,7 +91,7 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
-        private void cbPed_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbFor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
         }

@@ -46,7 +46,8 @@ namespace NovoTayUmDoce.Models
                             insumos.Valor_Gasto = reader.GetDouble("valor_gasto_ins");
                             insumos.Estoque_medio = reader.GetString("estoque_medio_ins");
                             insumos.Estoque_maximo = reader.GetString("estoque_maximo_ins");
-                           
+                            insumos.Fornecedor = new FornecedorDAO().GetById(DAOHelper.GetInt(reader, "id_for_fk"));
+
 
                         }
 
@@ -104,14 +105,11 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
-                var fornecedorid = new FornecedorDAO().GetById(insumos.Fornecedor.Id);
+                int fornecedorid = insumos.Fornecedor != null ? insumos.Fornecedor.Id : 0;
 
-                if (fornecedorid.Id > 0)
-                {
-                    using (var query = conn.Query())
-                    {
 
-                        query.CommandText = $"INSERT INTO Produto (nome_ins, peso_ins, valor_gasto_ins, estoque_medio_ins, estoque_maximo_ins, id_for_fk ) " +
+                var query = conn.Query();
+                        query.CommandText = $"INSERT INTO Insumos (nome_ins, peso_ins, valor_gasto_ins, estoque_medio_ins, estoque_maximo_ins, id_for_fk ) " +
                             $"VALUES (@nome, @peso, @valor_gasto, @estoque_medio, @estoque_maximo, @id_for)";
 
                         query.Parameters.AddWithValue("@nome", insumos.Nome);
@@ -119,7 +117,7 @@ namespace NovoTayUmDoce.Models
                         query.Parameters.AddWithValue("@valor_gasto", insumos.Valor_Gasto);                      
                         query.Parameters.AddWithValue("@estoque_medio", insumos.Estoque_medio);
                         query.Parameters.AddWithValue("@estoque_maximo", insumos.Estoque_maximo);
-                        query.Parameters.AddWithValue("@id_for", fornecedorid.Id);
+                        query.Parameters.AddWithValue("@id_for", fornecedorid);
 
                         var result = query.ExecuteNonQuery();
 
@@ -131,8 +129,8 @@ namespace NovoTayUmDoce.Models
                         {
                             MessageBox.Show("Inserção bem-sucedida!");
                         }
-                    }
-                }
+                    
+                
             }
 
             catch (Exception ex)

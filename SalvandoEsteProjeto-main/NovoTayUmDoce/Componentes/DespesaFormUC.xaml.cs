@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,11 +43,13 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
-                despesa.Hora = Hora.SelectedTime;
+                despesa.Hora = Hora.Text;
 
+                // Inserindo os Dados           
                 DespesaDAO despesaDAO = new DespesaDAO();
                 despesaDAO.Insert(despesa);
-          
+
+                Clear();
             }
             catch (Exception )
             {
@@ -62,6 +65,14 @@ namespace NovoTayUmDoce.Componentes
             {
                 _context.SwitchScreen(new ClienteListarUC(_context));
             }
+        }
+
+        private void Clear()
+        {
+            tbNome.Clear();
+            tbDescricao.Clear();
+            tbFormaPagamento.Clear();
+            tbValor.Clear();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            
+            Listar();
 
         }
 
@@ -40,12 +40,33 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new DespesaDAO();
-                //dataGridDespesa.ItemsSource = dao.List();
+                dataGridDespesa.ItemsSource = dao.List();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ExcluirDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            var despesaSelected = dataGridDespesa.SelectedItem as Despesa;
+
+            var result = MessageBox.Show($"Deseja realmente remover a despesa `{despesaSelected.Id}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new DespesaDAO();
+                    dao.Delete(despesaSelected);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

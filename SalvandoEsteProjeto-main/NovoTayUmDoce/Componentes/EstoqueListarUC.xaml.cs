@@ -23,7 +23,7 @@ namespace NovoTayUmDoce.Componentes
     public partial class EstoqueListarUC : UserControl
     {
         MainWindow _context;
-        private MySqlConnection _conexao;
+       
 
         public EstoqueListarUC(MainWindow context)
         {

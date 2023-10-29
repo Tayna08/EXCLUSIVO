@@ -64,6 +64,7 @@ namespace NovoTayUmDoce.Componentes
                     endereco.Cidade = tbCidade.Text;
                     endereco.Complemento = tbComplemento.Text;
                     endereco.Rua = tbRua.Text;
+                    endereco.Cep = tbCep.Text;
 
                     fornecedor.Endereco = endereco;
 

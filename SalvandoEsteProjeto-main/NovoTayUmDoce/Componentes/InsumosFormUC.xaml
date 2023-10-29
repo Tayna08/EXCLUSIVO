@@ -80,7 +80,7 @@
             <Label Content="Fornecedor:"/>
         </StackPanel>
         <StackPanel Margin="76,296,40,1238" Grid.Column="4">
-            <ComboBox x:Name="cbFor" Background="White"  Width="216" Height="35" SelectionChanged="cbPed_SelectionChanged"/>
+            <ComboBox x:Name="cbFor" Background="White"  Width="216" Height="35" SelectionChanged="cbFor_SelectionChanged"/>
         </StackPanel>
 
 

@@ -83,6 +83,13 @@
             <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
+        <StackPanel Margin="0,334,246,216" Grid.Column="4">
+            <Label Content="CEP:"/>
+        </StackPanel>
+        <StackPanel Margin="66,334,40,216" Grid.Column="4">
+            <TextBox x:Name="tbCep" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
         <StackPanel Margin="50,294,161,216">
             <Label Content="COMPLEMENTO:"/>
         </StackPanel>

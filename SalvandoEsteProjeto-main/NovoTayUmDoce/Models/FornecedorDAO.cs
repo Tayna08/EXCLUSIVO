@@ -68,43 +68,47 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
-                var query = conn.Query();
-                query.CommandText = "SELECT * FROM fornecedor LEFT JOIN endereco ON id_end = id_end_fk";
-                query.CommandText = "SELECT * FROM fornecedor LEFT JOIN estoque ON id_est = id_est_fk";
-                var reader = query.ExecuteReader();
-
-                var lista = new List<Fornecedor>();
-
-                while (reader.Read())
+                using (var query = conn.Query())
                 {
-                    
-                    var endereco = new Endereco()
+                    query.CommandText = "SELECT * FROM fornecedor LEFT JOIN endereco ON id_end = id_end_fk";
+                    using (var reader = query.ExecuteReader())
                     {
-                        Id = reader.GetInt32("id_end"),
-                        Bairro = reader.GetString("bairro_end"),
-                        Cidade = reader.GetString("cidade_end"),
-                        Rua = reader.GetString("rua_end"),
-                        Complemento = reader.GetString("complemento_end"),
-                        Numero = reader.GetInt32("numero_end"),
-                    };
+                        var lista = new List<Fornecedor>();
 
-                    var fornecedor = new Fornecedor()
-                    {
-                        Id = reader.GetInt32("id_for"),
-                        Nome_Fantasia = reader.GetString("nome_fantasia_for"),
-                        Nome_Representante = reader.GetString("nome_representante_for"),
-                        Contato = reader.GetString("contato_for"),
-                        Cnpj= reader.GetString("cnpj_for"),
-                        Razao_Social= reader.GetString("razao_social_for"),
-                        Email = reader.GetString("email_for"),
-                        Endereco = endereco,
-                    };
+                        while (reader.Read())
+                        {
+                            var endereco = new Endereco()
+                            {
+                                Id = DAOHelper.GetInt(reader, "id_end"),
+                                Bairro = DAOHelper.GetString(reader, "bairro_end"),
+                                Cidade = DAOHelper.GetString(reader, "cidade_end"),
+                                Rua = DAOHelper.GetString(reader, "rua_end"),
+                                Complemento = DAOHelper.GetString(reader, "complemento_end"),
+                                Numero = DAOHelper.GetInt(reader, "numero_end"),
+                                Cep = DAOHelper.GetString(reader, "cep_end")
+                            };
 
-                    lista.Add(fornecedor);
+                            var fornecedor = new Fornecedor()
+                            {
+                                Id = reader.GetInt32("id_for"),
+                                Nome_Fantasia = reader.GetString("nome_fantasia_for"),
+                                Nome_Representante = reader.GetString("nome_representante_for"),
+                                Contato = reader.GetString("contato_for"),
+                                Cnpj = reader.GetString("cnpj_for"),
+                                Razao_Social = reader.GetString("razao_social_for"),
+                                Email = reader.GetString("email_for"),
+                                Endereco = endereco,
+                            };
+
+                            lista.Add(fornecedor);
+                        }
+
+                        return lista;
+                    }
                 }
-
-                return lista;
             }
+
+
             catch (Exception e)
             {
                 throw e;
