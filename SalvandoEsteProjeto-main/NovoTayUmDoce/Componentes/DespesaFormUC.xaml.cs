@@ -32,6 +32,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 //Setando informações na tabela cliente

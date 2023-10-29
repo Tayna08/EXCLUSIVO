@@ -227,6 +227,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\VendaFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Componentes\VendaLIstarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Janelas\CadastrarCaixa.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -418,6 +426,12 @@
     </Compile>
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\VendaFormUC.xaml.cs">
+      <DependentUpon>VendaFormUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\VendaLIstarUC.xaml.cs">
+      <DependentUpon>VendaLIstarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />

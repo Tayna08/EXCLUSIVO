@@ -24,6 +24,7 @@ namespace NovoTayUmDoce.Componentes
         private void CarregarData()
         {
             dtpData.SelectedDate = DateTime.Now;
+     
 
             try
             {
