@@ -13,12 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
 using NovoTayUmDoce.Models;
 using NovoTayUmDoce.Janelas;
 using System.Windows.Media.Media3D;
 using MySqlX.XDevAPI;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -32,6 +32,36 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            CarregarData();
+        }
+
+        private void CarregarData()
+        {
+            dtpDataCompra.SelectedDate = DateTime.Now;
+
+            try
+            {
+                cbFun.ItemsSource = null;
+                cbFun.Items.Clear();
+                cbFun.ItemsSource = new FuncionarioDAO().List();
+                cbFun.DisplayMemberPath = "Nome";
+
+                cbDes.ItemsSource = null;
+                cbDes.Items.Clear();
+                cbDes.ItemsSource = new DespesaDAO().List();
+                cbDes.DisplayMemberPath = "NomeDespesa";
+
+                cbFor.ItemsSource = null;
+                cbFor.Items.Clear();
+                cbFor.ItemsSource = new FornecedorDAO().List();
+                cbFor.DisplayMemberPath = "Nome_Fantasia";
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -39,19 +69,17 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 Compra compra = new Compra();
-                Funcionario funcionario = new Funcionario();
-                Despesa despesa = new Despesa();
-                Fornecedor fornecedor = new Fornecedor();
-
-                funcionario.Cpf = tbFuncionario.Text;
-                despesa.NomeDespesa = tbDespesa.Text;
-                fornecedor.Nome_Fantasia = tbFornecedor.Text;
-
+             
                 compra.Valor = Convert.ToDouble(tbValor.Text);
                 compra.Nome = tbNome.Text;
                 compra.Data = (DateTime)dtpDataCompra.SelectedDate;
                 compra.Quantidade = Convert.ToDouble(tbQuantidade.Text);
                 compra.Descricao = tbDescricao.Text;
+
+                //inserindo chaves estrangeiras
+                compra.Funcionario = (Funcionario)cbFun.SelectedItem;
+                compra.Despesa = (Despesa)cbDes.SelectedItem;
+                compra.Fornecedor = (Fornecedor)cbFor.SelectedItem;
 
                 //Inserindo os Dados           
                 CompraDAO compraDAO = new CompraDAO();
@@ -67,12 +95,38 @@ namespace NovoTayUmDoce.Componentes
         }
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o cadastro da Compra?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ClienteListarUC(_context));
+                _context.SwitchScreen(new CompraListarUC(_context));
             }
+        }
+
+
+        private void cbFor_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
+
+        private void cbDes_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+
+        }
+
+        private void cbFun_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+
+        }
+
+        private void Clear()
+        {
+            tbNome.Clear();
+            tbDescricao.Clear();
+            tbQuantidade.Clear();
+            tbValor.Clear();
         }
     }
 }

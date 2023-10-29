@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TayUmDoceProjeto.Models
+namespace NovoTayUmDoce.Models
 {
     class Cliente
     {

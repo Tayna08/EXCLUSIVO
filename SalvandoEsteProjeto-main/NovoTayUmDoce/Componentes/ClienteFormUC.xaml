@@ -34,14 +34,14 @@
                 <Label Content="CPF:"/>
             </StackPanel>
             <StackPanel  Margin="50,110,10,60" >
-                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbCpf_TextChanged"/>
             </StackPanel>
 
             <StackPanel Margin="10,170,78,60">
                 <Label Content="CONTATO:"  Height="28"/>
             </StackPanel>
             <StackPanel Margin="80,170,10,60" >
-                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
+                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbContato_TextChanged"/>
             </StackPanel>
 
 
@@ -110,8 +110,12 @@
         </Grid>
 
         <Grid Grid.Row="1" Grid.Column="2">
-            
-            <StackPanel Margin="0,10,150,2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="257*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="0,10,150,2" Grid.ColumnSpan="2" >
                 <DatePicker x:Name="dtpData" />
             </StackPanel>
         </Grid>
@@ -131,8 +135,8 @@
             </StackPanel>
 
         </Grid>
-        
-        
+
+
 
 
         <!--

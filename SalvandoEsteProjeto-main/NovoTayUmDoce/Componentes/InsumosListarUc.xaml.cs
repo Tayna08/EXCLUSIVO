@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,62 +13,63 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para DespesaListarUC.xam
+    /// Interação lógica para InsumosListarUc.xam
     /// </summary>
-    public partial class DespesaListarUC : UserControl
+    public partial class InsumosListarUc : UserControl
     {
         MainWindow _context;
-        public DespesaListarUC(MainWindow context)
+        
+        public InsumosListarUc(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
-
-        }
-
-        private void BtnAddDespesa_Click(object sender, RoutedEventArgs e)
-        {
-            _context.SwitchScreen(new DespesaFormUC(_context));
         }
 
         private void Listar()
         {
             try
             {
-                var dao = new DespesaDAO();
-                dataGridDespesa.ItemsSource = dao.List();
+                var dao = new InsumosDAO();
+                dataGridInsumos.ItemsSource = dao.List();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro ao carregar os Insumos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void ExcluirDespesa_Click(object sender, RoutedEventArgs e)
+        private void ExcluirInsumo_Click(object sender, RoutedEventArgs e)
         {
-            var despesaSelected = dataGridDespesa.SelectedItem as Despesa;
+            var insumoSelected = dataGridInsumos.SelectedItem as Insumos;
 
-            var result = MessageBox.Show($"Deseja realmente remover a despesa `{despesaSelected.Id}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o pedido `{insumoSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    var dao = new DespesaDAO();
-                    dao.Delete(despesaSelected);
+                    var dao = new InsumosDAO();
+                    dao.Delete(insumoSelected);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void BtnAddInsumo_Click(object sender, RoutedEventArgs e)
+        {
+            _context.SwitchScreen(new InsumosFormUC(_context));
         }
     }
 }

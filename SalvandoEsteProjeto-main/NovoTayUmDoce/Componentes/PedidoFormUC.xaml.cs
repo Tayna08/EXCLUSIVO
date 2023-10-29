@@ -1,19 +1,8 @@
 ﻿using NovoTayUmDoce.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -23,46 +12,41 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
+        private static Conexao conn;
+
         public PedidoFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
+            CarregarData();
         }
 
-        public PedidoFormUC(MainWindow context, int id)
+        private void CarregarData()
         {
-            InitializeComponent();
-            _context = context;
-        }
+            dtpData.SelectedDate = DateTime.Now;
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
             try
             {
-                //Setando informações na tabela pedido
-                Pedido pedido = new Pedido();
-                Funcionario funcionario = new Funcionario();
-                Cliente cliente = new Cliente();
+                cbFun.ItemsSource = null;
+                cbFun.Items.Clear();
+                cbFun.ItemsSource = new FuncionarioDAO().List();
+                cbFun.DisplayMemberPath = "Nome";
 
+                cbCli.ItemsSource = null;
+                cbCli.Items.Clear();
+                cbCli.ItemsSource = new ClienteDAO().List();
+                cbCli.DisplayMemberPath = "Nome";
 
-                pedido.Data = (DateTime)dtpData.SelectedDate;
-                pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                pedido.Valor = tbTotal.Text;
-                pedido.FormaPagamento = tbFormaPag.Text;
-                pedido.TipoDoce = tbProduto.Text;
+                cbPro.ItemsSource = null;
+                cbPro.Items.Clear();
+                cbPro.ItemsSource = new ProdutoDAO().List();
+                cbPro.DisplayMemberPath = "Nome";
 
-
-                //Inserindo os Dados           
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                pedidoDAO.Insert(pedido);
-
-
-                MessageBox.Show("Dados salvos com sucesso!");
 
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -72,8 +56,70 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new PedidoFormUC(_context));
+                _context.SwitchScreen(new PedidoListarUC(_context));
             }
+        }
+
+
+
+        private void cbFun_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
+
+        private void cbCli_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+        }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Pedido pedido = new Pedido();
+
+                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                pedido.Desconto = tbDesconto.Text;                
+                pedido.Hora = tbHora.Text;
+                pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                pedido.FormaPagamento = tbFormaPag.Text;
+                pedido.Status = tbStatus.Text;
+                pedido.Delivery = tbDelivery.Text;
+
+                // Chaves estrangeiras
+                pedido.Cliente = (Cliente)cbCli.SelectedItem;
+                pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
+                pedido.Produto = (Produto)cbPro.SelectedItem;
+
+                // Inserindo os Dados           
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                pedidoDAO.Insert(pedido);
+
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+            }
+
+
+        }
+        private void Clear()
+        {
+            tbTotal.Clear();
+            tbDesconto.Clear();
+            tbDelivery.Clear();
+            tbFormaPag.Clear();
+            tbQuantidade.Clear();
+            dtpData.SelectedDate = null;
+            tbHora.Clear();
+            tbStatus.Clear();
+            
+        }
+
+        private void cbPro_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
         }
     }
 }

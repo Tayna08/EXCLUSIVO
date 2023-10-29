@@ -14,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
 using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
@@ -44,12 +43,33 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new CompraDAO();
-                //dataGridCompras.ItemsSource = dao.List();
+                dataGridCompras.ItemsSource = dao.List();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os clientes: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro ao carregar as Compras: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void ExcluirCompra_Click(object sender, RoutedEventArgs e)
+        {
+            var compraSelected = dataGridCompras.SelectedItem as Compra;
+
+            var result = MessageBox.Show($"Deseja realmente remover a compra `{compraSelected.Id}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new CompraDAO();
+                    dao.Delete(compraSelected);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

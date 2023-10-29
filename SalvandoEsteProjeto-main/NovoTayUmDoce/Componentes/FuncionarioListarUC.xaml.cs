@@ -13,8 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Conexão;
-using TayUmDoceProjeto.Models;
+using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
@@ -71,6 +70,11 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void dataGridFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

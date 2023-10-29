@@ -83,11 +83,25 @@
             <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
+        <StackPanel Margin="0,334,246,216" Grid.Column="4">
+            <Label Content="CEP:"/>
+        </StackPanel>
+        <StackPanel Margin="66,334,40,216" Grid.Column="4">
+            <TextBox x:Name="tbCep" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
         <StackPanel Margin="50,294,161,216">
             <Label Content="COMPLEMENTO:"/>
         </StackPanel>
         <StackPanel Margin="156,294,0,216" Grid.ColumnSpan="4">
             <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,354,161,216">
+            <Label Content="Email:"/>
+        </StackPanel>
+        <StackPanel Margin="156,354,0,216" Grid.ColumnSpan="4">
+            <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
         <StackPanel Margin="10,142,10,374" Grid.Column="2" Grid.ColumnSpan="2">
@@ -96,6 +110,8 @@
         <StackPanel Margin="0,142,40,361" Grid.Column="4">
             <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
+
+        <ComboBox Background="White" x:Name="cbEst" HorizontalAlignment="Left" Margin="172,381,0,0" VerticalAlignment="Top" Width="120"  Grid.Column="4" SelectionChanged="cbEst_SelectionChanged"/>
 
     </Grid>
 </UserControl>

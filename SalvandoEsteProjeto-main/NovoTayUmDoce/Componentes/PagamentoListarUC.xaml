@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Pagamentos" VerticalAlignment="Center" FontSize="24"/>
-            <Button x:Name="BtnAddPagamento" Margin="10 0 0 0" Content="Novo Pagamento" Click="BtnAddPagamento_Click"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddPagamento" Margin="10 0 0 0" Content="Novo Pagamento" Click="BtnAddPagamento_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
         <DataGrid Grid.Row="2" x:Name="dataGridPagamentos" IsReadOnly="true"

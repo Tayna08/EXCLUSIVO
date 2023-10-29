@@ -6,7 +6,45 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+   
+    <Grid Background="Bisque">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1051"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btCancelar_Click_1"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click_1"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,40,644,978">
+            <Label Content="Nome:" Width="105"/>
+        </StackPanel>
+        <StackPanel Margin="84,37,626,978">
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
+        </StackPanel>
+
+        <StackPanel Margin="18,96,676,922">
+            <Label Content="tbQuantidade:" Width="105"/>
+        </StackPanel>
+        <StackPanel Margin="103,95,607,920">
+            <TextBox x:Name="tbQuant" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
+        </StackPanel>
+
+        <StackPanel Margin="344,160,364,857">
+            <Label Content="DATA:"/>
+        </StackPanel>
+        <StackPanel Margin="441,160,247,854">
+            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <ComboBox Background="White" x:Name="cbPro" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbPro_SelectionChanged" Grid.Column="1"/>
+
     </Grid>
+   
 </UserControl>

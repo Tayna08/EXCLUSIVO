@@ -15,58 +15,58 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Componentes;
+using NovoTayUmDoce.Conexão;
+using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
-    /// Interação lógica para FornecedorListarUC.xam
+    /// Interação lógica para ProdutoListarUC.xam
     /// </summary>
-    public partial class FornecedorListarUC : UserControl
+    public partial class ProdutoListarUC : UserControl
     {
         MainWindow _context;
         private MySqlConnection _conexao;
-
-        public FornecedorListarUC(MainWindow context)
+        public ProdutoListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
         }
 
-
-        private void BtnAddFornecedor_Click(object sender, RoutedEventArgs e)
+        private void BtnAddProduto_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new FornecedorFormUC(_context));
-        }
+            _context.SwitchScreen(new ProdutoFormUC(_context));
 
+        }
         private void Listar()
         {
             try
             {
-                var dao = new FornecedorDAO();
-                dataGridFornecedor.ItemsSource = dao.List();
+                var dao = new ProdutoDAO();
+                dataGridProduto.ItemsSource = dao.List();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar os fornecedores: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Erro ao carregar os produtos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void ExcluirFornecedor_Click(object sender, RoutedEventArgs e)
+        private void ExcluirProduto_Click(object sender, RoutedEventArgs e)
         {
-            var fornecedorSelected = dataGridFornecedor.SelectedItem as Fornecedor;
+            var produtoSelected = dataGridProduto.SelectedItem as Produto;
 
-            var result = MessageBox.Show($"Deseja realmente remover o fornecedor `{fornecedorSelected.Nome_Representante}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o produto `{produtoSelected.Nome}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    var dao = new FornecedorDAO();
-                    dao.Delete(fornecedorSelected);
+                    var dao = new ProdutoDAO();
+                    dao.Delete(produtoSelected);
                 }
             }
             catch (Exception ex)
@@ -74,5 +74,13 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void dataGridProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
+
+    
+

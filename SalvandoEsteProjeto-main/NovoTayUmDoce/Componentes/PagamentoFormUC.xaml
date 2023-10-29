@@ -22,12 +22,6 @@
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand"/>
         </StackPanel>
 
-        <StackPanel Margin="50,40,644,978">
-            <Label Content="N°:" Width="105"/>
-        </StackPanel>
-        <StackPanel Margin="84,37,626,978">
-            <TextBox x:Name="tbID" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
-        </StackPanel>
 
         <StackPanel Margin="220,39,488,978">
             <Label Content="DATA:"/>

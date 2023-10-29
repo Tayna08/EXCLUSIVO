@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using MySql.Data.MySqlClient;
 
-namespace TayUmDoceProjeto.Conexão
+namespace NovoTayUmDoce.Conexão
 {
     class Conexao
     {
@@ -33,7 +33,7 @@ namespace TayUmDoceProjeto.Conexão
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro 3306 : Contate o suporte");
+                MessageBox.Show("Erro no mysql");
                 throw ex;
             }
         }
@@ -49,7 +49,7 @@ namespace TayUmDoceProjeto.Conexão
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro 3306 : Contate o suporte");
+                MessageBox.Show("Erro no mysql");
                 throw ex;
             }
         }

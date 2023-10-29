@@ -14,8 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Janelas;
 using NovoTayUmDoce.Models;
-using TayUmDoceProjeto.Models;
 using static MaterialDesignThemes.Wpf.Theme;
 
 namespace NovoTayUmDoce.Componentes
@@ -68,12 +68,19 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new ClienteDAO();
                     dao.Delete(clienteSelected);
+
+                    ListarClientes();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+        private void ListarClientes()
+        {
+            var dao = new ClienteDAO();
+            dataGridClientes.ItemsSource = dao.List();
         }
 
     }

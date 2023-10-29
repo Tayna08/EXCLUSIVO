@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TayUmDoceProjeto.Models;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -43,15 +43,17 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
+                despesa.Hora = Hora.Text;
 
+                // Inserindo os Dados           
                 DespesaDAO despesaDAO = new DespesaDAO();
                 despesaDAO.Insert(despesa);
 
-                MessageBox.Show("Dados salvos com sucesso!");             
+                Clear();
             }
             catch (Exception )
             {
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                MessageBox.Show("Não foi possível salvar a Despesa, verifique o erro");
             }
         }
 
@@ -61,8 +63,16 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ClienteListarUC(_context));
+                _context.SwitchScreen(new DespesaListarUC(_context));
             }
+        }
+
+        private void Clear()
+        {
+            tbNome.Clear();
+            tbDescricao.Clear();
+            tbFormaPagamento.Clear();
+            tbValor.Clear();
         }
     }
 }
