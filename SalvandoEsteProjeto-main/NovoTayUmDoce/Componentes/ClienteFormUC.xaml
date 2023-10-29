@@ -20,7 +20,7 @@
 
 
 
-        <Grid Grid.Column="0" Grid.RowSpan="2" >
+        <Grid Grid.Column="0" >
 
             <StackPanel Margin="10,40,156,60">
                 <Label Content="NOME:"/>
@@ -52,25 +52,24 @@
                 <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
-            <StackPanel Margin="200,240,5,9" >
+            <StackPanel Margin="200,240,10,9" >
                 <Label Content="CEP:"/>
             </StackPanel>
-            <StackPanel Margin="240,242,10,6" >
+            <StackPanel Margin="235,242,10,6" >
                 <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-
-
-
         </Grid>
+        
+        
 
-
-        <Grid Grid.Column="1" Grid.RowSpan="2" >
-            <StackPanel Margin="10,40,10,60" Grid.Column="3" Grid.ColumnSpan="2">
+        <Grid Grid.Column="1" >
+            
+            <StackPanel Margin="10,40,10,60" >
                 <Label Content="BAIRRO:"/>
             </StackPanel>
-            <StackPanel  Margin="65,40,10,60" Grid.Column="4">
+            <StackPanel  Margin="65,40,10,60">
                 <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="26"/>
             </StackPanel>
 
@@ -78,7 +77,7 @@
             <StackPanel Margin="10,110,288,60">
                 <Label Content="CIDADE:"/>
             </StackPanel>
-            <StackPanel Margin="65,110,10,35" Grid.Column="4">
+            <StackPanel Margin="65,110,10,35" >
                 <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
@@ -91,10 +90,10 @@
             </StackPanel>
 
 
-            <StackPanel Margin="10,240,10,61">
+            <StackPanel Margin="10,245,10,1">
                 <Label Content="COMPLEMENTO:"/>
             </StackPanel>
-            <StackPanel Margin="110,240,10,60" >
+            <StackPanel Margin="115,240,10,10" >
                 <TextBox x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
@@ -141,6 +140,14 @@
 
 
         <!--
+        
+        
+
+
+
+        
+        
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="312*"/>
             <ColumnDefinition Width="73*"/>
