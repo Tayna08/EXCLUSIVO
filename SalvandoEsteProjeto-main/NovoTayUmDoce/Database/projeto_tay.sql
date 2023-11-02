@@ -8,7 +8,7 @@ cidade_end varchar(200) not null,
 rua_end varchar(200),
 complemento_end varchar(200),
 numero_end int,
-cep_end varchar(300)
+cep_end varchar (300)
 );
 
 create table Cliente(
