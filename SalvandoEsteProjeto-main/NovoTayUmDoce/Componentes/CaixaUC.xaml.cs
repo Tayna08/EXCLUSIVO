@@ -22,6 +22,9 @@ namespace NovoTayUmDoce.Componentes
     public partial class CaixaUC : UserControl
     {
         MainWindow _context;
+
+        
+
         public CaixaUC(MainWindow context)
         {
             _context = context;
