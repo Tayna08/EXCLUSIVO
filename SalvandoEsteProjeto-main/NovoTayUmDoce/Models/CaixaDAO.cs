@@ -35,7 +35,7 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@ValorEntrada", caixa.ValorEntrada);
                 query.Parameters.AddWithValue("@ValorSaida", caixa.ValorSaida);
                 query.Parameters.AddWithValue("@Data", caixa.Data?.ToString("yyyy-MM-dd"));
-                caixa.Hora = Convert.ToDateTime(Helpers.DAOHelper.ToString( "hora_abertura_cai"));
+                query.Parameters.AddWithValue("@hora", caixa.Hora?.ToString( "hora_abertura_cai"));
                 query.Parameters.AddWithValue("@Pagamento", caixa.Pagamento);
                 query.Parameters.AddWithValue("@Descricao", caixa.Descricao);
                 query.Parameters.AddWithValue("@Usuario", caixa.Usuario);
