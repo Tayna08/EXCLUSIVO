@@ -18,12 +18,17 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="399*"/>
-            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="193*"/>
+            <ColumnDefinition Width="208*"/>
         </Grid.ColumnDefinitions>
 
 
 
         <Grid Grid.Column="0" Margin="0,0,0,56" Grid.RowSpan="5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="56*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="87*"/>
                 <RowDefinition Height="60*"/>
@@ -31,55 +36,55 @@
                 <RowDefinition Height="71*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Margin="10,40,156,14">
+            <StackPanel Margin="3,40,156,14" Grid.Column="1">
                 <Label Content="NOME:"/>
             </StackPanel>
-            <StackPanel Margin="60,42,10,14">
+            <StackPanel Margin="53,42,10,14" Grid.Column="1">
                 <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,23,126,1" Grid.Row="1">
+            <StackPanel Margin="3,23,126,1" Grid.Row="1" Grid.Column="1">
                 <Label Content="CPF:"/>
             </StackPanel>
-            <StackPanel  Margin="50,23,10,11" Grid.Row="1" >
+            <StackPanel  Margin="43,23,10,11" Grid.Row="1" Grid.Column="1" >
                 <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbCpf_TextChanged"/>
             </StackPanel>
 
-            <StackPanel Margin="10,23,78,20" Grid.Row="2">
+            <StackPanel Margin="3,23,78,20" Grid.Row="2" Grid.Column="1">
                 <Label Content="CONTATO:"  Height="28"/>
             </StackPanel>
-            <StackPanel Margin="80,23,10,20" Grid.Row="2" >
+            <StackPanel Margin="73,23,10,20" Grid.Row="2" Grid.Column="1" >
                 <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbContato_TextChanged"/>
             </StackPanel>
 
 
-            <StackPanel Margin="403,14,-141,24" Grid.Row="3" >
+            <StackPanel Margin="396,14,-141,24" Grid.Row="3" Grid.Column="1" >
                 <Label Content="NÚMERO:" Height="28" Width="142"/>
             </StackPanel>
-            <StackPanel Margin="462,13,-165,27" Grid.Row="3" >
+            <StackPanel Margin="455,13,-165,27" Grid.Row="3" Grid.Column="1" >
                 <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
-            <StackPanel Margin="597,14,-378,24" Grid.Row="3" >
+            <StackPanel Margin="590,14,-378,24" Grid.Row="3" Grid.Column="1" >
                 <Label Content="CEP:"/>
             </StackPanel>
-            <StackPanel Margin="627,11,-378,30" Grid.Row="3" >
+            <StackPanel Margin="620,11,-378,30" Grid.Row="3" Grid.Column="1" >
                 <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
 
-            <StackPanel Margin="10,110,288,60">
+            <StackPanel Margin="3,23,288,37" Grid.Column="1" Grid.Row="1">
                 <Label Content="CIDADE:"/>
             </StackPanel>
-            <StackPanel Margin="65,110,10,35" >
+            <StackPanel Margin="58,23,10,37" Grid.Column="1" Grid.Row="1" >
                 <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
-            <StackPanel Margin="7,18,317,36" Grid.Row="3" >
+            <StackPanel Margin="7,18,317,36" Grid.Row="3" Grid.ColumnSpan="2" >
                 <Label Content="BAIRRO:" Height="26" Width="73"/>
             </StackPanel>
-            <StackPanel  Margin="60,18,10,6" Grid.Row="3">
+            <StackPanel  Margin="53,18,10,6" Grid.Row="3" Grid.Column="1">
                 <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="26"/>
             </StackPanel>
 
@@ -87,7 +92,7 @@
 
 
 
-        <Grid Grid.Column="1" Grid.RowSpan="4">
+        <Grid Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2">
 
             <StackPanel Margin="6,108,14,122" >
                 <Label Content="RUA:"/>
@@ -97,7 +102,7 @@
             </StackPanel>
 
 
-            <StackPanel Margin="6,170,14,0" Height="38" VerticalAlignment="Top">
+            <StackPanel Margin="6,170,14,0" Height="29" VerticalAlignment="Top">
                 <Label Content="COMPLEMENTO:"/>
             </StackPanel>
             <StackPanel Margin="104,165,21,85" >
@@ -125,7 +130,7 @@
 
         </Grid>
 
-        <Grid  Grid.Row="5" Grid.Column="1">
+        <Grid  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
 
             <StackPanel Margin="100,10,10,10" >
                 <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
