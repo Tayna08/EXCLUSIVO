@@ -43,12 +43,7 @@ namespace NovoTayUmDoce.Models
                             produto.Id = reader.GetInt32("id_pro");
                             produto.Nome = reader.GetString("nome_pro");
                             produto.Peso = reader.GetString("peso_pro");
-                            produto.Valor_Gasto = reader.GetDouble("valor_gasto_pro");
                             produto.Valor_Venda = reader.GetDouble("valor_venda_pro");
-                            produto.Data = reader.GetDateTime("data_fabricacao_pro");
-                            produto.Estoque_medio = reader.GetString("estoque_medio");
-                            produto.Estoque_maximo = reader.GetString("estoque_maximo");
-                            produto.Quantidade = reader.GetInt32("quantidade_pro");
                             produto.Tipo = reader.GetString("tipo_pro");
                             produto.Descricao = reader.GetString("descricao_pro");
                             
@@ -82,13 +77,8 @@ namespace NovoTayUmDoce.Models
                             {
                                 produto.Id = DAOHelper.GetInt(reader, "id_pro");
                                 produto.Nome = DAOHelper.GetString(reader, "nome_pro");
-                                produto.Peso = DAOHelper.GetString(reader, "peso_pro");
-                                produto.Valor_Gasto = DAOHelper.GetDouble(reader, "valor_gasto_pro");
-                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
-                                produto.Data = DAOHelper.GetDateTime(reader, "data_fabricacao_pro");
-                                produto.Estoque_medio = DAOHelper.GetString(reader, "estoque_medio");
-                                produto.Estoque_maximo = DAOHelper.GetString(reader, "estoque_maximo");
-                                produto.Quantidade = DAOHelper.GetInt(reader, "quantidade_pro");
+                                produto.Peso = DAOHelper.GetString(reader, "peso_pro");                  
+                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");                           
                                 produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
                                 produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
 
@@ -116,17 +106,12 @@ namespace NovoTayUmDoce.Models
 
                 var query = conn.Query();
 
-                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_gasto_pro, valor_venda_pro, data_fabricacao_pro, estoque_medio, estoque_maximo, quantidade_pro, tipo_pro, descricao_pro ) " +
-                            $"VALUES (@nome, @peso, @valor_gasto, @valor_venda, @data_fabricacao, @estoque_medio, @estoque_maximo, @quantidade, @tipo, @descricao)";
+                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_venda_pro, tipo_pro, descricao_pro ) " +
+                            $"VALUES (@nome, @peso, @valor_venda, @tipo, @descricao)";
 
                         query.Parameters.AddWithValue("@nome", produto.Nome);
                         query.Parameters.AddWithValue("@peso", produto.Peso);
-                        query.Parameters.AddWithValue("@valor_gasto", produto.Valor_Gasto);
                         query.Parameters.AddWithValue("@valor_venda", produto.Valor_Venda);
-                        query.Parameters.AddWithValue("@data_fabricacao", produto.Data?.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@estoque_medio", produto.Estoque_medio);
-                        query.Parameters.AddWithValue("@estoque_maximo", produto.Estoque_maximo);
-                        query.Parameters.AddWithValue("@quantidade", produto.Quantidade);
                         query.Parameters.AddWithValue("@tipo", produto.Tipo);
                         query.Parameters.AddWithValue("@descricao", produto.Descricao);
                         

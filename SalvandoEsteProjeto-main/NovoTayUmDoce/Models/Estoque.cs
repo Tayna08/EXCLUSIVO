@@ -9,8 +9,9 @@ namespace NovoTayUmDoce.Models
     class Estoque
     {
         public int Id { get; set; }
-        public string Nome { get; set; }
+        
         public int Quantidade { get; set; }
+        public DateTime? validade { get; set; }
         public DateTime? Data { get; set; }
 
         public Produto Produto { get; set; }
