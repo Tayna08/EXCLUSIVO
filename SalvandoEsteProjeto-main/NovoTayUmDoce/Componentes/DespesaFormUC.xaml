@@ -52,7 +52,7 @@
             <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="10,0,-10,0" Grid.RowSpan="2">
+        <StackPanel Margin="10,0,-10,471">
            <materialDesign:TimePicker x:Name="Hora" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Width="156"/>
         </StackPanel>
         

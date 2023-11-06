@@ -54,7 +54,7 @@ namespace NovoTayUmDoce.Componentes
         {
             var estoqueSelected = dataGridEstoque.SelectedItem as Estoque;
 
-            var result = MessageBox.Show($"Deseja realmente remover o pedido `{estoqueSelected.Nome}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o pedido `{estoqueSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
