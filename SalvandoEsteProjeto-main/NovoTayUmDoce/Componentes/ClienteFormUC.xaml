@@ -81,7 +81,7 @@
                 <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="27"/>
             </StackPanel>
 
-            <StackPanel Margin="7,18,317,36" Grid.Row="3" Grid.ColumnSpan="2" >
+            <StackPanel Margin="0,18,339,33" Grid.Row="3" Grid.ColumnSpan="1" Grid.Column="1" >
                 <Label Content="BAIRRO:" Height="26" Width="73"/>
             </StackPanel>
             <StackPanel  Margin="53,18,10,6" Grid.Row="3" Grid.Column="1">
