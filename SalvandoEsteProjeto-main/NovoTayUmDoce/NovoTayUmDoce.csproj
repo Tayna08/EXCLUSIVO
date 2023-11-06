@@ -187,14 +187,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\VendaFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\VendaLIstarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ControleHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,12 +241,6 @@
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\VendaFormUC.xaml.cs">
-      <DependentUpon>VendaFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\VendaLIstarUC.xaml.cs">
-      <DependentUpon>VendaLIstarUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Helpers\MaskCNPJ.cs" />
@@ -273,8 +259,6 @@
     <Compile Include="Models\CaixaDAO.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
-    <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\CompraDAO.cs" />
     <Compile Include="Models\Despesa.cs" />
     <Compile Include="Models\DespesaDAO.cs" />
     <Compile Include="Models\Entrega.cs" />
@@ -283,24 +267,14 @@
     <Compile Include="Models\EnderecoDAO.cs" />
     <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\EstoqueDAO.cs" />
-    <Compile Include="Models\Fornecedor.cs" />
-    <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Menu\ItemMenu.cs" />
-    <Compile Include="Models\Insumos.cs" />
-    <Compile Include="Models\InsumosDAO.cs" />
-    <Compile Include="Models\Pagamento.cs" />
-    <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\PedidoDAO.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
-    <Compile Include="Models\Recebimento.cs" />
-    <Compile Include="Models\RecebimentoDAO.cs" />
     <Compile Include="Menu\SubItem.cs" />
-    <Compile Include="Models\Venda.cs" />
-    <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

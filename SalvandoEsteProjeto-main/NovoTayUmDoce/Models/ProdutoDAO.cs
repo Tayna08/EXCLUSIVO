@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NovoTayUmDoce.Janelas;
 using NovoTayUmDoce.Conexão;
 using System.Windows;
 using NovoTayUmDoce.Helpers;

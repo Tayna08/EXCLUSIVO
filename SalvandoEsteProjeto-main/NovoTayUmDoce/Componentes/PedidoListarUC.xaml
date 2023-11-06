@@ -30,7 +30,6 @@
                 <DataGridTextColumn Header="Delivery" Binding="{Binding Delivery}"/>
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}"/>
                 <DataGridTextColumn Header="Funcionário" Binding="{Binding Funcionario}"/>
-                <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <TextBlock Text="Ação" />

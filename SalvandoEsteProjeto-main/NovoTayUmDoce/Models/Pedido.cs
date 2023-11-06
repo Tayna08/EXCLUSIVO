@@ -21,7 +21,6 @@ namespace NovoTayUmDoce.Models
        
         public Funcionario Funcionario { get; set; }
         public Cliente Cliente { get; set; }
-        public Produto Produto { get; set; }
 
     }
 }

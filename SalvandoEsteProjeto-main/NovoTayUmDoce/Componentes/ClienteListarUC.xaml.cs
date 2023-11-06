@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
-using NovoTayUmDoce.Janelas;
 using NovoTayUmDoce.Models;
 using static MaterialDesignThemes.Wpf.Theme;
 

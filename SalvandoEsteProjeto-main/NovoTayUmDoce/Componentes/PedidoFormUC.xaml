@@ -83,7 +83,6 @@
         </StackPanel>
         <ComboBox Background="White" x:Name="cbCli" HorizontalAlignment="Left" Margin="224,370,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="cbCli_SelectionChanged"/>
         <ComboBox Background="White" x:Name="cbFun" HorizontalAlignment="Left" Margin="40,377,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbFun_SelectionChanged"/>
-        <ComboBox Background="White" x:Name="cbPro" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbPro_SelectionChanged" Grid.Column="1"/>
 
     </Grid>
 
