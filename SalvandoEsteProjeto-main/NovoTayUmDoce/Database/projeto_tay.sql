@@ -22,6 +22,17 @@ id_end_fk int,
 foreign key (id_end_fk) references Endereco(id_end)
 );
 
+create table Despesa(
+id_des int primary key auto_increment,
+nome_des varchar(300),
+descricao_des varchar(300),
+forma_pag_des varchar(200),
+data_des date,
+hora_des time,
+valor_des double,
+vencimento_des date
+);
+
 create table Funcionario(
 id_fun int primary key auto_increment,
 nome_fun varchar(200),
@@ -35,13 +46,39 @@ id_end_fk int,
 foreign key(id_end_fk) references Endereco (id_end)
 );
 
+create table Pedido(
+id_ped int primary key auto_increment,
+total_ped double,
+desconto_ped varchar(300),
+produtos_ped varchar(300),
+data_ped date,
+quantidade_ped int,
+forma_pagamento varchar(100),
+status_ped varchar(100),
+delivre_ped varchar(300),
+id_fun_fk int,
+id_cli_fk int,
+foreign key (id_fun_fk) references funcionario (id_fun),
+foreign key (id_cli_fk) references cliente (id_cli)
+);
+
 create table Produto(
 id_pro int primary key auto_increment,
 nome_pro varchar(200),
 peso_pro varchar(100),
 valor_venda_pro double,
+
+data_fabricacao_pro date,
+hora_pro time,
+estoque_medio varchar(300),
+estoque_maximo varchar(300),
+quantidade_pro int,
+
+
 tipo_pro varchar(300),
-descricao_pro varchar(200)
+descricao_pro varchar(200),
+id_ped_fk int,
+foreign key (id_ped_fk) references Pedido (id_ped)
 );
 
 create table Estoque(
@@ -63,6 +100,9 @@ valor_entrada_cai double,
 valor_saida_cai double,
 data_cai double,
 hora_cai time,
+pagamento_cai double,
+descricao_cai varchar(300),
+usuario_cai varchar(300),
 id_fun_fk int,
 foreign key(id_fun_fk) references Funcionario(id_fun)
 );
@@ -95,13 +135,46 @@ foreign key (id_cli_fk) references cliente (id_cli),
 foreign key (id_cai_fk) references caixa (id_cai)
 );
 
-create table pedido_produtos (
-id_ppro int primary key auto_increment,
-quant_ppro float,
-id_ped_fk int,
-id_pro_fk int,
-foreign key (id_ped_fk) references pedido (id_ped),
-foreign key (id_pro_fk) references produto (id_pro)
+
+create table Entrega(
+id_ent int primary key auto_increment,
+controle_numero_ent int,
+entregador_ent varchar(200),
+data_ent date,
+valor_ent double,
+id_ven_fk int,
+id_end_fk int,
+id_fun_fk int,
+foreign key(id_ven_fk) references Venda(id_ven),
+foreign key(id_end_fk) references Endereco(id_end),
+foreign key(id_fun_fk) references Funcionario(id_fun)
+);
+
+
+create table Pagamento(
+id_pag int primary key auto_increment,
+valor_pag double,
+data_pag date,
+formaPagamento_pag varchar(300),
+parcela_pag varchar(50),
+observacao_pag varchar(300),
+id_des_fk int,
+id_cai_fk int,
+foreign key (id_des_fk) references Despesa(id_des),
+foreign key (id_cai_fk) references Caixa(id_cai)
+);
+
+create table Recebimento(
+id_rec int primary key auto_increment,
+valor_rec double,
+forma_recebimento_rec varchar(200),
+quant_parcelas_rec int,
+data_rec date,
+hora_rec time,
+id_ven_fk int,
+id_cai_fk int,
+foreign key (id_ven_fk) references Venda(id_ven),
+foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
 
@@ -132,7 +205,7 @@ set fkEnd = (select id_end from endereco where (id_end = fk_end));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		insert into Cliente values(null, nome, cpf , data_nascimento, contato, fk_end);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
@@ -270,3 +343,4 @@ end
 $$ delimiter ;
 
 select * from cliente;
+select * from Pedido;
