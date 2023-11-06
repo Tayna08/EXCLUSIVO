@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1200">
-    <Grid >
+    <Grid  Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160*"/>
             <ColumnDefinition Width="263*"/>
@@ -33,7 +34,11 @@
                 <Label Content="Hora de inicio" FontSize="25" />
             </StackPanel>
             <StackPanel Margin="10,130,10,250">
-                <materialDesign:TimePicker x:Name="tpHoraCai" FontSize="25"/>
+                <materialDesign:TimePicker x:Name="tpHoraCai" 
+                                           FontSize="25"
+                                           Is24Hours="True"
+                                           IsEnabled="False"
+                                           />
             </StackPanel>
         
             <!--Saldo Inicial-->
@@ -58,7 +63,10 @@
                     <Label Content="Data de Abertura:" FontSize="25"/>
                 </StackPanel>
                 <StackPanel Margin="10,450,15,100" >
-                <DatePicker x:Name="dtpDataCai" FontSize="25"/>
+                <DatePicker x:Name="dtpDataCai" 
+                            FontSize="25"
+                            IsEnabled="False"/>
+                        
             </StackPanel>
 
 

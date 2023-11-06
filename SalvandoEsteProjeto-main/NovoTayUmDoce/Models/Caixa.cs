@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace NovoTayUmDoce.Models
         public double ValorEntrada { get; set; }
         public double ValorSaida { get; set; }
         public DateTime? Data { get; set; }
-        public string Hora { get; set; }
+        public DateTime? Hora { get; set; }
         public double Pagamento { get; set; }
         public string Descricao { get; set; }
         public string Usuario { get; set; }

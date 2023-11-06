@@ -31,15 +31,7 @@
             <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
         </StackPanel>
 
-        <StackPanel Margin="40,146,269,712" Grid.Column="1">
-            <Label Content="DESCONTO:"/>
-        </StackPanel>
-        <StackPanel  Margin="127,147,39,650" Grid.Column="1">
-            <TextBox x:Name="tbDesconto" TextWrapping="Wrap" Background="White" Height="26"/>
-        </StackPanel>
-
-        
-
+ 
         <StackPanel Margin="31,250,288,595" Grid.Column="1">
             <Label Content="STATUS:"/>
         </StackPanel>
@@ -47,25 +39,11 @@
             <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="27" />
         </StackPanel>
 
-        <StackPanel Margin="50,247,21,549">
-            <Label Content="QUANTIDADE:"/>
-        </StackPanel>
-        <StackPanel Margin="140,245,80,551">
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
         <StackPanel Margin="50,197,21,599">
-            <Label Content="FORMA PAGAMENTO:"/>
+            <Label Content="FORMA RECEBIMENTO:"/>
         </StackPanel>
         <StackPanel Margin="180,193,10,603">
             <TextBox x:Name="tbFormaPag" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,299,250,491">
-            <Label Content="DELIVERY:"/>
-        </StackPanel>
-        <StackPanel Margin="120,295,10,495">
-            <TextBox x:Name="tbDelivery" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
         <StackPanel Margin="3,145,235,643">
@@ -83,7 +61,6 @@
         </StackPanel>
         <ComboBox Background="White" x:Name="cbCli" HorizontalAlignment="Left" Margin="224,370,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="cbCli_SelectionChanged"/>
         <ComboBox Background="White" x:Name="cbFun" HorizontalAlignment="Left" Margin="40,377,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbFun_SelectionChanged"/>
-        <ComboBox Background="White" x:Name="cbPro" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbPro_SelectionChanged" Grid.Column="1"/>
 
     </Grid>
 

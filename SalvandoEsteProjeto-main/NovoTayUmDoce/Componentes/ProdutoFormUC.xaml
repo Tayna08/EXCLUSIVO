@@ -35,13 +35,6 @@
             <TextBox x:Name="tbNOme" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
         </StackPanel>
 
-        <StackPanel Margin="50,90,126,1446">
-            <Label Content="VALOR GASTO:"/>
-        </StackPanel>
-        <StackPanel Margin="55,90,6,1446" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbValorGas" TextWrapping="Wrap" Background="White" Height="29" Width="157" RenderTransformOrigin="-0.034,0.668"/>
-        </StackPanel>
-
         <StackPanel Margin="1,50,308,1490" Grid.Column="3" Grid.ColumnSpan="2">
             <Label Content="DESCRIÇÃO:"/>
         </StackPanel>
@@ -49,19 +42,6 @@
             <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="10,146,269,1391" Grid.Column="3" Grid.ColumnSpan="2">
-            <Label Content="ESTOQUE MÉDIO:"/>
-        </StackPanel>
-        <StackPanel  Margin="60,147,39,1391" Grid.Column="4">
-            <TextBox x:Name="tbEstMedio" TextWrapping="Wrap" Background="White" Height="26"/>
-        </StackPanel>
-
-        <StackPanel Margin="1,201,288,1332" Grid.Column="3" Grid.ColumnSpan="2">
-            <Label Content="ESTOQUE MÁXIMO:"/>
-        </StackPanel>
-        <StackPanel Margin="41,201,40,1332" Grid.Column="4">
-            <TextBox x:Name="tbEstMaximo" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
 
         <StackPanel Margin="1,250,308,1294" Grid.Column="3" Grid.ColumnSpan="2">
             <Label Content="TIPO:"/>
@@ -69,15 +49,6 @@
         <StackPanel Margin="41,250,40,1279" Grid.Column="4">
             <TextBox x:Name="tbTipoPro" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-
-        <StackPanel Margin="50,247,5,1294" Grid.ColumnSpan="2">
-            <Label Content="QUANTIDADE:"/>
-        </StackPanel>
-        <StackPanel Margin="140,245,64,1283" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
- 
-       
 
         <StackPanel Margin="50,299,161,1238">
             <Label Content="PESO:"/>
@@ -92,27 +63,6 @@
         <StackPanel Margin="135,145,5,1400" Grid.ColumnSpan="2" >
             <TextBox x:Name="tbValorVenda" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-
-        <StackPanel Margin="34,90,288,1446" Grid.Column="3" Grid.ColumnSpan="2">
-            <Label Content="DATA FABRICAÇÃO:" Width="115" Height="28"/>
-        </StackPanel>
-        <StackPanel Margin="0,79,40,1446" Grid.Column="4">
-            <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
-        </StackPanel>
-
-        <StackPanel Margin="19,296,233,1236" Grid.Column="4" RenderTransformOrigin="0.5,0.5">
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.394"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="1.593"/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
-        </StackPanel>
-        <StackPanel Margin="76,296,40,1238" Grid.Column="4"/>
-
-
 
 
     </Grid>

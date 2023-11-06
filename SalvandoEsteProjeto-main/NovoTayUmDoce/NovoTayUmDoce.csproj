@@ -143,14 +143,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\CompraFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\CompraListarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\DespesaFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,35 +159,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\FornecedorFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\FornecedorListarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\FuncionarioFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Componentes\FuncionarioListarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\InsumosFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\InsumosListarUc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\PagamentoFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\PagamentoListarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,135 +183,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\RecebimentoFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\RecebimentoListarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\SalvarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\VendaFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Componentes\VendaLIstarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarCaixa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarCliente.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Janelas\CadastrarCompra.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarDespesa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarEntrega.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarEstoque.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Janelas\CadastrarFuncionario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarPagamento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarPedido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarProduto.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\EscolherProduto.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Janelas\CadastrarRecebimento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\CadastrarVenda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="ControleHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarCaixa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarCompra.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarDespesa.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarEntrega.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarEstoque.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarFornecedor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarFuncionario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarPagamento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarPedido.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarProduto.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarRecebimento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\ListarVenda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Janelas\PedidoCancelado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -364,12 +208,6 @@
     <Compile Include="Componentes\ClienteListarUC.xaml.cs">
       <DependentUpon>ClienteListarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\CompraFormUC.xaml.cs">
-      <DependentUpon>CompraFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\CompraListarUC.xaml.cs">
-      <DependentUpon>CompraListarUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\DespesaFormUC.xaml.cs">
       <DependentUpon>DespesaFormUC.xaml</DependentUpon>
     </Compile>
@@ -382,29 +220,11 @@
     <Compile Include="Componentes\EstoqueListarUC.xaml.cs">
       <DependentUpon>EstoqueListarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\FornecedorFormUC.xaml.cs">
-      <DependentUpon>FornecedorFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\FornecedorListarUC.xaml.cs">
-      <DependentUpon>FornecedorListarUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\FuncionarioFormUC.xaml.cs">
       <DependentUpon>FuncionarioFormUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\FuncionarioListarUC.xaml.cs">
       <DependentUpon>FuncionarioListarUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\InsumosFormUC.xaml.cs">
-      <DependentUpon>InsumosFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\InsumosListarUc.xaml.cs">
-      <DependentUpon>InsumosListarUc.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
-      <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\PagamentoListarUC.xaml.cs">
-      <DependentUpon>PagamentoListarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\PedidoFormUC.xaml.cs">
       <DependentUpon>PedidoFormUC.xaml</DependentUpon>
@@ -418,109 +238,16 @@
     <Compile Include="Componentes\ProdutoListarUC.xaml.cs">
       <DependentUpon>ProdutoListarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\RecebimentoFormUC.xaml.cs">
-      <DependentUpon>RecebimentoFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\RecebimentoListarUC.xaml.cs">
-      <DependentUpon>RecebimentoListarUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\VendaFormUC.xaml.cs">
-      <DependentUpon>VendaFormUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\VendaLIstarUC.xaml.cs">
-      <DependentUpon>VendaLIstarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Conexao\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="Helpers\MaskCNPJ.cs" />
     <Compile Include="Helpers\MaskCPF.cs" />
     <Compile Include="Helpers\ValidacaoCPFeCNPJ.cs" />
-    <Compile Include="Janelas\CadastrarCaixa.xaml.cs">
-      <DependentUpon>CadastrarCaixa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarCliente.xaml.cs">
-      <DependentUpon>CadastrarCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarCompra.xaml.cs">
-      <DependentUpon>CadastrarCompra.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarDespesa.xaml.cs">
-      <DependentUpon>CadastrarDespesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarEntrega.xaml.cs">
-      <DependentUpon>CadastrarEntrega.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarEstoque.xaml.cs">
-      <DependentUpon>CadastrarEstoque.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarFuncionario.xaml.cs">
-      <DependentUpon>CadastrarFuncionario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarPagamento.xaml.cs">
-      <DependentUpon>CadastrarPagamento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarPedido.xaml.cs">
-      <DependentUpon>CadastrarPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarProduto.xaml.cs">
-      <DependentUpon>CadastrarProduto.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\EscolherProduto.xaml.cs">
-      <DependentUpon>EscolherProduto.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarRecebimento.xaml.cs">
-      <DependentUpon>CadastrarRecebimento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\CadastrarVenda.xaml.cs">
-      <DependentUpon>CadastrarVenda.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ControleHome.xaml.cs">
       <DependentUpon>ControleHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarCaixa.xaml.cs">
-      <DependentUpon>ListarCaixa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarCliente.xaml.cs">
-      <DependentUpon>ListarCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarCompra.xaml.cs">
-      <DependentUpon>ListarCompra.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarDespesa.xaml.cs">
-      <DependentUpon>ListarDespesa.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarEntrega.xaml.cs">
-      <DependentUpon>ListarEntrega.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarEstoque.xaml.cs">
-      <DependentUpon>ListarEstoque.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarFornecedor.xaml.cs">
-      <DependentUpon>ListarFornecedor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarFuncionario.xaml.cs">
-      <DependentUpon>ListarFuncionario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarPagamento.xaml.cs">
-      <DependentUpon>ListarPagamento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarPedido.xaml.cs">
-      <DependentUpon>ListarPedido.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarProduto.xaml.cs">
-      <DependentUpon>ListarProduto.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarRecebimento.xaml.cs">
-      <DependentUpon>ListarRecebimento.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\ListarVenda.xaml.cs">
-      <DependentUpon>ListarVenda.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\PedidoCancelado.xaml.cs">
-      <DependentUpon>PedidoCancelado.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -532,8 +259,6 @@
     <Compile Include="Models\CaixaDAO.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
-    <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\CompraDAO.cs" />
     <Compile Include="Models\Despesa.cs" />
     <Compile Include="Models\DespesaDAO.cs" />
     <Compile Include="Models\Entrega.cs" />
@@ -542,24 +267,14 @@
     <Compile Include="Models\EnderecoDAO.cs" />
     <Compile Include="Models\Estoque.cs" />
     <Compile Include="Models\EstoqueDAO.cs" />
-    <Compile Include="Models\Fornecedor.cs" />
-    <Compile Include="Models\FornecedorDAO.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\FuncionarioDAO.cs" />
     <Compile Include="Menu\ItemMenu.cs" />
-    <Compile Include="Models\Insumos.cs" />
-    <Compile Include="Models\InsumosDAO.cs" />
-    <Compile Include="Models\Pagamento.cs" />
-    <Compile Include="Models\PagamentoDAO.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\PedidoDAO.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
-    <Compile Include="Models\Recebimento.cs" />
-    <Compile Include="Models\RecebimentoDAO.cs" />
     <Compile Include="Menu\SubItem.cs" />
-    <Compile Include="Models\Venda.cs" />
-    <Compile Include="Models\VendaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

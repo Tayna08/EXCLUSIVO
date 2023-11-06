@@ -38,12 +38,6 @@ namespace NovoTayUmDoce.Componentes
                 cbCli.ItemsSource = new ClienteDAO().List();
                 cbCli.DisplayMemberPath = "Nome";
 
-                cbPro.ItemsSource = null;
-                cbPro.Items.Clear();
-                cbPro.ItemsSource = new ProdutoDAO().List();
-                cbPro.DisplayMemberPath = "Nome";
-
-
             }
             catch (Exception ex)
             {
@@ -79,18 +73,14 @@ namespace NovoTayUmDoce.Componentes
             {
                 Pedido pedido = new Pedido();
 
-                pedido.Total = Convert.ToDouble(tbTotal.Text);
-                pedido.Desconto = tbDesconto.Text;                
+                pedido.Total = Convert.ToDouble(tbTotal.Text);           
                 pedido.Hora = tbHora.Text;
-                pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;
                 pedido.Status = tbStatus.Text;
-                pedido.Delivery = tbDelivery.Text;
 
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCli.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
-                pedido.Produto = (Produto)cbPro.SelectedItem;
 
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
@@ -108,19 +98,13 @@ namespace NovoTayUmDoce.Componentes
         private void Clear()
         {
             tbTotal.Clear();
-            tbDesconto.Clear();
-            tbDelivery.Clear();
             tbFormaPag.Clear();
-            tbQuantidade.Clear();
             dtpData.SelectedDate = null;
             tbHora.Clear();
             tbStatus.Clear();
             
         }
 
-        private void cbPro_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
-        }
+      
     }
 }

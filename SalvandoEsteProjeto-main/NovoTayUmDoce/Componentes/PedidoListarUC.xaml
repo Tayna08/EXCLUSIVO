@@ -21,16 +21,12 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
-                <DataGridTextColumn Header="Desconto" Binding="{Binding Desconto}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
-                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
-                <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagamento}"/>
+                <DataGridTextColumn Header="Forma de Recebimento" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTextColumn Header="Delivery" Binding="{Binding Delivery}"/>
                 <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}"/>
                 <DataGridTextColumn Header="Funcionário" Binding="{Binding Funcionario}"/>
-                <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <TextBlock Text="Ação" />

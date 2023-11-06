@@ -34,8 +34,6 @@ namespace NovoTayUmDoce.Componentes
 
         private void CarregarData()
         {
-            dtpData.SelectedDate = DateTime.Now;
-
             try
             {
 
@@ -60,7 +58,6 @@ namespace NovoTayUmDoce.Componentes
                 Estoque estoque = new Estoque();
 
                 estoque.Quantidade = Convert.ToInt32(tbQuant.Text);
-                estoque.Nome = tbNome.Text;
 
                 // Chaves estrangeiras
 

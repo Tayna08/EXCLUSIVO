@@ -50,7 +50,6 @@ namespace NovoTayUmDoce
             var menuRegister = new List<SubItem>();
             menuRegister.Add(new SubItem("Clientes", new ClienteListarUC(this)));
             menuRegister.Add(new SubItem("Funcionario", new FuncionarioListarUC(this)));
-            menuRegister.Add(new SubItem("Fornecedor", new FornecedorListarUC(this)));
             var item6 = new ItemMenu("Registro", menuRegister, PackIconKind.Register);
 
             var menuSchedule = new List<SubItem>();
@@ -60,24 +59,19 @@ namespace NovoTayUmDoce
 
             var menuReports = new List<SubItem>();
             menuReports.Add(new SubItem("Encomenda"));
-            menuReports.Add(new SubItem("Venda", new VendaLIstarUC(this)));
 
             var item2 = new ItemMenu("Operações", menuReports, PackIconKind.Money);
             menuReports.Add(new SubItem("Despesa", new DespesaListarUC(this)));
-            menuReports.Add(new SubItem("Pagamento", new PagamentoListarUC(this)));
             //var item2 = new ItemMenu("Financeiro", menuReports, PackIconKind.FileReport);
 
             var menuExpenses = new List<SubItem>();
             menuExpenses.Add(new SubItem("Produtos", new ProdutoListarUC(this)));
-            menuExpenses.Add(new SubItem("Insumos", new InsumosListarUc(this)));
             menuExpenses.Add(new SubItem("Estoque", new EstoqueListarUC(this)));
             menuExpenses.Add(new SubItem("Pedido", new PedidoListarUC(this)));
             var item3 = new ItemMenu("Elementos", menuExpenses, PackIconKind.ShoppingBasket);
 
             var menuFinancial = new List<SubItem>();
             menuFinancial.Add(new SubItem("Despesa", new DespesaListarUC(this)));
-            menuFinancial.Add(new SubItem("Compra", new CompraListarUC(this)));
-            menuFinancial.Add(new SubItem("Pagamento", new PagamentoListarUC(this)));
             var item4 = new ItemMenu("Financeiro", menuFinancial, PackIconKind.ScaleBalance);
 
             var item0 = new ItemMenu("Menu", new UserControl(), PackIconKind.ViewDashboard);

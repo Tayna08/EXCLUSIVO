@@ -18,7 +18,7 @@ namespace NovoTayUmDoce.Conexão
 
         private static string password = "root";
 
-        private static string dbname = "projeto_tay_bd";
+        private static string dbname = "projeto_tay_bd_v2";
 
         private static MySqlConnection connection;
 

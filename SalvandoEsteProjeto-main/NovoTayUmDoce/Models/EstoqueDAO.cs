@@ -40,8 +40,8 @@ namespace NovoTayUmDoce.Models
                         while (reader.Read())
                         {
                             estoque.Id = DAOHelper.GetInt(reader, "id_est");
-                            estoque.Nome = DAOHelper.GetString(reader, "nome_est");
                             estoque.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_est");
+                            estoque.validade = (DateTime)DAOHelper.GetDateTime(reader, "validade_ent");
                             estoque.Quantidade = DAOHelper.GetInt(reader, "quantidade_est");
                             estoque.Produto = new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
                         }
@@ -76,9 +76,9 @@ namespace NovoTayUmDoce.Models
                             {
 
                                 Id = DAOHelper.GetInt(reader, "id_est"),
-                                Nome = DAOHelper.GetString(reader, "nome_est"),
                                 Quantidade = DAOHelper.GetInt(reader, "quantidade_est"),
                                 Data = DAOHelper.GetDateTime(reader, "data_est"),
+                                validade = DAOHelper.GetDateTime(reader, "validade_est"),
 
                             };
 
@@ -104,12 +104,13 @@ namespace NovoTayUmDoce.Models
                 if (produtoId.Id > 0)
                 {
                     var query = conn.Query();
-                    query.CommandText = $"INSERT INTO Estoque (nome_est, quantidade_est, data_est, id_pro_fk) " +
-                        $"VALUES (@nome, @quantidade, @data, @id_pro)";
+                    query.CommandText = $"INSERT INTO Estoque (nome_est, quantidade_est,validade_est, data_est, id_pro_fk) " +
+                        $"VALUES (@nome, @quantidade, @validade, @data, @id_pro)";
 
-                    query.Parameters.AddWithValue("@nome", estoque.Nome);
+
                     query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
                     query.Parameters.AddWithValue("@data", estoque.Data?.ToString("yyyy-MM-dd"));
+                    query.Parameters.AddWithValue("@validade", estoque.Data?.ToString("yyyy-MM-dd"));
                     query.Parameters.AddWithValue("@id_pro", produtoId.Id);
 
 
@@ -138,7 +139,7 @@ namespace NovoTayUmDoce.Models
                 {
                     query.CommandText = "DELETE FROM estoque WHERE (id_est = @id)";
 
-                    query.Parameters.AddWithValue("@id", estoque.Nome);
+                    query.Parameters.AddWithValue("@id", estoque.Id);
 
                     var result = query.ExecuteNonQuery();
 

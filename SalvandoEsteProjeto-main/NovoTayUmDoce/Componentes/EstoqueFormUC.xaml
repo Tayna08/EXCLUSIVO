@@ -30,7 +30,7 @@
         </StackPanel>
 
         <StackPanel Margin="18,96,676,922">
-            <Label Content="tbQuantidade:" Width="105"/>
+            <Label Content="Quantidade:" Width="105"/>
         </StackPanel>
         <StackPanel Margin="103,95,607,920">
             <TextBox x:Name="tbQuant" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
@@ -41,6 +41,13 @@
         </StackPanel>
         <StackPanel Margin="441,160,247,854">
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel Margin="337,219,371,798">
+            <Label Content="VALIDADE:"/>
+        </StackPanel>
+        <StackPanel Margin="434,210,254,804">
+            <DatePicker x:Name="dtpVali" Height="28"/>
         </StackPanel>
 
         <ComboBox Background="White" x:Name="cbPro" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbPro_SelectionChanged" Grid.Column="1"/>
