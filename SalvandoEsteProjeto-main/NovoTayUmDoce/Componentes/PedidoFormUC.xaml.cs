@@ -73,13 +73,10 @@ namespace NovoTayUmDoce.Componentes
             {
                 Pedido pedido = new Pedido();
 
-                pedido.Total = Convert.ToDouble(tbTotal.Text);
-                pedido.Desconto = tbDesconto.Text;                
+                pedido.Total = Convert.ToDouble(tbTotal.Text);           
                 pedido.Hora = tbHora.Text;
-                pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 pedido.FormaPagamento = tbFormaPag.Text;
                 pedido.Status = tbStatus.Text;
-                pedido.Delivery = tbDelivery.Text;
 
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCli.SelectedItem;
@@ -101,10 +98,7 @@ namespace NovoTayUmDoce.Componentes
         private void Clear()
         {
             tbTotal.Clear();
-            tbDesconto.Clear();
-            tbDelivery.Clear();
             tbFormaPag.Clear();
-            tbQuantidade.Clear();
             dtpData.SelectedDate = null;
             tbHora.Clear();
             tbStatus.Clear();

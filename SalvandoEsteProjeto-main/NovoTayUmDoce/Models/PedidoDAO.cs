@@ -41,12 +41,9 @@ namespace NovoTayUmDoce.Models
                         {
                             pedido.Id = DAOHelper.GetInt(reader, "id_ped");
                             pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
-                            pedido.Desconto = DAOHelper.GetString(reader, "desconto_ped");
                             pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
-                            pedido.Quantidade = DAOHelper.GetInt(reader, "quantidade_ped");
                             pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
-                            pedido.Delivery = DAOHelper.GetString(reader, "delivery_ped");
                             pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
                             pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
 
@@ -83,11 +80,8 @@ namespace NovoTayUmDoce.Models
 
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
                                 Total = DAOHelper.GetDouble(reader, "total_ped"),
-                                Desconto = DAOHelper.GetString(reader, "desconto_ped"),
-                                Quantidade = DAOHelper.GetInt(reader, "quantidade_ped"),
                                 FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
-                                Delivery = DAOHelper.GetString(reader, "delivery_ped"),
                                
                             };
                             
@@ -118,18 +112,15 @@ namespace NovoTayUmDoce.Models
                 {
                     using (var query= conn.Query())
                     {
-                        query.CommandText = "INSERT INTO Pedido (total_ped, desconto_ped, data_ped, hora_ped, quantidade_ped, forma_Pagamento_ped, status_ped, delivery_ped, id_fun_fk, id_cli_fk) " +
-                            "VALUES (@total, @desconto, @data_ped, @hora_ped, @quantidade, @forma_Pagamento, @status, @delivery, @id_fun, @id_cli)";
+                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk) " +
+                            "VALUES (@total, @data_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli)";
 
 
                         query.Parameters.AddWithValue("@total", pedido.Total);
-                        query.Parameters.AddWithValue("@desconto", pedido.Desconto);
                         query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
                         query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
-                        query.Parameters.AddWithValue("@quantidade", pedido.Quantidade);
                         query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
                         query.Parameters.AddWithValue("@status", pedido.Status);
-                        query.Parameters.AddWithValue("@delivery", pedido.Delivery);
                         query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);
                         query.Parameters.AddWithValue("@id_cli", clienteId.Id);
  
