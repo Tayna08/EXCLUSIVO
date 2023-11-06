@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -30,6 +31,36 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
             InitializeComponent();
         }
+
+        private void CarregarData()
+        {
+            dtpDataCai.SelectedDate = DateTime.Now;
+
+
+            try
+            {
+                cbFun.ItemsSource = null;
+                cbFun.Items.Clear();
+                cbFun.ItemsSource = new FuncionarioDAO().List();
+                cbFun.DisplayMemberPath = "Nome";
+
+                cbCli.ItemsSource = null;
+                cbCli.Items.Clear();
+                cbCli.ItemsSource = new ClienteDAO().List();
+                cbCli.DisplayMemberPath = "Nome";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+        }
+
+
+
+
+
 
         private void dataGridClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
