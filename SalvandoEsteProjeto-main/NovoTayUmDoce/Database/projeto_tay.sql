@@ -48,10 +48,10 @@ id_est int primary key auto_increment,
 quantidade_est int,
 validade_est date,
 data_fabricacao_est date,
-insumos_est varchar (300),
 id_pro_fk int,
 foreign key (id_pro_fk) references produto(id_pro)
 );
+
 
 create table Caixa(
 id_cai int primary key auto_increment,
