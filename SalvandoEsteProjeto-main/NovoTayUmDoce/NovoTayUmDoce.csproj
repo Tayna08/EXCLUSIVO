@@ -183,6 +183,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\RecebimentoFormUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\SalvarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -237,6 +241,9 @@
     </Compile>
     <Compile Include="Componentes\ProdutoListarUC.xaml.cs">
       <DependentUpon>ProdutoListarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\RecebimentoFormUC.xaml.cs">
+      <DependentUpon>RecebimentoFormUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
