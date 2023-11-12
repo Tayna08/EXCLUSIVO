@@ -44,7 +44,7 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
-                despesa.Hora = Hora.Text;
+               // despesa.Hora = Hora.Text;
 
                 // Inserindo os Dados           
                 DespesaDAO despesaDAO = new DespesaDAO();

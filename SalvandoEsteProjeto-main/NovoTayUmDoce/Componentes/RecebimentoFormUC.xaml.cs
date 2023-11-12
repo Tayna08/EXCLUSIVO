@@ -17,11 +17,21 @@ namespace NovoTayUmDoce.Componentes
     /// <summary>
     /// Lógica interna para RecebimentoFormUC.xaml
     /// </summary>
-    public partial class RecebimentoFormUC : Window
+    public partial class RecebimentoFormUC : UserControl
     {
         public RecebimentoFormUC()
         {
             InitializeComponent();
+        }
+
+        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
