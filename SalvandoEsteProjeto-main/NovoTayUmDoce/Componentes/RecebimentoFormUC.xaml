@@ -20,18 +20,17 @@
 
         <StackPanel Margin="250,40,250,960">
             <Label Content="FORMA RECEBIMENTO:" Width="133"/>
-          
+            <ComboBox Background="White" x:Name="cbFormaRec"/>
         </StackPanel>
 
         <StackPanel Margin="250,128,250,875">
             <Label Content="VALOR:"/>
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White"/>
         </StackPanel>
-
+        
         <StackPanel Margin="250,214,250,788">
             <Label Content="CAIXA:"/>
-           
+            <ComboBox Background="White" x:Name="cbCaixa"/>
         </StackPanel>
-
     </Grid>
 </UserControl>
