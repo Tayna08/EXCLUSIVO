@@ -75,15 +75,7 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o Estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.Yes)
-            {
-                _context.SwitchScreen(new EstoqueListarUC(_context));
-            }
-        }
+      
 
 
 
@@ -100,6 +92,9 @@ namespace NovoTayUmDoce.Componentes
             ComboBox comboBox = (ComboBox)sender;
         }
 
+        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

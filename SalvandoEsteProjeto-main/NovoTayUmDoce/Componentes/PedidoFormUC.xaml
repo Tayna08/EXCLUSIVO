@@ -103,17 +103,7 @@
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Click="ExcluirPedido_Click">
-                                <Button.BorderBrush>
-                                    <LinearGradientBrush >
-                                        <GradientStop Color="Black"/>
-                                        <GradientStop Color="Black" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.BorderBrush>
-                                <Button.Background>
-                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
-                                </Button.Background>
-                            </Button>
+                            
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

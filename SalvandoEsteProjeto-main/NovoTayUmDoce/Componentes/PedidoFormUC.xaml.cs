@@ -18,10 +18,10 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            CarregarData();
+           
         }
 
-        private void CarregarData()
+        /*private void CarregarData()
         {
             dtpData.SelectedDate = DateTime.Now;
      
@@ -43,7 +43,7 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }*/
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -69,33 +69,39 @@ namespace NovoTayUmDoce.Componentes
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                Pedido pedido = new Pedido();
-
-                pedido.Total = Convert.ToDouble(tbTotal.Text);           
-                pedido.Hora = tbHora.Text;
-                pedido.FormaPagamento = tbFormaPag.Text;
-                pedido.Status = tbStatus.Text;
-
-                // Chaves estrangeiras
-                pedido.Cliente = (Cliente)cbCli.SelectedItem;
-                pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
-
-                // Inserindo os Dados           
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                pedidoDAO.Insert(pedido);
-
-                Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
-            }
-
 
         }
-        private void Clear()
+
+        /* private void btSalvar_Click(object sender, RoutedEventArgs e)
+         {
+             try
+             {
+                 Pedido pedido = new Pedido();
+
+                 pedido.Total = Convert.ToDouble(tbTotal.Text);           
+                 pedido.Hora = tbHora.Text;
+                 pedido.FormaPagamento = tbFormaPag.Text;
+                 pedido.Status = tbStatus.Text;
+
+                 // Chaves estrangeiras
+                 pedido.Cliente = (Cliente)cbCli.SelectedItem;
+                 pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
+
+                 // Inserindo os Dados           
+                 PedidoDAO pedidoDAO = new PedidoDAO();
+                 pedidoDAO.Insert(pedido);
+
+                 Clear();
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+             }
+
+
+         }*/
+
+        /*private void Clear()
         {
             tbTotal.Clear();
             tbFormaPag.Clear();
@@ -103,8 +109,8 @@ namespace NovoTayUmDoce.Componentes
             tbHora.Clear();
             tbStatus.Clear();
             
-        }
+        }*/
 
-      
+
     }
 }
