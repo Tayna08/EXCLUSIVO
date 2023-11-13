@@ -10,58 +10,55 @@
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="312*"/>
-            <ColumnDefinition Width="73*"/>
-            <ColumnDefinition Width="46*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="332*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="1619"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,361,0,0" Width="420" Height="67" Grid.ColumnSpan="5">
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
+            <Button x:Name="btGerenciarEst" Content="GERENCIAR(EST)" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="148" Foreground="#DD000000" FontWeight="Bold" Click="btGerenciarEst_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="136" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 
-        <StackPanel Margin="50,40,126,1500">
-            <Label Content="NOME:"/>
-        </StackPanel>
-        <StackPanel Margin="55,40,6,1490" Grid.ColumnSpan="2">
-            <TextBox x:Name="tbNOme" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
+        <StackPanel Margin="50,44,700,1504">
+            <Label Content="NOME:" Width="62"/>
         </StackPanel>
 
-        <StackPanel Margin="1,50,308,1490" Grid.Column="3" Grid.ColumnSpan="2">
+        <StackPanel Margin="105,44,448,1517">
+            <TextBox x:Name="tbNOme" TextWrapping="Wrap" Background="White" Height="30" Width="247" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="50,298,673,1298">
             <Label Content="DESCRIÇÃO:"/>
         </StackPanel>
-        <StackPanel Margin="41,50,40,1485" Grid.Column="4">
+
+        <StackPanel Margin="127,298,422,1291">
             <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
 
-        <StackPanel Margin="1,250,308,1294" Grid.Column="3" Grid.ColumnSpan="2">
+        <StackPanel Margin="50,225,709,1368">
             <Label Content="TIPO:"/>
         </StackPanel>
-        <StackPanel Margin="41,250,40,1279" Grid.Column="4">
+        <StackPanel Margin="105,225,444,1358">
             <TextBox x:Name="tbTipoPro" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,299,161,1238">
+        <StackPanel Margin="50,140,700,1453">
             <Label Content="PESO:"/>
         </StackPanel>
-        <StackPanel Margin="120,295,6,1238" Grid.ColumnSpan="4">
-            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="105,137,557,1450">
+            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="27,145,153,1400">
+        <StackPanel Margin="337,140,359,1451">
             <Label Content="VALOR VENDA:" Width="96" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="135,145,5,1400" Grid.ColumnSpan="2" >
-            <TextBox x:Name="tbValorVenda" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="446,138,231,1453" >
+            <TextBox x:Name="tbValorVenda" TextWrapping="Wrap" Background="White" Height="31" Width="129"/>
         </StackPanel>
 
 
