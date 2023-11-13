@@ -72,6 +72,34 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
+        private void tbVendedor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ExcluirPedido_Click(object sender, RoutedEventArgs e)
+        {
+            var pedidoSelected = dataGridPedido.SelectedItem as Pedido;
+
+            var result = MessageBox.Show($"Deseja realmente remover o cliente `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new PedidoDAO();
+                    dao.Delete(pedidoSelected);
+
+                   // ListarPedidos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         /* private void btSalvar_Click(object sender, RoutedEventArgs e)
          {
              try
