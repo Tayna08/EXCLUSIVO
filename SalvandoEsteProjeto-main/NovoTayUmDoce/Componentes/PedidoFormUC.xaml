@@ -9,8 +9,7 @@
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="401*"/>
-            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -19,48 +18,107 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,361,0,0" Width="420" Height="67" Grid.ColumnSpan="2">
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="601,336,36,0" Height="69">
+            <Button x:Name="btCancelar" Content="FECHAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
         </StackPanel>
 
-        <StackPanel Margin="50,90,215,698">
-            <Label Content="TOTAL:"/>
-        </StackPanel>
-        <StackPanel Margin="55,90,22,691">
-            <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" Width="234" RenderTransformOrigin="-0.034,0.668"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="619,261,17,0" Height="52">
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
         </StackPanel>
 
- 
-        <StackPanel Margin="31,250,288,595" Grid.Column="1">
-            <Label Content="STATUS:"/>
+        <StackPanel Margin="40,93,666,770">
+            <Label Content="VENDEDOR:" Width="83"/>
         </StackPanel>
-        <StackPanel Margin="89,250,40,595" Grid.Column="1">
+        <StackPanel Margin="122,90,400,764">
+            <TextBox x:Name="tbVendedor" TextWrapping="Wrap" Background="White" Height="30" Width="314" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="40,204,666,680">
+            <Label Content="PRODUTO:" Width="83"/>
+        </StackPanel>
+        <StackPanel Margin="122,90,400,795">
+            <TextBox x:Name="tbProduto" TextWrapping="Wrap" Background="White" Height="30" Width="314" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="241,204,420,680">
+            <Label Content="QUANTIDADE:" Width="86"/>
+        </StackPanel>
+        <StackPanel Margin="354,204,364,672">
+            <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="441,204,252,680">
+            <Label Content="VALOR:" Width="86"/>
+        </StackPanel>
+        <StackPanel Margin="512,204,206,672">
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30" Width="79" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="417,368,276,531">
+            <Label Content="TOTAL:" Width="86"/>
+        </StackPanel>
+        <StackPanel Margin="461,368,217,508">
+            <TextBox x:Name="tbValorTotal" TextWrapping="Wrap" Background="White" Height="28" Width="91" RenderTransformOrigin="-0.034,0.668"/>
+        </StackPanel>
+
+        <StackPanel Margin="395,50,233,839">
+            <Label Content="STATUS:" Width="65" Height="27"/>
+        </StackPanel>
+        <StackPanel Margin="512,50,40,828">
             <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="27" />
         </StackPanel>
 
-        <StackPanel Margin="50,197,21,599">
-            <Label Content="FORMA RECEBIMENTO:"/>
+        <StackPanel Margin="50,50,696,829">
+            <Label Content="CLIENTE:" Width="57"/>
         </StackPanel>
-        <StackPanel Margin="180,193,10,603">
-            <TextBox x:Name="tbFormaPag" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="110,50,400,839">
+            <TextBox x:Name="tbCliente" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="3,145,235,643">
+        <StackPanel Margin="340,145,168,734">
             <Label Content="HORA:" Width="73" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="135,145,21,694" >
-            <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" Height="27" Width="244"/>
+        <StackPanel Margin="483,145,8,734" >
+            <TextBox x:Name="tbHora" TextWrapping="Wrap" Background="White" Height="27" Width="250"/>
         </StackPanel>
 
-        <StackPanel Margin="64,90,288,740" Grid.Column="1">
+        <StackPanel Margin="450,93,294,795">
             <Label Content="DATA:" Width="115" Height="28"/>
         </StackPanel>
-        <StackPanel Margin="67,79,40,740" Grid.Column="1">
-            <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="242" Height="38"/>
+        <StackPanel Margin="463,93,25,795">
+            <DatePicker x:Name="dtpData" Grid.Column="4" HorizontalAlignment="Left" Margin="50,0,0,0" Width="247" Height="38"/>
         </StackPanel>
-        <ComboBox Background="White" x:Name="cbCli" HorizontalAlignment="Left" Margin="224,370,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="cbCli_SelectionChanged"/>
-        <ComboBox Background="White" x:Name="cbFun" HorizontalAlignment="Left" Margin="40,377,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbFun_SelectionChanged"/>
+
+        <ComboBox Background="White" x:Name="cbFun" HorizontalAlignment="Left" Margin="122,208,0,0" VerticalAlignment="Top" Width="133" SelectionChanged="cbFun_SelectionChanged" Height="20"/>
+        <Button x:Name="btAdd" Content="ADD" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Margin="434,261,232,612"/>
+
+        <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
+            AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Margin="50,257,425,493">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
+                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
+                <DataGridTextColumn Header="Valor Unitário" Binding="{Binding ValorUnitário}"/>
+                <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Click="ExcluirPedido_Click">
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush >
+                                        <GradientStop Color="Black"/>
+                                        <GradientStop Color="Black" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 
