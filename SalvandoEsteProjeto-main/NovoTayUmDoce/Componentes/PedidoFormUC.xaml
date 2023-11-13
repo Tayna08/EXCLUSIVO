@@ -90,7 +90,7 @@
         </StackPanel>
 
         <ComboBox Background="White" x:Name="cbFun" HorizontalAlignment="Left" Margin="122,208,0,0" VerticalAlignment="Top" Width="133" SelectionChanged="cbFun_SelectionChanged" Height="20"/>
-        <Button x:Name="btAdd" Content="ADD" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Margin="434,261,232,612"/>
+        <Button x:Name="btAdd" Content="ADD" Background="#FFFFA4A4" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Margin="433,281,233,613"/>
 
         <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
             AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Margin="50,257,425,493">
