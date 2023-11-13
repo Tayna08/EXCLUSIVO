@@ -1,4 +1,3 @@
-drop database if exists Projeto_Tay_bd_v2;
 create database Projeto_Tay_bd_v2;
 use Projeto_Tay_bd_v2;
 
@@ -9,7 +8,7 @@ cidade_end varchar(200) not null,
 rua_end varchar(200),
 complemento_end varchar(200),
 numero_end int,
-cep_end varchar (300)
+cep_end varchar(300)
 );
 
 create table Cliente(
@@ -21,7 +20,6 @@ contato_cli varchar(250),
 id_end_fk int, 
 foreign key (id_end_fk) references Endereco(id_end)
 );
-
 
 create table Funcionario(
 id_fun int primary key auto_increment,
@@ -36,10 +34,24 @@ id_end_fk int,
 foreign key(id_end_fk) references Endereco (id_end)
 );
 
+create table Produto(
+id_pro int primary key auto_increment,
+nome_pro varchar(200),
+peso_pro varchar(100),
+valor_venda_pro double,
+tipo_pro varchar(300),
+descricao_pro varchar(200)
+);
 
-
-
-
+create table Estoque(
+id_est int primary key auto_increment,
+quantidade_est int,
+validade_est date,
+data_fabricacao_est date,
+insumos_est varchar (300),
+id_pro_fk int,
+foreign key (id_pro_fk) references produto(id_pro)
+);
 
 create table Caixa(
 id_cai int primary key auto_increment,
@@ -50,9 +62,6 @@ valor_entrada_cai double,
 valor_saida_cai double,
 data_cai double,
 hora_cai time,
-pagamento_cai double,
-descricao_cai varchar(300),
-usuario_cai varchar(300),
 id_fun_fk int,
 foreign key(id_fun_fk) references Funcionario(id_fun)
 );
@@ -85,32 +94,13 @@ foreign key (id_cli_fk) references cliente (id_cli),
 foreign key (id_cai_fk) references caixa (id_cai)
 );
 
-create table Produto(
-id_pro int primary key auto_increment,
-nome_pro varchar(200),
-peso_pro varchar(100),
-valor_venda_pro double,
-
-data_fabricacao_pro date,
-hora_pro time,
-estoque_medio varchar(300),
-estoque_maximo varchar(300),
-quantidade_pro int,
-
-
-tipo_pro varchar(300),
-descricao_pro varchar(200),
+create table pedido_produtos (
+id_ppro int primary key auto_increment,
+quant_ppro float,
 id_ped_fk int,
-foreign key (id_ped_fk) references Pedido (id_ped)
-);
-
-create table Estoque(
-id_est int primary key auto_increment,
-quantidade_est int,
-validade_est date,
-data_fabricacao_est date,
 id_pro_fk int,
-foreign key (id_pro_fk) references produto(id_pro)
+foreign key (id_ped_fk) references pedido (id_ped),
+foreign key (id_pro_fk) references produto (id_pro)
 );
 
 
@@ -141,7 +131,7 @@ set fkEnd = (select id_end from endereco where (id_end = fk_end));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf , data_nascimento, contato, fk_end);
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
@@ -279,4 +269,3 @@ end
 $$ delimiter ;
 
 select * from cliente;
-select * from Pedido;
