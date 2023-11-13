@@ -131,6 +131,7 @@
                 <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
                 <DataGridTextColumn Header="Entrada" Binding="{Binding Entrada}"/>
                 <DataGridTextColumn Header="Saida" Binding="{Binding Saida}"/>
+                <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario}"/>
                 <DataGridTextColumn Header="Forma De Pagamento" Binding="{Binding FormaDePagmt}"/>
             </DataGrid.Columns>
         </DataGrid>
