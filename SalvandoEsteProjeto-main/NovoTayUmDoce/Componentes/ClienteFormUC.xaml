@@ -9,22 +9,21 @@
 
     <Grid Background="Bisque">
         <Grid.RowDefinitions>
-            <RowDefinition Height="83*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="71*"/>
             <RowDefinition Height="68*"/>
             <RowDefinition Height="55*"/>
             <RowDefinition Height="78*"/>
-            <RowDefinition Height="64*"/>
-            <RowDefinition Height="102*"/>
+            <RowDefinition Height="166*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="399*"/>
-            <ColumnDefinition Width="193*"/>
-            <ColumnDefinition Width="208*"/>
+            <ColumnDefinition Width="401*"/>
         </Grid.ColumnDefinitions>
 
 
 
-        <Grid Grid.Column="0" Margin="0,0,0,56" Grid.RowSpan="5" >
+        <Grid Grid.Column="0" Margin="0,0,0,158" Grid.RowSpan="6" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="56*"/>
@@ -92,7 +91,7 @@
 
 
 
-        <Grid Grid.Column="1" Grid.RowSpan="4" Grid.ColumnSpan="2">
+        <Grid Grid.Column="1" Grid.RowSpan="5">
 
             <StackPanel Margin="6,108,14,122" >
                 <Label Content="RUA:"/>
@@ -119,7 +118,7 @@
 
 
 
-        <Grid  Grid.Row="5" Margin="0,10,0,0" >
+        <Grid  Grid.Row="5" Margin="0,74,0,0" >
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
@@ -130,7 +129,7 @@
 
         </Grid>
 
-        <Grid  Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2">
+        <Grid  Grid.Row="5" Grid.Column="1" Margin="0,64,0,0">
 
             <StackPanel Margin="100,10,10,10" >
                 <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>

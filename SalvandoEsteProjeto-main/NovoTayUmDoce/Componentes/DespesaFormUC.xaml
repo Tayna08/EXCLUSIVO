@@ -9,7 +9,8 @@
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="419*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -17,45 +18,41 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,337,0,0" Width="420" Height="67" Grid.ColumnSpan="2">
             <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 
-        <StackPanel Margin="50,90,208,763">
-            <Label Content="VALOR:"/>
+        <StackPanel Margin="74,94,17,813">
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
 
-        <StackPanel Margin="50,150,208,701">
-            <Label Content="DESCRIÇÃO"/>
+        <StackPanel Margin="77,45,22,858" Grid.Column="1">
             <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="50,210,590,645">
-            <Label Content="DATA VENCIMENTO"/>
+        <StackPanel Margin="144,152,77,753">
             <DatePicker x:Name="dtpDataVenci" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="53,274,587,581">
-            <Label Content="DATA DA DESPESA:"/>
+        <StackPanel Margin="144,209,77,696">
             <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Margin="50,34,469,853">
-            <Label Content="FORMA PAGAMENTO:"/>
+        <StackPanel Margin="136,94,22,813" Grid.Column="1">
             <TextBox x:Name="tbFormaPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
         </StackPanel>
 
-        <StackPanel Margin="373,34,156,832">
-            <Label Content="NOME DESPESA:"/>
-            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="27"/>
+        <StackPanel Margin="123,49,17,867">
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="24"/>
         </StackPanel>
+        <Label Content="NOME DESPESA:" Margin="27,48,77,870"/>
+        <Label Content="DESCRIÇÃO" Margin="6,48,-129,871" Grid.Column="1"/>
+        <Label Content="VALOR:" Margin="27,94,302,825"/>
+        <Label Content="FORMA PAGAMENTO:" Grid.Column="1" Margin="8,96,279,823"/>
+        <Label Content="DATA VENCIMENTO" Margin="27,152,194,767"/>
+        <Label Content="DATA DA DESPESA:" Margin="27,209,194,710"/>
 
-        <StackPanel Margin="10,0,-10,471">
-           <materialDesign:TimePicker x:Name="Hora" HorizontalAlignment="Center" Margin="0,290,0,0" VerticalAlignment="Top" Width="156"/>
-        </StackPanel>
-        
     </Grid>
 
 </UserControl>
