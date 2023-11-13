@@ -30,30 +30,31 @@ namespace NovoTayUmDoce.Componentes
         {
             _context = context;
             InitializeComponent();
+            CarregarData();
         }
 
         private void CarregarData()
         {
             dtpDataCai.SelectedDate = DateTime.Now;
+            tpHoraCai.SelectedTime = DateTime.Now;
 
-
+            /*
             try
             {
-                cbFun.ItemsSource = null;
-                cbFun.Items.Clear();
-                cbFun.ItemsSource = new FuncionarioDAO().List();
-                cbFun.DisplayMemberPath = "Nome";
 
-                cbCli.ItemsSource = null;
-                cbCli.Items.Clear();
-                cbCli.ItemsSource = new ClienteDAO().List();
-                cbCli.DisplayMemberPath = "Nome";
+
 
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+
             }
+            */
+
+
+
 
         }
 
