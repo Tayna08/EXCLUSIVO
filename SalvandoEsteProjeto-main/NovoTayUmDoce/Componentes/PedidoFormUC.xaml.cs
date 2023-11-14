@@ -3,6 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using NovoTayUmDoce.Conexão;
+using System.Net.NetworkInformation;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -18,32 +19,42 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-           
+            Loaded += Status_Loaded;
+            CarregarData();
         }
 
-        /*private void CarregarData()
+        private void Status_Loaded(object sender, RoutedEventArgs e)
+        {
+          
+            cbStatus.Items.Add("Em Andamento");
+            cbStatus.Items.Add("Vendido");
+            cbStatus.SelectedIndex = 0;
+        }
+
+
+        private void CarregarData()
         {
             dtpData.SelectedDate = DateTime.Now;
      
 
             try
             {
-                cbFun.ItemsSource = null;
-                cbFun.Items.Clear();
-                cbFun.ItemsSource = new FuncionarioDAO().List();
-                cbFun.DisplayMemberPath = "Nome";
+                cbVendedor.ItemsSource = null;
+                cbVendedor.Items.Clear();
+                cbVendedor.ItemsSource = new FuncionarioDAO().List();
+                cbVendedor.DisplayMemberPath = "Nome";
 
-                cbCli.ItemsSource = null;
-                cbCli.Items.Clear();
-                cbCli.ItemsSource = new ClienteDAO().List();
-                cbCli.DisplayMemberPath = "Nome";
+                cbCliente.ItemsSource = null;
+                cbCliente.Items.Clear();
+                cbCliente.ItemsSource = new ClienteDAO().List();
+                cbCliente.DisplayMemberPath = "Nome";
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }*/
+        }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -55,25 +66,41 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-
-
-        private void cbFun_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbCliente_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
         }
 
-        private void cbCli_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbVendedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Pedido pedido = new Pedido();
 
-        }
+                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                pedido.Hora = tbHora.Text;
+                pedido.Status = cbStatus.Text;
+               
 
-        private void tbVendedor_TextChanged(object sender, TextChangedEventArgs e)
-        {
+                // Chaves estrangeiras
+                pedido.Cliente = (Cliente)cbCliente.SelectedItem;
+                pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+
+                // Inserindo os Dados           
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                pedidoDAO.Insert(pedido);
+
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+            }
 
         }
 
@@ -100,45 +127,14 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        /* private void btSalvar_Click(object sender, RoutedEventArgs e)
-         {
-             try
-             {
-                 Pedido pedido = new Pedido();
-
-                 pedido.Total = Convert.ToDouble(tbTotal.Text);           
-                 pedido.Hora = tbHora.Text;
-                 pedido.FormaPagamento = tbFormaPag.Text;
-                 pedido.Status = tbStatus.Text;
-
-                 // Chaves estrangeiras
-                 pedido.Cliente = (Cliente)cbCli.SelectedItem;
-                 pedido.Funcionario = (Funcionario)cbFun.SelectedItem;
-
-                 // Inserindo os Dados           
-                 PedidoDAO pedidoDAO = new PedidoDAO();
-                 pedidoDAO.Insert(pedido);
-
-                 Clear();
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
-             }
-
-
-         }*/
-
-        /*private void Clear()
+        private void Clear()
         {
             tbTotal.Clear();
-            tbFormaPag.Clear();
-            dtpData.SelectedDate = null;
-            tbHora.Clear();
-            tbStatus.Clear();
-            
-        }*/
+        }
 
+        private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
+        }
     }
 }

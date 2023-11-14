@@ -19,7 +19,7 @@
 
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btGerenciarEst" Content="GERENCIAR(EST)" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="148" Foreground="#DD000000" FontWeight="Bold" Click="btGerenciarEst_Click" Cursor="Hand"/>
+            <Button x:Name="btGerenciarEst" Content="GERENCIAR(EST)" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="148" Foreground="#DD000000" FontWeight="Bold"  Cursor="Hand"/>
             <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="136" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
         </StackPanel>
 

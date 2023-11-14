@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="NovoTayUmDoce.Componentes.PedidoFormUC"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="800">
+             d:DesignHeight="480" d:DesignWidth="800">
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
@@ -29,15 +29,15 @@
             <WrapPanel Margin="0 5">
 
                 <Label Content="QUANTIDADE:" />
-                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82"/>
+                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
 
                 <Label Content="VALOR:" Margin="10 0 0 0" />
                 <TextBox x:Name="tbValor" Background="White" Height="30" Width="79"/>
 
                 <Label Content="TOTAL:"  Margin="10 0 0 0" />
-                <TextBox x:Name="tbValorTotal" Background="White" Height="28" Width="91"/>
+                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91"/>
 
-                <StackPanel Orientation="Horizontal" Height="30" Margin="10 0">
+                <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
                     <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Height="28" Width="28" BorderBrush="Bisque">
                         <Button.Background>
                             <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
@@ -49,7 +49,7 @@
 
 
             <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
-                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="318">
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="245">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
@@ -81,15 +81,20 @@
 
         </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="80">
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="121">
             <WrapPanel>
                 <Label Content="CLIENTE:" Width="100" />
-                <ComboBox Background="White" x:Name="cbCliente" Width="400"/>
+                <ComboBox Background="White" x:Name="cbCliente" Width="400" SelectionChanged="cbCliente_SelectionChanged"/>
             </WrapPanel>
 
             <WrapPanel Margin="0 20 0 0">
                 <Label Content="VENDEDOR:" Width="100"/>
-                <ComboBox Background="White" x:Name="cbVendedor" Width="400"/>
+                <ComboBox Background="White" x:Name="cbVendedor" Width="400" SelectionChanged="cbVendedor_SelectionChanged"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="PRODUTO:" Width="100"/>
+                <ComboBox Background="White" x:Name="cbProduto" Width="400"/>
             </WrapPanel>
 
         </StackPanel>
@@ -99,15 +104,13 @@
 
             <Label Content="STATUS:" HorizontalAlignment="Center"/>
 
-            <ComboBox Background="White" x:Name="cbStatus" Width="180"/>
+            <ComboBox Background="White" x:Name="cbStatus" Width="180" SelectionChanged="cbStatus_SelectionChanged"/>
 
             <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
 
-            <materialDesign:TimePicker Width="180" Margin="0 10"/>
+            <materialDesign:TimePicker Width="180" Margin="0 10" x:Name="tbHora"/>
 
         </StackPanel>
 
-
     </Grid>
-
 </UserControl>
