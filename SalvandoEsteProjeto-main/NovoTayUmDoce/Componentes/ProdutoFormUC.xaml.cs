@@ -32,8 +32,6 @@ namespace NovoTayUmDoce.Componentes
             
         }
 
-      
-
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o Produto?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -44,37 +42,44 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        //SALVAR
+        private void btGerenciar_Click(object sender, RoutedEventArgs e)
         {
+            _context.SwitchScreen(new EstoqueFormUC(_context));
+
             try
             {
                 Produto produto = new Produto();
 
-                produto.Nome= tbNOme.Text;
+                produto.Nome = tbNome.Text;
                 produto.Peso = tbPeso.Text;
                 produto.Valor_Venda = Convert.ToDouble(tbValorVenda.Text);
-                produto.Tipo = tbTipoPro.Text;
+                produto.Tipo = tbTipo.Text;
                 produto.Descricao = tbDescricao.Text;
-
-                
 
                 // Inserindo os Dados           
                 ProdutoDAO produtoDAO = new ProdutoDAO();
                 produtoDAO.Insert(produto);
+
                 Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
-
-
         }
         private void Clear()
         {
-           
+            tbDescricao.Clear();
+            tbTipo.Clear();
+            tbValorVenda.Clear();
+            tbPeso.Clear();
+            tbNome.Clear();
         }
 
-       
+        private void cbNome_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

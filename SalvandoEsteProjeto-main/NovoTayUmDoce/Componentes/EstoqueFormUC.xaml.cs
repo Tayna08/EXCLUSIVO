@@ -37,10 +37,10 @@ namespace NovoTayUmDoce.Componentes
             try
             {
 
-                cbPro.ItemsSource = null;
-                cbPro.Items.Clear();
-                cbPro.ItemsSource = new ProdutoDAO().List();
-                cbPro.DisplayMemberPath = "Nome";
+                cbProduto.ItemsSource = null;
+                cbProduto.Items.Clear();
+                cbProduto.ItemsSource = new ProdutoDAO().List();
+                cbProduto.DisplayMemberPath = "Nome";
 
 
             }
@@ -57,11 +57,11 @@ namespace NovoTayUmDoce.Componentes
             {
                 Estoque estoque = new Estoque();
 
-                estoque.Quantidade = Convert.ToInt32(tbQuant.Text);
+                estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
 
                 // Chaves estrangeiras
 
-                estoque.Produto = (Produto)cbPro.SelectedItem;
+                estoque.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
                 EstoqueDAO estoqueDAO = new EstoqueDAO();
@@ -75,13 +75,34 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-      
+        private void ExcluirEstoque_Click(object sender, RoutedEventArgs e)
+        {
+            var estoquedSelected = dataGridEstoque.SelectedItem as Estoque;
+
+            var result = MessageBox.Show($"Deseja realmente remover o estoque `{estoquedSelected.Id}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new EstoqueDAO();
+                    dao.Delete(estoquedSelected);
+
+                    // ListarPedidos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
 
 
         private void Clear()
         {
-            tbNome.Clear();
+           // cbNome.Clear();
             dtpData.SelectedDate = null;
 
 
@@ -92,7 +113,27 @@ namespace NovoTayUmDoce.Componentes
             ComboBox comboBox = (ComboBox)sender;
         }
 
-        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbInsumos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

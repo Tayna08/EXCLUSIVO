@@ -1,57 +1,104 @@
-﻿<UserControl x:Class="NovoTayUmDoce.Componentes.EstoqueFormUC"
+﻿<UserControl 
+             x:Class="NovoTayUmDoce.Componentes.EstoqueFormUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-   
-    <Grid Background="Bisque">
+
+    <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2.*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1051"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btCancelar_Click_1"/>
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click_1"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+
+            <WrapPanel Margin="20 30" Width="142" Height="56">
+                <Label Content="ESTOQUE TOTAL:" Width="100" Margin="20 5" />
+                <TextBlock Background="White" x:Name="tbEstoque" Width="142" Height="21"/>
+            </WrapPanel>
+
+            <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
         </StackPanel>
 
-        <StackPanel Margin="50,40,644,978">
-            <Label Content="Nome:" Width="105"/>
-        </StackPanel>
-        <StackPanel Margin="84,37,626,978">
-            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
+        <StackPanel Grid.Row="1">
+           
+
+
+            <DataGrid x:Name="dataGridEstoque" IsReadOnly="true"
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="245">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
+                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
+                    <DataGridTextColumn Header="Fabricação" Binding="{Binding Fabricacao}"/>
+                    <DataGridTextColumn Header="Insumos" Binding="{Binding Insumos}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.Header>
+                            <TextBlock Text="Ações" />
+                        </DataGridTemplateColumn.Header>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  Click="ExcluirEstoque_Click">
+                                    <Button.BorderBrush>
+                                        <LinearGradientBrush >
+                                            <GradientStop Color="Black"/>
+                                            <GradientStop Color="Black" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Button.BorderBrush>
+                                    <Button.Background>
+                                        <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
         </StackPanel>
 
-        <StackPanel Margin="18,96,676,922">
-            <Label Content="Quantidade:" Width="105"/>
-        </StackPanel>
-        <StackPanel Margin="103,95,607,920">
-            <TextBox x:Name="tbQuant" TextWrapping="Wrap" Background="White" Height="30" Width="84"/>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="121">
+            <WrapPanel>
+                <Label Content="PRODUTO:" Width="100" />
+                <ComboBox Background="White" x:Name="cbProduto" Width="400" SelectionChanged="cbProduto_SelectionChanged"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0 20 0 0">
+                <Label Content="QUANTIDADE:" Width="100"/>
+                <TextBlock Background="White" x:Name="tbQuantidade" Width="400" />
+            </WrapPanel>
+
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="INSUMOS:" Width="100"/>
+                <ComboBox Background="White" x:Name="cbInsumos" Width="400" SelectionChanged="cbInsumos_SelectionChanged"/>
+            </WrapPanel>
+
         </StackPanel>
 
-        <StackPanel Margin="344,160,364,857">
-            <Label Content="DATA:"/>
-        </StackPanel>
-        <StackPanel Margin="441,160,247,854">
-            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
-        </StackPanel>
 
-        <StackPanel Margin="337,219,371,798">
-            <Label Content="VALIDADE:"/>
-        </StackPanel>
-        <StackPanel Margin="434,210,254,804">
-            <DatePicker x:Name="dtpVali" Height="28"/>
-        </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-        <ComboBox Background="White" x:Name="cbPro" HorizontalAlignment="Left" Margin="10,328,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbPro_SelectionChanged" Grid.Column="1"/>
+            <Label Content="STATUS:" HorizontalAlignment="Center"/>
+
+            <ComboBox Background="White" x:Name="cbStatus" Width="180" SelectionChanged="cbStatus_SelectionChanged"/>
+
+            <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
+
+            <materialDesign:TimePicker Width="180" Margin="0 10" x:Name="tbHora"/>
+
+        </StackPanel>
 
     </Grid>
-   
 </UserControl>

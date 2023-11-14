@@ -10,60 +10,52 @@
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="2.*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1619"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,361,0,0" Width="420" Height="67">
-            <Button x:Name="btGerenciarEst" Content="GERENCIAR(EST)" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="148" Foreground="#DD000000" FontWeight="Bold"  Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" VerticalAlignment="Bottom" Height="52" Width="136" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" Height="52" Width="142" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btGerenciar" Content="GERENCIAR(EST)"  Margin="10" Background="#FFFFA4A4" Height="52" Width="145" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btGerenciar_Click"/>
         </StackPanel>
 
-        <StackPanel Margin="50,44,700,1504">
-            <Label Content="NOME:" Width="62"/>
+        <StackPanel Grid.Row="1">
+            <WrapPanel Margin="0 20 0 0">
+                <Label Content="DESCRIÇÃO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbDescricao" Width="400" />
+            </WrapPanel>
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="VALOR VENDA:" Width="100"/>
+                <TextBox Background="White" x:Name="tbValorVenda" Width="400" />
+            </WrapPanel>
         </StackPanel>
 
-        <StackPanel Margin="105,44,448,1517">
-            <TextBox x:Name="tbNOme" TextWrapping="Wrap" Background="White" Height="30" Width="247" RenderTransformOrigin="-0.034,0.668"/>
-        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Column="0" Height="120">
+            <WrapPanel>
+                <Label Content="NOME:" Width="100" />
+                <TextBox Background="White" x:Name="tbNome" Width="400"/>
+            </WrapPanel>
 
-        <StackPanel Margin="50,298,673,1298">
-            <Label Content="DESCRIÇÃO:"/>
-        </StackPanel>
+            <WrapPanel Margin="0 20 0 0">
+                <Label Content="PESO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbPeso" Width="400" />
+            </WrapPanel>
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="TIPO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbTipo" Width="400" />
+            </WrapPanel>
 
-        <StackPanel Margin="127,298,422,1291">
-            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-
-
-        <StackPanel Margin="50,225,709,1368">
-            <Label Content="TIPO:"/>
-        </StackPanel>
-        <StackPanel Margin="105,225,444,1358">
-            <TextBox x:Name="tbTipoPro" TextWrapping="Wrap" Background="White" Height="27"/>
-        </StackPanel>
-
-        <StackPanel Margin="50,140,700,1453">
-            <Label Content="PESO:"/>
-        </StackPanel>
-        <StackPanel Margin="105,137,557,1450">
-            <TextBox x:Name="tbPeso" TextWrapping="Wrap" Background="White" Height="30"/>
-        </StackPanel>
-
-        <StackPanel Margin="337,140,359,1451">
-            <Label Content="VALOR VENDA:" Width="96" Height="28"/>
-        </StackPanel>
-        <StackPanel Margin="446,138,231,1453" >
-            <TextBox x:Name="tbValorVenda" TextWrapping="Wrap" Background="White" Height="31" Width="129"/>
-        </StackPanel>
-
 
     </Grid>
-
 </UserControl>
+
+
  
 
