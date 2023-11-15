@@ -32,7 +32,7 @@ namespace NovoTayUmDoce.Componentes
         }
         
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
+       /* private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -87,7 +87,7 @@ namespace NovoTayUmDoce.Componentes
             tbRua.Clear();
             tbCEP.Clear();
 
-        }
+        }*/
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {

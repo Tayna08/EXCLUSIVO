@@ -25,6 +25,30 @@
             </StackPanel>
 
         <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1">
+            <WrapPanel Margin="0 5">
+
+                <WrapPanel>
+                    <Label Content="NOME:" Width="48" />
+                    <TextBox Background="White" x:Name="kk" Width="400"/>
+                </WrapPanel>
+
+                <Label Content="QUANTIDADE:" />
+                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
+
+                <Label Content="VALOR:" Margin="10 0 0 0" />
+                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79"/>
+
+                <Label Content="TOTAL:"  Margin="10 0 0 0" />
+                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91"/>
+
+                <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
+                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Height="28" Width="28" BorderBrush="Bisque">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
 
             <WrapPanel>
                 <Label Content="RUA:" Width="48" />
