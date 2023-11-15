@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.ConsultaPedidoUC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+        mc:Ignorable="d" 
+        d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="Bisque">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1051"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="607,80,0,0" Width="264" Height="120">
+            <Button x:Name="btNovo" Content="NOVO" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btNovo_Click" />
+            <Button x:Name="btAlterar" Content="ALTERAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btAlterar_Click" />
+        </StackPanel>
+
+        <StackPanel Margin="56,48,679,979">
+            <Label Content="PEDIDO:" Width="62"/>
+        </StackPanel>
+
+        <StackPanel Margin="126,48,458,979">
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Width="214" Height="26"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dataGridConsultaPedidos" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridPedidos_SelectionChanged" Margin="73,118,247,632" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.ProdutoListarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+           mc:Ignorable="d" 
+             d:DesignHeight="450" Width="1210">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="527*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Text="Produto" VerticalAlignment="Center" FontSize="24"/>
+            <Button x:Name="BtnAddProduto" Margin="10 0 0 0" Content="Novo Produto" Click="BtnAddProduto_Click" />
+        </StackPanel>
+
+
+        <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridProduto" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridProduto_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Peso" Binding="{Binding Peso}"/>
+                <DataGridTextColumn Header="Valor Venda" Binding="{Binding Valor_Venda}"/>
+                <DataGridTextColumn Header="Tipo Produto" Binding="{Binding Tipo}"/>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+
+               
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Ação" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Click="ExcluirProduto_Click">
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush >
+                                        <GradientStop Color="Black"/>
+                                        <GradientStop Color="Black" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
