@@ -32,7 +32,7 @@ namespace NovoTayUmDoce.Componentes
         }
         
 
-       /* private void btSalvar_Click(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -49,10 +49,10 @@ namespace NovoTayUmDoce.Componentes
 
                     endereco.Numero = Convert.ToInt32(tbNumero.Text);
                     endereco.Bairro = tbBairro.Text;
-                    endereco.Cidade = tbCidade.Text;
                     endereco.Complemento = tbComplemento.Text;
                     endereco.Rua = tbRua.Text;
-                    endereco.Cep = tbCEP.Text;
+                    endereco.Cidade = tbCidade.Text;
+                    endereco.Cep = tbCep.Text;
 
                     cliente.Endereco = endereco;
 
@@ -82,12 +82,12 @@ namespace NovoTayUmDoce.Componentes
             dtpData.SelectedDate = null;
             tbBairro.Clear();
             tbNumero.Clear();
-            tbCidade.Clear();
             tbComplemento.Clear();
             tbRua.Clear();
-            tbCEP.Clear();
+            tbCep.Clear();
+            tbCidade.Clear();
 
-        }*/
+        }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {

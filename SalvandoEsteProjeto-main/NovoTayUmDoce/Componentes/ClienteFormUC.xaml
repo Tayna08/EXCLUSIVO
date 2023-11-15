@@ -8,86 +8,72 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="1.5*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
 
 
-            <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-                <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-                <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
-            </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+            <Button x:Name="btCancelar" Content="CANCELAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btCancelar_Click"/>
+            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
+        </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <StackPanel Grid.Row="1">
-            <WrapPanel Margin="0 5">
+            <WrapPanel Margin=" 0 20 0 0">
+                <Label Content="BAIRRO" Width="100"/>
+                <TextBox Background="White" x:Name="tbBairro" Width="400"/>
+            </WrapPanel>
 
-                <WrapPanel>
-                    <Label Content="NOME:" Width="48" />
-                    <TextBox Background="White" x:Name="kk" Width="400"/>
-                </WrapPanel>
-
-                <Label Content="QUANTIDADE:" />
-                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
-
-                <Label Content="VALOR:" Margin="10 0 0 0" />
-                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79"/>
-
-                <Label Content="TOTAL:"  Margin="10 0 0 0" />
-                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91"/>
-
-                <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
-                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Height="28" Width="28" BorderBrush="Bisque">
-                        <Button.Background>
-                            <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
-                        </Button.Background>
-                    </Button>
-                </StackPanel>
-
-            <WrapPanel>
-                <Label Content="RUA:" Width="48" />
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="RUA" Width="100"/>
                 <TextBox Background="White" x:Name="tbRua" Width="400"/>
             </WrapPanel>
 
-            <WrapPanel Margin="0 30 0 0">
-                <Label Content="BAIRRO:" Width="57"/>
-                <TextBox Background="White" x:Name="tbBairro" Width="390"/>
+            <WrapPanel Margin="0 30 0 0 ">
+                <Label Content="COMPLEMENTO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbComplemento" Width="400"/>
             </WrapPanel>
-            
-            
+
+            <WrapPanel Margin="0 35 0 0 ">
+                <Label Content="CEP:" Width="100"/>
+                <TextBox Background="White" x:Name="tbCep" Width="400"/>
+            </WrapPanel>
+            <WrapPanel Margin="0 30 0 0 ">
+                <Label Content="NÚMERO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbNumero" Width="400"/>
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="121">
+            <WrapPanel>
+                <Label Content="NOME:" Width="100" />
+                <TextBox Background="White" x:Name="tbNome" Width="400"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0 20 0 0">
+                <Label Content="CPF:" Width="100"/>
+                <TextBox Background="White" x:Name="tbCpf" Width="400"/>
+            </WrapPanel>
+
+            <WrapPanel Margin="0 25 0 0">
+                <Label Content="CONTATO:" Width="100"/>
+                <TextBox Background="White" x:Name="tbContato" Width="400"/>
+            </WrapPanel>
 
         </StackPanel>
 
-            <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="150">
-                <WrapPanel>
-                    <Label Content="NOME:" Width="48" />
-                    <TextBox Background="White" x:Name="tbNome" Width="400"/>
-                </WrapPanel>
 
-                <WrapPanel Margin="0 28 0 0">
-                    <Label Content="CPF:" Width="47"/>
-                    <TextBox Background="White" x:Name="tbCpf" Width="400"/>
-                </WrapPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <WrapPanel Margin="0 30 0 0" Width="541">
-                    <Label Content="CONTATO:" Width="67"/>
-                    <TextBox Background="White" x:Name="tbContato" Width="380"/>
-                </WrapPanel>
+            <Label Content="CIDADE:" HorizontalAlignment="Center"/>
 
-            </StackPanel>
-
-
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-
-                <Label Content="CONTATO:" HorizontalAlignment="Center"/>
-
-                <TextBox Background="White" x:Name="jtjb" Width="180"/>
+            <TextBox Background="White" x:Name="tbCidade" Width="180"/>
 
             <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
 
@@ -95,5 +81,5 @@
 
     </Grid>
 
- </UserControl>
+</UserControl>
  
