@@ -11,13 +11,14 @@ namespace NovoTayUmDoce.Models
     {
         public int Id { get; set; }
         public double Total { get; set; }
-        public string Hora { get; set; }
         public DateTime Data { get; set; }
-        public string FormaPagamento { get; set;}
+        public string Hora { get; set; }
+        public string FormaRecebimento { get; set;}
         public string Status { get; set;}
        
         public Funcionario Funcionario { get; set; }
         public Cliente Cliente { get; set; }
+        public Caixa Caixa { get; set; }
 
     }
 }

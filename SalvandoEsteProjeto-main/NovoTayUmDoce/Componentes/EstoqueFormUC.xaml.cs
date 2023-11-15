@@ -30,6 +30,7 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             CarregarData();
+            Listar();
         }
 
         private void CarregarData()
@@ -98,12 +99,25 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        private void Listar()
+        {
+            try
+            {
+                var dao = new EstoqueDAO();
+                dataGridEstoque.ItemsSource = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar o estoque: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
 
         private void Clear()
         {
            // cbNome.Clear();
-            dtpData.SelectedDate = null;
+           // dtpData.SelectedDate = null;
 
 
         }

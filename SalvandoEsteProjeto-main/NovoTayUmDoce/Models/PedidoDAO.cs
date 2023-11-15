@@ -42,7 +42,7 @@ namespace NovoTayUmDoce.Models
                             pedido.Id = DAOHelper.GetInt(reader, "id_ped");
                             pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
                             pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
-                            pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
+                            pedido.FormaRecebimento = DAOHelper.GetString(reader, "forma_recebimento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
                             pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
                             pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
@@ -80,7 +80,7 @@ namespace NovoTayUmDoce.Models
 
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
                                 Total = DAOHelper.GetDouble(reader, "total_ped"),
-                                FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
+                                FormaRecebimento = DAOHelper.GetString(reader, "forma_recebimento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
                                
                             };
@@ -112,14 +112,14 @@ namespace NovoTayUmDoce.Models
                 {
                     using (var query= conn.Query())
                     {
-                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk) " +
+                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, hora_ped, forma_recebimento_ped, status_ped, id_fun_fk, id_cli_fk) " +
                             "VALUES (@total, @data_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli)";
 
 
                         query.Parameters.AddWithValue("@total", pedido.Total);
                         query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
                         query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
-                        query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
+                        query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaRecebimento);
                         query.Parameters.AddWithValue("@status", pedido.Status);
                         query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);
                         query.Parameters.AddWithValue("@id_cli", clienteId.Id);
