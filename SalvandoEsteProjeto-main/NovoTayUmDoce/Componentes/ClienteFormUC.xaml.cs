@@ -40,10 +40,10 @@ namespace NovoTayUmDoce.Componentes
                 if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
                 {
                     MessageBox.Show("Cpf digitado é invalido! ");
+                    Clear();
                 }
-                else
-                {
-                    //Setando informações na tabela cliente
+                    
+                //Setando informações na tabela cliente
                     Cliente cliente = new Cliente();
                     Endereco endereco = new Endereco();
 
@@ -52,7 +52,7 @@ namespace NovoTayUmDoce.Componentes
                     endereco.Cidade = tbCidade.Text;
                     endereco.Complemento = tbComplemento.Text;
                     endereco.Rua = tbRua.Text;
-                    endereco.Cep = tbCEP.Text;
+                    endereco.Cep = tbCep.Text;
 
                     cliente.Endereco = endereco;
 
@@ -61,18 +61,26 @@ namespace NovoTayUmDoce.Componentes
                     cliente.DataNasc = dtpData.SelectedDate;
                     cliente.Contato = tbContato.Text;
 
-                    //Inserindo os Dados           
-                    ClienteDAO clienteDAO = new ClienteDAO();
-                    clienteDAO.Insert(cliente);
+                //Inserindo os Dados           
+                var clienteDAO = new ClienteDAO();
+                var resultado = clienteDAO.Insert(cliente);
 
-                    Clear();
 
+                Clear();
+
+                    MessageBox.Show(resultado);
+
+                if (resultado != "Os campos obrigatórios devem ser preenchidos")
+                {
+                    MessageBox.Show("SUCESSO");
                 }
+
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possível salvar o cliente, verifique o erro");
+                MessageBox.Show(ex.Message);
             }
+
         }
         private void Clear()
         {
@@ -85,7 +93,7 @@ namespace NovoTayUmDoce.Componentes
             tbCidade.Clear();
             tbComplemento.Clear();
             tbRua.Clear();
-            tbCEP.Clear();
+            tbCep.Clear();
 
         }
 
@@ -98,9 +106,31 @@ namespace NovoTayUmDoce.Componentes
                 _context.SwitchScreen(new ClienteListarUC(_context));
             }
             
+        }   
+        private void tbContato_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
+            {
+                e.Handled = true;
+            }
+            else if (tbContato.Text.Length == 1)
+            {
+                tbContato.Text = "(" + tbContato.Text;
+                tbContato.CaretIndex = tbContato.Text.Length;
+            }
+            else if (tbContato.Text.Length == 3)
+            {
+                tbContato.Text += ") ";
+                tbContato.CaretIndex = tbContato.Text.Length;
+            }
+            else if (tbContato.Text.Length == 9)
+            {
+                tbContato.Text += "-";
+                tbContato.CaretIndex = tbContato.Text.Length;
+            }
         }
 
-        private void tbCpf_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbCpf_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
             {
@@ -129,29 +159,6 @@ namespace NovoTayUmDoce.Componentes
             {
                 tbCpf.Text += "-";
                 tbCpf.CaretIndex = tbCpf.Text.Length;
-            }
-        }
-
-        private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
-            {
-                e.Handled = true;
-            }
-            else if (tbContato.Text.Length == 1)
-            {
-                tbContato.Text = "(" + tbContato.Text;
-                tbContato.CaretIndex = tbContato.Text.Length;
-            }
-            else if (tbContato.Text.Length == 3)
-            {
-                tbContato.Text += ") ";
-                tbContato.CaretIndex = tbContato.Text.Length;
-            }
-            else if (tbContato.Text.Length == 9)
-            {
-                tbContato.Text += "-";
-                tbContato.CaretIndex = tbContato.Text.Length;
             }
         }
     }

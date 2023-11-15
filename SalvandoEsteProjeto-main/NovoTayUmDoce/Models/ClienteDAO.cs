@@ -64,38 +64,30 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        public void Insert(Cliente cliente)
+        public string Insert(Cliente cliente)
         {
             try
             {
                 var enderecoId = new EnderecoDAO().Insert(cliente.Endereco);
+                var query = conn.Query();
+                query.CommandText = "CALL Campo_Cliente(@nome, @cpf, @data_nasc, @contato, @id_end)";
 
-                using (var query = conn.Query())
-                    {
-                        query.CommandText = "INSERT INTO Cliente (nome_cli, cpf_cli, data_nascimento_cli, contato_cli, id_end_fk) " +
-                            "VALUES (@nome, @cpf, @data_nasc, @contato, @id_end)";
+                query.Parameters.AddWithValue("@nome", cliente.Nome);
+                query.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                query.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@contato", cliente.Contato);
+                query.Parameters.AddWithValue("@id_end", enderecoId);
 
-                        query.Parameters.AddWithValue("@nome", cliente.Nome);
-                        query.Parameters.AddWithValue("@cpf", cliente.Cpf);
-                        query.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@contato", cliente.Contato);
-                        query.Parameters.AddWithValue("@id_end", enderecoId);
+                var resultado = (string)query.ExecuteScalar();
 
-                        var result = query.ExecuteNonQuery();
+                return resultado;
 
-                        if (result == 0)
-                        {
-                            MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Inserção bem-sucedida!");
-                        }
-                    }
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
+                throw ex;
             }
         }
         public void Delete(Cliente cliente)
