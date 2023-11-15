@@ -107,7 +107,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void ExcluirPedido_Click(object sender, RoutedEventArgs e)
         {
-            var pedidoSelected = dataGridPedido.SelectedItem as Pedido;
+            var pedidoSelected = dataGridPed.SelectedItem as Pedido;
 
             var result = MessageBox.Show($"Deseja realmente remover o cliente `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
