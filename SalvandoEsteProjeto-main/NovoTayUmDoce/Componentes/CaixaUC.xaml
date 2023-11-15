@@ -20,7 +20,7 @@
 
             <StackPanel  >
 
-                <Button  Content="Abrir Caixa"  FontSize="50" Foreground="#44001a" x:Name ="btCaixa" Click="BtnAbrirFecharCaixa_Click" Height="80" Background="#FFDDF0" Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                <Button  Content="Abrir Caixa"  FontSize="50" Foreground="#44001a" x:Name ="btCaixa" Click="BtnAbrirFecharCaixa_Click" Height="80" Background="#FFDDF0">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="10" Direction="180" ShadowDepth="4"/>
                     </Button.Effect>
@@ -111,7 +111,7 @@
 
             <StackPanel Margin="0,559,0,0">
 
-                <Button  Content="Fechar Caixa (F4)"  FontSize="30" Foreground="#44001a" x:Name ="btFecharCaixa" Click="BtnFecharCaixa_Click" Height="40" Background="#FFDDF0" Style="{StaticResource MaterialDesignRaisedDarkButton}">
+                <Button  Content="Fechar Caixa (F4)"  FontSize="30" Foreground="#44001a" x:Name ="btFecharCaixa" Click="BtnFecharCaixa_Click" Height="40" Background="#FFDDF0">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="10" Direction="180" ShadowDepth="4"/>
                     </Button.Effect>

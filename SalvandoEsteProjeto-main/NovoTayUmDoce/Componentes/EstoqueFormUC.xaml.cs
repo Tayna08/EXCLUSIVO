@@ -118,6 +118,17 @@ namespace NovoTayUmDoce.Componentes
 
         //    MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Deseja realmente fechar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                _context.SwitchScreen(new ProdutoFormUC(_context));
+            }
+        }
+
+
         //    if (result == MessageBoxResult.Yes)
         //    {
               
