@@ -90,9 +90,10 @@
             <Label Content="SALÁRIO:"/>
             <TextBox x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="27"/>
         </StackPanel>
-        <StackPanel Margin="623,150,57,207">
+        <StackPanel Margin="632,150,57,207">
             <Label Content="CEP:"/>
             <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="27"/>
+            <Button Content="Buscar" Click="btBuscar_Click" Margin="0,0,0,10"/>
         </StackPanel>
     </Grid>
 </UserControl>

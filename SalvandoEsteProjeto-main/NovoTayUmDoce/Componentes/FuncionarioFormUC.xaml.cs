@@ -159,5 +159,36 @@ namespace NovoTayUmDoce.Componentes
                 tbCpf.CaretIndex = tbCpf.Text.Length;
             }
         }
+
+        private async void BuscarPorCEP(string cep)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string url = $"https://viacep.com.br/ws/{cep}/json/";
+                    string response = await client.GetStringAsync(url);
+
+                    // Deserializa a resposta JSON para a classe Endereco
+                    Endereco endereco = JsonConvert.DeserializeObject<Endereco>(response);
+
+                    // Exiba os dados na interface do usuário
+                    tbCidade.Text = endereco.Cidade;
+                    // Adicione mais campos conforme necessário
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao buscar o CEP: " + ex.Message);
+            }
+        }
+
+        private void btBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            string cep = tbCEP.Text.Trim().Replace("-", "");
+
+            // Chame o método de busca por CEP
+            BuscarPorCEP(cep);
+        }
     }
 }
