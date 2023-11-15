@@ -41,6 +41,12 @@ namespace NovoTayUmDoce.Componentes
                 {
                     MessageBox.Show("Cpf digitado é inválido!");
                 }
+                if (!ValidarEmail(tbEmail.Text))
+                {
+                    MessageBox.Show("Endereço de e-mail inválido!");
+                    return;
+                }
+                
                 else
                 {
                     //Setando informações na tabela cliente
@@ -66,8 +72,8 @@ namespace NovoTayUmDoce.Componentes
                   //Inserindo os Dados           
                   FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
                   funcionarioDAO.Insert(funcionario);
+                  Clear();
 
-                Clear();
                 }
                 
             }
@@ -78,6 +84,17 @@ namespace NovoTayUmDoce.Componentes
 
             }
         }
+
+        private bool ValidarEmail(string email)
+        {
+         
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex regex = new Regex(pattern);
+
+            // Verifica se o e-mail corresponde ao padrão
+            return regex.IsMatch(email);
+        }
+
         private void Clear()
         {
             tbBairro.Clear();
