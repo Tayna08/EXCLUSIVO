@@ -48,8 +48,8 @@
             </WrapPanel>
 
 
-            <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
-                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="245">
+            <DataGrid x:Name="dataGridPed" IsReadOnly="true"
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="245" SelectionChanged="dataGridPedido_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>

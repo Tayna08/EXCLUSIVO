@@ -23,11 +23,6 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
 
-            <WrapPanel Margin="20 30" Width="142" Height="56">
-                <Label Content="ESTOQUE TOTAL:" Width="100" Margin="20 5" />
-                <TextBox Background="White" x:Name="tbEstoque" Width="142" Height="21"/>
-            </WrapPanel>
-
             <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
         </StackPanel>
@@ -88,10 +83,6 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,35,0,0">
-
-            <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
-
-            <materialDesign:TimePicker Width="180" Margin="0 10" x:Name="tbHora"/>
             <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"></StackPanel>
             <WrapPanel>
                 <Label Content="DATA FABRICAÇÃO:"/>

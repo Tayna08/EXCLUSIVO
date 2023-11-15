@@ -30,6 +30,7 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             CarregarData();
+            Listar();
         }
 
         private void CarregarData()
@@ -58,6 +59,9 @@ namespace NovoTayUmDoce.Componentes
                 Estoque estoque = new Estoque();
 
                 estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                estoque.Insumos = tbInsumos.Text;
+                estoque.Data = Convert.ToDateTime(dtpDataFabricacao);
+                estoque.validade = Convert.ToDateTime(dtpDataValidade);
 
                 // Chaves estrangeiras
 
@@ -98,12 +102,25 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        private void Listar()
+        {
+            try
+            {
+                var dao = new EstoqueDAO();
+                dataGridEstoque.ItemsSource = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar o estoque: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
 
         private void Clear()
         {
            // cbNome.Clear();
-            dtpData.SelectedDate = null;
+           // dtpData.SelectedDate = null;
 
 
         }
@@ -112,11 +129,6 @@ namespace NovoTayUmDoce.Componentes
         {
             ComboBox comboBox = (ComboBox)sender;
         }
-
-        //private void btCancelar_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -127,15 +139,6 @@ namespace NovoTayUmDoce.Componentes
                 _context.SwitchScreen(new ProdutoFormUC(_context));
             }
         }
-
-
-        //    if (result == MessageBoxResult.Yes)
-        //    {
-              
-        //    }
-        //}
-
-       
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
