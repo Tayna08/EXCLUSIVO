@@ -1,0 +1,59 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"           
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="NovoTayUmDoce.Componentes.DespesaFormUC"           
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="Bisque" Margin="0,-4,0,4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="419*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="190,337,0,0" Width="420" Height="67" Grid.ColumnSpan="2">
+            <Button x:Name="btCancelar" Content="CANCELAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Click="btSalvar_Click" Cursor="Hand"/>
+        </StackPanel>
+
+        <StackPanel Margin="74,94,17,813">
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27"/>
+        </StackPanel>
+
+        <StackPanel Margin="77,45,22,858" Grid.Column="1">
+            <TextBox x:Name="tbDescricao" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="144,152,77,753">
+            <DatePicker x:Name="dtpDataVenci" Height="28" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel Margin="144,209,77,696">
+            <DatePicker x:Name="dtpData" Height="28" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel Margin="136,94,22,813" Grid.Column="1">
+            <TextBox x:Name="tbFormaPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
+        </StackPanel>
+
+        <StackPanel Margin="123,49,17,867">
+            <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="24"/>
+        </StackPanel>
+        <Label Content="NOME DESPESA:" Margin="27,48,77,870"/>
+        <Label Content="DESCRIÇÃO" Margin="6,48,-129,871" Grid.Column="1"/>
+        <Label Content="VALOR:" Margin="27,94,302,825"/>
+        <Label Content="FORMA PAGAMENTO:" Grid.Column="1" Margin="8,96,279,823"/>
+        <Label Content="DATA VENCIMENTO" Margin="27,152,194,767"/>
+        <Label Content="DATA DA DESPESA:" Margin="27,209,194,710"/>
+
+    </Grid>
+
+</UserControl>
+ 
