@@ -51,7 +51,7 @@ namespace NovoTayUmDoce.Componentes
         }
 
 
-        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -113,6 +113,11 @@ namespace NovoTayUmDoce.Componentes
             ComboBox comboBox = (ComboBox)sender;
         }
 
+        //private void btCancelar_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //    MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Deseja realmente fechar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -123,10 +128,14 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
+        //    if (result == MessageBoxResult.Yes)
+        //    {
+              
+        //    }
+        //}
+
+       
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -139,6 +148,11 @@ namespace NovoTayUmDoce.Componentes
         }
 
         private void cbInsumos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
 
         }
