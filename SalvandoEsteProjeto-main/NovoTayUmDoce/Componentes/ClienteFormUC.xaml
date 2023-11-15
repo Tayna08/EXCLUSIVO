@@ -29,7 +29,7 @@
 
                 <WrapPanel>
                     <Label Content="NOME:" Width="48" />
-                    <TextBox Background="White" x:Name="" Width="400"/>
+                    <TextBox Background="White" x:Name="kk" Width="400"/>
                 </WrapPanel>
 
                 <Label Content="QUANTIDADE:" />
