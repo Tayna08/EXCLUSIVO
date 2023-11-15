@@ -152,9 +152,6 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
-        private void btCancelar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
     }
 }
