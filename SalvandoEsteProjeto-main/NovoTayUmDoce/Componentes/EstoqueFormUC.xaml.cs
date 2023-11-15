@@ -30,6 +30,7 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             CarregarData();
+            Listar();
         }
 
         private void CarregarData()
@@ -51,13 +52,18 @@ namespace NovoTayUmDoce.Componentes
         }
 
 
-        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 Estoque estoque = new Estoque();
 
                 estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                estoque.Insumos = tbInsumos.Text;
+                estoque.Datavalidade = dtpDataValidade.SelectedDate;
+                estoque.DataFabricacao = dtpDataFabricacao.SelectedDate;
+                
 
                 // Chaves estrangeiras
 
@@ -68,6 +74,7 @@ namespace NovoTayUmDoce.Componentes
                 estoqueDAO.Insert(estoque);
 
                 Clear();
+               
             }
             catch (Exception ex)
             {
@@ -89,7 +96,7 @@ namespace NovoTayUmDoce.Componentes
                     var dao = new EstoqueDAO();
                     dao.Delete(estoquedSelected);
 
-                    // ListarPedidos();
+                    ListarEstoque();
                 }
             }
             catch (Exception ex)
@@ -97,20 +104,33 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void ListarEstoque()
+        {
+            var dao = new EstoqueDAO();
+            dataGridEstoque.ItemsSource = dao.List();
+        }
 
+        private void Listar()
+        {
+            try
+            {
+                var dao = new EstoqueDAO();
+                dataGridEstoque.ItemsSource = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar o estoque: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
 
         private void Clear()
         {
-           // cbNome.Clear();
-            dtpData.SelectedDate = null;
+            // cbNome.Clear();
+            // dtpData.SelectedDate = null;
 
 
-        }
-
-        private void cbPro_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox comboBox = (ComboBox)sender;
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
@@ -123,16 +143,6 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -142,5 +152,7 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+
     }
 }

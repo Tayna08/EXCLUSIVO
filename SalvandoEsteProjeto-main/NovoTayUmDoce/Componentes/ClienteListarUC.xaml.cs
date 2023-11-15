@@ -54,6 +54,8 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        //aqui que tá o atualizar pagina sozinhoo
+
         private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
         {
             var clienteSelected = dataGridClientes.SelectedItem as Cliente;
