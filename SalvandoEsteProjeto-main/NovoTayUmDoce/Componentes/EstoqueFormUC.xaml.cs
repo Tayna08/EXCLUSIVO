@@ -51,7 +51,7 @@ namespace NovoTayUmDoce.Componentes
         }
 
 
-        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -116,12 +116,15 @@ namespace NovoTayUmDoce.Componentes
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
 
+            MessageBoxResult result = MessageBox.Show("Deseja realmente cancelar o estoque?", "Pergunta", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+              
+            }
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

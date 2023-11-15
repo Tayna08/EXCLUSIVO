@@ -23,7 +23,7 @@ namespace NovoTayUmDoce
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(MainWindow _context)
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;

@@ -25,7 +25,7 @@
 
             <WrapPanel Margin="20 30" Width="142" Height="56">
                 <Label Content="ESTOQUE TOTAL:" Width="100" Margin="20 5" />
-                <TextBlock Background="White" x:Name="tbEstoque" Width="142" Height="21"/>
+                <TextBox Background="White" x:Name="tbEstoque" Width="142" Height="21"/>
             </WrapPanel>
 
             <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
@@ -77,27 +77,27 @@
 
             <WrapPanel Margin="0 20 0 0">
                 <Label Content="QUANTIDADE:" Width="100"/>
-                <TextBlock Background="White" x:Name="tbQuantidade" Width="400" />
+                <TextBox Background="White" x:Name="tbQuantidade" Width="400" />
             </WrapPanel>
 
             <WrapPanel Margin="0 25 0 0">
                 <Label Content="INSUMOS:" Width="100"/>
-                <ComboBox Background="White" x:Name="cbInsumos" Width="400" SelectionChanged="cbInsumos_SelectionChanged"/>
+                <TextBox Background="White" x:Name="tbInsumos" Width="400" />
             </WrapPanel>
 
         </StackPanel>
 
 
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <WrapPanel>
+                <Label Content="DATA FABRICAÇÃO:"/>
+                <DatePicker x:Name="dtpDataFabricacao" Width="130" VerticalAlignment="Top"/>
+            </WrapPanel>
 
-            <Label Content="STATUS:" HorizontalAlignment="Center"/>
-
-            <ComboBox Background="White" x:Name="cbStatus" Width="180" SelectionChanged="cbStatus_SelectionChanged"/>
-
-            <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
-
-            <materialDesign:TimePicker Width="180" Margin="0 10" x:Name="tbHora"/>
-
+            <WrapPanel  Margin="50 25 0 0">
+                <Label Content="VALIDADE:"/>
+                <DatePicker x:Name="dtpData" Width="130"/>
+            </WrapPanel>
         </StackPanel>
 
     </Grid>
