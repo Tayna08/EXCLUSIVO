@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
+
 namespace NovoTayUmDoce.Componentes
 {
     /// <summary>
@@ -176,5 +177,7 @@ namespace NovoTayUmDoce.Componentes
                 tbCpf.CaretIndex = tbCpf.Text.Length;
             }
         }
+
+        
     }
 }

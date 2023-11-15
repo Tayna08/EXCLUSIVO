@@ -40,9 +40,10 @@ namespace NovoTayUmDoce.Models
                         while (reader.Read())
                         {
                             estoque.Id = DAOHelper.GetInt(reader, "id_est");
-                            estoque.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_est");
-                            estoque.validade = (DateTime)DAOHelper.GetDateTime(reader, "validade_ent");
+                            estoque.DataFabricacao = (DateTime)DAOHelper.GetDateTime(reader, "data_fabricacao_est");
+                            estoque.Datavalidade = (DateTime)DAOHelper.GetDateTime(reader, "validade_ent");
                             estoque.Quantidade = DAOHelper.GetInt(reader, "quantidade_est");
+                            estoque.Insumos = DAOHelper.GetString(reader, "insumos_est");
                             estoque.Produto = new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
                         }
 
@@ -77,8 +78,9 @@ namespace NovoTayUmDoce.Models
 
                                 Id = DAOHelper.GetInt(reader, "id_est"),
                                 Quantidade = DAOHelper.GetInt(reader, "quantidade_est"),
-                                Data = DAOHelper.GetDateTime(reader, "data_est"),
-                                validade = DAOHelper.GetDateTime(reader, "validade_est"),
+                                Datavalidade = DAOHelper.GetDateTime(reader, "validade_est"),
+                                DataFabricacao = DAOHelper.GetDateTime(reader, "data_fabricacao_est"),
+                                Insumos = DAOHelper.GetString(reader, "insumos_est"),
 
                             };
 
@@ -95,6 +97,7 @@ namespace NovoTayUmDoce.Models
                 throw;
             }
         }
+
         public void Insert(Estoque estoque)
         {
             try
@@ -104,22 +107,25 @@ namespace NovoTayUmDoce.Models
                 if (produtoId.Id > 0)
                 {
                     var query = conn.Query();
-                    query.CommandText = $"INSERT INTO Estoque (nome_est, quantidade_est,validade_est, data_est, id_pro_fk) " +
-                        $"VALUES (@nome, @quantidade, @validade, @data, @id_pro)";
+                    query.CommandText = $"INSERT INTO Estoque (quantidade_est, validade_est,  data_fabricacao_est, insumos_est, id_pro_fk) " +
+                        $"VALUES (@quantidade, @validade, @data_fabricacao, @insumos, @id_pro)";
 
 
                     query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
-                    query.Parameters.AddWithValue("@data", estoque.Data?.ToString("yyyy-MM-dd"));
-                    query.Parameters.AddWithValue("@validade", estoque.Data?.ToString("yyyy-MM-dd"));
+                    query.Parameters.AddWithValue("@validade", estoque.Datavalidade?.ToString("yyyy-MM-dd"));
+                    query.Parameters.AddWithValue("@data_fabricacao", estoque.DataFabricacao?.ToString("yyyy-MM-dd"));
+                    query.Parameters.AddWithValue("@insumos", estoque.Insumos);
                     query.Parameters.AddWithValue("@id_pro", produtoId.Id);
-
-
 
                     var result = query.ExecuteNonQuery();
 
                     if (result == 0)
                     {
                         MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Inserção bem-sucedida!");
                     }
                 }
             }
@@ -129,7 +135,7 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
 
-         
+
         }
         public void Delete(Estoque estoque)
         {
