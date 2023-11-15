@@ -103,7 +103,7 @@
 
                 <Label Content="CONTATO:" HorizontalAlignment="Center"/>
 
-                <TextBox Background="White" x:Name="" Width="180"/>
+                <TextBox Background="White" x:Name="jtjb" Width="180"/>
 
             <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>
 
