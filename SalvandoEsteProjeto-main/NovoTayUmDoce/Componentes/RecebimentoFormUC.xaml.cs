@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NovoTayUmDoce.Conexão;
+using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,27 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class RecebimentoFormUC : UserControl
     {
-        public RecebimentoFormUC()
+        MainWindow _context;
+        private static Conexao conn;
+
+        public RecebimentoFormUC(MainWindow context)
         {
             InitializeComponent();
+            _context = context;
+            CarregarData();
+        }
+
+        private void CarregarData()
+        {
+            try
+            {
+               
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void btCancelar_Click_1(object sender, RoutedEventArgs e)

@@ -76,33 +76,6 @@ namespace NovoTayUmDoce.Componentes
             ComboBox comboBox = (ComboBox)sender;
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Pedido pedido = new Pedido();
-
-                pedido.Total = Convert.ToDouble(tbTotal.Text);
-                pedido.Hora = tbHora.Text;
-                pedido.Status = cbStatus.Text;
-               
-
-                // Chaves estrangeiras
-                pedido.Cliente = (Cliente)cbCliente.SelectedItem;
-                pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
-
-                // Inserindo os Dados           
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                pedidoDAO.Insert(pedido);
-
-                Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
-            }
-
-        }
 
         private void ExcluirPedido_Click(object sender, RoutedEventArgs e)
         {
@@ -135,6 +108,35 @@ namespace NovoTayUmDoce.Componentes
         private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btRecebimento_Click(object sender, RoutedEventArgs e)
+        {
+            _context.SwitchScreen(new RecebimentoFormUC(_context));
+
+            try
+            {
+                Pedido pedido = new Pedido();
+
+                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                pedido.Hora = tbHora.Text;
+                pedido.Status = cbStatus.Text;
+
+
+                // Chaves estrangeiras
+                pedido.Cliente = (Cliente)cbCliente.SelectedItem;
+                pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+
+                // Inserindo os Dados           
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                pedidoDAO.Insert(pedido);
+
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
             <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
+            <Button x:Name="btRecebimento" Content="RECEBIMENTO"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btRecebimento_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
@@ -38,7 +38,7 @@
                 <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91"/>
 
                 <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
-                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click" Height="28" Width="28" BorderBrush="Bisque">
+                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="28" Width="28" BorderBrush="Bisque">
                         <Button.Background>
                             <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
                         </Button.Background>
