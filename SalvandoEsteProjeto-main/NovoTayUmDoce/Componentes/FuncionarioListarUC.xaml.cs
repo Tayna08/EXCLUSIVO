@@ -15,6 +15,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Models;
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Kernel.Exceptions;
+using static MaterialDesignThemes.Wpf.Theme;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -31,6 +37,7 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
+            dataGridFuncionario.ItemsSource = GetSampleData();
         }
         private void BtnAddFuncionario_Click(object sender, RoutedEventArgs e)
         {
@@ -76,5 +83,41 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void BtnImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            string pdfPath = "output.pdf";
+
+            // Criar um objeto PdfWriter
+            using (PdfWriter writer = new PdfWriter(pdfPath))
+            {
+                // Criar um objeto PdfDocument
+                using (PdfDocument pdf = new PdfDocument(writer))
+                {
+                    // Criar um objeto Document
+                    Document document = new Document(pdf);
+
+                    // Adicionar cabeçalho
+                    document.Add(new iText.Layout.Element.Paragraph("DataGrid to PDF Export"));
+
+                    // Adicionar dados do DataGrid
+                    foreach (var item in dataGridFuncionario.Items)
+                    {
+                        // Adicionar cada linha do DataGrid como um parágrafo no PDF
+                        document.Add(new iText.Layout.Element.Paragraph(string.Join(" | ", dataGridFuncionario.Columns.Select(c =>
+                            c.GetCellContent(item)?.ToString()))));
+                    }
+                }
+            }
+
+            MessageBox.Show("PDF exportado com sucesso!");
+        }
+
+        private System.Collections.IEnumerable GetSampleData()
+        {
+            // Exemplo de dados para preencher o DataGrid
+            return Enumerable.Range(1, 5).Select(i => new { ID = i, Nome = $"Item {i}" });
+        }
+
     }
 }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Width="1109">
+             d:DesignHeight="450" Width="1061">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="273*"/>
@@ -18,10 +18,11 @@
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24"/>
             <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
+            <Button Background="#FFD18D9F" x:Name="BtnImprimir" Margin="500 0 0 0" Content="IMPRIMIR" BorderBrush="Black" Foreground="Black" Click="BtnImprimir_Click"/>
         </StackPanel>
 
 
-        <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridFuncionario" IsReadOnly="true"
+        <DataGrid Grid.Row="1" Margin="5,20,20,5" x:Name="dataGridFuncionario" IsReadOnly="true"
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridFuncionario_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>

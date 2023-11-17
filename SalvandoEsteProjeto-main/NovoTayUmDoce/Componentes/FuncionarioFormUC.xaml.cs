@@ -178,6 +178,9 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        
+        private void btEmitirRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
