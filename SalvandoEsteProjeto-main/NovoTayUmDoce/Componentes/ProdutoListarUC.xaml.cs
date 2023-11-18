@@ -66,12 +66,20 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new ProdutoDAO();
                     dao.Delete(produtoSelected);
+
+                    ListarProdutos();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ListarProdutos()
+        {
+            var dao = new ProdutoDAO();
+            dataGridProduto.ItemsSource = dao.List();
         }
 
         private void dataGridProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
