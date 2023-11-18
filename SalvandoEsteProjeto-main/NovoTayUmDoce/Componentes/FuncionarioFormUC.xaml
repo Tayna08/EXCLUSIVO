@@ -34,14 +34,19 @@
                 <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30" Width="125" />
 
                 <Label Content="CEP:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="130"/>
+                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90"/>
 
-                
+                <Button x:Name="btAddCEP" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" BorderBrush="Bisque" Margin="20,0,0,0" Click="btAddCEP_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
+                    </Button.Background>
+                </Button>
+
             </WrapPanel>
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" Margin="0,0,10,0">
             <WrapPanel Margin="0 60">
 
                 <Label Content="RUA:"/>
@@ -57,7 +62,15 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.042"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
             <WrapPanel Margin="0 115">
 
                 <Label Content="FUNÇÃO:"/>

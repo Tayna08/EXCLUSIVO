@@ -43,6 +43,12 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
+    <Reference Include="Corvus.Extensions.Newtonsoft.Json, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Corvus.Extensions.Newtonsoft.Json.3.0.0\lib\netstandard2.0\Corvus.Extensions.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Corvus.Json.Abstractions, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Corvus.Json.Abstractions.3.0.0\lib\netstandard2.0\Corvus.Json.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
       <HintPath>..\packages\Enums.NET.4.0.1\lib\net45\Enums.NET.dll</HintPath>
     </Reference>
