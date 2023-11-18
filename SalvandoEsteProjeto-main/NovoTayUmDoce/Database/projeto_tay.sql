@@ -79,6 +79,13 @@ id_cai_fk int,
 foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
+create table Recebimento(
+id_rec int primary key auto_increment,
+forma_recebimento varchar(300),
+valor_rec varchar(1000),
+caixa_rec varchar(300)
+);
+
 create table Pedido(
 id_ped int primary key auto_increment,
 total_ped double,
@@ -93,6 +100,7 @@ foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
 foreign key (id_cai_fk) references caixa (id_cai)
 );
+select*from produto;
 
 create table pedido_produtos (
 id_ppro int primary key auto_increment,
