@@ -13,7 +13,6 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
-        private static Conexao conn;
 
         public PedidoFormUC(MainWindow context)
         {

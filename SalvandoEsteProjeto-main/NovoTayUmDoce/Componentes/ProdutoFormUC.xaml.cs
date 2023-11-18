@@ -23,7 +23,6 @@ namespace NovoTayUmDoce.Componentes
     public partial class ProdutoFormUC : UserControl
     {
         MainWindow _context;
-        private static Conexao conn;
 
         public ProdutoFormUC(MainWindow context)
         {

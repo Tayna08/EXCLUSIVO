@@ -27,7 +27,6 @@ namespace NovoTayUmDoce.Componentes
     public partial class ProdutoListarUC : UserControl
     {
         MainWindow _context;
-        private MySqlConnection _conexao;
         public ProdutoListarUC(MainWindow context)
         {
             InitializeComponent();

@@ -30,14 +30,13 @@ namespace NovoTayUmDoce.Componentes
     public partial class FuncionarioListarUC : UserControl
     {
         MainWindow _context;
-        private MySqlConnection _conexao;
 
         public FuncionarioListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
-            dataGridFuncionario.ItemsSource = GetSampleData();
+            
         }
         private void BtnAddFuncionario_Click(object sender, RoutedEventArgs e)
         {
