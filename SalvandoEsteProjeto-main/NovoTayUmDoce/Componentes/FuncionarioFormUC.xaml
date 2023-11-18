@@ -36,17 +36,20 @@
                 <Label Content="CEP:" Margin="20 0 0 0" />
                 <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90"/>
 
-                <Button x:Name="btAddCEP" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" BorderBrush="Bisque" Margin="20,0,0,0" Click="btAddCEP_Click">
+                <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" Click="btAddCEP_Click" BorderBrush="#FF928B8B" Background="#FF928B8B" Margin="25,0,0,0"/>
+
+                <Button x:Name="btAddCEP" Foreground="#FF7E7E7E" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" Click="btAddCEP_Click" BorderBrush="#FF897F7F" Margin="-34,0,0,0">
                     <Button.Background>
-                        <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
+                        <ImageBrush ImageSource="/Componentes/lupa.png"/>
                     </Button.Background>
+
                 </Button>
 
             </WrapPanel>
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Margin="0,0,10,0">
+        <StackPanel Grid.Row="1">
             <WrapPanel Margin="0 60">
 
                 <Label Content="RUA:"/>
@@ -62,7 +65,7 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+        <StackPanel RenderTransformOrigin="0.5,0.5" Margin="0,179,1,0" Cursor="Hand" Grid.RowSpan="2">
             <StackPanel.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

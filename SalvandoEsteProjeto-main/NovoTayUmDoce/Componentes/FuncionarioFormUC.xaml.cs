@@ -211,7 +211,7 @@ namespace NovoTayUmDoce.Componentes
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro na requisição: {ex.Message}");
+                MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
             }
         }
     }
