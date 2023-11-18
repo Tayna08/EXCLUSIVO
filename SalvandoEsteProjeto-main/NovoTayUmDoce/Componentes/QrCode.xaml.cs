@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace NovoTayUmDoce.Componentes
 {
-    public partial class QrCode : Window
+    public partial class QrCode : UserControl
     {
         MainWindow _context;
 

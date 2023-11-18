@@ -66,10 +66,15 @@ namespace NovoTayUmDoce.Componentes
 
         private void btSalvar_Click_1(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new QrCode(_context));
 
             try
             {
+                if (cbFormaRec.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
+                {
+                    _context.SwitchScreen(new QrCode(_context));
+
+                }
+
                 Recebimento recebimento = new Recebimento();
 
                 recebimento.forma_recebimento = cbFormaRec.Text;
