@@ -44,6 +44,7 @@
                 <Label Content="CEP:" Width="100"/>
                 <TextBox Background="White" x:Name="tbCep" Width="400" TextChanged="tbCep_TextChanged"/>
             </WrapPanel>
+            
             <WrapPanel Margin="0 30 0 0 ">
                 <Label Content="NÚMERO:" Width="100"/>
                 <TextBox Background="White" x:Name="tbNumero" Width="400"/>

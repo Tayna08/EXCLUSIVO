@@ -34,7 +34,7 @@
                 <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30" Width="125" />
 
                 <Label Content="CEP:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90"/>
+                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90" TextChanged="tbCep_TextChanged"/>
 
                 <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" Click="btAddCEP_Click" BorderBrush="#FF928B8B" Background="#FF928B8B" Margin="25,0,0,0"/>
 
