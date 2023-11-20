@@ -313,6 +313,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="inicio.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -376,6 +380,9 @@
     <Compile Include="Helpers\ValidacaoCPFeCNPJ.cs" />
     <Compile Include="ControleHome.xaml.cs">
       <DependentUpon>ControleHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="inicio.xaml.cs">
+      <DependentUpon>inicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
