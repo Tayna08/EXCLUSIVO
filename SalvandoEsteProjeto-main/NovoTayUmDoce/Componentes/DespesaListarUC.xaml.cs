@@ -62,6 +62,8 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new DespesaDAO();
                     dao.Delete(despesaSelected);
+
+                    ListarDespesa();
                 }
             }
             catch (Exception ex)
@@ -69,5 +71,12 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void ListarDespesa()
+        {
+            var dao = new DespesaDAO();
+            dataGridDespesa.ItemsSource = dao.List();
+        }
+
     }
 }

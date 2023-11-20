@@ -23,7 +23,6 @@ namespace NovoTayUmDoce.Componentes
     public partial class EstoqueFormUC : UserControl
     {
         MainWindow _context;
-        private static Conexao conn;
 
         public EstoqueFormUC(MainWindow context)
         {

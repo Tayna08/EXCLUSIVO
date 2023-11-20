@@ -25,7 +25,6 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoListarUC : UserControl
     {
         MainWindow _context;
-        private MySqlConnection _conexao;
 
         public PedidoListarUC(MainWindow context)
         {
@@ -65,6 +64,8 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new PedidoDAO();
                     dao.Delete(pedidoSelected);
+
+                    ListarPedidos();
                 }
             }
             catch (Exception ex)
@@ -73,6 +74,11 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        private void ListarPedidos()
+        {
+            var dao = new PedidoDAO();
+            dataGridPedidos.ItemsSource = dao.List();
+        }
         private void dataGridPedidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

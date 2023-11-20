@@ -15,6 +15,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Models;
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Kernel.Exceptions;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -24,17 +29,17 @@ namespace NovoTayUmDoce.Componentes
     public partial class FuncionarioListarUC : UserControl
     {
         MainWindow _context;
-        private MySqlConnection _conexao;
 
         public FuncionarioListarUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Listar();
+
         }
         private void BtnAddFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new  FuncionarioFormUC(_context));
+            _context.SwitchScreen(new FuncionarioFormUC(_context));
         }
 
         private void Listar()
@@ -64,6 +69,8 @@ namespace NovoTayUmDoce.Componentes
                 {
                     var dao = new FuncionarioDAO();
                     dao.Delete(funcionarioSelected);
+
+                    ListarFuncionario();
                 }
             }
             catch (Exception ex)
@@ -72,9 +79,34 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        private void ListarFuncionario()
+        {
+            var dao = new FuncionarioDAO();
+            dataGridFuncionario.ItemsSource = dao.List();
+        }
+
         private void dataGridFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+
+        private void btImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(print, " NovoTayUmDoce.Componentes");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
         }
     }
 }

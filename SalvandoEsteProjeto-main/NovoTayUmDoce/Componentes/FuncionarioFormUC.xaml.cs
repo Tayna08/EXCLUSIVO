@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,8 +15,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
+using NPOI.XSSF.UserModel;
+using Newtonsoft.Json;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -47,38 +51,38 @@ namespace NovoTayUmDoce.Componentes
                     MessageBox.Show("Endereço de e-mail inválido!");
                     return;
                 }
-                
+
                 else
                 {
                     //Setando informações na tabela cliente
                     Funcionario funcionario = new Funcionario();
                     Endereco endereco = new Endereco();
 
-                   endereco.Bairro = tbBairro.Text;
-                   endereco.Cidade = tbCidade.Text;
-                   endereco.Rua = tbRua.Text;
-                   endereco.Complemento = tbComplemento.Text;
-                   endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                   endereco.Cep = tbCEP.Text;
+                    endereco.Bairro = tbBairro.Text;
+                    endereco.Cidade = tbCidade.Text;
+                    endereco.Rua = tbRua.Text;
+                    endereco.Complemento = tbComplemento.Text;
+                    endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                    endereco.Cep = tbCEP.Text;
 
-                   funcionario.Endereco = endereco;
-                   funcionario.Nome = tbNome.Text;
-                   funcionario.Cpf = tbCpf.Text;
-                   funcionario.Data = dtpData.SelectedDate;
-                   funcionario.Contato = tbContato.Text;
-                   funcionario.Email = tbEmail.Text;
-                   funcionario.Funcao = tbFuncao.Text;
-                   funcionario.Salario = tbSalario.Text;
+                    funcionario.Endereco = endereco;
+                    funcionario.Nome = tbNome.Text;
+                    funcionario.Cpf = tbCpf.Text;
+                    funcionario.Data = dtpData.SelectedDate;
+                    funcionario.Contato = tbContato.Text;
+                    funcionario.Email = tbEmail.Text;
+                    funcionario.Funcao = tbFuncao.Text;
+                    funcionario.Salario = tbSalario.Text;
 
-                  //Inserindo os Dados           
-                  FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                  funcionarioDAO.Insert(funcionario);
-                  Clear();
+                    //Inserindo os Dados           
+                    FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                    funcionarioDAO.Insert(funcionario);
+                    Clear();
 
                 }
-                
+
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("Não foi possível salvar o funcionário, verifique o erro");
                 MessageBox.Show("Erro 3008 : Contate o suporte");
@@ -88,7 +92,7 @@ namespace NovoTayUmDoce.Componentes
 
         private bool ValidarEmail(string email)
         {
-         
+
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             Regex regex = new Regex(pattern);
 
@@ -178,6 +182,37 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        
+        private void btEmitirRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void btAddCEP_Click(object sender, RoutedEventArgs e)
+        {
+            string cep = tbCEP.Text;
+            string url = $"https://viacep.com.br/ws/{cep}/json/";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string jsonResult = await client.GetStringAsync(url);
+                    dynamic data = JsonConvert.DeserializeObject(jsonResult);
+
+                    if (data != null && data.erro == null)
+                    {
+                        tbCidade.Text = data.localidade;
+                    }
+                    else
+                    {
+                        MessageBox.Show("CEP não encontrado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
+            }
+        }
     }
 }

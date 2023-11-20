@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.QrCode"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" Width="252">
+
+    <Grid Background="Bisque" Margin="10,0,10,0">
+        <Label Content="SCAN ME" Margin="0,59,0,261" FontSize="50" FontWeight="Bold"/>
+        <Image x:Name="imgQRCode" Source="/image/qrCode.jpeg" Margin="16,159,16,41" Width="200" Height="200"/>
+        <Label Content="69993697530" Margin="68,364,78,0"></Label>
+    </Grid>
+    
+</UserControl>
