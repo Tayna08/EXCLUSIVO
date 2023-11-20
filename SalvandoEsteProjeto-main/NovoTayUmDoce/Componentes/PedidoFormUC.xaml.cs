@@ -21,8 +21,6 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
             Loaded += Status_Loaded;
             CarregarData();
-            tbValor.TextChanged += TbValor_TextChanged;
-            tbTotal.TextChanged += TbTotal_TextChanged;
         }
 
         private void Status_Loaded(object sender, RoutedEventArgs e)
@@ -111,48 +109,6 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
-
-        private void TbValor_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Obtém o valor atual da TextBox
-            string valorAtual = tbValor.Text;
-
-            // Remove caracteres não numéricos
-            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
-
-            // Converte para um número
-            if (long.TryParse(valorAtual, out long valorNumerico))
-            {
-                // Formata como moeda (reais)
-                tbValor.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
-            }
-            else
-            {
-                // Se não for um número válido, limpe o campo
-                tbValor.Clear();
-            }
-        }
-
-        private void TbTotal_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Obtém o valor atual da TextBox
-            string valorAtual = tbTotal.Text;
-
-            // Remove caracteres não numéricos
-            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
-
-            // Converte para um número
-            if (long.TryParse(valorAtual, out long valorNumerico))
-            {
-                // Formata como moeda (reais)
-                tbTotal.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
-            }
-            else
-            {
-                // Se não for um número válido, limpe o campo
-                tbTotal.Clear();
-            }
-        }
         private void btRecebimento_Click(object sender, RoutedEventArgs e)
         {
             _context.SwitchScreen(new RecebimentoFormUC(_context));
@@ -180,6 +136,16 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
+        }
+
+        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TbTotal_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

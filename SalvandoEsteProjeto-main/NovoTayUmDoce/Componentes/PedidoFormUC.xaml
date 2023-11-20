@@ -32,10 +32,10 @@
                 <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
 
                 <Label Content="VALOR:" Margin="10 0 0 0" />
-                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79"/>
+                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79" TextChanged="TbValor_TextChanged_1"/>
 
                 <Label Content="TOTAL:"  Margin="10 0 0 0" />
-                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91"/>
+                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91" TextChanged="TbTotal_TextChanged_1"/>
 
                 <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
                     <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="28" Width="28" BorderBrush="Bisque">

@@ -33,28 +33,6 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            tbSalario.TextChanged += TbSalario_TextChanged;
-        }
-
-        private void TbSalario_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            // Obtém o valor atual da TextBox
-            string valorAtual = tbSalario.Text;
-
-            // Remove caracteres não numéricos
-            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
-
-            // Converte para um número
-            if (long.TryParse(valorAtual, out long valorNumerico))
-            {
-                // Formata como moeda (reais)
-                tbSalario.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
-            }
-            else
-            {
-                // Se não for um número válido, limpe o campo
-                tbSalario.Clear();
-            }
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -233,31 +211,6 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
             }
-        }
-        private void tbCep_TextChanged(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-            // Remove caracteres não numéricos
-            string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
-
-            // Aplica a máscara (formato: "00000-000")
-            if (cep.Length > 5)
-            {
-                cep = cep.Insert(5, "-");
-            }
-
-            // Limita o comprimento total do CEP
-            if (cep.Length > 9)
-            {
-                cep = cep.Substring(0, 9);
-            }
-
-            // Define o texto formatado de volta no TextBox
-            textBox.Text = cep;
-
-            // Move o cursor para o final do TextBox
-            textBox.CaretIndex = textBox.Text.Length;
         }
     }
 }
