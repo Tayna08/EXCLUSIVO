@@ -161,5 +161,31 @@ namespace NovoTayUmDoce.Componentes
                 tbCpf.CaretIndex = tbCpf.Text.Length;
             }
         }
+
+        private void tbCep_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            // Remove caracteres não numéricos
+            string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            // Aplica a máscara (formato: "00000-000")
+            if (cep.Length > 5)
+            {
+                cep = cep.Insert(5, "-");
+            }
+
+            // Limita o comprimento total do CEP
+            if (cep.Length > 9)
+            {
+                cep = cep.Substring(0, 9);
+            }
+
+            // Define o texto formatado de volta no TextBox
+            textBox.Text = cep;
+
+            // Move o cursor para o final do TextBox
+            textBox.CaretIndex = textBox.Text.Length;
+        }
     }
 }
