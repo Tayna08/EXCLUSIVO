@@ -18,8 +18,8 @@ using System.Windows.Shapes;
 using Newtonsoft.Json;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
-using NPOI.XSSF.UserModel;
 using Newtonsoft.Json;
+using System.Globalization;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -33,9 +33,29 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            tbSalario.TextChanged += TbSalario_TextChanged;
         }
 
+        private void TbSalario_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Obtém o valor atual da TextBox
+            string valorAtual = tbSalario.Text;
 
+            // Remove caracteres não numéricos
+            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
+
+            // Converte para um número
+            if (long.TryParse(valorAtual, out long valorNumerico))
+            {
+                // Formata como moeda (reais)
+                tbSalario.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
+            }
+            else
+            {
+                // Se não for um número válido, limpe o campo
+                tbSalario.Clear();
+            }
+        }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -186,7 +206,7 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
-
+       
         private async void btAddCEP_Click(object sender, RoutedEventArgs e)
         {
             string cep = tbCEP.Text;
