@@ -2,6 +2,7 @@
 using NovoTayUmDoce.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            
+            tbValorVenda.TextChanged += TbValorVenda_TextChanged;
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
@@ -41,6 +42,26 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+        private void TbValorVenda_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Obtém o valor atual da TextBox
+            string valorAtual = tbValorVenda.Text;
+
+            // Remove caracteres não numéricos
+            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
+
+            // Converte para um número
+            if (long.TryParse(valorAtual, out long valorNumerico))
+            {
+                // Formata como moeda (reais)
+                tbValorVenda.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
+            }
+            else
+            {
+                // Se não for um número válido, limpe o campo
+                tbValorVenda.Clear();
+            }
+        }
         //SALVAR
         private void btGerenciar_Click(object sender, RoutedEventArgs e)
         {

@@ -28,7 +28,7 @@
             <Label Content="VALOR:"/>
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White"/>
         </StackPanel>
-        
+
         <StackPanel Margin="250,214,250,788">
             <Label Content="CAIXA:"/>
             <ComboBox Background="White" x:Name="cbCaixa"/>
