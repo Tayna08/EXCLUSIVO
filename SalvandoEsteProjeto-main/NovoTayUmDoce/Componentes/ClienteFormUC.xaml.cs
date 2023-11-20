@@ -29,6 +29,7 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            tbCep.TextChanged += tbCep_TextChanged;
         }
         
 
