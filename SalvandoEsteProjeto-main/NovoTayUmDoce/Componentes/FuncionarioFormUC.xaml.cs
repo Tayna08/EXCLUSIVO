@@ -33,7 +33,6 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            tbSalario.TextChanged += TbSalario_TextChanged_1;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -211,25 +210,6 @@ namespace NovoTayUmDoce.Componentes
             catch (Exception ex)
             {
                 MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
-            }
-        }
-        private void TbSalario_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            string valorAtual = tbSalario.Text;
-
-            // Remove caracteres não numéricos e não ponto decimal
-            valorAtual = new string(valorAtual.Where(c => char.IsDigit(c) || c == '.').ToArray());
-
-            // Converte para um número decimal
-            if (double.TryParse(valorAtual, NumberStyles.Currency, CultureInfo.GetCultureInfo("pt-BR"), out double valorNumerico))
-            {
-                // Formata como moeda (reais)
-                tbSalario.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
-            }
-            else
-            {
-                // Se não for um número válido, limpe o campo
-                tbSalario.Clear();
             }
         }
     }
