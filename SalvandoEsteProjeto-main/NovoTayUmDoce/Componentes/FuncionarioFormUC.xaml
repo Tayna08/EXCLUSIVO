@@ -154,5 +154,6 @@
 
         </StackPanel>
 
-    </Grid>
+    </Grid
+                    >
 </UserControl>
