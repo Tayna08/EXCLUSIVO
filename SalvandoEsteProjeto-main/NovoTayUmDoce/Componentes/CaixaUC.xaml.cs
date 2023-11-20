@@ -71,6 +71,16 @@ namespace NovoTayUmDoce.Componentes
         private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
         {
 
+            try
+            {
+                Caixa caixa = new Caixa();
+
+            }
+            catch 
+            {
+            
+            }
+
         }
 
         private void BtnFecharCaixa_Click(object sender, RoutedEventArgs e)
