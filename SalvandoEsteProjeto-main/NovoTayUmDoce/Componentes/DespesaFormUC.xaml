@@ -24,7 +24,7 @@
         </StackPanel>
 
         <StackPanel Margin="74,94,17,813">
-            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27"/>
+            <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="27" TextChanged="tbValor_TextChanged_1"/>
         </StackPanel>
 
         <StackPanel Margin="77,45,22,858" Grid.Column="1">

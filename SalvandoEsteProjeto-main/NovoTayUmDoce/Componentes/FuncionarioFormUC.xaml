@@ -80,7 +80,7 @@
                 <TextBox x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30" Width="200" />
 
                 <Label Content="SALÁRIO:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbSalario" Background="White" Height="30" Width="170"/>
+                <TextBox x:Name="tbSalario" Background="White" Height="30" Width="170" TextChanged="TbSalario_TextChanged_1"/>
 
             </WrapPanel>
 

@@ -259,5 +259,10 @@ namespace NovoTayUmDoce.Componentes
             // Move o cursor para o final do TextBox
             textBox.CaretIndex = textBox.Text.Length;
         }
+
+        private void TbSalario_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
