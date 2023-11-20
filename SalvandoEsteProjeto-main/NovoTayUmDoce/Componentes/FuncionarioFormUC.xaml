@@ -45,10 +45,6 @@
                 <TextBox Grid.Column="1" x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" />
             </Grid>
 
-                <Label Content="CEP:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90" TextChanged="tbCep_TextChanged"/>
-
-
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -81,8 +77,6 @@
                 <Label Content="SALÁRIO:" Grid.Column="2"/>
                 <TextBox  Grid.Column="3" x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="30"/>
             </Grid>
-                <Label Content="SALÁRIO:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbSalario" Background="White" Height="30" Width="170" TextChanged="TbSalario_TextChanged_1"/>
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
@@ -94,7 +88,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="CEP:"/>
-                <TextBox Grid.Column="1" x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" Margin="47,0,49,0"/>
 
                 <Label Content="BAIRRO:" Grid.Column="2"/>
                 <TextBox  Grid.Column="3" x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30"/>
@@ -132,6 +126,20 @@
                 <Label Content="COMPLEMENTO:" Grid.Column="2"/>
                 <TextBox  Grid.Column="3" x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="242"/>
 
+
+                <Grid Margin="0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5.*"/>
+                        <ColumnDefinition Width="*"/>
+
+                        <ColumnDefinition Width="4.*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Click="btAddCEP_Click" BorderBrush="#FF928B8B" Background="#FF928B8B" Margin="209,-114,-243,114" Grid.Column="3"/>
+
+
+                </Grid>
             </Grid>
 
         </StackPanel>
