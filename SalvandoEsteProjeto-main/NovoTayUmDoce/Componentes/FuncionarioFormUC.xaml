@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="800">
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.*"/>
@@ -13,104 +13,123 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Height="216" Margin="533,470,0,0">
             <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
             <Button x:Name="btEmitirRelatorio" Content="Emitir Relatório"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btEmitirRelatorio_Click"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-            <WrapPanel Margin="0 5">
+        <StackPanel Margin="15,22,0,0" VerticalAlignment="Top" Grid.Column="0" Height="401">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10.*"/>
+                </Grid.ColumnDefinitions>
 
-                <Label Content="CIDADE:"  Margin="0 0 0 0" />
-                <TextBox x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
+                <Label Content="NOME:" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30" />
+            </Grid>
 
-                <Label Content="BAIRRO:" Margin="10 0 0 0"/>
-                <TextBox x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30" Width="125" />
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10.*"/>
+                </Grid.ColumnDefinitions>
 
-                <Label Content="CEP:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90"/>
+                <Label Content="CPF:" />
+                <TextBox Grid.Column="1" x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" />
+            </Grid>
 
-                <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" Click="btAddCEP_Click" BorderBrush="#FF928B8B" Background="#FF928B8B" Margin="25,0,0,0"/>
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="*"/>
 
-                <Button x:Name="btAddCEP" Foreground="#FF7E7E7E" FontWeight="Bold" Cursor="Hand" Height="35" Width="35" Click="btAddCEP_Click" BorderBrush="#FF897F7F" Margin="-34,0,0,0">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/Componentes/lupa.png"/>
-                    </Button.Background>
+                    <ColumnDefinition Width="4.*"/>
+                </Grid.ColumnDefinitions>
 
-                </Button>
+                <Label Content="E-MAIL:" />
+                <TextBox Grid.Column="1" x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="30"/>
 
-            </WrapPanel>
+                <Label  Grid.Column="2" Content="CONTATO:"  HorizontalAlignment="Right"/>
+                <TextBox  Grid.Column="3" x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="30"/>
+            </Grid>
 
-        </StackPanel>
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="*"/>
 
-        <StackPanel Grid.Row="1">
-            <WrapPanel Margin="0 60">
-
-                <Label Content="RUA:"/>
-                <TextBox x:Name="tbRua" Background="White" Height="30" Width="130"/>
-
-                <Label Content="N°:" Margin="10 0 0 0" />
-                <TextBox x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
-
-                <Label Content="COMPLEMENTO:" Margin="10 0 0 0" />
-                <TextBox x:Name="tbComplemento" Background="White" Height="30" Width="120"/>
-
-            </WrapPanel>
-
-        </StackPanel>
-
-        <StackPanel RenderTransformOrigin="0.5,0.5" Margin="0,179,1,0" Cursor="Hand" Grid.RowSpan="2">
-            <StackPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.042"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </StackPanel.RenderTransform>
-            <WrapPanel Margin="0 115">
+                    <ColumnDefinition Width="4.*"/>
+                </Grid.ColumnDefinitions>
 
                 <Label Content="FUNÇÃO:"/>
-                <TextBox x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30" Width="200" />
+                <TextBox Grid.Column="1" x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30"/>
 
-                <Label Content="SALÁRIO:" Margin="20 0 0 0" />
-                <TextBox x:Name="tbSalario" Background="White" Height="30" Width="170"/>
+                <Label Content="SALÁRIO:" Grid.Column="2"/>
+                <TextBox  Grid.Column="3" x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="30"/>
+            </Grid>
 
-            </WrapPanel>
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="4.*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="CEP:"/>
+                <TextBox Grid.Column="1" x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="30"/>
+
+                <Label Content="BAIRRO:" Grid.Column="2"/>
+                <TextBox  Grid.Column="3" x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30"/>
+            </Grid>
+
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="4.*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="CIDADE:"/>
+                <TextBox  Grid.Column="1" x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="30"/>
+
+                <Label Content="RUA:" Grid.Column="2"/>
+                <TextBox  Grid.Column="3" x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="30"/>
+
+            </Grid>
+
+            <Grid Margin="0 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="4.*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="N°:"/>
+                <TextBox  Grid.Column="1" x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="30"/>
+
+                <Label Content="COMPLEMENTO:" Grid.Column="2"/>
+                <TextBox  Grid.Column="3" x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="242"/>
+
+            </Grid>
 
         </StackPanel>
 
 
-        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="142">
-            <WrapPanel>
-                <Label Content="NOME:" Margin="0 15 0 0" />
-                <TextBox x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30" Width="458" />
-            </WrapPanel>
-
-            <WrapPanel Margin="0 20 0 0">
-                <Label Content="CPF:" Margin="0 0 0 0"/>
-                <TextBox x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" Width="473" />
-            </WrapPanel>
-
-            <WrapPanel Margin="0 20 0 0">
-                <Label Content="E-MAIL:" Width="55"/>
-                <TextBox x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="30" Width="150" />
-
-                <Label Content="CONTATO:" Margin="20 0 0 0"/>
-                <TextBox x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="30" Width="215" />
-
-            </WrapPanel>
-
-        </StackPanel>
-
-
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Height="68" Width="180" Margin="0,144,0,0">
 
             <Label Content="DATA NASCIMENTO:" HorizontalAlignment="Center"/>
 
