@@ -31,7 +31,6 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
             Loaded += Status_Loaded;
             CarregarData();
-            tbValor.TextChanged += TbValor_TextChanged_1;
         }
 
         private void Status_Loaded(object sender, RoutedEventArgs e)
@@ -93,28 +92,6 @@ namespace NovoTayUmDoce.Componentes
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Erro ao abrir a nova janela", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
-
-        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            // Obtém o valor atual da TextBox
-            string valorAtual = tbValor.Text;
-
-            // Remove caracteres não numéricos
-            valorAtual = new string(Array.FindAll(valorAtual.ToCharArray(), char.IsDigit));
-
-            // Converte para um número
-            if (long.TryParse(valorAtual, out long valorNumerico))
-            {
-                // Formata como moeda (reais)
-                tbValor.Text = valorNumerico.ToString("C", CultureInfo.GetCultureInfo("pt-BR"));
-            }
-            else
-            {
-                // Se não for um número válido, limpe o campo
-                tbValor.Clear();
             }
         }
     }
