@@ -38,7 +38,9 @@ namespace NovoTayUmDoce
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _context.SwitchScreen(((SubItem)((ListView)sender).SelectedItem).Screen);
+            var screen = ((SubItem)((ListView)sender).SelectedItem).Screen;
+
+            _context.SwitchScreen(screen);
         }
 
         

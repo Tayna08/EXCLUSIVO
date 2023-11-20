@@ -42,6 +42,7 @@ namespace NovoTayUmDoce
             {
                 StackPanelMain.Children.Clear();
                 StackPanelMain.Children.Add(screen);
+               
             }
         }
 

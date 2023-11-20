@@ -88,6 +88,8 @@ namespace NovoTayUmDoce.Models
                             lista.Add(produto);
                         }
 
+                        reader.Close();
+
                         return lista;
                     }
                 }

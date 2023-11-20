@@ -17,6 +17,7 @@ namespace NovoTayUmDoce
     /// <summary>
     /// Lógica interna para inicio.xaml
     /// </summary>
+<<<<<<< HEAD
     //public partial class inicio : Window
     //{
     //    public inicio()
@@ -64,6 +65,56 @@ namespace NovoTayUmDoce
     //    {
     //        DragMove();
     //    }
+=======
+    public partial class inicio : Window
+    {
+        public inicio()
+        {
+            InitializeComponent();
+        }
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //if (con.State == System.Data.ConnectionState.Open)
+            //{
+            //    con.Close();
+            //}
+            //if (VerifyUser(txtUsername.Text, txtPassword.Password))
+            //{
+            //    MessageBox.Show("Login Successfully", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Username or password is incorrect", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
+        }
+        private bool VerifyUser(string username, string password)
+        {
+            //con.Open();
+            //com.Connection = con;
+            //com.CommandText = "select Status from Users where username='" + username + "' and password='" + password + "'";
+            //dr = com.ExecuteReader();
+            //if (dr.Read())
+            //{
+            //    if (Convert.ToBoolean(dr["Status"]) == true)
+            //    {
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+            return true;
+        }
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+>>>>>>> 7b27d6fab167c7337c7fe52ad330f2930e8e4c44
 
     //    private void btnExit_Click(object sender, RoutedEventArgs e)
     //    {
