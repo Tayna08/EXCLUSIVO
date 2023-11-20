@@ -28,8 +28,14 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            Loaded += EstoqueFormUC_Loaded;
+            
+        }
+
+        private void EstoqueFormUC_Loaded(object sender, RoutedEventArgs e)
+        {
             CarregarData();
-            Listar();
+            ListarEstoque();
         }
 
         private void CarregarData()
@@ -108,21 +114,6 @@ namespace NovoTayUmDoce.Componentes
             var dao = new EstoqueDAO();
             dataGridEstoque.ItemsSource = dao.List();
         }
-
-        private void Listar()
-        {
-            try
-            {
-                var dao = new EstoqueDAO();
-                dataGridEstoque.ItemsSource = dao.List();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar o estoque: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
 
         private void Clear()
         {

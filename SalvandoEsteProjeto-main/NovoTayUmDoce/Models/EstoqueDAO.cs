@@ -62,7 +62,6 @@ namespace NovoTayUmDoce.Models
         {
             try
             {
-
                 using (var query = conn.Query())
                 {
                     query.CommandText = "SELECT * FROM estoque LEFT JOIN produto ON id_pro = id_pro_fk";
@@ -73,6 +72,11 @@ namespace NovoTayUmDoce.Models
                         while (reader.Read())
                         {
 
+                            var produto = new Produto();
+
+                            produto.Id = reader.GetInt32("id_pro");
+                            produto.Nome = reader.GetString("nome_pro");
+
                             var estoque = new Estoque()
                             {
 
@@ -81,6 +85,7 @@ namespace NovoTayUmDoce.Models
                                 Datavalidade = DAOHelper.GetDateTime(reader, "validade_est"),
                                 DataFabricacao = DAOHelper.GetDateTime(reader, "data_fabricacao_est"),
                                 Insumos = DAOHelper.GetString(reader, "insumos_est"),
+                                Produto = produto,
 
                             };
 
