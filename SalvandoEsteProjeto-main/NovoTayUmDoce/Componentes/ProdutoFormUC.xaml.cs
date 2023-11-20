@@ -29,7 +29,7 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            tbValorVenda.TextChanged += TbValorVenda_TextChanged;
+            tbValorVenda.TextChanged += TbValorVenda_TextChanged_1;
         }
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
@@ -42,7 +42,7 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void TbValorVenda_TextChanged(object sender, TextChangedEventArgs e)
+        private void TbValorVenda_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             // Obtém o valor atual da TextBox
             string valorAtual = tbValorVenda.Text;

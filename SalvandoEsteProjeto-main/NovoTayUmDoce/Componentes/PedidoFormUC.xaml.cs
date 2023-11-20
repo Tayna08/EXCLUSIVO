@@ -181,5 +181,15 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
         }
+
+        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TbTotal_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

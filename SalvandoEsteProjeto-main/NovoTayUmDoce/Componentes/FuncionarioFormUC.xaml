@@ -40,9 +40,14 @@
                     <ColumnDefinition Width="10.*"/>
                 </Grid.ColumnDefinitions>
 
+
                 <Label Content="CPF:" />
                 <TextBox Grid.Column="1" x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" />
             </Grid>
+
+                <Label Content="CEP:" Margin="20 0 0 0" />
+                <TextBox x:Name="tbCEP" Background="White" Height="30" Width="90" TextChanged="tbCep_TextChanged"/>
+
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
@@ -72,9 +77,12 @@
                 <Label Content="FUNÇÃO:"/>
                 <TextBox Grid.Column="1" x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30"/>
 
+
                 <Label Content="SALÁRIO:" Grid.Column="2"/>
                 <TextBox  Grid.Column="3" x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="30"/>
             </Grid>
+                <Label Content="SALÁRIO:" Margin="20 0 0 0" />
+                <TextBox x:Name="tbSalario" Background="White" Height="30" Width="170" TextChanged="TbSalario_TextChanged_1"/>
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
