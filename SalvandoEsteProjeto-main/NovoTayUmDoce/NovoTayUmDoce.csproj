@@ -301,6 +301,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Componentes\QrCodeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Componentes\RecebimentoFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +370,9 @@
     </Compile>
     <Compile Include="Componentes\QrCode.xaml.cs">
       <DependentUpon>QrCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\QrCodeWindow.xaml.cs">
+      <DependentUpon>QrCodeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Componentes\RecebimentoFormUC.xaml.cs">
       <DependentUpon>RecebimentoFormUC.xaml</DependentUpon>
