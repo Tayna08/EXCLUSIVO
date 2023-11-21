@@ -54,7 +54,7 @@
                 <Label Content="Informações do Caixa:" FontSize="25" />
             </StackPanel>
             <StackPanel Margin="10,310,15,100">
-                <TextBox x:Name="tbInformações" TextWrapping="Wrap" Background="White" Height="90" FontSize="20"/>
+                <TextBox x:Name="tbInformações" TextWrapping="Wrap" Background="White" Height="90" FontSize="20" IsEnabled="False"/>
             </StackPanel>
 
             
@@ -79,17 +79,17 @@
 
 
             <StackPanel Margin="10,90,10,360">
-                <Label Content="Saldo Inicial:" FontSize="20"/>
+                <Label Content="Status:" FontSize="20"/>
             </StackPanel>
             <StackPanel Margin="130,93,10,100">
-                <TextBox x:Name="tbSaldoInicial2" TextWrapping="Wrap" Background="White" Height="30" FontSize="20"/>
+                <TextBox x:Name="tbStatus" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False"/>
             </StackPanel>
 
             <StackPanel Margin="10,140,10,360">
                 <Label Content="Entrada:" FontSize="20"/>
             </StackPanel>
             <StackPanel Margin="110,143,10,100">
-                <TextBox x:Name="tbEntrada" TextWrapping="Wrap" Background="White" Height="30" FontSize="20"/>
+                <TextBox x:Name="tbEntrada" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False"/>
             </StackPanel>
 
 
@@ -97,7 +97,7 @@
                 <Label Content="Saídas:" FontSize="20"/>
             </StackPanel>
             <StackPanel Margin="90,233,10,100">
-                <TextBox x:Name="tbSaidaCaixa" TextWrapping="Wrap" Background="White" Height="30" FontSize="20"/>
+                <TextBox x:Name="tbSaidaCaixa" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False"/>
             </StackPanel>
 
 
@@ -105,7 +105,7 @@
                 <Label Content="Total:" FontSize="20"/>
             </StackPanel>
             <StackPanel Margin="90,333,10,100">
-                <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" FontSize="20"/>
+                <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False"/>
             </StackPanel>
 
 
