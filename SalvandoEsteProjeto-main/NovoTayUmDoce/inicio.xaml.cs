@@ -17,7 +17,7 @@ namespace NovoTayUmDoce
     /// <summary>
     /// Lógica interna para inicio.xaml
     /// </summary>
-<<<<<<< HEAD
+
     //public partial class inicio : Window
     //{
     //    public inicio()
@@ -65,7 +65,6 @@ namespace NovoTayUmDoce
     //    {
     //        DragMove();
     //    }
-=======
     public partial class inicio : Window
     {
         public inicio()
@@ -114,11 +113,12 @@ namespace NovoTayUmDoce
         {
             DragMove();
         }
->>>>>>> 7b27d6fab167c7337c7fe52ad330f2930e8e4c44
 
-    //    private void btnExit_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        Application.Current.Shutdown();
-    //    }
-    //}
+
+        //    private void btnExit_Click(object sender, RoutedEventArgs e)
+        //    {
+        //        Application.Current.Shutdown();
+        //    }
+        //}
+    }
 }

@@ -75,6 +75,12 @@ namespace NovoTayUmDoce.Componentes
             {
                 Caixa caixa = new Caixa();
 
+                    tbStatus.Text = "Aberto";
+
+
+                tbEntrada.Text
+                
+                
             }
             catch 
             {
