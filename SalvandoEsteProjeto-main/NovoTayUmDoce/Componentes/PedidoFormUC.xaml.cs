@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using NovoTayUmDoce.Conexão;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -14,6 +15,8 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
+
+        List<Pedido> list = new List<Pedido>();
 
         public PedidoFormUC(MainWindow context)
         {
@@ -182,6 +185,7 @@ namespace NovoTayUmDoce.Componentes
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
+            
             try
             {
                 Pedido pedidoItem = new Pedido
@@ -189,12 +193,15 @@ namespace NovoTayUmDoce.Componentes
                     Cliente = (Cliente)cbCliente.SelectedItem,
                     Funcionario = (Funcionario)cbVendedor.SelectedItem,
                     Produto = (Produto)cbProduto.SelectedItem,
+                    Hora = tbHora.Text,
+                    Quant = tbQuantidade.Text,
                     Valor = tbValor.Text,
                     Status = cbStatus.Text,
                     Total = tbTotal.Text
                 };
 
-                dataGridPedido.Items.Add(pedidoItem);
+                list.Add(pedidoItem);
+                dataGridPedido.ItemsSource = list;
 
                 Clear();
             }
