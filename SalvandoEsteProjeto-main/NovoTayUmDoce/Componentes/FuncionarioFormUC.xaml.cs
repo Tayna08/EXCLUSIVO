@@ -125,7 +125,7 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
+        private void tbContato_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
             {
@@ -148,7 +148,12 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void tbCpf_TextChanged(object sender, TextChangedEventArgs e)
+        private void btEmitirRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tbCpf_TextChanged_1(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
             {
@@ -180,11 +185,6 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void btEmitirRelatorio_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-       
         private async void btAddCEP_Click(object sender, RoutedEventArgs e)
         {
             string cep = tbCEP.Text;
@@ -211,6 +211,35 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
             }
+        }
+
+        private void tbFuncao_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tbCEP_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+
+            string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            // Aplica a máscara (formato: "00000-000")
+            if (cep.Length > 5)
+            {
+                cep = cep.Insert(5, "-");
+            }
+
+
+            if (cep.Length > 9)
+            {
+                cep = cep.Substring(0, 9);
+            }
+
+
+            textBox.Text = cep;
+            textBox.CaretIndex = textBox.Text.Length;
         }
     }
 }

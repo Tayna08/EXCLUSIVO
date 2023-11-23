@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-
+             mc:Ignorable="d" d:DesignWidth="800" Height="800">
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2.*"/>
@@ -14,17 +12,16 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Top" Margin="133,567,133,0">
             <Button x:Name="btCancelar" Content="CANCELAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btCancelar_Click"/>
             <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Margin="0,58,0,328">
             <WrapPanel Margin=" 0 20 0 0">
                 <Label Content="BAIRRO" Width="100"/>
                 <TextBox Background="White" x:Name="tbBairro" Width="400"/>
@@ -44,7 +41,7 @@
                 <Label Content="CEP:" Width="100"/>
                 <TextBox Background="White" x:Name="tbCep" Width="400" TextChanged="tbCep_TextChanged"/>
             </WrapPanel>
-            
+
             <WrapPanel Margin="0 30 0 0 ">
                 <Label Content="NÚMERO:" Width="100"/>
                 <TextBox Background="White" x:Name="tbNumero" Width="400"/>
@@ -73,7 +70,6 @@
         <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <Label Content="CIDADE:" HorizontalAlignment="Center"/>
-
             <TextBox Background="White" x:Name="tbCidade" Width="180"/>
 
             <DatePicker x:Name="dtpData" Width="180" Margin="0 10"/>

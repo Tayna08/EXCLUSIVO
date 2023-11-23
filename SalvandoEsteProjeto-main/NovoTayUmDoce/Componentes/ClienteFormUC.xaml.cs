@@ -125,12 +125,12 @@ namespace NovoTayUmDoce.Componentes
         {
             if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
             {
-                e.Handled = true; // Impede caracteres não numéricos e limita o comprimento a 14 dígitos
+                e.Handled = true; 
             }
             else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
             {
                 tbCpf.Text += ".";
-                tbCpf.CaretIndex = tbCpf.Text.Length; // Coloca o cursor na posição correta
+                tbCpf.CaretIndex = tbCpf.Text.Length; 
             }
             else if (tbCpf.Text.Length == 11)
             {
@@ -139,12 +139,12 @@ namespace NovoTayUmDoce.Componentes
             }
             else if (tbCpf.Text.Length >= 14)
             {
-                e.Handled = true; // Impede caracteres não numéricos e limita o comprimento a 14 dígitos
+                e.Handled = true; 
             }
             else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
             {
                 tbCpf.Text += ".";
-                tbCpf.CaretIndex = tbCpf.Text.Length; // Coloca o cursor na posição correta
+                tbCpf.CaretIndex = tbCpf.Text.Length; 
             }
             else if (tbCpf.Text.Length == 11)
             {
@@ -157,7 +157,7 @@ namespace NovoTayUmDoce.Componentes
         {
             TextBox textBox = (TextBox)sender;
 
-            // Remove caracteres não numéricos
+
             string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
 
             // Aplica a máscara (formato: "00000-000")
@@ -166,16 +166,14 @@ namespace NovoTayUmDoce.Componentes
                 cep = cep.Insert(5, "-");
             }
 
-            // Limita o comprimento total do CEP
+
             if (cep.Length > 9)
             {
                 cep = cep.Substring(0, 9);
             }
 
-            // Define o texto formatado de volta no TextBox
-            textBox.Text = cep;
 
-            // Move o cursor para o final do TextBox
+            textBox.Text = cep;
             textBox.CaretIndex = textBox.Text.Length;
         }
     }

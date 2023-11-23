@@ -17,10 +17,10 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Height="216" Margin="533,470,0,0">
-            <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
-            <Button x:Name="btEmitirRelatorio" Content="Emitir Relatório"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btEmitirRelatorio_Click"/>
+        <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Height="216" Margin="10,470,0,0">
+            <Button x:Name="btCancelar" Content="FECHAR" Margin="10,10,400,0" Background="#FFFFA4A4" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10,-50,0,0" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
+            <Button x:Name="btEmitirRelatorio" Content="Emitir Relatório" Margin="400,-50,0,0" Background="#FFFFA4A4" Height="52" Width="143" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btEmitirRelatorio_Click"/>
         </StackPanel>
 
         <StackPanel Margin="15,22,0,0" VerticalAlignment="Top" Grid.Column="0" Height="401">
@@ -71,7 +71,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="FUNÇÃO:"/>
-                <TextBox Grid.Column="1" x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox Grid.Column="1" x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbFuncao_TextChanged"/>
 
 
                 <Label Content="SALÁRIO:" Grid.Column="2"/>
@@ -80,18 +80,33 @@
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5.*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="47*"/>
+                    <ColumnDefinition Width="181*"/>
+                    <ColumnDefinition Width="54*"/>
+                    <ColumnDefinition Width="47*"/>
 
-                    <ColumnDefinition Width="4.*"/>
+                    <ColumnDefinition Width="188*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Content="CEP:"/>
-                <TextBox Grid.Column="1" x:Name="tbCEP" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox x:Name="tbCEP" Margin="0,0,95,0" Grid.Column="1" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2"/>
 
-                <Label Content="BAIRRO:" Grid.Column="2"/>
-                <TextBox  Grid.Column="3" x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30"/>
+                <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Click="btAddCEP_Click" BorderBrush="Gray" Grid.Column="2" Margin="11,0,17,0" RenderTransformOrigin="0.5,0.5" Content="">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Componentes/lupa.png"/>
+                    </Button.Background>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+
+                <Label Content="BAIRRO:" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,188,0"/>
+                <TextBox  Grid.Column="4" x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30" Margin="0,2,0,3"/>
             </Grid>
 
             <Grid Margin="0 10">
@@ -123,23 +138,9 @@
                 <Label Content="N°:"/>
                 <TextBox  Grid.Column="1" x:Name="tbNumero" TextWrapping="Wrap" Background="White" Height="30"/>
 
-                <Label Content="COMPLEMENTO:" Grid.Column="2"/>
-                <TextBox  Grid.Column="3" x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="242"/>
+                <Label Content="COMPLEMENTO:" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,138,0"/>
+                <TextBox  Grid.Column="3" x:Name="tbComplemento" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="268"/>
 
-
-                <Grid Margin="0 10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="5.*"/>
-                        <ColumnDefinition Width="*"/>
-
-                        <ColumnDefinition Width="4.*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Click="btAddCEP_Click" BorderBrush="#FF928B8B" Background="#FF928B8B" Grid.ColumnSpan="3" Grid.Column="3"/>
-
-
-                </Grid>
             </Grid>
 
         </StackPanel>

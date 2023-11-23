@@ -23,5 +23,15 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
         }
+
+        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

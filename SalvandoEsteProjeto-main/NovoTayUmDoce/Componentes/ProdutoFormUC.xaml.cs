@@ -79,5 +79,10 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void tbValorVenda_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

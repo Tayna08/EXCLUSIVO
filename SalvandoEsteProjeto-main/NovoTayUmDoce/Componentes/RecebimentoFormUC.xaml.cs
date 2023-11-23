@@ -94,5 +94,10 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show(ex.Message, "Erro ao abrir a nova janela", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -32,7 +32,7 @@
             </WrapPanel>
             <WrapPanel Margin="0 25 0 0">
                 <Label Content="VALOR VENDA:" Width="100"/>
-                <TextBox Background="White" x:Name="tbValorVenda" Width="400" TextChanged="TbValorVenda_TextChanged_1" />
+                <TextBox Background="White" x:Name="tbValorVenda" Width="400" TextChanged="tbValorVenda_TextChanged" />
             </WrapPanel>
         </StackPanel>
 
