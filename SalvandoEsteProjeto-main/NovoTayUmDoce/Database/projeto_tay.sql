@@ -90,27 +90,23 @@ create table Pedido(
 id_ped int primary key auto_increment,
 total_ped double,
 data_ped date,
+quant_ped varchar(300),
 hora_ped varchar(10),
 forma_recebimento_ped varchar(100),
 status_ped varchar(100),
 id_fun_fk int,
 id_cli_fk int,
 id_cai_fk int,
+id_pro_fk int,
 foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
-foreign key (id_pro_fk) references Produto (id_pro),
+foreign key (id_pro_fk) references produto (id_pro),
 foreign key (id_cai_fk) references caixa (id_cai)
 );
+
 select*from produto;
 
-create table pedido_produtos (
-id_ppro int primary key auto_increment,
-quant_ppro float,
-id_ped_fk int,
-id_pro_fk int,
-foreign key (id_ped_fk) references pedido (id_ped),
-foreign key (id_pro_fk) references produto (id_pro)
-);
+
 insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525,'920000');
 
 ############################################################
