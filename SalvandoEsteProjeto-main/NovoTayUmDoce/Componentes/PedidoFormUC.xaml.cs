@@ -49,6 +49,11 @@ namespace NovoTayUmDoce.Componentes
                 cbCliente.ItemsSource = new ClienteDAO().List();
                 cbCliente.DisplayMemberPath = "Nome";
 
+                cbProduto.ItemsSource = null;
+                cbProduto.Items.Clear();
+                cbProduto.ItemsSource = new ProdutoDAO().List();
+                cbProduto.DisplayMemberPath = "Nome";
+
             }
             catch (Exception ex)
             {
@@ -125,6 +130,7 @@ namespace NovoTayUmDoce.Componentes
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCliente.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+                pedido.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
@@ -150,7 +156,53 @@ namespace NovoTayUmDoce.Componentes
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CalcularValorTotal();
+        }
 
+        private void tbQuantidade_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            CalcularValorTotal();
+        }
+
+
+        private void CalcularValorTotal()
+        {
+            // Verificar se o produto e a quantidade foram selecionados
+            if (cbProduto.SelectedItem is Produto produto && int.TryParse(tbQuantidade.Text, out int quantidade))
+            {
+                // Calcular o valor total
+                double valorTotal = produto.Valor_Venda * quantidade;
+
+                // Exibir o valor total nos TextBoxes relevantes
+                tbValor.Text = produto.Valor_Venda.ToString("C");
+                tbTotal.Text = valorTotal.ToString("C");
+            }
+        }
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Pedido pedidoItem = new Pedido
+                {
+                    Cliente = (Cliente)cbCliente.SelectedItem,
+                    Funcionario = (Funcionario)cbVendedor.SelectedItem,
+                    Produto = (Produto)cbProduto.SelectedItem,
+                    Data = dtpData.SelectedDate ?? DateTime.Now,
+                    Hora = tbHora.Text,
+                    Status = cbStatus.Text,
+                    Total = Convert.ToDouble(tbTotal.Text)
+                };
+
+                dataGridPedido.Items.Add(pedidoItem);
+
+                // Limpar os campos após adicionar ao DataGrid
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao adicionar item ao DataGrid: " + ex.Message);
+            }
         }
     }
 }

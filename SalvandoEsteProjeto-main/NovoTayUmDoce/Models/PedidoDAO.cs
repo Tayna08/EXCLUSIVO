@@ -42,10 +42,12 @@ namespace NovoTayUmDoce.Models
                             pedido.Id = DAOHelper.GetInt(reader, "id_ped");
                             pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
                             pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            pedido.Quant = DAOHelper.GetString(reader, "Quant");
                             pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
                             pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
                             pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
+                            pedido.Produto = new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
 
                         }
 
@@ -67,6 +69,7 @@ namespace NovoTayUmDoce.Models
                 {
                     query.CommandText = "SELECT * FROM pedido LEFT JOIN funcionario ON id_fun = id_fun_fk";
                     query.CommandText = "SELECT * FROM pedido LEFT JOIN cliente ON id_cli = id_cli_fk";
+                    query.CommandText = "SELECT * FROM produto LEFT JOIN produto ON id_pro = id_pro_fk";
 
                     using (var reader = query.ExecuteReader())
                     {
@@ -74,11 +77,12 @@ namespace NovoTayUmDoce.Models
 
                         while (reader.Read())
                         {
-                            
+
                             var pedido = new Pedido()
                             {
 
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
+                                Quant = DAOHelper.GetString(reader, "Quant"),
                                 Total = DAOHelper.GetDouble(reader, "total_ped"),
                                 FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
@@ -106,23 +110,26 @@ namespace NovoTayUmDoce.Models
               
                 var funcionarioId = new FuncionarioDAO().GetById(pedido.Funcionario.Id);
                 var clienteId = new ClienteDAO().GetById(pedido.Cliente.Id);
+                var produtoId = new ProdutoDAO().GetById(pedido.Produto.Id);
 
                 
                 if(funcionarioId.Id >0)
                 {
                     using (var query= conn.Query())
                     {
-                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk) " +
-                            "VALUES (@total, @data_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli)";
+                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, quant_ped hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk, id_pro_fk) " +
+                            "VALUES (@total, @data_ped, @quant_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli, @id_pro)";
 
 
                         query.Parameters.AddWithValue("@total", pedido.Total);
                         query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
+                        query.Parameters.AddWithValue("@Quant", pedido.Quant);
                         query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
                         query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
                         query.Parameters.AddWithValue("@status", pedido.Status);
                         query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);
                         query.Parameters.AddWithValue("@id_cli", clienteId.Id);
+                        query.Parameters.AddWithValue("@id_pro", produtoId.Id);
  
 
                         var result = query.ExecuteNonQuery();

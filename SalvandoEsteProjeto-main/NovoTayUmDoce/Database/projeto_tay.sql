@@ -88,10 +88,11 @@ caixa_rec varchar(300)
 
 create table Pedido(
 id_ped int primary key auto_increment,
-total_ped double,
+total_ped varchar(300),
 data_ped date,
 quant_ped varchar(300),
 hora_ped varchar(10),
+valor_ped varchar(300),
 forma_recebimento_ped varchar(100),
 status_ped varchar(100),
 id_fun_fk int,
