@@ -147,5 +147,10 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void dataGridEstoque_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

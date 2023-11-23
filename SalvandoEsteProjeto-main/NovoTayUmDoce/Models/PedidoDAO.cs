@@ -40,8 +40,9 @@ namespace NovoTayUmDoce.Models
                         while (reader.Read())
                         {
                             pedido.Id = DAOHelper.GetInt(reader, "id_ped");
-                            pedido.Total = DAOHelper.GetDouble(reader, "total_ped");
+                            pedido.Total = DAOHelper.GetString(reader, "total_ped");
                             pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            pedido.Valor = DAOHelper.GetString(reader, "valor_ped");
                             pedido.Quant = DAOHelper.GetString(reader, "Quant");
                             pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
@@ -83,7 +84,8 @@ namespace NovoTayUmDoce.Models
 
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
                                 Quant = DAOHelper.GetString(reader, "Quant"),
-                                Total = DAOHelper.GetDouble(reader, "total_ped"),
+                                Valor = DAOHelper.GetString(reader, "Valor"),
+                                Total = DAOHelper.GetString(reader, "total_ped"),
                                 FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
                                
@@ -117,7 +119,7 @@ namespace NovoTayUmDoce.Models
                 {
                     using (var query= conn.Query())
                     {
-                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, quant_ped hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk, id_pro_fk) " +
+                        query.CommandText = "INSERT INTO Pedido (total_ped,  data_ped, quant_ped hora_ped, valor_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk, id_pro_fk) " +
                             "VALUES (@total, @data_ped, @quant_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli, @id_pro)";
 
 
@@ -125,6 +127,7 @@ namespace NovoTayUmDoce.Models
                         query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
                         query.Parameters.AddWithValue("@Quant", pedido.Quant);
                         query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
+                        query.Parameters.AddWithValue("@valor_ped", pedido.Valor);
                         query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
                         query.Parameters.AddWithValue("@status", pedido.Status);
                         query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);

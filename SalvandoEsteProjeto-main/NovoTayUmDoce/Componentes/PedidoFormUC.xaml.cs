@@ -122,7 +122,8 @@ namespace NovoTayUmDoce.Componentes
             {
                 Pedido pedido = new Pedido();
 
-                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                pedido.Total = tbTotal.Text;
+                pedido.Valor = tbValor.Text;
                 pedido.Hora = tbHora.Text;
                 pedido.Status = cbStatus.Text;
 
@@ -188,15 +189,13 @@ namespace NovoTayUmDoce.Componentes
                     Cliente = (Cliente)cbCliente.SelectedItem,
                     Funcionario = (Funcionario)cbVendedor.SelectedItem,
                     Produto = (Produto)cbProduto.SelectedItem,
-                    Data = dtpData.SelectedDate ?? DateTime.Now,
-                    Hora = tbHora.Text,
+                    Valor = tbValor.Text,
                     Status = cbStatus.Text,
-                    Total = Convert.ToDouble(tbTotal.Text)
+                    Total = tbTotal.Text
                 };
 
                 dataGridPedido.Items.Add(pedidoItem);
 
-                // Limpar os campos após adicionar ao DataGrid
                 Clear();
             }
             catch (Exception ex)
