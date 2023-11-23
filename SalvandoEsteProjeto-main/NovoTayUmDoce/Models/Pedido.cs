@@ -13,11 +13,9 @@ namespace NovoTayUmDoce.Models
      
         public string Hora { get; set; }
   
-   
         public DateTime Data { get; set; }
         public string FormaPagamento { get; set;}
         public string Status { get; set;}
-       
         public Funcionario Funcionario { get; set; }
         public Cliente Cliente { get; set; }
   

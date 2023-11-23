@@ -16,7 +16,7 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
-        Pedido _pedido = new Pedido();
+        private List<Pedido> _pedido = new List<Pedido>();
 
         public PedidoFormUC(MainWindow context)
         {
@@ -99,7 +99,7 @@ namespace NovoTayUmDoce.Componentes
                     var dao = new PedidoDAO();
                     dao.Delete(pedidoSelected);
 
-                   // ListarPedidos();
+                    //ListarPedidos();
                 }
             }
             catch (Exception ex)
@@ -176,22 +176,23 @@ namespace NovoTayUmDoce.Componentes
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
             
+
             try
             {
                 Pedido pedidoItem = new Pedido
                 {
                     Cliente = (Cliente)cbCliente.SelectedItem,
                     Funcionario = (Funcionario)cbVendedor.SelectedItem,
-                 //   Produto = (Produto)cbProduto.SelectedItem,
+                    Produto = (Produto)cbProduto.SelectedItem,
                     Hora = tbHora.Text,
-                   // Quant = tbQuantidade.Text,
-                   // Valor = tbValor.Text,
-                   // Status = cbStatus.Text,
-                   // Total = tbTotal.Text
+                    Quant = tbQuantidade.Text,
+                    Valor = tbValor.Text,
+                    Status = cbStatus.Text,
+                    Total = tbTotal.Text
                 };
 
-                //_pedido..Add(pedidoItem);
-                //dataGridPedido.ItemsSource = list;
+                 _pedido.Add(pedidoItem);
+                 dataGridPedido.ItemsSource = list;
 
                 Clear();
             }
