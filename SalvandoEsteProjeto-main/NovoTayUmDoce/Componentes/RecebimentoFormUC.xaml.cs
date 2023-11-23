@@ -70,8 +70,7 @@ namespace NovoTayUmDoce.Componentes
             {
                 if (cbFormaRec.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
                 {
-                    _context.SwitchScreen(new QrCode(_context));
-
+                    _context.SwitchScreen(new QrCodeWindow(_context));
                 }
 
                 Recebimento recebimento = new Recebimento();

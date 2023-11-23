@@ -25,7 +25,7 @@
         </StackPanel>
 
 
-        <DataGrid Grid.Row="1" Margin="5,20,20,5" x:Name="dataGridFuncionario" IsReadOnly="true"
+        <DataGrid Grid.Row="1" Margin="5,20,168,5" x:Name="dataGridFuncionario" IsReadOnly="true"
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridFuncionario_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>

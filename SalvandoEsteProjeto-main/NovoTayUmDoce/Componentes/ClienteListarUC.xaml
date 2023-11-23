@@ -8,20 +8,19 @@
              d:DesignHeight="450" Width="884">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="439*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24"/>
             <Button Background="#FFD18D9F" x:Name="BtnAddCliente" Margin="10 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" Foreground="#E5000000" >
+        <DataGrid Grid.Row="1" Margin="5,20,0,5" x:Name="dataGridClientes" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Foreground="#E5000000">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
