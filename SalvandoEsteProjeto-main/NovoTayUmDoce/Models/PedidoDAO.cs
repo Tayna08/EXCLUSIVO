@@ -83,9 +83,6 @@ namespace NovoTayUmDoce.Models
                             {
 
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
-                                Quant = DAOHelper.GetString(reader, "Quant"),
-                                Valor = DAOHelper.GetString(reader, "Valor"),
-                                Total = DAOHelper.GetString(reader, "total_ped"),
                                 FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
                                
@@ -153,6 +150,28 @@ namespace NovoTayUmDoce.Models
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
+            }
+        }
+
+        private void InsertItens(long compraId, List<PedidoItem> itens)
+        {
+
+            foreach (PedidoItem item in itens)
+            {
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO itens_compra (cod_comp_fk, cod_prod_fk, quantidade_itenc, valor_itenc, valor_total_itenc) " +
+                    "VALUES (@compra, @produto, @quantidade, @valor, @valor_total)";
+
+                query.Parameters.AddWithValue("@compra", compraId);
+                query.Parameters.AddWithValue("@produto", item.Produto.Id);
+               // query.Parameters.AddWithValue("@quantidade", item.Quantidade);
+                query.Parameters.AddWithValue("@valor", item.Valor);
+               // query.Parameters.AddWithValue("@valor_total", item.ValorTotal);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Os itens da compra não foi adicionada. Verifique e tente novamente.");
             }
         }
         public void Delete(Pedido pedido)

@@ -8,5 +8,10 @@ namespace NovoTayUmDoce.Models
 {
     internal class PedidoItem
     {
+        public int Id { get; set; }
+        public string Quant { get; set; }
+        public string Total { get; set; }
+        public string Valor { get; set; }
+        public Produto Produto { get; set; }
     }
 }

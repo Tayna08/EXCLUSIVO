@@ -50,7 +50,8 @@
             <DataGrid x:Name="dataGridPedido" IsReadOnly="true" ItemsSource="{Binding Source = MyList}"
                 AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="467" Margin="0,-270,0,0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nome}"/>
                     <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
                     <DataGridTextColumn Header="Valor Unitário" Binding="{Binding ValorUnitário}"/>
                     <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal}"/>

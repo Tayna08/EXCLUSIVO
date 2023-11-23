@@ -16,7 +16,7 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
-        List<Pedido> list = new List<Pedido>();
+        Pedido _pedido = new Pedido();
 
         public PedidoFormUC(MainWindow context)
         {
@@ -125,8 +125,8 @@ namespace NovoTayUmDoce.Componentes
             {
                 Pedido pedido = new Pedido();
 
-                pedido.Total = tbTotal.Text;
-                pedido.Valor = tbValor.Text;
+                // pedido.Total = tbTotal.Text;
+                // pedido.Valor = tbValor.Text;
                 pedido.Hora = tbHora.Text;
                 pedido.Status = cbStatus.Text;
 
@@ -134,7 +134,7 @@ namespace NovoTayUmDoce.Componentes
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCliente.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
-                pedido.Produto = (Produto)cbProduto.SelectedItem;
+                // pedido.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
@@ -146,16 +146,6 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
-        }
-
-        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TbTotal_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -192,16 +182,16 @@ namespace NovoTayUmDoce.Componentes
                 {
                     Cliente = (Cliente)cbCliente.SelectedItem,
                     Funcionario = (Funcionario)cbVendedor.SelectedItem,
-                    Produto = (Produto)cbProduto.SelectedItem,
+                 //   Produto = (Produto)cbProduto.SelectedItem,
                     Hora = tbHora.Text,
-                    Quant = tbQuantidade.Text,
-                    Valor = tbValor.Text,
-                    Status = cbStatus.Text,
-                    Total = tbTotal.Text
+                   // Quant = tbQuantidade.Text,
+                   // Valor = tbValor.Text,
+                   // Status = cbStatus.Text,
+                   // Total = tbTotal.Text
                 };
 
-                list.Add(pedidoItem);
-                dataGridPedido.ItemsSource = list;
+                //_pedido..Add(pedidoItem);
+                //dataGridPedido.ItemsSource = list;
 
                 Clear();
             }
