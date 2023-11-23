@@ -147,5 +147,10 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

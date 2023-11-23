@@ -98,6 +98,7 @@ id_cli_fk int,
 id_cai_fk int,
 foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
+foreign key (id_pro_fk) references Produto (id_pro),
 foreign key (id_cai_fk) references caixa (id_cai)
 );
 select*from produto;

@@ -29,6 +29,22 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            Loaded += Status_Loaded;
+        }
+
+        private void Status_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            tbFormaPagamento.Items.Add("");
+            tbFormaPagamento.Items.Add("Dinheiro em espécie");
+            tbFormaPagamento.Items.Add("Cartão de crédito ou débito");
+            tbFormaPagamento.Items.Add("Sistema de Pagamentos Instantâneos - PIX");
+            tbFormaPagamento.Items.Add("Transferência bancária");
+            tbFormaPagamento.Items.Add("Cobrança recorrente");
+            tbFormaPagamento.Items.Add("Boleto bancário");
+            tbFormaPagamento.Items.Add("Link de pagamento");
+            tbFormaPagamento.Items.Add("Outro");
+            tbFormaPagamento.SelectedIndex = 0;
         }
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
@@ -73,8 +89,12 @@ namespace NovoTayUmDoce.Componentes
         {
             tbNome.Clear();
             tbDescricao.Clear();
-            tbFormaPagamento.Clear();
             tbValor.Clear();
+        }
+
+        private void tbFormaPagamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

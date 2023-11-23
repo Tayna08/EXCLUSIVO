@@ -9,25 +9,24 @@
 
     <Grid Background="Bisque" Margin="0,-4,0,-238">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2.*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Height="216" Margin="533,73,0,0">
-            <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
-            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
+        <StackPanel VerticalAlignment="Top" Height="282" Margin="10,400,0,0">
+            <Button x:Name="btCancelar" Content="CANCELAR" Margin="10,0,300,0" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btSalvar" Content="SALVAR"  Margin="10,-50,-200,0" Background="#FFFFA4A4" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
         </StackPanel>
 
 
-        <StackPanel Margin="15,22,0,0" VerticalAlignment="Top" Grid.Column="0" Height="401">
+        <StackPanel Margin="15,58,10,0" VerticalAlignment="Top" Grid.Column="0" Height="258">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="3.*"/>
+                    <ColumnDefinition Width="6.*"/>
                     <ColumnDefinition Width="*"/>
 
                     <ColumnDefinition Width="4.*"/>
@@ -37,14 +36,14 @@
                 <TextBox Grid.Column="1" x:Name="tbNome" TextWrapping="Wrap" Background="White" Height="30" />
 
                 <Label Content="VALOR:" Grid.Column="2"/>
-                <TextBox Grid.Column="3" x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30" />
+                <TextBox Grid.Column="3" x:Name="tbValor" TextWrapping="Wrap" Background="White" Height="30" Margin="-50,0,0,0" />
 
             </Grid>
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10.*"/>
+                    <ColumnDefinition Width="15.*"/>
 
                 </Grid.ColumnDefinitions>
 
@@ -56,41 +55,41 @@
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10.*"/>
+                    <ColumnDefinition Width="8.5*"/>
 
                 </Grid.ColumnDefinitions>
 
 
                 <Label Content="FORMA PAGAMENTO:" />
-                <TextBox Grid.Column="1" x:Name="tbFormaPagamento" TextWrapping="Wrap" Background="White" Height="30"/>
+                <ComboBox Grid.Column="1" x:Name="tbFormaPagamento" Background="White" Height="30" SelectionChanged="tbFormaPagamento_SelectionChanged"/>
 
             </Grid>
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="10.*"/>
                     <ColumnDefinition Width="*"/>
 
                     <ColumnDefinition Width="1.*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Content="DATA DESPESA:"/>
-                <DatePicker Grid.Column="1" x:Name="dtpData" ></DatePicker>
+                <DatePicker Grid.Column="1" x:Name="dtpData"  Margin="0,0,650,0"></DatePicker>
 
             </Grid>
 
             <Grid Margin="0 10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5.*"/>
+                    <ColumnDefinition Width="7.*"/>
                     <ColumnDefinition Width="*"/>
 
                     <ColumnDefinition Width="1.*"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Content="DATA VENCIMENTO:"/>
-                <DatePicker Grid.Column="1" x:Name="dtpDataVenci" ></DatePicker>
+                <DatePicker Grid.Column="1" x:Name="dtpDataVenci" Margin="0,0,600,0" ></DatePicker>
 
             </Grid>
 

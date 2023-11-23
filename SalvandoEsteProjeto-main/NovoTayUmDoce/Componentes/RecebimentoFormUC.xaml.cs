@@ -98,5 +98,10 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+        private void cbFormaRec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
