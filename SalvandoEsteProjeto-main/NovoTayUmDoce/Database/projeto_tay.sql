@@ -90,6 +90,9 @@ create table Pedido(
 id_ped int primary key auto_increment,
 data_ped date,
 hora_ped varchar(10),
+quant_ppro varchar(300),
+valor_ppro varchar(300),
+total_ppro varchar(300),
 forma_recebimento_ped varchar(100),
 status_ped varchar(100),
 id_fun_fk int,
@@ -97,7 +100,7 @@ id_cli_fk int,
 id_cai_fk int,
 foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
-foreign key (id_cai_fk) references caixa (id_cai)
+foreign key (id_pro_fk) references produto (id_pro)
 );
 select*from produto;
 
