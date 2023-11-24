@@ -414,7 +414,6 @@
     <Compile Include="Menu\ItemMenu.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\PedidoDAO.cs" />
-    <Compile Include="Models\PedidoItem.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
     <Compile Include="Menu\SubItem.cs" />

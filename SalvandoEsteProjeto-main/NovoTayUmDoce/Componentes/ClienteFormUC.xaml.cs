@@ -1,10 +1,14 @@
-﻿using NovoTayUmDoce.Helpers;
+﻿using Newtonsoft.Json;
+using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using Newtonsoft.Json;
+using System.Globalization;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -98,7 +102,7 @@ namespace NovoTayUmDoce.Componentes
             }
 
         }
-        private void tbContato_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
             {
@@ -121,16 +125,16 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void tbCpf_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void tbCpf_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
             else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
             {
                 tbCpf.Text += ".";
-                tbCpf.CaretIndex = tbCpf.Text.Length; 
+                tbCpf.CaretIndex = tbCpf.Text.Length;
             }
             else if (tbCpf.Text.Length == 11)
             {
@@ -139,12 +143,12 @@ namespace NovoTayUmDoce.Componentes
             }
             else if (tbCpf.Text.Length >= 14)
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
             else if (tbCpf.Text.Length == 3 || tbCpf.Text.Length == 7)
             {
                 tbCpf.Text += ".";
-                tbCpf.CaretIndex = tbCpf.Text.Length; 
+                tbCpf.CaretIndex = tbCpf.Text.Length;
             }
             else if (tbCpf.Text.Length == 11)
             {
@@ -175,6 +179,34 @@ namespace NovoTayUmDoce.Componentes
 
             textBox.Text = cep;
             textBox.CaretIndex = textBox.Text.Length;
+        }
+
+        private async void btAddCEP_Click(object sender, RoutedEventArgs e)
+        {
+            string cep = tbCep.Text;
+            string url = $"https://viacep.com.br/ws/{cep}/json/";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string jsonResult = await client.GetStringAsync(url);
+                    dynamic data = JsonConvert.DeserializeObject(jsonResult);
+
+                    if (data != null && data.erro == null)
+                    {
+                        tbCidade.Text = data.localidade;
+                    }
+                    else
+                    {
+                        MessageBox.Show("CEP não encontrado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
+            }
         }
     }
 }

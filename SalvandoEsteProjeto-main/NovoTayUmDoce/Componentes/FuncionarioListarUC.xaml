@@ -16,24 +16,26 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24"/>
-            <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="10 0 0 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="-70,0,0,0">
+            <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24" Margin="-0"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="50 0 190 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
             <Button Background="#FFD18D9F" Margin="550, 0" Click="btImprimir_Click" VerticalAlignment="Top" Height="50" Width="60"  BorderBrush="Black" Foreground="Black">
                 <materialDesign:PackIcon Kind="Printer" Height="34" Width="49" HorizontalAlignment="Center"/>
             </Button>
         </StackPanel>
 
 
-        <DataGrid Grid.Row="1" Margin="5,20,168,5" x:Name="dataGridFuncionario" IsReadOnly="true"
+        <DataGrid Grid.Row="1" Margin="-70,20,-70,5" x:Name="dataGridFuncionario" IsReadOnly="true"
                       AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" SelectionChanged="dataGridFuncionario_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
                 <DataGridTextColumn Header="Data Nascimento" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"/>
                 <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
-
+                <DataGridTextColumn Header="Função" Binding="{Binding Funcao}"/>
+                <DataGridTextColumn Header="Salário" Binding="{Binding Salario}"/>
                 <DataGridTextColumn Header="Número" Binding="{Binding Endereco.Numero}"/>
                 <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
                 <DataGridTemplateColumn>

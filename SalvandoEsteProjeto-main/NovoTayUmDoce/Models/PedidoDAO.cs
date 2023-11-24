@@ -43,6 +43,9 @@ namespace NovoTayUmDoce.Models
                         {
                             pedido.Id = DAOHelper.GetInt(reader, "id_ped");
                             pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            pedido.Quant = DAOHelper.GetString(reader, "quant_ped");
+                            pedido.Valor = DAOHelper.GetString(reader, "valor_ped");
+                            pedido.Total = DAOHelper.GetString(reader, "total_ped");
                             pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
                             pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
@@ -66,41 +69,47 @@ namespace NovoTayUmDoce.Models
 
             try
             {
-              
-                var funcionarioId = new FuncionarioDAO().GetById(pedido.Funcionario.Id);
-                var clienteId = new ClienteDAO().GetById(pedido.Cliente.Id);
-
-                
-                if(funcionarioId.Id >0)
+                if (pedido.Produto != null)
                 {
-                    using (var query= conn.Query())
+
+                    var funcionarioId = new FuncionarioDAO().GetById(pedido.Funcionario.Id);
+                    var clienteId = new ClienteDAO().GetById(pedido.Cliente.Id);
+                    var produtoId = new ProdutoDAO().GetById(pedido.Produto.Id);
+
+
+                    if (funcionarioId.Id > 0)
                     {
-                        query.CommandText = "INSERT INTO Pedido (data_ped, hora_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk) " +
-                            "VALUES (@data_ped, @hora_ped, @forma_Pagamento, @status, @id_fun, @id_cli)";
-
-
-
-                        query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
-                        query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
-                        query.Parameters.AddWithValue("@status", pedido.Status);
-                        query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);
-                        query.Parameters.AddWithValue("@id_cli", clienteId.Id);
- 
-
-                        var result = query.ExecuteNonQuery();
-
-                        if (result == 0)
+                        using (var query = conn.Query())
                         {
-                            MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
+                            query.CommandText = "INSERT INTO Pedido (data_ped, hora_ped,quant_ped,valor_ped,total_ped, forma_Pagamento_ped, status_ped, id_fun_fk, id_cli_fk, id_pro_fk) " +
+                                "VALUES (@data, @hora,@quant, @valor,@total, @forma_Pagamento, @status, @id_fun, @id_cli,@id_pro)";
 
-                            long pedidoId = query.LastInsertedId;
 
-                           InsertItens(pedidoId, pedido.Itens);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Inserção bem-sucedida!");
+
+                            query.Parameters.AddWithValue("@data_ped", pedido.Data.ToString("yyyy-MM-dd"));
+                            query.Parameters.AddWithValue("@hora_ped", pedido.Hora);
+                            query.Parameters.AddWithValue("@quant_ped", pedido.Quant);
+                            query.Parameters.AddWithValue("@valor_ped", pedido.Valor);
+                            query.Parameters.AddWithValue("@total_ped", pedido.Total);
+                            query.Parameters.AddWithValue("@forma_Pagamento", pedido.FormaPagamento);
+                            query.Parameters.AddWithValue("@status", pedido.Status);
+                            query.Parameters.AddWithValue("@id_fun", funcionarioId.Id);
+                            query.Parameters.AddWithValue("@id_cli", clienteId.Id);
+                            query.Parameters.AddWithValue("@id_pro", produtoId.Id);
+
+
+                            var result = query.ExecuteNonQuery();
+
+                            if (result == 0)
+                            {
+                                MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Inserção bem-sucedida!");
+                            }
                         }
                     }
                     
@@ -114,28 +123,6 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        private void InsertItens(long pedidoId, List<PedidoItem> itens)
-        {
-
-            foreach (PedidoItem item in itens)
-            {
-                var query = conn.Query();
-                query.CommandText = "INSERT INTO pedido_produtos (quant_ppro, valor_ppro, total_ppro, id_ped_fk, id_pro_fk) " +
-                    "VALUES (@quant, @valor, @total, @id_ped, @id_pro)";
-
-                query.Parameters.AddWithValue("@quant", item.Quant);
-                query.Parameters.AddWithValue("@valor", item.Valor);
-                query.Parameters.AddWithValue("@total", item.Total);
-                query.Parameters.AddWithValue("@id_ped", pedidoId);
-                query.Parameters.AddWithValue("@id_pro", item.Produto.Id);
-                query.Parameters.AddWithValue("@valor", item.Valor);
-
-                var result = query.ExecuteNonQuery();
-
-                if (result == 0)
-                    throw new Exception("Os itens da compra não foi adicionada. Verifique e tente novamente.");
-            }
-        }
         public void Delete(Pedido pedido)
         {
             try

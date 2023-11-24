@@ -78,12 +78,27 @@ namespace NovoTayUmDoce.Componentes
                 EstoqueDAO estoqueDAO = new EstoqueDAO();
                 estoqueDAO.Insert(estoque);
 
+                ListaEstoque();
+
                 Clear();
                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+            }
+        }
+
+        private void ListaEstoque()
+        {
+            try
+            {
+                var dao = new EstoqueDAO();
+                dataGridEstoque.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao listar o estoque: " + ex.Message);
             }
         }
 
