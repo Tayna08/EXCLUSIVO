@@ -21,7 +21,8 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class ConsultaPedidoUC : UserControl
     {
-        public ConsultaPedidoUC()
+        MainWindow _context;
+        public ConsultaPedidoUC(MainWindow context)
         {
             InitializeComponent();
         }
