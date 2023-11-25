@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZXing;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -23,5 +24,13 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
         }
+      
+            
+        
     }
+   
 }
+    
+
+
+

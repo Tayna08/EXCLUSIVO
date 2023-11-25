@@ -44,7 +44,6 @@ namespace NovoTayUmDoce.Componentes
             try
             {
                 var dao = new ClienteDAO();
-
                 dataGridClientes.ItemsSource = dao.List();
 
             } catch (Exception ex)
