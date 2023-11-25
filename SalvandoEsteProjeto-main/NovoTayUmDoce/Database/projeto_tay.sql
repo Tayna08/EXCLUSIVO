@@ -8,7 +8,7 @@ cidade_end varchar(200) not null,
 rua_end varchar(200),
 complemento_end varchar(200),
 numero_end int,
-cep_end varchar(300)
+cep_end varchar (300)
 );
 
 create table Cliente(
@@ -79,13 +79,6 @@ id_cai_fk int,
 foreign key (id_cai_fk) references Caixa(id_cai)
 );
 
-create table Recebimento(
-id_rec int primary key auto_increment,
-forma_recebimento varchar(300),
-valor_rec varchar(1000),
-caixa_rec varchar(300)
-);
-
 create table Pedido(
 id_ped int primary key auto_increment,
 data_ped date,
@@ -102,7 +95,6 @@ foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
 foreign key (id_pro_fk) references produto (id_pro)
 );
-select*from produto;
 
 create table pedido_produtos (
 id_ppro int primary key auto_increment,
@@ -114,18 +106,36 @@ id_pro_fk int,
 foreign key (id_ped_fk) references pedido (id_ped),
 foreign key (id_pro_fk) references produto (id_pro)
 );
+
+
 insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525,'920000');
 
-############################################################
+
 delimiter $$ 
-create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), endereco_fk int)
+create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int, cep varchar(300))
+begin
+if ((bairro <> '' ) and (cidade <> '') and (rua <> '') and (numero <> '')) then
+	insert into Endereco values(null, bairro, cidade, rua, complemento, numero,cep);
+	select 'Os campos obrigatórios foram preenchidos' as Confirmação;
+else
+	select 'Os campos obrigatórios devem ser preenchidos' as Erro;
+end if;
+end;
+$$ delimiter ;
+call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431,'920000');
+select * from Endereco;
+
+############################################################
+
+delimiter $$ 
+create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), fk_end int)
 begin
 declare fkEnd int;
-set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
+set fkEnd = (select id_end from endereco where (id_end = fk_end));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, endereco_fk);
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
