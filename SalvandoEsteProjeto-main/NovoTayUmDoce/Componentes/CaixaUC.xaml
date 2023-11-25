@@ -18,7 +18,7 @@
 
         <Grid Grid.Column="0"  >
 
-            <StackPanel  >
+            <StackPanel>
 
                 <Button  Content="Abrir Caixa"  FontSize="50" Foreground="#44001a" x:Name ="btCaixa" Click="BtnAbrirFecharCaixa_Click" Height="80" Background="#FFDDF0">
                     <Button.Effect>
@@ -46,7 +46,7 @@
                 <Label Content="Saldo Inicial:" FontSize="25" />
             </StackPanel>
             <StackPanel Margin="10,230,15,250">
-                <TextBox x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30" FontSize="20"/>
+                <TextBox x:Name="tbSaldoInicial" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" TextChanged="tbSaldoInicial_TextChanged"/>
             </StackPanel>
 
             <!--Dados de quem abriu o caixa e em qual horario-->
@@ -101,11 +101,11 @@
             </StackPanel>
 
 
-            <StackPanel Margin="10,330,10,160">
+            <StackPanel Margin="10,330,10,234">
                 <Label Content="Total:" FontSize="20"/>
             </StackPanel>
-            <StackPanel Margin="90,333,10,100">
-                <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False"/>
+            <StackPanel Margin="90,333,10,234">
+                <TextBox x:Name="tbTotal" TextWrapping="Wrap" Background="White" Height="30" FontSize="20" IsEnabled="False" TextChanged="tbTotal_TextChanged"/>
             </StackPanel>
 
 
@@ -124,7 +124,7 @@
 
         </Grid>
         <DataGrid Grid.Column="1" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged" Margin="5,30,5,90">
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridClientes_SelectionChanged" Margin="5,30,263,90" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora, StringFormat='dd/MM/yyyy'}"/>

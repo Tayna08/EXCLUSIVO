@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="NovoTayUmDoce.Componentes.PedidoFormUC"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="800">
 
     <Grid Background="Bisque" Margin="0,-4,0,4">
         <Grid.ColumnDefinitions>
@@ -15,30 +15,29 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center">
-            <Button x:Name="btCancelar" Content="FECHAR" Margin="10" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+        <StackPanel VerticalAlignment="Top" Margin="533,493,10,0" Height="129" Grid.ColumnSpan="2">
+            <Button x:Name="btCancelar" Content="FECHAR" Margin="0" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btRecebimento" Content="RECEBIMENTO"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btRecebimento_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <WrapPanel Margin="0 5">
+            <WrapPanel Margin="0,285">
 
                 <Label Content="QUANTIDADE:" />
-                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" />
+                <TextBox x:Name="tbQuantidade" TextWrapping="Wrap" Background="White" Height="30" Width="82" TextChanged="tbQuantidade_TextChanged_1" />
 
                 <Label Content="VALOR:" Margin="10 0 0 0" />
-                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79" TextChanged="TbValor_TextChanged_1"/>
+                <TextBox x:Name="tbValor" Background="White" Height="30" Width="79" />
 
                 <Label Content="TOTAL:"  Margin="10 0 0 0" />
-                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91" TextChanged="TbTotal_TextChanged_1"/>
+                <TextBox x:Name="tbTotal" Background="White" Height="28" Width="91" />
 
                 <StackPanel Orientation="Horizontal" Height="30" Margin="25 0" RenderTransformOrigin="1.544,0.547">
-                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="28" Width="28" BorderBrush="Bisque">
+                    <Button x:Name="btAdd" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Height="28" Width="28" BorderBrush="Bisque" Click="btAdd_Click">
                         <Button.Background>
                             <ImageBrush ImageSource="/Componentes/1904677-add-addition-calculate-charge-create-new-plus_122527.png"/>
                         </Button.Background>
@@ -48,11 +47,11 @@
             </WrapPanel>
 
 
-            <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
-                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="245">
+            <DataGrid x:Name="dataGridPedido" IsReadOnly="true" ItemsSource="{Binding Source = MyList}"
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="467" Margin="0,-270,0,0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto}"/>
+                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nome}"/>
                     <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}"/>
                     <DataGridTextColumn Header="Valor Unitário" Binding="{Binding ValorUnitário}"/>
                     <DataGridTextColumn Header="Valor Total" Binding="{Binding ValorTotal}"/>
@@ -81,7 +80,7 @@
 
         </StackPanel>
 
-        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Height="121">
+        <StackPanel VerticalAlignment="Top" Grid.Column="0" Height="120" Margin="0,58,0,0">
             <WrapPanel>
                 <Label Content="CLIENTE:" Width="100" />
                 <ComboBox Background="White" x:Name="cbCliente" Width="400" SelectionChanged="cbCliente_SelectionChanged"/>
@@ -94,13 +93,13 @@
 
             <WrapPanel Margin="0 25 0 0">
                 <Label Content="PRODUTO:" Width="100"/>
-                <ComboBox Background="White" x:Name="cbProduto" Width="400"/>
+                <ComboBox Background="White" x:Name="cbProduto" Width="400" SelectionChanged="cbProduto_SelectionChanged"/>
             </WrapPanel>
 
         </StackPanel>
 
 
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,33,0,0">
 
             <Label Content="STATUS:" HorizontalAlignment="Center"/>
 

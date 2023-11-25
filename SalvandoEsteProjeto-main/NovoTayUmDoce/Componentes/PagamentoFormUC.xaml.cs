@@ -19,9 +19,26 @@ namespace NovoTayUmDoce.Componentes
     /// </summary>
     public partial class PagamentoFormUC : UserControl
     {
-        public PagamentoFormUC()
+        MainWindow _context;
+        public PagamentoFormUC(MainWindow context)
         {
             InitializeComponent();
+            _context = context;
+        }
+
+        private void btCancelar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btSalvar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cbFormaRec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

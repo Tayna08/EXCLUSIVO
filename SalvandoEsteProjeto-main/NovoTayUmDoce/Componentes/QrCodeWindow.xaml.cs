@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,14 +15,13 @@ using System.Windows.Shapes;
 
 namespace NovoTayUmDoce.Componentes
 {
-    /// <summary>
-    /// Lógica interna para QrCodeWindow.xaml
-    /// </summary>
     public partial class QrCodeWindow : Window
     {
-        public QrCodeWindow()
+        MainWindow _context;
+        public QrCodeWindow(MainWindow context)
         {
             InitializeComponent();
+            _context = context;
         }
     }
 }

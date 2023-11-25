@@ -5,23 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Width="884">
-    <Grid>
+              d:DesignHeight="450" Width="1061">
+    <Grid x:Name="print">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="439*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="527*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24"/>
-            <Button Background="#FFD18D9F" x:Name="BtnAddCliente" Margin="10 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click" BorderBrush="Black" Foreground="Black"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24" Margin="-70"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddCliente" Margin="30 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click" BorderBrush="Black" Foreground="Black"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Grid.ColumnSpan="2" Foreground="#E5000000" >
+        <DataGrid Grid.Row="1" Margin="-70,20,-780,5" x:Name="dataGridClientes" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Foreground="#E5000000">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -57,6 +57,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </UserControl>
+

@@ -70,8 +70,7 @@ namespace NovoTayUmDoce.Componentes
             {
                 if (cbFormaRec.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
                 {
-                    _context.SwitchScreen(new QrCode(_context));
-
+                    _context.SwitchScreen(new QrCodeWindow(_context));
                 }
 
                 Recebimento recebimento = new Recebimento();
@@ -93,6 +92,16 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show(ex.Message, "Erro ao abrir a nova janela", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cbFormaRec_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

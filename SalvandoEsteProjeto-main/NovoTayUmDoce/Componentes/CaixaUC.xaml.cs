@@ -68,28 +68,43 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
-        private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
-        {
+        //private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
+        //{
 
-            try
-            {
-                Caixa caixa = new Caixa();
+        //    try
+        //    {
+        //        Caixa caixa = new Caixa();
 
-                    tbStatus.Text = "Aberto";
+        //            tbStatus.Text = "Aberto";
 
 
-                tbEntrada.Text
+        //        tbEntrada.Text;
                 
                 
-            }
-            catch 
-            {
+        //    }
+        //    catch 
+        //    {
             
-            }
+        //    }
+
+        //}
+
+        private void BtnFecharCaixa_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
-        private void BtnFecharCaixa_Click(object sender, RoutedEventArgs e)
+        private void tbTotal_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void tbSaldoInicial_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

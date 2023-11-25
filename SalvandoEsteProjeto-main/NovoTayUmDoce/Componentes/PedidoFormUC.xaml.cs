@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using NovoTayUmDoce.Conexão;
 using System.Net.NetworkInformation;
 using System.Globalization;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -14,6 +16,9 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
+
+        private List<Pedido> _pedido = new List<Pedido>();
+        private IEnumerable list;
 
         public PedidoFormUC(MainWindow context)
         {
@@ -49,6 +54,11 @@ namespace NovoTayUmDoce.Componentes
                 cbCliente.ItemsSource = new ClienteDAO().List();
                 cbCliente.DisplayMemberPath = "Nome";
 
+                cbProduto.ItemsSource = null;
+                cbProduto.Items.Clear();
+                cbProduto.ItemsSource = new ProdutoDAO().List();
+                cbProduto.DisplayMemberPath = "Nome";
+
             }
             catch (Exception ex)
             {
@@ -81,7 +91,7 @@ namespace NovoTayUmDoce.Componentes
         {
             var pedidoSelected = dataGridPedido.SelectedItem as Pedido;
 
-            var result = MessageBox.Show($"Deseja realmente remover o cliente `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
+            var result = MessageBox.Show($"Deseja realmente remover o pedido `{pedidoSelected.Id}`?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             try
@@ -91,13 +101,19 @@ namespace NovoTayUmDoce.Componentes
                     var dao = new PedidoDAO();
                     dao.Delete(pedidoSelected);
 
-                   // ListarPedidos();
+                    ListarPedidos();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ListarPedidos()
+        {
+            var dao = new PedidoDAO();
+            dataGridPedido.ItemsSource = dao.List();
         }
 
         private void Clear()
@@ -109,6 +125,8 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+
         private void btRecebimento_Click(object sender, RoutedEventArgs e)
         {
             _context.SwitchScreen(new RecebimentoFormUC(_context));
@@ -117,7 +135,8 @@ namespace NovoTayUmDoce.Componentes
             {
                 Pedido pedido = new Pedido();
 
-                pedido.Total = Convert.ToDouble(tbTotal.Text);
+                // pedido.Total = tbTotal.Text;
+                // pedido.Valor = tbValor.Text;
                 pedido.Hora = tbHora.Text;
                 pedido.Status = cbStatus.Text;
 
@@ -125,6 +144,7 @@ namespace NovoTayUmDoce.Componentes
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCliente.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+                // pedido.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
                 PedidoDAO pedidoDAO = new PedidoDAO();
@@ -138,14 +158,75 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void TbValor_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            CalcularValorTotal();
         }
 
-        private void TbTotal_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void tbQuantidade_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            CalcularValorTotal();
+        }
+
+
+        private void CalcularValorTotal()
+        {
+         
+            if (cbProduto.SelectedItem is Produto produto && int.TryParse(tbQuantidade.Text, out int quantidade))
+            {
+             
+                double valorTotal = produto.Valor_Venda * quantidade;
+
+                tbValor.Text = produto.Valor_Venda.ToString("C");
+                tbTotal.Text = valorTotal.ToString("C");
+            }
+        }
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
         {
 
+            _context.SwitchScreen(new RecebimentoFormUC(_context));
+
+            try
+            {
+                Pedido pedido = new Pedido();
+
+                // pedido.Total = tbTotal.Text;
+                // pedido.Valor = tbValor.Text;
+                pedido.Hora = tbHora.Text;
+                pedido.Status = cbStatus.Text;
+
+
+                // Chaves estrangeiras
+                pedido.Cliente = (Cliente)cbCliente.SelectedItem;
+                pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+                // pedido.Produto = (Produto)cbProduto.SelectedItem;
+
+                // Inserindo os Dados           
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                pedidoDAO.Insert(pedido);
+
+                ListaPedido();
+
+                Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao adicionar item ao DataGrid: " + ex.Message);
+            }
+        }
+
+        private void ListaPedido()
+        {
+            try
+            {
+                var dao = new PedidoDAO();
+                dataGridPedido.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao listar o estoque: " + ex.Message);
+            }
         }
     }
 }
