@@ -68,8 +68,7 @@ namespace NovoTayUmDoce.Componentes
                 estoque.Insumos = tbInsumos.Text;
                 estoque.Datavalidade = dtpDataValidade.SelectedDate;
                 estoque.DataFabricacao = dtpDataFabricacao.SelectedDate;
-                
-
+           
                 // Chaves estrangeiras
 
                 estoque.Produto = (Produto)cbProduto.SelectedItem;

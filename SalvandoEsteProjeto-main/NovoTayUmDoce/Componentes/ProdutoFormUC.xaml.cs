@@ -37,9 +37,10 @@ namespace NovoTayUmDoce.Componentes
 
             if (result == MessageBoxResult.Yes)
             {
-                _context.SwitchScreen(new ProdutoFormUC(_context));
+                _context.SwitchScreen(new ProdutoListarUC(_context));
             }
         }
+
         //SALVAR
         private void btGerenciar_Click(object sender, RoutedEventArgs e)
         {
@@ -59,6 +60,7 @@ namespace NovoTayUmDoce.Componentes
                 ProdutoDAO produtoDAO = new ProdutoDAO();
                 produtoDAO.Insert(produto);
 
+
                 Clear();
             }
             catch (Exception ex)
@@ -66,6 +68,7 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
             }
         }
+
         private void Clear()
         {
             tbDescricao.Clear();

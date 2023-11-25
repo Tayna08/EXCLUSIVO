@@ -78,11 +78,11 @@ namespace NovoTayUmDoce.Componentes
                 recebimento.forma_recebimento = cbFormaRec.Text;
                 recebimento.Valor = tbValor.Text;
 
-                // Chaves estrangeiras
+                 //Chaves estrangeiras
                
 
                 // Inserindo os Dados           
-                //RecebimentoDao recebimentoDao = new RecebimentoDao();
+                //recebimentoDao recebimentoDao = new RecebimentoDao();
                 //recebimentoDao.Insert(recebimento);
 
                 //Clear();

@@ -40,6 +40,7 @@ namespace NovoTayUmDoce.Componentes
             _context.SwitchScreen(new ProdutoFormUC(_context));
 
         }
+
         private void Listar()
         {
             try
