@@ -55,6 +55,19 @@ namespace NovoTayUmDoce.Componentes
 
         //aqui que tá o atualizar pagina sozinhoo
 
+
+
+        private void Button_Update_Click(object sender, RoutedEventArgs e)
+        {
+            var cliente = dataGridClientes.SelectedItem as Cliente;
+
+            _context.SwitchScreen(new ClienteFormUC(_context));
+
+  
+
+
+        }
+
         private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
         {
             var clienteSelected = dataGridClientes.SelectedItem as Cliente;
