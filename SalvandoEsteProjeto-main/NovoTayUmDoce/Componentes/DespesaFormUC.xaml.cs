@@ -19,6 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QRCoder;
 using static QRCoder.PayloadGenerator;
+using MaterialDesignThemes.Wpf;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -52,7 +53,7 @@ namespace NovoTayUmDoce.Componentes
    
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-           
+            _context.SwitchScreen(new PagamentoFormUC(_context));
 
             try
             {
@@ -73,7 +74,7 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
-               //despesa.Hora = Hora.Text;
+                //despesa.Hora = Hora.Text;
 
                 // Inserindo os Dados           
                 DespesaDAO despesaDAO = new DespesaDAO();
@@ -112,5 +113,8 @@ namespace NovoTayUmDoce.Componentes
         {
 
         }
+
+
+       
     }
 }
