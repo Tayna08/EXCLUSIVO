@@ -47,15 +47,10 @@
                                 
                                     <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
                                         Content="{materialDesign:PackIcon Pencil}"
-                                        ToolTip="Visualizar Registro" Height="35" Width="35" Click="Button_Update_Click" 
+                                        ToolTip="Visualizar Registro" Height="35" Width="35" Name="Editar_cli" Click="Button_Update_Click" 
                                     
                                             
                                     />
-
-                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                                        Content="{materialDesign:PackIcon Delete}"
-                                        ToolTip="Excluir Registro" Click="ExcluirCliente_Click"  Height="35" Width="35"
-                                />
 
                             
                             </StackPanel>
@@ -67,6 +62,11 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+
+
+
+        <Frame x:Name="frameCliente" />
     </Grid>
 </UserControl>
 
