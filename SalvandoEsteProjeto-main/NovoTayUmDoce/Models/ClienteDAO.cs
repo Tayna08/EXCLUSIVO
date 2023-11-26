@@ -4,6 +4,8 @@ using MySql.Data.MySqlClient;
 using System.Windows;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Conexão;
+using NPOI.SS.Formula.Functions;
+using System.Windows.Input;
 
 namespace NovoTayUmDoce.Models
 {
@@ -64,6 +66,7 @@ namespace NovoTayUmDoce.Models
             }
         }
 
+        //insert
         public string Insert(Cliente cliente)
         {
             try
@@ -90,6 +93,8 @@ namespace NovoTayUmDoce.Models
                 throw ex;
             }
         }
+
+        //delete
         public void Delete(Cliente cliente)
         {
             try
@@ -117,6 +122,56 @@ namespace NovoTayUmDoce.Models
                 conn.Close();
             }
         }
+
+        //update
+        public void Update(Cliente cliente)
+        {
+            try
+            {
+                long enderecoId = cliente.Endereco.Id;
+                var endDAO = new EnderecoDAO();
+
+                if (enderecoId > 0)
+                    endDAO.Update(cliente.Endereco);
+                else
+                    enderecoId = endDAO.Insert(cliente.Endereco);
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE funcionario SET nome_cli = @nome, cpf_cli = @cpf, datanasc_cli = @datanasc, " +
+                                     "contato_cli = @contato " +
+                                     "cod_end_fk = @enderecoId WHERE cod_cli = @id";
+
+
+
+                query.Parameters.AddWithValue("@nome", cliente.Nome);
+                query.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                query.Parameters.AddWithValue("@data_nasc", cliente.DataNasc?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@contato", cliente.Contato);
+                query.Parameters.AddWithValue("@id_end", enderecoId);
+
+
+                query.Parameters.AddWithValue("@id", cliente.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+
+
+
 
         public Cliente GetById(int id)
         {
@@ -157,5 +212,10 @@ namespace NovoTayUmDoce.Models
                 return null;
             }
         }
+
+
+
+
+
     }
 }

@@ -66,6 +66,7 @@ namespace NovoTayUmDoce
             var menuExpenses = new List<SubItem>();
             menuExpenses.Add(new SubItem("Produtos", new ProdutoListarUC(this)));
             menuExpenses.Add(new SubItem("Pedido", new PedidoListarUC(this)));
+            menuExpenses.Add(new SubItem("Consultar Pedido", new ConsultaPedidoUC(this)));
             var item3 = new ItemMenu("Elementos", menuExpenses, PackIconKind.ShoppingBasket);
 
             var menuFinancial = new List<SubItem>();

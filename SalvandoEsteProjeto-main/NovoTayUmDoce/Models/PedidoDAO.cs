@@ -35,6 +35,37 @@ namespace NovoTayUmDoce.Models
                 {
                    MessageBox.Show("Nenhum pedido foi encontrado!");
                    return null;
+                    query.CommandText = "SELECT * FROM Pedido WHERE (id_ped = @id)";
+                    query.Parameters.AddWithValue("@id", id);
+
+                    using (MySqlDataReader reader = query.ExecuteReader())
+                    {
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Nenhum pedido foi encontrado!");
+                            return null;
+                        }
+
+                        var pedido = new Pedido();
+
+                        while (reader.Read())
+                        {
+                            pedido.Id = DAOHelper.GetInt(reader, "id_ped");
+                            pedido.Data = (DateTime)DAOHelper.GetDateTime(reader, "data_ped");
+                            pedido.Quant = DAOHelper.GetString(reader, "quant_ped");
+                            pedido.Valor = DAOHelper.GetString(reader, "valor_ped");
+                            pedido.Total = DAOHelper.GetString(reader, "total_ped");
+                            pedido.FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped");
+                            pedido.Status = DAOHelper.GetString(reader, "status_ped");
+                            pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
+                            pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
+                            pedido.Produto= new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
+
+                        }
+
+                        return pedido;
+                    }
+
                 }
 
                 var pedido = new Pedido();
@@ -150,6 +181,12 @@ namespace NovoTayUmDoce.Models
                     query.CommandText = "SELECT * FROM pedido LEFT JOIN cliente ON id_cli = id_cli_fk";
                     query.CommandText = "SELECT * FROM pedido LEFT JOIN cliente ON id_pro = id_pro_fk";
 
+                    query.CommandText = "SELECT * FROM pedido " +
+                                        "LEFT JOIN funcionario ON id_fun = id_fun_fk " +
+                                        "LEFT JOIN cliente ON id_cli = id_cli_fk " +
+                                        "LEFT JOIN produto ON id_pro = id_pro_fk";
+
+
                     using (var reader = query.ExecuteReader())
                     {
                         var lista = new List<Pedido>();
@@ -231,5 +268,6 @@ namespace NovoTayUmDoce.Models
                 throw;
             }
         }
+    
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
         mc:Ignorable="d" 
-        d:DesignHeight="450" d:DesignWidth="800">
+        d:DesignHeight="800" d:DesignWidth="800">
 
     <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
@@ -16,21 +16,21 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="607,80,0,0" Width="264" Height="120">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="907,300,0,0" Width="264" Height="272">
             <Button x:Name="btNovo" Content="NOVO" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btNovo_Click" />
-            <Button x:Name="btAlterar" Content="ALTERAR" Background="#FFFFA4A4" Margin="18,0,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btAlterar_Click" />
+            <Button x:Name="btAlterar" Content="ALTERAR" Background="#FFFFA4A4" Margin="18,50,100,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btAlterar_Click" />
         </StackPanel>
 
-        <StackPanel Margin="56,48,679,979">
+        <StackPanel Margin="56,50,1050,979">
             <Label Content="PEDIDO:" Width="62"/>
         </StackPanel>
 
-        <StackPanel Margin="126,48,458,979">
+        <StackPanel Margin="126,50,858,979">
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" Width="214" Height="26"/>
         </StackPanel>
 
-        <DataGrid x:Name="dataGridConsultaPedidos" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridPedidos_SelectionChanged" Margin="73,118,247,632" >
+        <DataGrid x:Name="dataGridConsultaPedidos" IsReadOnly="true" Margin="0,200,400,0"
+                      AutoGenerateColumns="False" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridPedidos_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using QRCoder;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -12,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZXing;
+using static QRCoder.PayloadGenerator;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -22,6 +26,12 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
     }
+   
 }
+    
+
+
+

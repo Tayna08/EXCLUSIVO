@@ -56,6 +56,36 @@ namespace NovoTayUmDoce.Models
             }
         }
 
+        //update
+        public void Update(Endereco endereco)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE endereco SET bairro_end = @bairro, cidade_end = @cidade, rua_end = @rua, complemento_end = @complemento, numero_end = @numero, cep_end = @cep ";
+                         
+                query.Parameters.AddWithValue("@bairro", endereco.Bairro);
+                query.Parameters.AddWithValue("@cidade", endereco.Cidade);
+                query.Parameters.AddWithValue("@rua", endereco.Rua);
+                query.Parameters.AddWithValue("@complemento", endereco.Complemento);
+                query.Parameters.AddWithValue("@numero", endereco.Numero);
+                query.Parameters.AddWithValue("@cep", endereco.Cep);
+
+                query.Parameters.AddWithValue("@id", endereco.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Erro ao atualizar o endereço. Verifique e tente novamente.");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
         public Endereco GetById(int id)
         {
             try

@@ -1,4 +1,5 @@
-﻿using NovoTayUmDoce.Models;
+﻿using iText.Commons.Actions.Contexts;
+using NovoTayUmDoce.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -16,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QRCoder;
+using static QRCoder.PayloadGenerator;
+using MaterialDesignThemes.Wpf;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -46,12 +50,21 @@ namespace NovoTayUmDoce.Componentes
             tbFormaPagamento.Items.Add("Outro");
             tbFormaPagamento.SelectedIndex = 0;
         }
-
+   
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+            _context.SwitchScreen(new PagamentoFormUC(_context));
 
             try
             {
+                if (tbFormaPagamento.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
+                {
+                    double valor = Convert.ToDouble(tbValor.Text);
+
+                    QrCodeWindow qrCodeWindow = new QrCodeWindow(_context);
+                    qrCodeWindow.Show();
+                }
+
                 //Setando informações na tabela cliente
                 Despesa despesa = new Despesa();
 
@@ -61,7 +74,7 @@ namespace NovoTayUmDoce.Componentes
                 despesa.Data = dtpData.SelectedDate;
                 despesa.Valor = Convert.ToDouble(tbValor.Text);
                 despesa.Vencimento = dtpDataVenci.SelectedDate;
-               // despesa.Hora = Hora.Text;
+                //despesa.Hora = Hora.Text;
 
                 // Inserindo os Dados           
                 DespesaDAO despesaDAO = new DespesaDAO();
@@ -69,11 +82,14 @@ namespace NovoTayUmDoce.Componentes
 
                 Clear();
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possível salvar a Despesa, verifique o erro");
+                MessageBox.Show($"Erro ao salvar a Despesa: {ex.Message}\n\nStackTrace: {ex.StackTrace}");
             }
         }
+
+       
+
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -90,11 +106,15 @@ namespace NovoTayUmDoce.Componentes
             tbNome.Clear();
             tbDescricao.Clear();
             tbValor.Clear();
+            
         }
 
         private void tbFormaPagamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+
+       
     }
 }

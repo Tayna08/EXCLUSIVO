@@ -75,9 +75,18 @@ namespace NovoTayUmDoce.Componentes
 
                 Pedido pedido = new Pedido();
 
+
                 pedido.FormaRecebimento = cbFormaRec.Text;
                 
                 // Chaves estrangeiras
+                 //Chaves estrangeiras
+               
+
+                // Inserindo os Dados           
+                //recebimentoDao recebimentoDao = new RecebimentoDao();
+                //recebimentoDao.Insert(recebimento);
+
+                //Clear();
 
             }
             catch (Exception ex)

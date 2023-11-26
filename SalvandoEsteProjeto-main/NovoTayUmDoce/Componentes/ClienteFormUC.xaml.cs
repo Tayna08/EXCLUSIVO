@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Newtonsoft.Json;
 using System.Globalization;
+using NovoTayUmDoce.Conexão;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -19,6 +20,7 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
+
         public ClienteFormUC(MainWindow context)
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace NovoTayUmDoce.Componentes
             tbCep.TextChanged += tbCep_TextChanged;
         }
 
-
+    
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -75,6 +77,33 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show(ex.Message);
             }
+
+            //try
+
+            //{
+            //    var dao = new FuncionarioDAO();
+
+            //    if (_cliente.Id > 0)
+            //    {
+            //        dao.Update(_funcionario);
+            //        var messageUp = new WindowMessageBoxCerto("Informações Atualizadas com Sucesso!", "Registro Atualizado");
+            //        messageUp.ShowDialog();
+            //        _page.OpenPageList("List_Funcionario");
+            //    }
+            //    else
+            //    {
+            //        dao.Insert(_funcionario);
+            //        var message = new WindowMessageBoxCerto("Informações Salvas com Sucesso!", "Registro Salvo");
+            //        message.ShowDialog();
+            //    }
+
+            //    btLimpar_Click(sender, e);
+            //}
+            //catch (Exception ex)
+            //{
+            //    var messageError = new WindowMessageBoxError("Error: " + ex.Message, "Erro");
+            //    messageError.ShowDialog();
+            //}
 
         }
         private void Clear()
