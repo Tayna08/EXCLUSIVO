@@ -17,6 +17,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QRCoder;
+using static QRCoder.PayloadGenerator;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -50,6 +52,7 @@ namespace NovoTayUmDoce.Componentes
    
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
+           
 
             try
             {
@@ -83,6 +86,9 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show($"Erro ao salvar a Despesa: {ex.Message}\n\nStackTrace: {ex.StackTrace}");
             }
         }
+
+       
+
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {

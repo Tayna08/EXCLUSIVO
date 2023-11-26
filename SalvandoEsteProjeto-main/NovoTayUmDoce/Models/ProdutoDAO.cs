@@ -145,7 +145,7 @@ namespace NovoTayUmDoce.Models
             {
                 using (var query = conn.Query())
                 {
-                    query.CommandText = "DELETE FROM produto WHERE (id_pro = @id)";
+                    query.CommandText = "DELETE FROM Produto WHERE (id_pro = @id)";
 
                     query.Parameters.AddWithValue("@id", produto.Id);
 

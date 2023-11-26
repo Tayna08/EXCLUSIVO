@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Height="880" Width="800">
 
-    <Grid Background="Bisque">
+    <Grid Background="Bisque" Margin="-200,0,-206,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="1051"/>
             <RowDefinition/>

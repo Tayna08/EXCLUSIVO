@@ -50,6 +50,7 @@ namespace NovoTayUmDoce.Models
                             pedido.Status = DAOHelper.GetString(reader, "status_ped");
                             pedido.Funcionario = new FuncionarioDAO().GetById(DAOHelper.GetInt(reader, "id_fun_fk"));
                             pedido.Cliente = new ClienteDAO().GetById(DAOHelper.GetInt(reader, "id_cli_fk"));
+                            pedido.Produto= new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
 
                         }
 
@@ -157,9 +158,10 @@ namespace NovoTayUmDoce.Models
             {
                 using (var query = conn.Query())
                 {
-                    query.CommandText = "SELECT * FROM pedido LEFT JOIN funcionario ON id_fun = id_fun_fk";
-                    query.CommandText = "SELECT * FROM pedido LEFT JOIN cliente ON id_cli = id_cli_fk";
-                    query.CommandText = "SELECT * FROM produto LEFT JOIN produto ON id_pro = id_pro_fk";
+                    query.CommandText = "SELECT * FROM pedido " +
+                                        "LEFT JOIN funcionario ON id_fun = id_fun_fk " +
+                                        "LEFT JOIN cliente ON id_cli = id_cli_fk " +
+                                        "LEFT JOIN produto ON id_pro = id_pro_fk";
 
                     using (var reader = query.ExecuteReader())
                     {
@@ -167,14 +169,11 @@ namespace NovoTayUmDoce.Models
 
                         while (reader.Read())
                         {
-
                             var pedido = new Pedido()
                             {
-
                                 Id = DAOHelper.GetInt(reader, "id_ped"),
                                 FormaPagamento = DAOHelper.GetString(reader, "forma_pagamento_ped"),
                                 Status = DAOHelper.GetString(reader, "status_ped"),
-
                             };
 
                             lista.Add(pedido);
@@ -190,5 +189,6 @@ namespace NovoTayUmDoce.Models
                 throw;
             }
         }
+    
     }
 }

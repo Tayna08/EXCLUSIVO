@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
         mc:Ignorable="d"
-        Title="QrCodeWindow" Height="400" Width="252">
-    
+        Title="QrCodeWindow" Height="430" Width="262"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+
     <Grid Background="Bisque">
-        <Label Content="SCAN ME" Margin="0,59,0,261" FontSize="50" FontWeight="Bold"/>
-        <Image x:Name="imgQRCode" Margin="16,159,16,41" Width="200" Height="200"/>
-        <Label Content="69993697530" Margin="83,357,63,7"></Label>
+        <Label Content="SCAN ME" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15,0,0"/>
+        <Image Source="/Componentes/codigo.png" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="69993697530" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
