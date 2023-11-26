@@ -29,9 +29,6 @@
             <TextBox x:Name="tbValor" TextWrapping="Wrap" Background="White" TextChanged="TbValor_TextChanged_1"/>
         </StackPanel>
 
-        <StackPanel Margin="250,214,250,788">
-            <Label Content="CAIXA:"/>
-            <ComboBox Background="White" x:Name="cbCaixa"/>
-        </StackPanel>
+        <StackPanel Margin="250,214,250,788"/>
     </Grid>
 </UserControl>

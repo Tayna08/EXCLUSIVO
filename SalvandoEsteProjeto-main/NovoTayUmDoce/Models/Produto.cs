@@ -13,10 +13,9 @@ namespace NovoTayUmDoce.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Peso { get; set; }
-        public double Valor_Venda { get; set; }
         public string Tipo { get; set; }
-    
         public string Descricao { get; set; }
+        public double Valor_Venda { get; set; }
 
      
 

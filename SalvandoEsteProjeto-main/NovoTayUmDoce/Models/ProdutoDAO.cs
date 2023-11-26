@@ -43,9 +43,9 @@ namespace NovoTayUmDoce.Models
                             produto.Id = reader.GetInt32("id_pro");
                             produto.Nome = reader.GetString("nome_pro");
                             produto.Peso = reader.GetString("peso_pro");
-                            produto.Valor_Venda = reader.GetDouble("valor_venda_pro");
                             produto.Tipo = reader.GetString("tipo_pro");
                             produto.Descricao = reader.GetString("descricao_pro");
+                            produto.Valor_Venda = reader.GetDouble("valor_venda_pro");
                             
                            
                         }
@@ -78,12 +78,11 @@ namespace NovoTayUmDoce.Models
                                 produto.Id = DAOHelper.GetInt(reader, "id_pro");
                                 produto.Nome = DAOHelper.GetString(reader, "nome_pro");
                                 produto.Peso = DAOHelper.GetString(reader, "peso_pro");                  
-                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");                           
                                 produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
                                 produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
+                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
 
                             }
-
 
                             lista.Add(produto);
                         }
@@ -101,21 +100,20 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        public void Insert(Produto produto)
+        public long Insert(Produto produto)
         {
             try
             {
 
                 var query = conn.Query();
-
-                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, valor_venda_pro, tipo_pro, descricao_pro ) " +
-                            $"VALUES (@nome, @peso, @valor_venda, @tipo, @descricao)";
+                query.CommandText = $"INSERT INTO Produto (nome_pro, peso_pro, tipo_pro, descricao_pro, valor_venda_pro ) " +
+                            $"VALUES (@nome, @peso, @tipo, @descricao, @valor)";
 
                         query.Parameters.AddWithValue("@nome", produto.Nome);
                         query.Parameters.AddWithValue("@peso", produto.Peso);
-                        query.Parameters.AddWithValue("@valor_venda", produto.Valor_Venda);
                         query.Parameters.AddWithValue("@tipo", produto.Tipo);
                         query.Parameters.AddWithValue("@descricao", produto.Descricao);
+                        query.Parameters.AddWithValue("@valor", produto.Valor_Venda);
                         
 
                         var result = query.ExecuteNonQuery();
@@ -128,16 +126,16 @@ namespace NovoTayUmDoce.Models
                         {
                             MessageBox.Show("Inserção bem-sucedida!");
                         }
-                    
-                
-            }
 
+                return query.LastInsertedId;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
+                return 0;
             }
-          
+
         }
         public void Delete(Produto produto)
         {

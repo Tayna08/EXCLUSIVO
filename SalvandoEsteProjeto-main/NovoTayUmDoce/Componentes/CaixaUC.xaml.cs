@@ -101,7 +101,10 @@ namespace NovoTayUmDoce.Componentes
 
         private void BtnAbrirFecharCaixa_Click(object sender, RoutedEventArgs e)
         {
-
+            Caixa caixa = new Caixa();
+            caixa.SaldoInicial = 0;
+            var caixaDAO = new CaixaDAO();
+            var resultado = caixaDAO.Insert(caixa);
         }
 
         private void tbSaldoInicial_TextChanged(object sender, TextChangedEventArgs e)

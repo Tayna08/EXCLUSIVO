@@ -39,16 +39,16 @@ namespace NovoTayUmDoce.Componentes
 
         private void Listar()
         {
-            try
-            {
-                var dao = new PedidoDAO();
-                dataGridPedidos.ItemsSource = dao.List();
+            //try
+            //{
+            //    var dao = new PedidoDAO();
+            //    dataGridPedidos.ItemsSource = dao.List();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar os pedidos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erro ao carregar os pedidos: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
 
         private void ExcluirPedido_Click(object sender, RoutedEventArgs e)

@@ -73,19 +73,11 @@ namespace NovoTayUmDoce.Componentes
                     _context.SwitchScreen(new QrCodeWindow(_context));
                 }
 
-                Recebimento recebimento = new Recebimento();
+                Pedido pedido = new Pedido();
 
-                recebimento.forma_recebimento = cbFormaRec.Text;
-                recebimento.Valor = tbValor.Text;
-
+                pedido.FormaRecebimento = cbFormaRec.Text;
+                
                 // Chaves estrangeiras
-               
-
-                // Inserindo os Dados           
-                //RecebimentoDao recebimentoDao = new RecebimentoDao();
-                //recebimentoDao.Insert(recebimento);
-
-                //Clear();
 
             }
             catch (Exception ex)

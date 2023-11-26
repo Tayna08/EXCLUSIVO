@@ -20,7 +20,7 @@
 
 
         <StackPanel VerticalAlignment="Top" Margin="533,493,10,0" Height="129" Grid.ColumnSpan="2">
-            <Button x:Name="btCancelar" Content="FECHAR" Margin="0" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btFechar" Content="FECHAR" Margin="0" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btRecebimento" Content="RECEBIMENTO"  Margin="10" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btRecebimento_Click"/>
         </StackPanel>
 

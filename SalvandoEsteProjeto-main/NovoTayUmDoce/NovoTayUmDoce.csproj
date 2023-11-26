@@ -417,7 +417,6 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ProdutoDAO.cs" />
     <Compile Include="Menu\SubItem.cs" />
-    <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

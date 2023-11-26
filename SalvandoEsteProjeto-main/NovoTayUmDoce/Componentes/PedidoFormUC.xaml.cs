@@ -17,7 +17,7 @@ namespace NovoTayUmDoce.Componentes
     {
         MainWindow _context;
 
-        private List<Pedido> _pedido = new List<Pedido>();
+        private List<Pedido> pedido = new List<Pedido>();
         private IEnumerable list;
 
         public PedidoFormUC(MainWindow context)
@@ -26,6 +26,7 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
             Loaded += Status_Loaded;
             CarregarData();
+            ListarPedidos();
         }
 
         private void Status_Loaded(object sender, RoutedEventArgs e)
@@ -131,31 +132,31 @@ namespace NovoTayUmDoce.Componentes
         {
             _context.SwitchScreen(new RecebimentoFormUC(_context));
 
-            try
-            {
-                Pedido pedido = new Pedido();
+            //try
+            //{
+            //    Pedido pedido = new Pedido();
 
-                // pedido.Total = tbTotal.Text;
-                // pedido.Valor = tbValor.Text;
-                pedido.Hora = tbHora.Text;
-                pedido.Status = cbStatus.Text;
+            //    // pedido.Total = tbTotal.Text;
+            //    // pedido.Valor = tbValor.Text;
+            //    pedido.FormaRecebimento = .Text;
+            //    pedido.Status = cbStatus.Text;
 
 
-                // Chaves estrangeiras
-                pedido.Cliente = (Cliente)cbCliente.SelectedItem;
-                pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
-                // pedido.Produto = (Produto)cbProduto.SelectedItem;
+            //    // Chaves estrangeiras
+            //    pedido.Cliente = (Cliente)cbCliente.SelectedItem;
+            //    pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+            //    // pedido.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
-                PedidoDAO pedidoDAO = new PedidoDAO();
-                pedidoDAO.Insert(pedido);
+            //    PedidoDAO pedidoDAO = new PedidoDAO();
+            //    pedidoDAO.Insert(pedido);
 
-                Clear();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
-            }
+            //    Clear();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+            //}
         }
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -185,21 +186,21 @@ namespace NovoTayUmDoce.Componentes
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            _context.SwitchScreen(new RecebimentoFormUC(_context));
-
             try
             {
                 Pedido pedido = new Pedido();
-
                 // pedido.Total = tbTotal.Text;
                 // pedido.Valor = tbValor.Text;
                 pedido.Hora = tbHora.Text;
                 pedido.Status = cbStatus.Text;
-
+                pedido.Data = dtpData.SelectedDate;
+                pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                pedido.Total = Convert.ToInt32(tbTotal.Text);
 
                 // Chaves estrangeiras
                 pedido.Cliente = (Cliente)cbCliente.SelectedItem;
                 pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+                pedido.Produto = (Produto)cbProduto.SelectedItem;
                 // pedido.Produto = (Produto)cbProduto.SelectedItem;
 
                 // Inserindo os Dados           
@@ -212,7 +213,7 @@ namespace NovoTayUmDoce.Componentes
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao adicionar item ao DataGrid: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
