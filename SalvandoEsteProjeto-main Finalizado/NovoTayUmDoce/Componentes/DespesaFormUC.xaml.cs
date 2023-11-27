@@ -80,6 +80,8 @@ namespace NovoTayUmDoce.Componentes
                 DespesaDAO despesaDAO = new DespesaDAO();
                 despesaDAO.Insert(despesa);
 
+
+
                 Clear();
             }
             catch (Exception ex)

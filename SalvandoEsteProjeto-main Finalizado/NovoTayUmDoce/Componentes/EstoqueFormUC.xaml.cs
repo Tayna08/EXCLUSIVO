@@ -32,6 +32,8 @@ namespace NovoTayUmDoce.Componentes
             _context = context;
             Loaded += EstoqueFormUC_Loaded;
             
+
+
         }
 
         public EstoqueFormUC(int id, MainWindow context)
@@ -99,43 +101,68 @@ namespace NovoTayUmDoce.Componentes
         {
             try
             {
-                Estoque estoque = new Estoque();
+                Estoque estoque = new Estoque
+                {
+                    Quantidade = Convert.ToInt32(tbQuantidade.Text),
+                    Insumos = tbInsumos.Text,
+                    DataFabricacao = dtpDataFabricacao.SelectedDate,
+                    Datavalidade = dtpDataValidade.SelectedDate,
+                    Produto = (Produto)cbProduto.SelectedItem,         
 
-                estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                estoque.Insumos = tbInsumos.Text;
-                estoque.Datavalidade = dtpDataValidade.SelectedDate;
-                estoque.DataFabricacao = dtpDataFabricacao.SelectedDate;
-           
-                // Chaves estrangeiras
+                };
 
-                estoque.Produto = (Produto)cbProduto.SelectedItem;
 
-                // Inserindo os Dados           
-                EstoqueDAO estoqueDAO = new EstoqueDAO();
-                estoqueDAO.Insert(estoque);
 
-                ListaEstoque();
+                if (_estoque == null)
+                {
+                    _estoque = new Estoque();
+                }
+                // Setar informações na tabela cliente
+                _estoque.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                _estoque.Insumos = tbInsumos.Text;
+                _estoque.DataFabricacao = dtpDataFabricacao.SelectedDate;
+                _estoque.Datavalidade = dtpDataValidade.SelectedDate;
+                _estoque.Produto = (Produto)cbProduto.SelectedItem;
+                
+                var resultado = "";
 
-                Clear();
-               
+                if (_id > 0)
+                {
+                    var dao = new EstoqueDAO();
+                    dao.Update(_estoque);
+                  
+                    resultado = "Estoque atualizado com sucesso.";
+                }
+                else
+                {
+
+                    EstoqueDAO estoqueDAO = new EstoqueDAO();
+                    resultado = estoqueDAO.Insert(estoque);
+                    resultado = "Estoque inserido com sucesso.";
+                }
+
+
+                if (!string.IsNullOrEmpty(resultado))
+                    MessageBox.Show(resultado);
+
+                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+                if (resultado != camposObrigatoriosMsg)
+                    MessageBox.Show("Operação concluída com sucesso!");
+
+
+                ListarEstoque();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao salvar os dados: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void ListaEstoque()
+
+
+        private void dataGridEstoque_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
-            {
-                var dao = new EstoqueDAO();
-                dataGridEstoque.ItemsSource = dao.List();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao listar o estoque: " + ex.Message);
-            }
+            
         }
 
         private void ExcluirEstoque_Click(object sender, RoutedEventArgs e)
@@ -164,6 +191,19 @@ namespace NovoTayUmDoce.Componentes
         {
             var dao = new EstoqueDAO();
             dataGridEstoque.ItemsSource = dao.List();
+        }
+
+        private void EditarEstoque_Click(object sender, RoutedEventArgs e)
+        {
+            var estoque = dataGridEstoque.SelectedItem as Estoque;
+
+            if (estoque == null)
+            {
+                MessageBox.Show("Selecione um estoque para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            _context.SwitchScreen(new EstoqueFormUC(estoque.Id, _context));
         }
 
         private void Clear()
@@ -199,9 +239,9 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
-        private void dataGridEstoque_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }
+
+   
+
+

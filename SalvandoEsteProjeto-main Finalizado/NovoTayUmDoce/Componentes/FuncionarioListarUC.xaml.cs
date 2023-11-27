@@ -77,6 +77,7 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
+
         private void ExcluirFuncionario_Click(object sender, RoutedEventArgs e)
         {
             var funcionarioSelected = dataGridFuncionario.SelectedItem as Funcionario;
