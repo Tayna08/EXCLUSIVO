@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
-           mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
              d:DesignHeight="450" Width="1210">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,11 +40,9 @@
                                         <Image Source="/Componentes/trashcan1_114647.png"/>
                                     </Button.Content>
                                 </Button>
-
-                                <Button Click="EditarProduto_Click">
-                                    <Button.Content>
-                                        <Image Source="/Caminho/UserEdit_40958.png"/>
-                                    </Button.Content>
+                                <Button Click="EditarProduto_Click" Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}"
+                                ToolTip="Visualizar Registro" Height="35" Width="35">
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

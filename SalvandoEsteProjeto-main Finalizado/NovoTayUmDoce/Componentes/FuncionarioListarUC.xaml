@@ -49,10 +49,10 @@
                                     </Button.Content>
                                 </Button>
 
-                                <Button Click="EditarFuncionario_Click">
-                                    <Button.Content>
-                                        <Image Source="/Caminho/UserEdit_40958.png"/>
-                                    </Button.Content>
+                                <Button Click="EditarFuncionario_Click" Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}"
+                                ToolTip="Visualizar Registro" Height="35" Width="35">
+
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
