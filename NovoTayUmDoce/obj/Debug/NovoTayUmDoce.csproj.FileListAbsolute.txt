@@ -773,3 +773,5 @@ C:\Users\Master\OneDrive\Documentos\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.csproj
 C:\Users\Master\OneDrive\Documentos\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.csproj.CopyComplete
 C:\Users\Master\OneDrive\Documentos\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.exe
 C:\Users\Master\OneDrive\Documentos\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.pdb
+C:\Users\samar\OneDrive\Documentos\GitHub\EXCLUSIVO\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.exe
+C:\Users\samar\OneDrive\Documentos\GitHub\EXCLUSIVO\NovoTayUmDoce\obj\Debug\NovoTayUmDoce.pdb
