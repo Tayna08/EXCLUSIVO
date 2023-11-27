@@ -20,6 +20,7 @@ using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
 using Newtonsoft.Json;
 using System.Globalization;
+using iText.StyledXmlParser.Jsoup.Nodes;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -29,64 +30,133 @@ namespace NovoTayUmDoce.Componentes
     public partial class FuncionarioFormUC : UserControl
     {
         MainWindow _context;
+        private int _id;
+
+        private Funcionario _funcionario;
+        private Endereco _endereco;
         public FuncionarioFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
         }
 
-        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        public FuncionarioFormUC(int id)
+        {
+            _id = id;
+            InitializeComponent();
+
+            if (_id > 0)
+            {
+                LoadFuncionarioDetails();
+            }
+        }
+        private void LoadFuncionarioDetails()
         {
             try
             {
+                var dao = new FuncionarioDAO();
+                _funcionario = dao.GetById(_id);
 
+                var daoo = new EnderecoDAO();
+                _endereco = daoo.GetById(_id);
+
+                if (_funcionario != null)
+                {
+                    tbNome.Text = _funcionario.Nome;
+                    tbCpf.Text = _funcionario.Cpf;
+                    dtpData.SelectedDate = _funcionario.Data;
+                    tbContato.Text = _funcionario.Contato;
+                    tbEmail.Text = _funcionario.Email;
+                    tbFuncao.Text = _funcionario.Funcao;
+                    tbSalario.Text = _funcionario.Salario;
+
+
+                    tbBairro.Text = _endereco.Bairro;
+                    tbCidade.Text = _endereco.Cidade;
+                    tbRua.Text = _endereco.Rua;
+                    tbComplemento.Text = _endereco.Complemento;
+                    tbNumero.Text = _endereco.Numero.ToString();
+                    tbCEP.Text = _endereco.Cep;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes do funcionário: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            try
+            {
+                Console.WriteLine("Iniciando salvamento do funcionário...");
+                // Validar CPF
                 if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
                 {
                     MessageBox.Show("Cpf digitado é inválido!");
+                    return;
                 }
+
+                // Validar E-mail
                 if (!ValidarEmail(tbEmail.Text))
                 {
                     MessageBox.Show("Endereço de e-mail inválido!");
                     return;
                 }
 
+                // Setar informações na tabela cliente
+                _funcionario.Nome = tbNome.Text;
+                _funcionario.Cpf = tbCpf.Text;
+                _funcionario.Email = tbEmail.Text;
+                _funcionario.Contato = tbContato.Text;
+                _funcionario.Funcao = tbFuncao.Text;
+                _funcionario.Salario = tbSalario.Text;
+                _funcionario.Data = dtpData.SelectedDate;
+
+                // Setar informações no endereço
+                _endereco.Bairro = tbBairro.Text;
+                _endereco.Cidade = tbCidade.Text;
+                _endereco.Rua = tbRua.Text;
+                _endereco.Complemento = tbComplemento.Text;
+                _endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                _endereco.Cep = tbCEP.Text;
+
+                _funcionario.Endereco = _endereco;
+                Console.WriteLine("Funcionário e endereço preenchidos.");
+                // Se for uma edição
+                if (_id > 0)
+                {
+                    Console.WriteLine("Atualizando funcionário no banco de dados...");
+
+                    var dao = new FuncionarioDAO();
+                    dao.Update(_funcionario);
+                    Console.WriteLine("Funcionário atualizado com sucesso.");
+
+                    MessageBox.Show("Funcionário atualizado com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
                 else
                 {
-                    //Setando informações na tabela cliente
-                    Funcionario funcionario = new Funcionario();
-                    Endereco endereco = new Endereco();
-
-                    endereco.Bairro = tbBairro.Text;
-                    endereco.Cidade = tbCidade.Text;
-                    endereco.Rua = tbRua.Text;
-                    endereco.Complemento = tbComplemento.Text;
-                    endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                    endereco.Cep = tbCEP.Text;
-
-                    funcionario.Endereco = endereco;
-                    funcionario.Nome = tbNome.Text;
-                    funcionario.Cpf = tbCpf.Text;
-                    funcionario.Data = dtpData.SelectedDate;
-                    funcionario.Contato = tbContato.Text;
-                    funcionario.Email = tbEmail.Text;
-                    funcionario.Funcao = tbFuncao.Text;
-                    funcionario.Salario = tbSalario.Text;
-
-                    //Inserindo os Dados           
+                    Console.WriteLine("Inserindo novo funcionário no banco de dados...");
+                    // Se for uma inserção
                     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                    funcionarioDAO.Insert(funcionario);
+                    funcionarioDAO.Insert(_funcionario);
+                    Console.WriteLine("Funcionário inserido com sucesso.");
+                    MessageBox.Show("Funcionário inserido com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                     Clear();
-
                 }
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possível salvar o funcionário, verifique o erro");
-                MessageBox.Show("Erro 3008 : Contate o suporte");
+                Console.WriteLine($"Erro ao salvar o funcionário: {ex.Message}");
 
+                MessageBox.Show($"Não foi possível salvar o funcionário. Erro: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
 
         private bool ValidarEmail(string email)
         {
@@ -241,5 +311,7 @@ namespace NovoTayUmDoce.Componentes
             textBox.Text = cep;
             textBox.CaretIndex = textBox.Text.Length;
         }
+
+    
     }
 }

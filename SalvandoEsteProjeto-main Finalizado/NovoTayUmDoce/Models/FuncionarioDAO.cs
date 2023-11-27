@@ -178,5 +178,50 @@ namespace NovoTayUmDoce.Models
                 conn.Close();
             }
         }
+
+
+        public void Update(Funcionario t)
+        {
+            try
+            {
+                long enderecoId = t.Endereco.Id;
+                var endDAO = new EnderecoDAO();
+
+                if (enderecoId > 0)
+                    endDAO.Update(t.Endereco);
+                else
+                    enderecoId = endDAO.Insert(t.Endereco);
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE Funcionario SET nome_fun = @nome, data_nascimento = @data_nascimento, cpf_fun = @cpf " +
+                    "contato_fun = @contato, funcao_fun = @funcao, email_fun = @email, salario_fun = @salario, " +
+                    "id_end_fk = @enderecoId WHERE id_fun = @id";
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@datanasc", t.Data?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
+                query.Parameters.AddWithValue("@cpf", t.Cpf);
+                query.Parameters.AddWithValue("@contato", t.Contato);
+                query.Parameters.AddWithValue("@funcao", t.Funcao);
+                query.Parameters.AddWithValue("@email", t.Email);
+                query.Parameters.AddWithValue("@salario", t.Salario);
+                query.Parameters.AddWithValue("@enderecoId", enderecoId);
+
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

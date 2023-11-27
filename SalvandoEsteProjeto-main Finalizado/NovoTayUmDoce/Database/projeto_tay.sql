@@ -93,7 +93,14 @@ foreign key (id_cli_fk) references cliente (id_cli),
 foreign key(id_pro_fk) references produto(id_pro)
 );
 
-
+CREATE TABLE usuario (
+    id_usu int not null auto_increment,
+    usuario_usu varchar(255) not null,
+    senha_usu varchar(255) not null,
+    id_fun_fk int,
+    primary key (id_usu),
+    foreign key (id_fun_fk) references funcionario (id_fun)
+);
 
 create table pedido_produtos (
 id_ppro int primary key auto_increment,
@@ -121,6 +128,8 @@ INSERT INTO Funcionario VALUES (null, 'Funcionario 3', '1980-12-05', '666.666.66
 INSERT INTO Produto VALUES (null,'Café Expresso', '250g', 'Bebida Quente', 'Café forte e encorpado', 3.50);
 INSERT INTO Produto VALUES (null,'Cappuccino', '300g', 'Bebida Quente', 'Café, leite e espuma de leite', 4.50);
 INSERT INTO Produto VALUES (null,'Bolo de Chocolate', '150g', 'Doce', 'Bolo fofinho de chocolate', 5.00);
+
+INSERT INTO usuario VALUE (null, 'Doce22', '123456', 1);
 
 delimiter $$ 
 create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int, cep varchar(300))

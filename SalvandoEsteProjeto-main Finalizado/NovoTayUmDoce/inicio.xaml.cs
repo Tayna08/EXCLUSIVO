@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NovoTayUmDoce.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,117 +19,40 @@ namespace NovoTayUmDoce
     /// Lógica interna para inicio.xaml
     /// </summary>
 
-    //public partial class inicio : Window
-    //{
-    //    public inicio()
-    //    {
-    //        InitializeComponent();
-    //    }
-    //    private void btnLogin_Click(object sender, RoutedEventArgs e)
-    //    {
-    //        if (con.State == System.Data.ConnectionState.Open)
-    //        {
-    //            con.Close();
-    //        }
-    //        if (VerifyUser(txtUsername.Text, txtPassword.Password))
-    //        {
-    //            MessageBox.Show("Login Successfully", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
-    //        }
-    //        else
-    //        {
-    //            MessageBox.Show("Username or password is incorrect", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-    //        }
-    //    }
-    //    private bool VerifyUser(string username, string password)
-    //    {
-    //        con.Open();
-    //        com.Connection = con;
-    //        com.CommandText = "select Status from Users where username='" + username + "' and password='" + password + "'";
-    //        dr = com.ExecuteReader();
-    //        if (dr.Read())
-    //        {
-    //            if (Convert.ToBoolean(dr["Status"]) == true)
-    //            {
-    //                return true;
-    //            }
-    //            else
-    //            {
-    //                return false;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            return false;
-    //        }
-    //    }
-    //    private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-    //    {
-    //        DragMove();
-    //    }
+  
     public partial class inicio : Window
     {
         public inicio()
         {
             InitializeComponent();
+            Loaded += Login_Loaded;
         }
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+
+        private void Login_Loaded(object sender, RoutedEventArgs e)
         {
-            //if (con.State == System.Data.ConnectionState.Open)
-            //{
-            //    con.Close();
-            //}
-            //if (VerifyUser(txtUsername.Text, txtPassword.Password))
-            //{
-            //    MessageBox.Show("Login Successfully", "Congrats", MessageBoxButton.OK, MessageBoxImage.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Username or password is incorrect", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+            //_ = txtUsuario.Focus();
+            //new FuncionarioListWindow().Show();
+            //this.Close();
         }
-        private bool VerifyUser(string username, string password)
+
+        private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            //con.Open();
-            //com.Connection = con;
-            //com.CommandText = "select Status from Users where username='" + username + "' and password='" + password + "'";
-            //dr = com.ExecuteReader();
-            //if (dr.Read())
-            //{
-            //    if (Convert.ToBoolean(dr["Status"]) == true)
-            //    {
-            //        return true;
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
-        }
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
+            string usuario = "Doce22"; // txtUsuario.Text;
+            string senha = "123456"; // passBoxSenha.Password.ToString();
 
-        private void btnLogin_Click_1(object sender, RoutedEventArgs e)
-        {
+            if (Usuario.Login(usuario, senha))
+            {
+                var main = new MainWindow();
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = txtUsuario.Focus();
+            }
 
         }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        //    private void btnExit_Click(object sender, RoutedEventArgs e)
-        //    {
-        //        Application.Current.Shutdown();
-        //    }
-        //}
     }
 }
+       

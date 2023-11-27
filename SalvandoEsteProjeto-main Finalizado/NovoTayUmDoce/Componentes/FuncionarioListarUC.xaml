@@ -22,6 +22,7 @@
             <Button Background="#FFD18D9F" Margin="550, 0" Click="btImprimir_Click" VerticalAlignment="Top" Height="50" Width="60"  BorderBrush="Black" Foreground="Black">
                 <materialDesign:PackIcon Kind="Printer" Height="34" Width="49" HorizontalAlignment="Center"/>
             </Button>
+            
         </StackPanel>
 
 
@@ -38,28 +39,26 @@
                 <DataGridTextColumn Header="Salário" Binding="{Binding Salario}"/>
                 <DataGridTextColumn Header="Número" Binding="{Binding Endereco.Numero}"/>
                 <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.Header>
-                        <TextBlock Text="Ação" />
-                    </DataGridTemplateColumn.Header>
+                <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Click="ExcluirFuncionario_Click">
-                                <Button.BorderBrush>
-                                    <LinearGradientBrush >
-                                        <GradientStop Color="Black"/>
-                                        <GradientStop Color="Black" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.BorderBrush>
-                                <Button.Background>
-                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
-                                </Button.Background>
-                            </Button>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Click="ExcluirFuncionario_Click">
+                                    <Button.Content>
+                                        <Image Source="/Componentes/trashcan1_114647.png"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Click="EditarFuncionario_Click">
+                                    <Button.Content>
+                                        <Image Source="/Caminho/UserEdit_40958.png"/>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 </UserControl>

@@ -20,6 +20,8 @@ using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.Kernel.Exceptions;
+using static MaterialDesignThemes.Wpf.Theme;
+using MaterialDesignThemes.Wpf;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -35,7 +37,26 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
+            Loaded += FuncionarioListWindow_Loaded;
+        }
 
+        private void FuncionarioListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+
+                dataGridFuncionario.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void BtnAddFuncionario_Click(object sender, RoutedEventArgs e)
         {
@@ -107,6 +128,22 @@ namespace NovoTayUmDoce.Componentes
             {
                 this.IsEnabled = true;
             }
+        }
+
+        private void EditarFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionarioSelected = dataGridFuncionario.SelectedItem as Funcionario;
+
+            if (funcionarioSelected == null)
+            {
+                MessageBox.Show("Selecione um funcionário para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var userControl = new FuncionarioFormUC(funcionarioSelected.Id);
+
+          
+            _context.Content = userControl;
         }
     }
 }
