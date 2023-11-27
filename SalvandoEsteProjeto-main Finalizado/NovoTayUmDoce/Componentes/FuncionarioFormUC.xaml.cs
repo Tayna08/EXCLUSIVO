@@ -98,8 +98,6 @@ namespace NovoTayUmDoce.Componentes
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-
-
             try
             {
                 // Validar CPF

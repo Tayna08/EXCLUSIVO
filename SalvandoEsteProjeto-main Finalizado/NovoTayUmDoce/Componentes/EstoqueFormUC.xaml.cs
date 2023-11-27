@@ -1,5 +1,6 @@
 ﻿using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Models;
+using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace NovoTayUmDoce.Componentes
     public partial class EstoqueFormUC : UserControl
     {
         MainWindow _context;
-
+        int _id;
+        private Estoque _estoque;
         public EstoqueFormUC(MainWindow context)
         {
             InitializeComponent();
@@ -32,6 +34,42 @@ namespace NovoTayUmDoce.Componentes
             
         }
 
+        public EstoqueFormUC(int id, MainWindow context)
+        {
+            _id = id;
+            InitializeComponent();
+            _context = context;
+
+            _estoque = new Estoque(); // Inicializa o objeto Cliente
+
+            if (_id > 0)
+            {
+                LoadEstoqueDetails();
+            }
+        }
+
+        private void LoadEstoqueDetails()
+        {
+            try
+            {
+                var dao = new EstoqueDAO();
+                _estoque = dao.GetById(_id);
+
+                if (_estoque != null)
+                {
+                    tbQuantidade.Text = _estoque.Quantidade.ToString();
+                    tbInsumos.Text = _estoque.Insumos;
+                    dtpDataValidade.SelectedDate = _estoque.Datavalidade;
+                    dtpDataFabricacao.SelectedDate = _estoque.DataFabricacao;
+
+                    cbProduto.SelectedItem = _estoque.Produto;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes do funcionário: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void EstoqueFormUC_Loaded(object sender, RoutedEventArgs e)
         {
             CarregarData();
@@ -59,7 +97,6 @@ namespace NovoTayUmDoce.Componentes
 
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 Estoque estoque = new Estoque();
