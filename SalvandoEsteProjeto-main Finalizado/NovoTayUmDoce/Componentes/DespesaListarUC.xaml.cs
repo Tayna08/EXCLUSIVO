@@ -48,6 +48,18 @@ namespace NovoTayUmDoce.Componentes
                 MessageBox.Show("Erro ao carregar as despesas: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void EditarDespesa_Click(object sender, RoutedEventArgs e)
+        {
+            var despesa = dataGridDespesa.SelectedItem as Despesa;
+
+            if (despesa == null)
+            {
+                MessageBox.Show("Selecione uma Despesa para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            _context.SwitchScreen(new DespesaFormUC(despesa.Id, _context));
+        }
 
         private void ExcluirDespesa_Click(object sender, RoutedEventArgs e)
         {

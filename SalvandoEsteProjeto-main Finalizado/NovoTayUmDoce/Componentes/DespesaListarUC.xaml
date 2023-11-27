@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -27,23 +28,22 @@
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
                 <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Vencimento}"/>
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.Header>
-                        <TextBlock Text="Ação" />
-                    </DataGridTemplateColumn.Header>
+                <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Click="ExcluirDespesa_Click">
-                                <Button.BorderBrush>
-                                    <LinearGradientBrush >
-                                        <GradientStop Color="Black"/>
-                                        <GradientStop Color="Black" Offset="1"/>
-                                    </LinearGradientBrush>
-                                </Button.BorderBrush>
-                                <Button.Background>
-                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
-                                </Button.Background>
-                            </Button>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Click="ExcluirDespesa_Click">
+                                    <Button.Content >
+                                        <Image Source="/Componentes/trashcan1_114647.png"/>
+                                    </Button.Content>
+                                </Button>
+
+                                <Button Click="EditarDespesa_Click" Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}"
+                                ToolTip="Visualizar Registro" Height="35" Width="35">
+
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
