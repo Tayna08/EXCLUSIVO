@@ -1,0 +1,489 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>itext.licensing.remote</name>
+    </assembly>
+    <members>
+        <member name="T:iText.Licensing.Remote.Apigateway.ApiGatewayClient">
+            <summary>This class provides API to send http requests to the AWS API gateway.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayClient.#ctor(System.String,System.String)">
+            <summary>
+            Creates an instance of
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayClient"/>.
+            </summary>
+            <param name="host">the host for further requests</param>
+            <param name="resource">the resource path for further requests</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayClient.#ctor(System.String,System.String,iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider)">
+            <summary>
+            Creates an instance of
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayClient"/>.
+            </summary>
+            <param name="host">the host for further requests</param>
+            <param name="resource">the resource path for further requests</param>
+            <param name="credentialsProvider">the credentials' provider for further requests</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayClient.SetTimeoutMillis(System.Int32)">
+            <summary>Changes the default timeout setting for requests.</summary>
+            <param name="timeoutMillis">the new timeout values in millis</param>
+            <returns>
+            the current
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayClient"/>
+            </returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayClient.MakePostRequest">
+            <summary>This method sends http POST request to the server with empty body.</summary>
+            <returns>
+            An
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayResponse"/>
+            object of http response.
+            </returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayClient.MakePostRequest(System.String)">
+            <summary>This method sends http POST request to the server.</summary>
+            <param name="requestBody">String representation of the JSON request body.</param>
+            <returns>
+            An
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayResponse"/>
+            object of http response.
+            </returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient">
+            <summary>The API Gateway low level HTTP client implementation.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient.#ctor">
+            <summary>Creates the instance of the client.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient.TryMakePostHttpRequest(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)">
+            <summary>Makes the post request.</summary>
+            <param name="requestBody">the body of the request</param>
+            <param name="host">the host for the request</param>
+            <param name="resource">the resource path for the request</param>
+            <param name="headers">the headers for the request</param>
+            <param name="timeoutMillis">the timeout in millis for the request</param>
+            <returns>
+            the
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayResponse"/>
+            representing the response
+            </returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClientKeeper">
+            <summary>API Gateway HTTP client keeper class.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClientKeeper.SetClient(iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient)">
+            <summary>
+            Sets
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient"/>
+            instance.
+            </summary>
+            <param name="apiGatewayHttpClient">the instance to be set</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClientKeeper.RestoreDefaultApiGatewayHttpClient">
+            <summary>Restores default client.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClientKeeper.GetApiGatewayHttpClient">
+            <summary>
+            Gets
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient"/>
+            instance.
+            </summary>
+            <returns>
+            the
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayHttpClient"/>
+            instance
+            </returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Apigateway.ApiGatewayResponse">
+            <summary>Class-wrapper of the http response.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayResponse.#ctor(System.Int32,System.String)">
+            <summary>Creates an instance of api gateway response.</summary>
+            <param name="status">the status of response</param>
+            <param name="body">the body of response</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayResponse.GetStatus">
+            <summary>Returns the status value of the http response.</summary>
+            <returns>integer value of the http response status.</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Apigateway.ApiGatewayResponse.GetBody">
+            <summary>Returns the text of the http response body.</summary>
+            <returns>text value of the http response body.</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Auth.AuthData">
+            <summary>Class containing auth data.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthData.#ctor(System.String,System.String,System.String)">
+            <summary>Create an instance of authentication data.</summary>
+            <param name="identityId">the identity ID</param>
+            <param name="token">the token</param>
+            <param name="region">the region</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthData.GetIdentityId">
+            <summary>Returns the AWS Cognito identity ID for authentication.</summary>
+            <returns>the identity ID</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthData.GetToken">
+            <summary>Returns the AWS Cognito token for authentication.</summary>
+            <returns>the AWS Cognito token</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthData.GetRegion">
+            <summary>Returns the AWS Cognito region for authentication.</summary>
+            <returns>the AWS Cognito region</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Auth.AuthHelper">
+            <summary>An interface for proxying data for authentication.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthHelper.GetBodyForAuthRequest">
+            <summary>Returns string representation of JSON object for authentication request body.</summary>
+            <returns>string representation of JSON object.</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AuthHelper.ParseAuthData(System.String)">
+            <summary>Parses the JSON string into authentication data.</summary>
+            <param name="toParse">String representation of JSON object.</param>
+            <returns>Parsed authentication data.</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Auth.AwsCredentialsData">
+            <summary>Represents AWS credentials data with region.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.#ctor(System.String,System.String,System.String)">
+            <summary>Create instance.</summary>
+            <param name="accessKey">the AWS access key</param>
+            <param name="secretKey">the AWS secret key</param>
+            <param name="region">
+            the AWS region name. Should match to one of the
+            <see cref="T:Amazon.RegionEndpoint"/>
+            names.
+            </param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>Create instance.</summary>
+            <param name="accessKey">the AWS access key</param>
+            <param name="secretKey">the AWS secret key</param>
+            <param name="session">the AWS session token</param>
+            <param name="region">
+            the AWS region name. Should match to one of the
+            <see cref="T:Amazon.RegionEndpoint"/>
+            names.
+            </param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.GetAccess">
+            <summary>Gets the access of credentials data instance.</summary>
+            <returns>the access</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.GetSecret">
+            <summary>Gets the secret of credentials data instance.</summary>
+            <returns>the secret</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.GetSession">
+            <summary>Gets the session of credentials data instance.</summary>
+            <returns>the session</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.GetRegion">
+            <summary>Gets the region of credentials data instance.</summary>
+            <returns>the region</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsCredentialsData.GetAwsCredentials">
+            <summary>
+            Constructs the AWS credentials instance which is based on access, secret
+            and session fields of current credentials data instance.
+            </summary>
+            <returns>the AWS credentials</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider">
+            <summary>This class provides API to obtain the AWS credentials.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider.#ctor(iText.Licensing.Remote.Apigateway.ApiGatewayClient,iText.Licensing.Remote.Auth.AuthHelper)">
+            <summary>Creates an instance of AWS SDK credentials provider.</summary>
+            <param name="apiGatewayClient">
+            an instance of configured
+            <see cref="T:iText.Licensing.Remote.Apigateway.ApiGatewayClient"/>
+            for authentication request.
+            </param>
+            <param name="authHelper">authentication data proxying object.</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider.GetCredentialsData">
+            <summary>This method return the object of AWS credentials data.</summary>
+            <returns>
+            an
+            <see cref="T:iText.Licensing.Remote.Auth.AwsCredentialsData"/>
+            object.
+            </returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider.GetCredentials">
+            <summary>This method return the object of AWS credentials.</summary>
+            <returns>
+            an
+            <see cref="T:Amazon.Runtime.ImmutableCredentials"/>
+            object.
+            </returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider.Refresh">
+            <summary>Updates the AWS credentials object.</summary>
+        </member>
+        <member name="T:iText.Licensing.Remote.Auth.AwsSign4">
+            <summary>This class provides API to apply AWS signing on http request headers</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Auth.AwsSign4.ApplyAwsSign4(System.String,System.String,System.String,System.String,System.Collections.Generic.SortedDictionary{System.String,System.String},System.String,iText.Licensing.Remote.Auth.AwsCredentialsData)">
+            <summary>
+            This methods applies AWS signing on http request headers by adding additional
+            https headers containing AWS host, token and signature values.
+            </summary>
+            <param name="host">AWS server url</param>
+            <param name="path">string path to the limits values in the query</param>
+            <param name="httpMethod">name of the http method</param>
+            <param name="serviceName">name of the AWS service</param>
+            <param name="headers">http headers map</param>
+            <param name="body">text of the http body</param>
+            <param name="credentialsData">an object of AWS credentials data</param>
+        </member>
+        <member name="T:iText.Licensing.Remote.Exceptions.LicenseKeyRemoteException">
+            <summary>Exception class for exceptions in licensekey remote module.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Exceptions.LicenseKeyRemoteException.#ctor(System.String)">
+            <summary>Creates a new instance of LicenseKeyException message.</summary>
+            <param name="message">the detail message.</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Exceptions.LicenseKeyRemoteException.#ctor(System.String,System.Exception)">
+            <summary>Creates a new instance of LicenseKeyException message with cause.</summary>
+            <param name="message">the detail message.</param>
+            <param name="cause">the original exception</param>
+        </member>
+        <member name="T:iText.Licensing.Remote.Exceptions.LicenseKeyRemoteExceptionMessageConstant">
+            <summary>Class that bundles all the error message templates as constants.</summary>
+        </member>
+        <member name="T:iText.Licensing.Remote.Kinesis.IKinesisClientProvider">
+            <summary>Amazon Kinesis client provider.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.IKinesisClientProvider.GetClient">
+            <summary>Get Amazon Kinesis client.</summary>
+            <returns>Amazon Kinesis client</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.IKinesisClientProvider.Refresh">
+            <summary>Refresh client.</summary>
+        </member>
+        <member name="T:iText.Licensing.Remote.Kinesis.KinesisDataSender">
+            <summary>
+            Abstract writer that sends data to specified AWS Kinesis stream with credentials
+            obtained from
+            <see cref="T:iText.Licensing.Remote.Kinesis.IKinesisClientProvider"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.KinesisDataSender.#ctor(System.Int32,System.String,iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider)">
+            <summary>
+            Create an instance of Kinesis Writer with using
+            <see cref="T:iText.Licensing.Remote.Kinesis.RotationKinesisClientProvider"/>.
+            </summary>
+            <param name="capacity">the maximum record size</param>
+            <param name="streamName">the Kinesis stream name to send data</param>
+            <param name="credentialsProvider">the credentials provider</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.KinesisDataSender.SendRecord(System.Byte[])">
+            <summary>Send record to aws kinesis.</summary>
+            <param name="data">the data to send</param>
+            <returns>
+            
+            <see langword="true"/>
+            if the record has been sent successfully,
+            <see langword="false"/>
+            otherwise
+            </returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Kinesis.KinesisRecordDataBuffer">
+            <summary>
+            The class represents a wrapper of byte buffer which is used
+            during the send request process by {@link KinesisDataSender}.
+            </summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.KinesisRecordDataBuffer.#ctor(System.Int32)">
+            <summary>
+            Creates an instance of kinesis record data buffer.
+            </summary>
+            <param name="capacity">the capacity of buffer</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.KinesisRecordDataBuffer.Wrap(System.Byte[])">
+            <summary>
+            Wraps the passed data to current buffer instance.
+            </summary>
+            <param name="data">the data to be passed</param>
+            <returns>the current instance of buffer</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.KinesisRecordDataBuffer.ToRecordData">
+            <summary>
+            Gets an instance of internal memory stream.
+            </summary>
+            <returns>the memory stream instance</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Kinesis.RotationKinesisClientProvider">
+            <summary>Amazon Kinesis Client provider that can handle multiple clients and rotation between them.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.RotationKinesisClientProvider.#ctor(Amazon.Kinesis.IAmazonKinesis)">
+            <summary>Create client provider with single client.</summary>
+            <param name="client">the Amazon Kinesis client to use</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.Kinesis.RotationKinesisClientProvider.#ctor(System.Collections.Generic.ICollection{Amazon.Kinesis.IAmazonKinesis})">
+            <summary>Create client provider with list of clients.</summary>
+            <param name="clients">the list of Amazon Kinesis clients to use</param>
+        </member>
+        <member name="T:iText.Licensing.Remote.LicenseKeyRemoteConfigurer">
+            <summary>Configuration class providing API to set up reporting requests and responses.</summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.LicenseKeyRemoteConfigurer.SetProxy(System.String,System.Int32)">
+            <summary>Sets up proxy host and port values for the http requests and responses.</summary>
+            <remarks>
+            Sets up proxy host and port values for the http requests and responses.
+            Mind that this method should be called before the first license loading.
+            </remarks>
+            <param name="host">proxy host value.</param>
+            <param name="port">proxy port value.</param>
+        </member>
+        <member name="M:iText.Licensing.Remote.LicenseKeyRemoteConfigurer.ResetProxy">
+            <summary>Resets proxy host and port values.</summary>
+            <remarks>
+            Resets proxy host and port values.
+            Mind that this method should be called before the first license loading. Calling this method after the first
+            license loading does not change proxy host and port used in http responses.
+            </remarks>
+        </member>
+        <member name="M:iText.Licensing.Remote.LicenseKeyRemoteConfigurer.GetProxyConfig">
+            <summary>
+            Returns an
+            <see cref="T:iText.Licensing.Remote.LicenseKeyRemoteConfigurer.ProxyConfig"/>
+            object with set up proxy host and port values.
+            </summary>
+            <returns>object with set up proxy host and port values.</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.LicenseKeyRemoteProductData">
+            <summary>
+            Stores an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to Licensing remote module.
+            </summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.LicenseKeyRemoteProductData.GetInstance">
+            <summary>
+            Getter for an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to licensing remote module.
+            </summary>
+            <returns>licensing remote product description.</returns>
+        </member>
+        <member name="T:iText.Licensing.Remote.Log.LicenseKeyRemoteLogMessageConstants">
+            <summary>Class that bundles all the log message templates as constants.</summary>
+        </member>
+        <member name="T:iText.Licensing.Remote.PortingUtil">
+            <summary>
+            Utilities class for remote module purpose.
+            </summary>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.BuildStandardKinesisClient(iText.Licensing.Remote.Auth.AwsSdkCredentialsProvider)">
+            <summary>
+            Builds standard kinesis client.
+            </summary>
+            <param name="credentialsProvider">the credential provider</param>
+            <returns>the amazon kinesis client instance to make API calls with</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.IsSuccessful(Amazon.Kinesis.Model.PutRecordResponse)">
+            <summary>
+            Checks whether the result is successful.
+            </summary>
+            <param name="result">the result to be checked</param>
+            <returns>
+            <see langword="true"/> if result is not <see langword="null"/> and
+            HTTP status is successful, <see langword="false"/> otherwise
+            </returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.Random">
+            <summary>
+            Gets a random number between 0 and 1.
+            </summary>
+            <returns>the random number</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.SingletonList``1(``0)">
+            <summary>
+            Creates a singleton list.
+            </summary>
+            <param name="o">the only element of the list</param>
+            <typeparam name="T">the type of the list</typeparam>
+            <returns>the singleton list with passed object</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.GetAwsCurrentUtcTimestamp">
+            <summary>
+            Gets the current UTC timestamp in AwsSign4 acceptable format.
+            </summary>
+            <returns>the string representation of the current UTC timestamp in format "yyyyMMddTHHmmssZ"</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.ToHexString(System.Byte[])">
+            <summary>
+            Encodes passed bytes as hex string.
+            </summary>
+            <param name="bytes">the bytes to be encoded</param>
+            <returns>the hex string</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.HmacSha256HashCalculate(System.Byte[],System.String)">
+            <summary>
+            Calculates the hmac sha256 hash of the message with provided key.
+            </summary>
+            <param name="key">the key</param>
+            <param name="msg">the message</param>
+            <returns>the hmac sha256 bytes</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.GetHashCodeFromObjects``1(``0[])">
+            <summary>
+            Gets hash of passed objects.
+            </summary>
+            <param name="objects">the objects for which the hash will be calculated</param>
+            <typeparam name="T">the type of objects</typeparam>
+            <returns>the hash of passed objects</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.Sha256HashCalculate(System.Byte[])">
+            <summary>
+            Calculates the sha256 hash of the message.
+            </summary>
+            <param name="msg">the message</param>
+            <returns>the sha256 hash of passed message</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.GetAwsCredentialsObject(System.String,System.String,System.String)">
+            <summary>
+            Gets AWS credentials instance based on passed access, secret and session.
+            </summary>
+            <param name="access">the access</param>
+            <param name="secret">the secret</param>
+            <param name="session">the session (can be null)</param>
+            <returns>the AWS credentials instance</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.GetJsonContentTypeHeader">
+            <summary>
+            Gets JSON content type header of HTTP request.
+            </summary>
+            <returns>the content type</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.GetAwsCognitoCredentials(iText.Licensing.Remote.Auth.AuthData,System.String)">
+            <summary>
+            Gets AWS cognito credentials instance.
+            </summary>
+            <param name="authData">the authentication data</param>
+            <param name="provider">the provider name</param>
+            <returns>the AWS cognito credentials instance</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.TryMakePostHttpRequest(System.String,System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.Int32)">
+            <summary>
+            Perform HTTPs POST request. The request url would be the concatenation of https protocol, host and resource.
+            </summary>
+            <param name="requestBody">the request body</param>
+            <param name="host">the host</param>
+            <param name="resource">the resource</param>
+            <param name="headers">the headers</param>
+            <param name="timeoutMillis">the timeout milliseconds</param>
+            <returns>the api gateway response instance</returns>
+        </member>
+        <member name="M:iText.Licensing.Remote.PortingUtil.IsClientConfigurationInitialized">
+            <summary>
+            Checks whether the client configuration was initialized.
+            </summary>
+            <returns>
+            <see langword="true"/> if client configuration is initialized, <see langword="false"/> otherwise
+            </returns>
+        </member>
+    </members>
+</doc>

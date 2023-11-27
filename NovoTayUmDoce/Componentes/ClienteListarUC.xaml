@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.ClienteListarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             mc:Ignorable="d" 
+              d:DesignHeight="450" Width="1061">
+    <Grid x:Name="print">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="273*"/>
+            <ColumnDefinition Width="527*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24" Margin="-70"/>
+            <Button Background="#FFD18D9F" x:Name="BtnAddCliente" Margin="30 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click" BorderBrush="Black" Foreground="Black"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" Margin="-70,20,-780,5" x:Name="dataGridClientes" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Foreground="#E5000000">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"  />
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}"/>
+                <DataGridTextColumn Header="Contato" Binding="{Binding Contato}"/>
+                <DataGridTextColumn Header="Data Nascimento" Binding="{Binding DataNasc, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Bairro" Binding="{Binding Endereco.Bairro}"/>
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Endereco.Cidade}"/>
+                <DataGridTextColumn Header="Rua" Binding="{Binding Endereco.Rua}"/>
+                <DataGridTextColumn Header="Complemento" Binding="{Binding Endereco.Complemento}"/>
+                <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
+                <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
+                <!-- Outras colunas existentes... -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Ações" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                
+                                    <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
+                                        Content="{materialDesign:PackIcon Pencil}"
+                                        ToolTip="Visualizar Registro" Height="35" Width="35" Name="Editar_cli" Click="Button_Update_Click" 
+                                    
+                                            
+                                    />
+
+                            
+                            </StackPanel>
+   
+
+                        </DataTemplate>
+       
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+
+        <Frame x:Name="frameCliente" />
+    </Grid>
+</UserControl>
+
