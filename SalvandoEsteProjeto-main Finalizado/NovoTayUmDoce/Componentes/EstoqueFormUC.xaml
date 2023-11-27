@@ -19,7 +19,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-
         <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="833,390,0,0">
 
             <Button x:Name="btCancelar" Content="CANCELAR" Margin="20" Background="#FFFFA4A4" VerticalAlignment="Bottom" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>

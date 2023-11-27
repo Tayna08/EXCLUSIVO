@@ -34,19 +34,6 @@ id_end_fk int,
 foreign key(id_end_fk) references Endereco (id_end)
 );
 
-create table Caixa(
-id_cai int primary key auto_increment,
-status_cai varchar (300),
-saldo_inicial_cai double,
-saldo_final_cai double,
-valor_entrada_cai double,
-valor_saida_cai double,
-data_cai double,
-hora_cai time,
-id_fun_fk int,
-foreign key(id_fun_fk) references Funcionario(id_fun)
-);
-
 create table Despesa(
 id_des int primary key auto_increment,
 nome_des varchar(300),
