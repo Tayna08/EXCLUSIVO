@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="NovoTayUmDoce.Componentes.PedidoListarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NovoTayUmDoce.Componentes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Text="Pedidos" VerticalAlignment="Center" FontSize="24"/>
+            <Button x:Name="BtnAddPedido" Margin="10 0 0 0" Content="Novo Pedido" Click="BtnAddPedido_Click"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" x:Name="dataGridPedidos" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" SelectionChanged="dataGridPedidos_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
+                <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nom}"/>
+                <DataGridTextColumn Header="Forma de Recebimento" Binding="{Binding FormaRecebimento}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nome}"/>
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Funcionario.Nome}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Ação" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Click="ExcluirPedido_Click">
+                                <Button.BorderBrush>
+                                    <LinearGradientBrush >
+                                        <GradientStop Color="Black"/>
+                                        <GradientStop Color="Black" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Button.BorderBrush>
+                                <Button.Background>
+                                    <ImageBrush  ImageSource="/Componentes/trashcan1_114647.png"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
