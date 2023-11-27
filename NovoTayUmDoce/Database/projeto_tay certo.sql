@@ -34,19 +34,6 @@ id_end_fk int,
 foreign key(id_end_fk) references Endereco (id_end)
 );
 
-create table Caixa(
-id_cai int primary key auto_increment,
-status_cai varchar (300),
-saldo_inicial_cai double,
-saldo_final_cai double,
-valor_entrada_cai double,
-valor_saida_cai double,
-data_cai double,
-hora_cai time,
-id_fun_fk int,
-foreign key(id_fun_fk) references Funcionario(id_fun)
-);
-
 create table Despesa(
 id_des int primary key auto_increment,
 nome_des varchar(300),
@@ -95,16 +82,6 @@ foreign key(id_pro_fk) references produto(id_pro)
 
 
 
-create table pedido_produtos (
-id_ppro int primary key auto_increment,
-quant_ppro varchar(300),
-valor_ppro varchar(300),
-total_ppro varchar(300),
-id_ped_fk int,
-id_pro_fk int,
-foreign key (id_ped_fk) references pedido (id_ped),
-foreign key (id_pro_fk) references produto (id_pro)
-);
 
 insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525,'920000');
 insert into Endereco values (null, 'Lino Xeigar Maldrim', 'Calcoar', '21323', 'Av.Kubcheck', 312525,'12');
@@ -122,31 +99,16 @@ INSERT INTO Produto VALUES (null,'Café Expresso', '250g', 'Bebida Quente', 'Caf
 INSERT INTO Produto VALUES (null,'Cappuccino', '300g', 'Bebida Quente', 'Café, leite e espuma de leite', 4.50);
 INSERT INTO Produto VALUES (null,'Bolo de Chocolate', '150g', 'Doce', 'Bolo fofinho de chocolate', 5.00);
 
-delimiter $$ 
-create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int, cep varchar(300))
-begin
-if ((bairro <> '' ) and (cidade <> '') and (rua <> '') and (numero <> '')) then
-	insert into Endereco values(null, bairro, cidade, rua, complemento, numero,cep);
-	select 'Os campos obrigatórios foram preenchidos' as Confirmação;
-else
-	select 'Os campos obrigatórios devem ser preenchidos' as Erro;
-end if;
-end;
-$$ delimiter ;
-call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431,'920000');
-select * from Endereco;
-
-############################################################
 
 delimiter $$ 
-create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), fk_end int)
+create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), endereco_fk int)
 begin
 declare fkEnd int;
-set fkEnd = (select id_end from endereco where (id_end = fk_end));
+set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, endereco_fk);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
