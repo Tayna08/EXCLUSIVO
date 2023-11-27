@@ -42,7 +42,7 @@
 
 
                 <Label Content="CPF:" />
-                <TextBox Grid.Column="1" x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" />
+                <TextBox Grid.Column="1" x:Name="tbCpf" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbCpf_TextChanged" />
             </Grid>
 
             <Grid Margin="0 10">
@@ -58,7 +58,7 @@
                 <TextBox Grid.Column="1" x:Name="tbEmail" TextWrapping="Wrap" Background="White" Height="30"/>
 
                 <Label  Grid.Column="2" Content="CONTATO:"  HorizontalAlignment="Right"/>
-                <TextBox  Grid.Column="3" x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="30"/>
+                <TextBox  Grid.Column="3" x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbContato_TextChanged"/>
             </Grid>
 
             <Grid Margin="0 10">
@@ -89,7 +89,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Content="CEP:"/>
-                <TextBox x:Name="tbCEP" Margin="0,0,95,0" Grid.Column="1" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="tbCEP" Margin="0,0,95,0" Grid.Column="1" TextWrapping="Wrap" Background="White" Height="30" Grid.ColumnSpan="2" TextChanged="tbCEP_TextChanged_1"/>
 
                 <Button x:Name="bt" Foreground="#FF928B8B" FontWeight="Bold" Cursor="Hand" Height="35" Click="btAddCEP_Click" BorderBrush="Gray" Grid.Column="2" Margin="11,0,17,0" RenderTransformOrigin="0.5,0.5" Content="">
                     <Button.Background>

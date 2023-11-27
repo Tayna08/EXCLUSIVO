@@ -12,7 +12,7 @@ namespace NovoTayUmDoce.Models
 {
     class EstoqueDAO
     {
-        private static Conexao conn;
+        private  Conexao conn;
         public EstoqueDAO()
         {
             conn = new Conexao();
@@ -115,7 +115,6 @@ namespace NovoTayUmDoce.Models
                     query.CommandText = $"INSERT INTO Estoque (quantidade_est, validade_est,  data_fabricacao_est, insumos_est, id_pro_fk) " +
                         $"VALUES (@quantidade, @validade, @data_fabricacao, @insumos, @id_pro)";
 
-
                     query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
                     query.Parameters.AddWithValue("@validade", estoque.Datavalidade?.ToString("yyyy-MM-dd"));
                     query.Parameters.AddWithValue("@data_fabricacao", estoque.DataFabricacao?.ToString("yyyy-MM-dd"));
@@ -140,7 +139,6 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show("Erro 3007 : Contate o suporte!");
             }
 
-
         }
         public void Delete(Estoque estoque)
         {
@@ -164,10 +162,7 @@ namespace NovoTayUmDoce.Models
             {
                 MessageBox.Show(e.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
+          
         }
     }
 }

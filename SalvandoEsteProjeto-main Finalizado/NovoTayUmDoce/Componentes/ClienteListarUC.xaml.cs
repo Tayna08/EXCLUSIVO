@@ -67,24 +67,62 @@ namespace NovoTayUmDoce.Componentes
 
 
 
-        private void Button_Update_Click(object sender, RoutedEventArgs e)
+        //private void Button_Update_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //    var clienteAtualizado = dataGridClientes.SelectedItem as Cliente;
+
+
+
+
+        //    //_context.SwitchScreen(new ClienteFormUC(_context, clienteAtualizado));
+
+
+
+
+        //}
+
+        private void EditarCliente_Click(object sender, RoutedEventArgs e)
         {
+            var cliente = dataGridClientes.SelectedItem as Cliente;
 
-            var clienteAtualizado = dataGridClientes.SelectedItem as Cliente;
+            if (cliente == null)
+            {
+                MessageBox.Show("Selecione um Cliente para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-
-
-
-            //_context.SwitchScreen(new ClienteFormUC(_context, clienteAtualizado));
-
-
-
-
+            _context.SwitchScreen(new FuncionarioFormUC(cliente.Id, _context));
         }
-       
 
 
+        private void ExcluirCliente_Click(object sender, RoutedEventArgs e)
+        {
+            var clienteSelected = dataGridClientes.SelectedItem as Cliente;
 
+            var result = MessageBox.Show($"Deseja realmente remover o Cliente `{clienteSelected.Nome}`?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new ClienteDAO();
+                    dao.Delete(clienteSelected);
+
+                    ListarCliente();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void ListarCliente()
+        {
+            var dao = new ClienteDAO();
+            dataGridClientes.ItemsSource = dao.List();
+        }
 
 
 

@@ -19,6 +19,7 @@ using NovoTayUmDoce.Componentes;
 using NovoTayUmDoce.Conexão;
 using NovoTayUmDoce.Helpers;
 using NovoTayUmDoce.Models;
+using NPOI.SS.Formula.Functions;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -33,7 +34,13 @@ namespace NovoTayUmDoce.Componentes
             InitializeComponent();
             _context = context;
             Listar();
+            Loaded += ProdutoListWindow_Loaded;
         }
+        private void ProdutoListWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadDataGrid();
+        }
+
 
         private void BtnAddProduto_Click(object sender, RoutedEventArgs e)
         {
@@ -41,6 +48,19 @@ namespace NovoTayUmDoce.Componentes
 
         }
 
+        private void LoadDataGrid()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+
+                dataGridProduto.ItemsSource = dao.List();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void Listar()
         {
             try
@@ -76,6 +96,19 @@ namespace NovoTayUmDoce.Componentes
             {
                 MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void EditarProduto_Click(object sender, RoutedEventArgs e)
+        {
+            var produto = dataGridProduto.SelectedItem as Produto;
+
+            if (produto == null)
+            {
+                MessageBox.Show("Selecione um funcionário para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            _context.SwitchScreen(new ProdutoFormUC(produto.Id, _context));
         }
 
         private void ListarProdutos()

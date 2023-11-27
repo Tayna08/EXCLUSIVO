@@ -12,7 +12,7 @@ namespace NovoTayUmDoce.Models
 {
     class ProdutoDAO
     {
-        private static Conexao conn;
+        private Conexao conn;
 
 
         public ProdutoDAO()
@@ -59,6 +59,10 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show(e.Message);
                 return null;
             }
+            finally
+            {
+                conn.Close();
+            }
         }
         public List<Produto> List()
         {
@@ -70,37 +74,39 @@ namespace NovoTayUmDoce.Models
                     using ( var reader = query.ExecuteReader())
                     {
                         var lista = new List<Produto>();
-                        
+
                         while (reader.Read())
                         {
-                            var produto = new Produto();
+                            var produto = new Produto()
                             {
-                                produto.Id = DAOHelper.GetInt(reader, "id_pro");
-                                produto.Nome = DAOHelper.GetString(reader, "nome_pro");
-                                produto.Peso = DAOHelper.GetString(reader, "peso_pro");                  
-                                produto.Tipo = DAOHelper.GetString(reader, "tipo_pro");
-                                produto.Descricao = DAOHelper.GetString(reader, "descricao_pro");
-                                produto.Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro");
+                                Id = DAOHelper.GetInt(reader, "id_pro"),
+                                Nome = DAOHelper.GetString(reader, "nome_pro"),
+                                Peso = DAOHelper.GetString(reader, "peso_pro"),
+                                Tipo = DAOHelper.GetString(reader, "tipo_pro"),
+                                Descricao = DAOHelper.GetString(reader, "descricao_pro"),
+                                Valor_Venda = DAOHelper.GetDouble(reader, "valor_venda_pro"),
 
-                            }
+                            };
 
                             lista.Add(produto);
                         }
-
-                        reader.Close();
 
                         return lista;
                     }
                 }
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"Erro ao listar os produtos: {e.Message}");
                 throw;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
-        public long Insert(Produto produto)
+        public string Insert(Produto produto)
         {
             try
             {
@@ -114,26 +120,16 @@ namespace NovoTayUmDoce.Models
                         query.Parameters.AddWithValue("@tipo", produto.Tipo);
                         query.Parameters.AddWithValue("@descricao", produto.Descricao);
                         query.Parameters.AddWithValue("@valor", produto.Valor_Venda);
-                        
 
-                        var result = query.ExecuteNonQuery();
 
-                        if (result == 0)
-                        {
-                            MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Inserção bem-sucedida!");
-                        }
+                        var resultado = (string)query.ExecuteScalar();
+                        return resultado;
 
-                return query.LastInsertedId;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                MessageBox.Show("Erro 3007 : Contate o suporte!");
-                return 0;
+                MessageBox.Show($"Erro ao inserir cliente: {ex.Message}");
+                throw;
             }
 
         }
@@ -159,7 +155,44 @@ namespace NovoTayUmDoce.Models
             {
                 MessageBox.Show(e.Message);
             }
-         
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+        public void Update(Produto produto)
+        {
+            try
+            {
+              
+                var query = conn.Query();
+                query.CommandText = "UPDATE Produto SET nome_pro = @nome, peso_pro = @peso, tipo_pro = @tipo, " +
+                                     "descricao_pro = @descricao, valor_venda_pro = @valor_venda WHERE id_pro = @id";
+
+                query.Parameters.AddWithValue("@nome", produto.Nome);
+                query.Parameters.AddWithValue("@peso", produto.Peso);
+                query.Parameters.AddWithValue("@tipo", produto.Tipo);
+                query.Parameters.AddWithValue("@descricao", produto.Descricao);
+                query.Parameters.AddWithValue("@valor_venda", produto.Valor_Venda);
+                query.Parameters.AddWithValue("@id", produto.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("Atualização do registro não foi realizada.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Erro ao atualizar produto: {e.Message}");
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

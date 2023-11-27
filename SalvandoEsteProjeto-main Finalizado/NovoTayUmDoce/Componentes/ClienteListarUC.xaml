@@ -37,27 +37,23 @@
                 <DataGridTextColumn Header="Numero" Binding="{Binding Endereco.Numero}"/>
                 <DataGridTextColumn Header="Cep" Binding="{Binding Endereco.Cep}"/>
                 <!-- Outras colunas existentes... -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.Header>
-                        <TextBlock Text="Ações" />
-                    </DataGridTemplateColumn.Header>
+                <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                
-                                    <Button Style="{StaticResource MaterialDesignIconForegroundButton}" 
-                                        Content="{materialDesign:PackIcon Pencil}"
-                                        ToolTip="Visualizar Registro" Height="35" Width="35" Name="Editar_cli" Click="Button_Update_Click" 
-                                    
-                                            
-                                    />
+                                <Button Click="ExcluirCliente_Click">
+                                    <Button.Content>
+                                        <Image Source="/Componentes/trashcan1_114647.png"/>
+                                    </Button.Content>
+                                </Button>
 
-                            
+                                <Button Click="EditarCliente_Click">
+                                    <Button.Content>
+                                        <Image Source="/Caminho/UserEdit_40958.png"/>
+                                    </Button.Content>
+                                </Button>
                             </StackPanel>
-   
-
                         </DataTemplate>
-       
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>

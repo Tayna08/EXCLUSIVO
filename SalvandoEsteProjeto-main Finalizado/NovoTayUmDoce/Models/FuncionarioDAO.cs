@@ -110,44 +110,31 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        public void Insert(Funcionario funcionario)
+        public string Insert(Funcionario funcionario)
         {
             try
             {
                 var enderecoId = new EnderecoDAO().Insert(funcionario.Endereco);
-
-                if (enderecoId > 0)
-                {
-                    using (var query = conn.Query())
-                    {
-                        query.CommandText = "INSERT INTO funcionario (nome_fun, data_nascimento_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, id_end_fk) " +
+                var query = conn.Query();
+                query.CommandText = "INSERT INTO funcionario (nome_fun, data_nascimento_fun, cpf_fun, contato_fun, funcao_fun, email_fun, salario_fun, id_end_fk) " +
                             "VALUES (@nome, @data_nasc, @cpf, @contato, @funcao, @email, @salario, @id_end)";
 
-                        query.Parameters.AddWithValue("@nome", funcionario.Nome);
-                        query.Parameters.AddWithValue("@data_nasc", funcionario.Data?.ToString("yyyy-MM-dd"));
-                        query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
-                        query.Parameters.AddWithValue("@contato", funcionario.Contato);
-                        query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
-                        query.Parameters.AddWithValue("@email", funcionario.Email);
-                        query.Parameters.AddWithValue("@salario", funcionario.Salario);
-                        query.Parameters.AddWithValue("@id_end", enderecoId);
+                query.Parameters.AddWithValue("@nome", funcionario.Nome);
+                query.Parameters.AddWithValue("@data_nasc", funcionario.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                query.Parameters.AddWithValue("@contato", funcionario.Contato);
+                query.Parameters.AddWithValue("@funcao", funcionario.Funcao);
+                query.Parameters.AddWithValue("@email", funcionario.Email);
+                query.Parameters.AddWithValue("@salario", funcionario.Salario);
+                query.Parameters.AddWithValue("@id_end", enderecoId);
 
-                        var result = query.ExecuteNonQuery();
-
-                        if (result == 0)
-                        {
-                            MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Inserção bem-sucedida!");
-                        }
-                    }
-                }
+                var resultado = (string)query.ExecuteScalar();
+                return resultado;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
+                throw;
             }
         }
 
@@ -193,12 +180,12 @@ namespace NovoTayUmDoce.Models
                     enderecoId = endDAO.Insert(t.Endereco);
 
                 var query = conn.Query();
-                query.CommandText = "UPDATE Funcionario SET nome_fun = @nome, data_nascimento = @data_nascimento, cpf_fun = @cpf " +
+                query.CommandText = "UPDATE Funcionario SET nome_fun = @nome, data_nascimento_fun = @data_nascimento, cpf_fun = @cpf, " +
                     "contato_fun = @contato, funcao_fun = @funcao, email_fun = @email, salario_fun = @salario, " +
                     "id_end_fk = @enderecoId WHERE id_fun = @id";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
-                query.Parameters.AddWithValue("@datanasc", t.Data?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
+                query.Parameters.AddWithValue("@data_nascimento", t.Data?.ToString("yyyy-MM-dd")); //"10/11/1990" -> "1990-11-10"
                 query.Parameters.AddWithValue("@cpf", t.Cpf);
                 query.Parameters.AddWithValue("@contato", t.Contato);
                 query.Parameters.AddWithValue("@funcao", t.Funcao);
@@ -216,7 +203,9 @@ namespace NovoTayUmDoce.Models
             }
             catch (Exception e)
             {
-                throw e;
+                MessageBox.Show($"Erro ao atualizar funcionario: {e.Message}");
+               
+                throw;
             }
             finally
             {

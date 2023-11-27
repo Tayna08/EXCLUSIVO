@@ -140,10 +140,8 @@ namespace NovoTayUmDoce.Componentes
                 return;
             }
 
-            var userControl = new FuncionarioFormUC(funcionarioSelected.Id);
-
-          
-            _context.Content = userControl;
+            _context.SwitchScreen(new FuncionarioFormUC(funcionarioSelected.Id, _context));
         }
+
     }
 }

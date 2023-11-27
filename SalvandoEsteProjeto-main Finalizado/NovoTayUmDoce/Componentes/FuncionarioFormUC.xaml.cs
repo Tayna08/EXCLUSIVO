@@ -21,6 +21,7 @@ using NovoTayUmDoce.Models;
 using Newtonsoft.Json;
 using System.Globalization;
 using iText.StyledXmlParser.Jsoup.Nodes;
+using MySqlX.XDevAPI;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -30,24 +31,33 @@ namespace NovoTayUmDoce.Componentes
     public partial class FuncionarioFormUC : UserControl
     {
         MainWindow _context;
-        private int _id;
-
+        int _id;
         private Funcionario _funcionario;
         private Endereco _endereco;
         public FuncionarioFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
+            tbCEP.TextChanged += tbCEP_TextChanged_1;
         }
 
-        public FuncionarioFormUC(int id)
+
+        public FuncionarioFormUC(int id, MainWindow context)
         {
             _id = id;
             InitializeComponent();
+            _context = context;
+
+            _funcionario = new Funcionario(); // Inicializa o objeto Cliente
 
             if (_id > 0)
             {
                 LoadFuncionarioDetails();
+            }
+            else
+            {
+                // Se _id for igual a 0, inicialize também o objeto Endereco
+                _endereco = new Endereco();
             }
         }
         private void LoadFuncionarioDetails()
@@ -58,7 +68,7 @@ namespace NovoTayUmDoce.Componentes
                 _funcionario = dao.GetById(_id);
 
                 var daoo = new EnderecoDAO();
-                _endereco = daoo.GetById(_id);
+                _endereco = daoo.GetById(_funcionario.Endereco.Id);
 
                 if (_funcionario != null)
                 {
@@ -92,21 +102,44 @@ namespace NovoTayUmDoce.Componentes
 
             try
             {
-                Console.WriteLine("Iniciando salvamento do funcionário...");
                 // Validar CPF
                 if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
                 {
                     MessageBox.Show("Cpf digitado é inválido!");
+                    Clear();
                     return;
                 }
 
                 // Validar E-mail
-                if (!ValidarEmail(tbEmail.Text))
+                Funcionario funcionario = new Funcionario
                 {
-                    MessageBox.Show("Endereço de e-mail inválido!");
-                    return;
+                    Endereco = new Endereco
+                    {
+                        Numero = Convert.ToInt32(tbNumero.Text),
+                        Bairro = tbBairro.Text,
+                        Cidade = tbCidade.Text,
+                        Complemento = tbComplemento.Text,
+                        Rua = tbRua.Text,
+                        Cep = tbCEP.Text
+                    },
+
+                    Nome = tbNome.Text,
+                    Cpf = tbCpf.Text,
+                    Data = dtpData.SelectedDate,
+                    Contato = tbContato.Text,
+                    Email = tbEmail.Text,
+                    Funcao = tbFuncao.Text,
+                    Salario= tbSalario.Text,
+                };
+                if (_funcionario == null)
+                {
+                    _funcionario = new Funcionario();
                 }
 
+                if (_endereco == null)
+                {
+                    _endereco = new Endereco();
+                }
                 // Setar informações na tabela cliente
                 _funcionario.Nome = tbNome.Text;
                 _funcionario.Cpf = tbCpf.Text;
@@ -121,38 +154,39 @@ namespace NovoTayUmDoce.Componentes
                 _endereco.Cidade = tbCidade.Text;
                 _endereco.Rua = tbRua.Text;
                 _endereco.Complemento = tbComplemento.Text;
-                _endereco.Numero = Convert.ToInt32(tbNumero.Text);
+                _endereco.Numero = int.Parse(tbNumero.Text);
                 _endereco.Cep = tbCEP.Text;
 
-                _funcionario.Endereco = _endereco;
-                Console.WriteLine("Funcionário e endereço preenchidos.");
-                // Se for uma edição
+                var resultado = "";
+
                 if (_id > 0)
                 {
-                    Console.WriteLine("Atualizando funcionário no banco de dados...");
-
                     var dao = new FuncionarioDAO();
                     dao.Update(_funcionario);
-                    Console.WriteLine("Funcionário atualizado com sucesso.");
-
-                    MessageBox.Show("Funcionário atualizado com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var daoo = new EnderecoDAO();
+                    daoo.Update(_endereco);
+                    resultado = "Funcionario atualizado com sucesso.";
                 }
                 else
                 {
-                    Console.WriteLine("Inserindo novo funcionário no banco de dados...");
-                    // Se for uma inserção
+
                     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                    funcionarioDAO.Insert(_funcionario);
-                    Console.WriteLine("Funcionário inserido com sucesso.");
-                    MessageBox.Show("Funcionário inserido com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Clear();
+                    resultado = funcionarioDAO.Insert(funcionario);
+                    resultado = "Funcionario inserido com sucesso.";
                 }
+
+                _context.SwitchScreen(new FuncionarioListarUC(_context));
+
+                if (!string.IsNullOrEmpty(resultado))
+                    MessageBox.Show(resultado);
+
+                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+                if (resultado != camposObrigatoriosMsg)
+                    MessageBox.Show("Operação concluída com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao salvar o funcionário: {ex.Message}");
-
-                MessageBox.Show($"Não foi possível salvar o funcionário. Erro: {ex.Message}", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -195,35 +229,75 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private void tbContato_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-            if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
-            {
-                e.Handled = true;
-            }
-            else if (tbContato.Text.Length == 1)
-            {
-                tbContato.Text = "(" + tbContato.Text;
-                tbContato.CaretIndex = tbContato.Text.Length;
-            }
-            else if (tbContato.Text.Length == 3)
-            {
-                tbContato.Text += ") ";
-                tbContato.CaretIndex = tbContato.Text.Length;
-            }
-            else if (tbContato.Text.Length == 9)
-            {
-                tbContato.Text += "-";
-                tbContato.CaretIndex = tbContato.Text.Length;
-            }
-        }
-
+      
         private void btEmitirRelatorio_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void tbCpf_TextChanged_1(object sender, TextChangedEventArgs e)
+        
+
+        private async void btAddCEP_Click(object sender, RoutedEventArgs e)
+        {
+            string cep = tbCEP.Text;
+            string url = $"https://api.postmon.com.br/v1/cep/{cep}";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    string jsonResult = await client.GetStringAsync(url);
+                    Console.WriteLine($"JSON Result: {jsonResult}");
+
+                    dynamic data = JsonConvert.DeserializeObject(jsonResult);
+
+                    if (data != null)
+                    {
+                        tbCidade.Text = data.cidade;
+                        MessageBox.Show("CEP encontrado!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("CEP não encontrado ou inválido.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao obter dados do CEP: {ex.Message}");
+            }
+        }
+
+        private void tbFuncao_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void tbCEP_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+
+            string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            // Aplica a máscara (formato: "00000-000")
+            if (cep.Length > 5)
+            {
+                cep = cep.Insert(5, "-");
+            }
+
+
+            if (cep.Length > 9)
+            {
+                cep = cep.Substring(0, 9);
+            }
+
+
+            textBox.Text = cep;
+            textBox.CaretIndex = textBox.Text.Length;
+        }
+
+        private void tbCpf_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!Regex.IsMatch(tbCpf.Text, "[0-9]") || (!Regex.IsMatch(tbCpf.Text, "[0-9]") || tbCpf.Text.Length >= 14))
             {
@@ -255,63 +329,27 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        private async void btAddCEP_Click(object sender, RoutedEventArgs e)
+        private void tbContato_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string cep = tbCEP.Text;
-            string url = $"https://viacep.com.br/ws/{cep}/json/";
-
-            try
+            if (!Regex.IsMatch(tbContato.Text, "[0-9]") || tbContato.Text.Length >= 14)
             {
-                using (HttpClient client = new HttpClient())
-                {
-                    string jsonResult = await client.GetStringAsync(url);
-                    dynamic data = JsonConvert.DeserializeObject(jsonResult);
-
-                    if (data != null && data.erro == null)
-                    {
-                        tbCidade.Text = data.localidade;
-                    }
-                    else
-                    {
-                        MessageBox.Show("CEP não encontrado.");
-                    }
-                }
+                e.Handled = true;
             }
-            catch (Exception ex)
+            else if (tbContato.Text.Length == 1)
             {
-                MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
+                tbContato.Text = "(" + tbContato.Text;
+                tbContato.CaretIndex = tbContato.Text.Length;
+            }
+            else if (tbContato.Text.Length == 3)
+            {
+                tbContato.Text += ") ";
+                tbContato.CaretIndex = tbContato.Text.Length;
+            }
+            else if (tbContato.Text.Length == 9)
+            {
+                tbContato.Text += "-";
+                tbContato.CaretIndex = tbContato.Text.Length;
             }
         }
-
-        private void tbFuncao_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void tbCEP_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox textBox = (TextBox)sender;
-
-
-            string cep = new string(textBox.Text.Where(char.IsDigit).ToArray());
-
-            // Aplica a máscara (formato: "00000-000")
-            if (cep.Length > 5)
-            {
-                cep = cep.Insert(5, "-");
-            }
-
-
-            if (cep.Length > 9)
-            {
-                cep = cep.Substring(0, 9);
-            }
-
-
-            textBox.Text = cep;
-            textBox.CaretIndex = textBox.Text.Length;
-        }
-
-    
     }
 }

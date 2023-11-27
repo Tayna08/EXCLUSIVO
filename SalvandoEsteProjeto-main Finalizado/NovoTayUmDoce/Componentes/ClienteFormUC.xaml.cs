@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using Newtonsoft.Json;
 using System.Globalization;
 using NovoTayUmDoce.Conexão;
+using static iText.StyledXmlParser.Jsoup.Select.Evaluator;
 
 namespace NovoTayUmDoce.Componentes
 {
@@ -19,7 +20,9 @@ namespace NovoTayUmDoce.Componentes
     public partial class ClienteFormUC : UserControl
     {
         MainWindow _context;
-
+        private Cliente _Cliente;
+        private Endereco _endereco;
+        int _id;
 
         public ClienteFormUC(MainWindow context)
         {
@@ -28,50 +31,134 @@ namespace NovoTayUmDoce.Componentes
             tbCep.TextChanged += tbCep_TextChanged;
         }
 
-    
+        public ClienteFormUC(int id, MainWindow context)
+        {
+            _id = id;
+            InitializeComponent();
+            _context = context;
+
+            _Cliente = new Cliente(); // Inicializa o objeto Cliente
+
+            if (_id > 0)
+            {
+                LoadClienteDetails();
+            }
+            else
+            {
+                // Se _id for igual a 0, inicialize também o objeto Endereco
+                _endereco = new Endereco();
+            }
+        }
+        private void LoadClienteDetails()
+        {
+            try
+            {
+                var dao = new ClienteDAO();
+                _Cliente = dao.GetById(_id);
+
+                var daoo = new EnderecoDAO();
+                _endereco = daoo.GetById(_Cliente.Endereco.Id);
+
+                if (_Cliente != null)
+                {
+                    tbNome.Text = _Cliente.Nome;
+                    tbCpf.Text = _Cliente.Cpf;
+                    dtpData.SelectedDate = (DateTime)_Cliente.DataNasc;
+                    tbContato.Text = _Cliente.Contato;
+
+                    tbBairro.Text = _endereco.Bairro;
+                    tbCidade.Text = _endereco.Cidade;
+                    tbRua.Text = _endereco.Rua;
+                    tbComplemento.Text = _endereco.Complemento;
+                    tbNumero.Text = _endereco.Numero.ToString();
+                    tbCep.Text = _endereco.Cep;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes do Cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-
+                // Verifica se o CPF é válido
                 if (ValidacaoCPFeCNPJ.ValidateCPF(tbCpf.Text) == "Erro")
                 {
-                    MessageBox.Show("Cpf digitado é invalido! ");
+                    MessageBox.Show("Cpf digitado é inválido! ");
                     Clear();
+                    return;
                 }
 
-                //Setando informações na tabela cliente
-                Cliente cliente = new Cliente();
-                Endereco endereco = new Endereco();
-
-                endereco.Numero = Convert.ToInt32(tbNumero.Text);
-                endereco.Bairro = tbBairro.Text;
-                endereco.Cidade = tbCidade.Text;
-                endereco.Complemento = tbComplemento.Text;
-                endereco.Rua = tbRua.Text;
-                endereco.Cep = tbCep.Text;
-
-                cliente.Endereco = endereco;
-
-                cliente.Nome = tbNome.Text;
-                cliente.Cpf = tbCpf.Text;
-                cliente.DataNasc = dtpData.SelectedDate;
-                cliente.Contato = tbContato.Text;
-
-                //Inserindo os Dados           
-                var clienteDAO = new ClienteDAO();
-                var resultado = clienteDAO.Insert(cliente);
-
-
-                Clear();
-
-                MessageBox.Show(resultado);
-
-                if (resultado != "Os campos obrigatórios devem ser preenchidos")
+                // Setando informações na tabela cliente
+                Cliente cliente = new Cliente
                 {
-                    MessageBox.Show("SUCESSO");
+                    Endereco = new Endereco
+                    {
+                        Numero = Convert.ToInt32(tbNumero.Text),
+                        Bairro = tbBairro.Text,
+                        Cidade = tbCidade.Text,
+                        Complemento = tbComplemento.Text,
+                        Rua = tbRua.Text,
+                        Cep = tbCep.Text
+                    },
+
+                    Nome = tbNome.Text,
+                    Cpf = tbCpf.Text,
+                    DataNasc = dtpData.SelectedDate,
+                    Contato = tbContato.Text
+                };
+
+                if (_Cliente == null)
+                {
+                    _Cliente = new Cliente();
                 }
 
+                if (_endereco == null)
+                {
+                    _endereco = new Endereco();
+                }
+
+                _Cliente.Nome = tbNome.Text;
+                _Cliente.Cpf = tbCpf.Text;
+                _Cliente.DataNasc = (DateTime)dtpData.SelectedDate;
+                _Cliente.Contato = tbContato.Text;
+
+                _endereco.Bairro = tbBairro.Text;
+                _endereco.Cidade = tbCidade.Text;
+                _endereco.Rua = tbRua.Text;
+                _endereco.Complemento = tbComplemento.Text;
+                _endereco.Numero = int.Parse(tbNumero.Text);
+                _endereco.Cep = tbCep.Text;
+
+                var resultado = "";
+
+                // Verifica se é uma atualização ou inserção
+                if (_id > 0)
+                {
+                    var dao = new ClienteDAO();
+                    dao.Update(_Cliente);
+                    var daoo = new EnderecoDAO();
+                    daoo.Update(_endereco);
+                    resultado = "Cliente atualizado com sucesso.";
+                }
+                else
+                {
+                    ClienteDAO clienteDAO = new ClienteDAO();
+                    resultado = clienteDAO.Insert(cliente);
+                    resultado = "Cliente inserido com sucesso.";
+                }
+
+                _context.SwitchScreen(new ClienteListarUC(_context));
+
+                if (!string.IsNullOrEmpty(resultado))
+                    MessageBox.Show(resultado);
+
+                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+                if (resultado != camposObrigatoriosMsg)
+                    MessageBox.Show("Operação concluída com sucesso!");
             }
             catch (Exception ex)
             {
@@ -213,28 +300,31 @@ namespace NovoTayUmDoce.Componentes
         private async void btAddCEP_Click(object sender, RoutedEventArgs e)
         {
             string cep = tbCep.Text;
-            string url = $"https://viacep.com.br/ws/{cep}/json/";
+            string url = $"https://api.postmon.com.br/v1/cep/{cep}";
 
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
                     string jsonResult = await client.GetStringAsync(url);
+                    Console.WriteLine($"JSON Result: {jsonResult}");
+
                     dynamic data = JsonConvert.DeserializeObject(jsonResult);
 
-                    if (data != null && data.erro == null)
+                    if (data != null)
                     {
-                        tbCidade.Text = data.localidade;
+                        tbCidade.Text = data.cidade;
+                        MessageBox.Show("CEP encontrado!");
                     }
                     else
                     {
-                        MessageBox.Show("CEP não encontrado.");
+                        MessageBox.Show("CEP não encontrado ou inválido.");
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CEP não encontrado, confira se você digitou corretamente");
+                MessageBox.Show($"Erro ao obter dados do CEP: {ex.Message}");
             }
         }
     }

@@ -91,10 +91,6 @@ namespace NovoTayUmDoce.Models
                 MessageBox.Show($"Erro ao inserir cliente: {ex.Message}");
                 throw;
             }
-            finally
-            {
-                conn.Close();
-            }
         }
 
         public void Delete(Cliente cliente)
