@@ -50,7 +50,7 @@ namespace NovoTayUmDoce.Models
                             despesa.Hora = reader.GetString("hora_des");
                             despesa.Valor = reader.GetDouble("valor_des");
                             despesa.Vencimento = reader.GetDateTime("vencimento_des");
-                            
+
                         }
 
                         return despesa;
@@ -105,11 +105,11 @@ namespace NovoTayUmDoce.Models
             }
         }
 
-        public void Insert(Despesa despesa)
+        public string Insert(Despesa despesa)
         {
             try
             {
-               
+
                 var query = conn.Query();
                 query.CommandText = $"INSERT INTO Despesa (nome_des, descricao_des, forma_pag_des, data_des, hora_des, valor_des, vencimento_des) " +
                     $"VALUES (@NomeDespesa, @Descricao, @FormaPagamento, @Data, @Hora, @Valor, @Vencimento)";
@@ -123,20 +123,14 @@ namespace NovoTayUmDoce.Models
                 query.Parameters.AddWithValue("@Vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
 
 
-                var result = query.ExecuteNonQuery();
+                var resultado = (string)query.ExecuteScalar();
+                return resultado;
 
-                if (result == 0)
-                {
-                    MessageBox.Show("Erro ao inserir os dados, verifique e tente novamente!");
-                }
-                else
-                {
-                    MessageBox.Show("Inserção bem-sucedida!");
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
+                MessageBox.Show($"Erro ao inserir despesas: {ex.Message}");
+                throw;
             }
         }
 
@@ -165,7 +159,39 @@ namespace NovoTayUmDoce.Models
 
         }
 
+        public void Update(Despesa despesa)
+        {
+            try
+            {
 
+                var query = conn.Query();
+                query.CommandText = "UPDATE Despesa SET nome_des = @nome, descricao_des = @descricao, forma_pag_des = @forma_pag, " +
+                                     "data_des = @data, hora_des = @hora, valor_des = @valor, vencimento_des = @vencimento WHERE id_des = @id";
+
+                query.Parameters.AddWithValue("@nome", despesa.NomeDespesa);
+                query.Parameters.AddWithValue("@descricao", despesa.Descricao);
+                query.Parameters.AddWithValue("@forma_pag", despesa.FormaPagamento);
+                query.Parameters.AddWithValue("@data", despesa.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@hora", despesa.Hora);
+                query.Parameters.AddWithValue("@valor", despesa.Valor);
+                query.Parameters.AddWithValue("@vencimento", despesa.Vencimento?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@id", despesa.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                {
+                    throw new Exception("Atualização do registro não foi realizada.");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Erro ao atualizar a despesa: {e.Message}");
+                throw;
+            }
+
+
+        }
     }
 }
 

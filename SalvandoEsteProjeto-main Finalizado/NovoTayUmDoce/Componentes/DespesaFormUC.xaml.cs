@@ -29,11 +29,52 @@ namespace NovoTayUmDoce.Componentes
     public partial class DespesaFormUC : UserControl
     {
         MainWindow _context;
+        private Despesa _despesa;
+        int _id;
+
         public DespesaFormUC(MainWindow context)
         {
             InitializeComponent();
             _context = context;
             Loaded += Status_Loaded;
+        }
+
+        public DespesaFormUC(int id, MainWindow context)
+        {
+            _id = id;
+            InitializeComponent();
+            _context = context;
+
+            _despesa = new Despesa();
+
+            if (_id > 0)
+            {
+                LoadDespesaDetails();
+            }
+
+        }
+        private void LoadDespesaDetails()
+        {
+            try
+            {
+                var dao = new DespesaDAO();
+                _despesa = dao.GetById(_id);
+
+
+                if (_despesa != null)
+                {
+                    tbNome.Text = _despesa.NomeDespesa;
+                    tbDescricao.Text = _despesa.Descricao;
+                    tbFormaPagamento.Text = _despesa.FormaPagamento;
+                    dtpData.SelectedDate = _despesa.Data;
+                    tbValor.Text = _despesa.Valor.ToString();
+                    dtpDataVenci.SelectedDate = _despesa.Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes da despesa: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Status_Loaded(object sender, RoutedEventArgs e)
@@ -55,43 +96,76 @@ namespace NovoTayUmDoce.Componentes
         {
             _context.SwitchScreen(new PagamentoFormUC(_context));
 
+            dtpData.SelectedDate = DateTime.Now;
+            dtpHora.SelectedTime= DateTime.Now;
+
             try
             {
+
                 if (tbFormaPagamento.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
                 {
-                    double valor = Convert.ToDouble(tbValor.Text);
+                  double valor = Convert.ToDouble(tbValor.Text);
 
-                    QrCodeWindow qrCodeWindow = new QrCodeWindow(_context);
-                    qrCodeWindow.Show();
+                  QrCodeWindow qrCodeWindow = new QrCodeWindow(_context);
+                  qrCodeWindow.Show();
                 }
 
                 //Setando informações na tabela cliente
-                Despesa despesa = new Despesa();
+                Despesa despesa = new Despesa
+                {
+                    NomeDespesa = tbNome.Text,
+                    Descricao = tbDescricao.Text,
+                    FormaPagamento = tbFormaPagamento.Text,
+                    Data = dtpData.SelectedDate,
+                    Hora = dtpHora.Text,
+                    Valor = Convert.ToDouble(tbValor.Text),
+                    Vencimento = dtpDataVenci.SelectedDate,
+                };
 
-                despesa.NomeDespesa = tbNome.Text;
-                despesa.Descricao = tbDescricao.Text;
-                despesa.FormaPagamento = tbFormaPagamento.Text;
-                despesa.Data = dtpData.SelectedDate;
-                despesa.Valor = Convert.ToDouble(tbValor.Text);
-                despesa.Vencimento = dtpDataVenci.SelectedDate;
-                //despesa.Hora = Hora.Text;
+                if (_despesa == null)
+                {
+                    _despesa = new Despesa();
+                }
 
-                // Inserindo os Dados           
-                DespesaDAO despesaDAO = new DespesaDAO();
-                despesaDAO.Insert(despesa);
-
+                _despesa.NomeDespesa = tbNome.Text;
+                _despesa.Descricao = tbDescricao.Text;
+                _despesa.FormaPagamento = tbFormaPagamento.Text;
+                _despesa.Data = dtpData.SelectedDate;
+                _despesa.Hora= dtpHora.Text;
+                _despesa.Valor = double.Parse(tbValor.Text);
+                _despesa.Vencimento = dtpDataVenci.SelectedDate;
 
 
                 Clear();
+                var resultado = "";
+
+                // Verifica se é uma atualização ou inserção
+                if (_id > 0)
+                {
+                    var dao = new DespesaDAO();
+                    dao.Update(_despesa);
+                    resultado = "Despesa atualizado com sucesso.";
+                }
+                else
+                {
+                    DespesaDAO despesaDAO = new DespesaDAO();
+                    resultado = despesaDAO.Insert(despesa);
+                    resultado = "Despesa inserida com sucesso.";
+                }
+                _context.SwitchScreen(new DespesaListarUC(_context));
+
+                if (!string.IsNullOrEmpty(resultado))
+                    MessageBox.Show(resultado);
+
+                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+                if (resultado != camposObrigatoriosMsg)
+                    MessageBox.Show("Operação concluída com sucesso!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao salvar a Despesa: {ex.Message}\n\nStackTrace: {ex.StackTrace}");
+                MessageBox.Show(ex.Message);
             }
         }
-
-       
-
 
         private void btCancelar_Click(object sender, RoutedEventArgs e)
         {
