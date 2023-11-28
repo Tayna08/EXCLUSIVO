@@ -97,7 +97,7 @@ namespace NovoTayUmDoce.Componentes
             _context.SwitchScreen(new PagamentoFormUC(_context));
 
             dtpData.SelectedDate = DateTime.Now;
-            dtpHora.SelectedTime= DateTime.Now;
+            dtpHora.SelectedTime = DateTime.Now;
 
             try
             {
