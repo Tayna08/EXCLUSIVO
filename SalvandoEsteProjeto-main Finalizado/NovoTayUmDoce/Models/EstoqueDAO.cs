@@ -41,7 +41,7 @@ namespace NovoTayUmDoce.Models
                         {
                             estoque.Id = DAOHelper.GetInt(reader, "id_est");
                             estoque.DataFabricacao = (DateTime)DAOHelper.GetDateTime(reader, "data_fabricacao_est");
-                            estoque.Datavalidade = (DateTime)DAOHelper.GetDateTime(reader, "validade_ent");
+                            estoque.Datavalidade = (DateTime)DAOHelper.GetDateTime(reader, "validade_est");
                             estoque.Quantidade = DAOHelper.GetInt(reader, "quantidade_est");
                             estoque.Insumos = DAOHelper.GetString(reader, "insumos_est");
                             estoque.Produto = new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"));
@@ -85,7 +85,7 @@ namespace NovoTayUmDoce.Models
                                 Datavalidade = DAOHelper.GetDateTime(reader, "validade_est"),
                                 DataFabricacao = DAOHelper.GetDateTime(reader, "data_fabricacao_est"),
                                 Insumos = DAOHelper.GetString(reader, "insumos_est"),
-                                Produto = produto,
+                                
 
                             };
 
@@ -118,18 +118,13 @@ namespace NovoTayUmDoce.Models
                     query.Parameters.AddWithValue("@insumos", estoque.Insumos);
                     query.Parameters.AddWithValue("@id_pro", estoque.Produto.Id);
 
-                    query.ExecuteNonQuery();
-
-                return "Inserção bem-sucedida";
+                var resultado = (string)query.ExecuteScalar();
+                return resultado;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao inserir os dados: " + ex.Message);
-                return null;
-            }
-            finally
-            {
-                conn.Close();
+                throw;
             }
 
         }
@@ -157,5 +152,34 @@ namespace NovoTayUmDoce.Models
             }
           
         }
+
+        public void Update(Estoque estoque)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE estoque set quantidade_est = @quantidade, validade_est = @validade, data_fabricacao_est = @data_fabricacao, insumos_est = @insumos, id_pro_fk = @id_pro WHERE id_est = @id";
+                query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
+                query.Parameters.AddWithValue("@validade", estoque.Datavalidade?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@data_fabricacao", estoque.DataFabricacao?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@insumos", estoque.Insumos);
+                query.Parameters.AddWithValue("@id_pro", estoque.Produto.Id);
+
+                query.Parameters.AddWithValue("@id", estoque.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Erro ao atualizar estoque: {e.Message}");
+
+                throw;
+            }
+        }   
+
+
     }
 }

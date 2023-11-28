@@ -172,7 +172,6 @@ namespace NovoTayUmDoce.Componentes
                     resultado = funcionarioDAO.Insert(funcionario);
                     resultado = "Funcionario inserido com sucesso.";
                 }
-
                 _context.SwitchScreen(new FuncionarioListarUC(_context));
 
                 if (!string.IsNullOrEmpty(resultado))

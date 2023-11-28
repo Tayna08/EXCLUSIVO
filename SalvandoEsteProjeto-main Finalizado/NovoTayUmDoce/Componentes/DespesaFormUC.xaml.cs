@@ -135,6 +135,8 @@ namespace NovoTayUmDoce.Componentes
                 _despesa.Valor = double.Parse(tbValor.Text);
                 _despesa.Vencimento = dtpDataVenci.SelectedDate;
 
+
+                Clear();
                 var resultado = "";
 
                 // Verifica se é uma atualização ou inserção
