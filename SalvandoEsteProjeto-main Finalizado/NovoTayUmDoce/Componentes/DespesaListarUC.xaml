@@ -26,7 +26,7 @@
                 <DataGridTextColumn Header="Forma de Pagamento" Binding="{Binding FormaPagamento}"/>
                 <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
-                <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Vencimento}"/>
+                <DataGridTextColumn Header="Data de Vencimento" Binding="{Binding Vencimento, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
                 <DataGridTemplateColumn Header="Ações">
                     <DataGridTemplateColumn.CellTemplate>
