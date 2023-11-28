@@ -273,10 +273,6 @@
       <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ZXing\Common\Dimensions.cs" />
-    <Page Include="Componentes\CaixaUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\ClienteFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -353,9 +349,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Componentes\CaixaUC.xaml.cs">
-      <DependentUpon>CaixaUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\ClienteFormUC.xaml.cs">
       <DependentUpon>ClienteFormUC.xaml</DependentUpon>
     </Compile>
@@ -422,8 +415,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Caixa.cs" />
-    <Compile Include="Models\CaixaDAO.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteDAO.cs" />
     <Compile Include="Models\Despesa.cs" />

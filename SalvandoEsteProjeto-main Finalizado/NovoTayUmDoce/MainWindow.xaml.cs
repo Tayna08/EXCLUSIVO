@@ -53,11 +53,6 @@ namespace NovoTayUmDoce
             menuRegister.Add(new SubItem("Funcionario", new FuncionarioListarUC(this)));
             var item6 = new ItemMenu("Registro", menuRegister, PackIconKind.Register);
 
-            var menuSchedule = new List<SubItem>();
-            menuSchedule.Add(new SubItem("Abrir/Fechar Caixa", new CaixaUC(this)));
-            menuSchedule.Add(new SubItem("Historico do Caixa"));
-            var item1 = new ItemMenu("Caixa", menuSchedule, PackIconKind.BoxAdd);
-
             var menuReports = new List<SubItem>();
             var item2 = new ItemMenu("Operações", menuReports, PackIconKind.Money);
             menuReports.Add(new SubItem("Estoque", new EstoqueFormUC(this)));
@@ -78,7 +73,6 @@ namespace NovoTayUmDoce
 
             Menu.Children.Add(new ControleHome(item0, this));
             Menu.Children.Add(new ControleHome(item6, this));
-            Menu.Children.Add(new ControleHome(item1, this));
             Menu.Children.Add(new ControleHome(item2, this));
             Menu.Children.Add(new ControleHome(item3, this));
             Menu.Children.Add(new ControleHome(item4, this));
