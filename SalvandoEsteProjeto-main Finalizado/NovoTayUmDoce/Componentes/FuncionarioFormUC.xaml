@@ -70,11 +70,11 @@
                     <ColumnDefinition Width="4.*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="FUNÇÃO:"/>
+                <Label Content="FUNÇÃO:" />
                 <TextBox Grid.Column="1" x:Name="tbFuncao" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbFuncao_TextChanged"/>
 
 
-                <Label Content="SALÁRIO:" Grid.Column="2"/>
+                <Label Content="SALÁRIO:" Grid.Column="2"  HorizontalAlignment="Right"/>
                 <TextBox  Grid.Column="3" x:Name="tbSalario" TextWrapping="Wrap" Background="White" Height="30"/>
             </Grid>
 
@@ -105,7 +105,7 @@
                     </Button.RenderTransform>
                 </Button>
 
-                <Label Content="BAIRRO:" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,188,0"/>
+                <Label Content="BAIRRO:" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,188,0" />
                 <TextBox  Grid.Column="4" x:Name="tbBairro" TextWrapping="Wrap" Background="White" Height="30" Margin="0,2,0,3"/>
             </Grid>
 
@@ -121,7 +121,7 @@
                 <Label Content="CIDADE:"/>
                 <TextBox  Grid.Column="1" x:Name="tbCidade" TextWrapping="Wrap" Background="White" Height="30"/>
 
-                <Label Content="RUA:" Grid.Column="2"/>
+                <Label Content="RUA:" Grid.Column="2"  HorizontalAlignment="Right"/>
                 <TextBox  Grid.Column="3" x:Name="tbRua" TextWrapping="Wrap" Background="White" Height="30"/>
 
             </Grid>

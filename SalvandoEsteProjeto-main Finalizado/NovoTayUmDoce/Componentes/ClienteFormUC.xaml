@@ -51,7 +51,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Label  Content="CONTATO:"  HorizontalAlignment="Right"/>
+                <Label  Content="CONTATO:"/>
                 <TextBox  Grid.Column="1" x:Name="tbContato" TextWrapping="Wrap" Background="White" Height="30" TextChanged="tbContato_TextChanged"/>
             </Grid>
 
