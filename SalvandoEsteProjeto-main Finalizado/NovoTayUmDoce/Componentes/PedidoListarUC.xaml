@@ -21,7 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Total" Binding="{Binding Total}"/>
-                <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                <DataGridTextColumn Header="Data" Binding="{Binding Data, StringFormat='dd/MM/yyyy'}"/>
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora}"/>
                 <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nome}"/>
                 <DataGridTextColumn Header="Forma de Recebimento" Binding="{Binding FormaRecebimento}"/>
