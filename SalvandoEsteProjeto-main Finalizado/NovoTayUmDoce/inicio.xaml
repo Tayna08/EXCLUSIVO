@@ -40,9 +40,7 @@
                          materialDesign:ButtonAssist.CornerRadius="10" BorderThickness="2" BorderBrush="#FFD18D9F"
                          Background="#FFD18D9F" Foreground="White" ToolTip="Login" x:Name="btnAcessar" Content="Login" Click="BtnAcessar_Click">
                         </Button>
-                        <Label FontSize="12" Content="Não tenho conta! Gostaria de fazer meu "/>
-                        <Button Background="#0000" Content="Cadastro" Foreground="#FFD18D9F" Click="Cadastro"></Button>
-
+                        
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

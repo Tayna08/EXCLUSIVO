@@ -30,17 +30,22 @@ namespace NovoTayUmDoce
             InitializeComponent();
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
-                Usuario usuario = new Usuario
+                Usuario usuario = new Usuario();
                 {
 
-                    UsuarioNome = txtUsuario.Text,
-                    Senha = passBoxSenha.Text
-                };
+                    UsuarioNome = txtUsuario.Text;
+                    Senha = passBoxSenha.Text;
+                }
 
                 if (_usuario == null)
                 {

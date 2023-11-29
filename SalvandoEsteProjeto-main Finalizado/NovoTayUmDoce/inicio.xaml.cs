@@ -24,86 +24,37 @@ namespace NovoTayUmDoce
     public partial class Inicio : Window
     {
         //Usuario
-        private Usuario _usuario = new Usuario();
-
-        public Inicio()
+        public Login()
         {
-
             InitializeComponent();
-
-
             Loaded += Login_Loaded;
         }
 
-
-
-
-        //Carregar Lista
         private void Login_Loaded(object sender, RoutedEventArgs e)
         {
-            CarregarLista();
+            //_ = txtUsuario.Focus();
+            //new FuncionarioListWindow().Show();
+            //this.Close();
         }
-        private void CarregarLista()
-        {
-            try
-            {
-                var dao = new UsuarioDAO();
-                List<Usuario> listaUsuario = dao.List();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
 
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            string HashPassword = Cripto(passBoxSenha.Password.ToString());
-            _usuario.Senha = HashPassword;
-            _usuario.UsuarioNome = txtUsuario.Text;
-            try
+            string usuario = "joao"; // txtUsuario.Text;
+            string senha = "123456"; // passBoxSenha.Password.ToString();
+
+            if (Usuario.Login(usuario, senha))
             {
-                var dao = new UsuarioDAO();
-                if (HashPassword != "")
-                {
-                    if (dao.Login(_usuario))
-                    {
-
-                        MainWindow window = new MainWindow();
-                        window.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao carregar os detalhes do Cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+                var main = new MainWindow();
+                main.Show();
+                this.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro ao carregar os detalhes do Cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-
+                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                _ = txtUsuario.Focus();
             }
-        }
 
-        private void Cadastro(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        public static string Cripto(string text)
-        {
-            byte[] bytes = Encoding.Unicode.GetBytes(text);
-            SHA256Managed hashstring = new SHA256Managed();
-            byte[] hash = hashstring.ComputeHash(bytes);
-            string hashString = string.Empty;
-            foreach (byte x in hash)
-            {
-                hashString += String.Format("{0:x2}", x);
-            }
-            return hashString;
         }
     }
 }
+
