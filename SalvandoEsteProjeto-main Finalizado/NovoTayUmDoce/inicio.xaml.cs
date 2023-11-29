@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,40 +20,90 @@ namespace NovoTayUmDoce
     /// Lógica interna para inicio.xaml
     /// </summary>
 
-  
-    public partial class inicio : Window
+
+    public partial class Inicio : Window
     {
-        public inicio()
+        //Usuario
+        private Usuario _usuario = new Usuario();
+
+        public Inicio()
         {
+
             InitializeComponent();
+
+
             Loaded += Login_Loaded;
         }
 
+
+
+
+        //Carregar Lista
         private void Login_Loaded(object sender, RoutedEventArgs e)
         {
-            //_ = txtUsuario.Focus();
-            //new FuncionarioListWindow().Show();
-            //this.Close();
+            CarregarLista();
         }
+        private void CarregarLista()
+        {
+            try
+            {
+                var dao = new UsuarioDAO();
+                List<Usuario> listaUsuario = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            string usuario = "Doce22"; // txtUsuario.Text;
-            string senha = "123456"; // passBoxSenha.Password.ToString();
-
-            if (Usuario.Login(usuario, senha))
+            string HashPassword = Cripto(passBoxSenha.Password.ToString());
+            _usuario.Senha = HashPassword;
+            _usuario.UsuarioNome = txtUsuario.Text;
+            try
             {
-                var main = new MainWindow();
-                main.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
-                _ = txtUsuario.Focus();
-            }
+                var dao = new UsuarioDAO();
+                if (HashPassword != "")
+                {
+                    if (dao.Login(_usuario))
+                    {
 
+                        MainWindow window = new MainWindow();
+                        window.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao carregar os detalhes do Cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes do Cliente: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+        }
+
+        private void Cadastro(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public static string Cripto(string text)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(text);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
         }
     }
 }
-       
