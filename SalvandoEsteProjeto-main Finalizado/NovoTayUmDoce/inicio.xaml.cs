@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using NovoTayUmDoce.Componentes;
 
 namespace NovoTayUmDoce
 {
@@ -24,9 +25,9 @@ namespace NovoTayUmDoce
     public partial class Inicio : Window
     {
         //Usuario
-        public Login()
+        public Inicio()
         {
-            InitializeComponent();
+           // InitializeComponent();
             Loaded += Login_Loaded;
         }
 
@@ -49,9 +50,9 @@ namespace NovoTayUmDoce
                 this.Close();
             }
             else
-            {
-                MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
-                _ = txtUsuario.Focus();
+            //{
+            //    MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    _ = txtUsuario.Focus();
             }
 
         }
