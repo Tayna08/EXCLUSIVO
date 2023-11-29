@@ -158,12 +158,11 @@ namespace NovoTayUmDoce.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "UPDATE estoque set quantidade_est = @quantidade, validade_est = @validade, data_fabricacao_est = @data_fabricacao, insumos_est = @insumos, id_pro_fk = @id_pro WHERE id_est = @id";
+                query.CommandText = "UPDATE estoque set quantidade_est = @quantidade, validade_est = @validade, data_fabricacao_est = @data_fabricacao, insumos_est = @insumos WHERE id_est = @id";
                 query.Parameters.AddWithValue("@quantidade", estoque.Quantidade);
                 query.Parameters.AddWithValue("@validade", estoque.Datavalidade?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@data_fabricacao", estoque.DataFabricacao?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@insumos", estoque.Insumos);
-                query.Parameters.AddWithValue("@id_pro", estoque.Produto.Id);
 
                 query.Parameters.AddWithValue("@id", estoque.Id);
 
