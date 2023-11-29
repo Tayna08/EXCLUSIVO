@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
+using NovoTayUmDoce.Conexão;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +11,16 @@ namespace NovoTayUmDoce.Models
 {
     class UsuarioDAO : AbstractDAO<Usuario>
     {
+
+
+        private static Conexao _conn = new Conexao();
+
         public Usuario GetByUsuario(string usuarioNome, string senha)
         {
             try
             {
                 var query = conn.Query();
-                query.CommandText = "SELECT * FROM usuario LEFT JOIN funcionario ON id_fun = id_fun_fk " +
+                query.CommandText = "SELECT * FROM usuario LEFT JOIN funcionario ON cod_func = cod_func_fk " +
                     "WHERE usuario_usu = @usuario AND senha_usu = @senha";
 
                 query.Parameters.AddWithValue("@usuario", usuarioNome);
@@ -27,9 +33,9 @@ namespace NovoTayUmDoce.Models
                 while (reader.Read())
                 {
                     usuario = Usuario.GetInstance();
-                    usuario.Id = reader.GetInt32("id_usu");
+                    usuario.Id = reader.GetInt32("cod_usu");
                     usuario.UsuarioNome = reader.GetString("usuario_usu");
-                    usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("id_fun"), Nome = reader.GetString("nome_fun") };
+                    usuario.Funcionario = new Funcionario() { Id = reader.GetInt32("cod_func"), Nome = reader.GetString("nome_func") };
                 }
 
                 return usuario;

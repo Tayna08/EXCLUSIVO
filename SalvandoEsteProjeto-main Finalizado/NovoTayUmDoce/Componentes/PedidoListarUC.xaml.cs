@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Graph.Models;
 using MySql.Data.MySqlClient;
 using NovoTayUmDoce.Models;
 
@@ -74,6 +75,24 @@ namespace NovoTayUmDoce.Componentes
         private void dataGridPedidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(print, " NovoTayUmDoce.Componentes");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
         }
     }
 }

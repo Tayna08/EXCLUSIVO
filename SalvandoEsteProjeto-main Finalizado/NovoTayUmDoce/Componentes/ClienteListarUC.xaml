@@ -8,22 +8,25 @@
              
              mc:Ignorable="d" 
               d:DesignHeight="450" Width="1061">
-    <Grid x:Name="print">
+    <Grid x:Name="print" Margin="-85,0,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="273*"/>
-            <ColumnDefinition Width="527*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="430"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24" Margin="-70"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,69,0">
+            <TextBlock Text="Clientes" VerticalAlignment="Center" FontSize="24" Margin="-0"/>
             <Button Background="#FFD18D9F" x:Name="BtnAddCliente" Margin="30 0 0 0" Content="Novo Cliente" Click="BtnAddCliente_Click" BorderBrush="Black" Foreground="Black"/>
+
+            <Button Background="#FFD18D9F" Margin="750, 0" Click="btImprimir_Click" VerticalAlignment="Top" Height="50" Width="60"  BorderBrush="Black" Foreground="Black">
+                <materialDesign:PackIcon Kind="Printer" Height="34" Width="49" HorizontalAlignment="Center"/>
+            </Button>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Margin="-70,20,-780,5" x:Name="dataGridClientes" IsReadOnly="true"
-                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Foreground="#E5000000">
+        <DataGrid Grid.Row="1" Margin="0,20,0,5" x:Name="dataGridClientes" IsReadOnly="true"
+                      AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Foreground="#E5000000" HorizontalAlignment="Right" Width="1131">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"  />
                 <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
@@ -50,7 +53,7 @@
                                 <Button Click="EditarCliente_Click" Style="{StaticResource MaterialDesignIconForegroundButton}" 
                                         Content="{materialDesign:PackIcon Pencil}"
                                 ToolTip="Visualizar Registro" Height="35" Width="35">
-                                   
+
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
@@ -61,7 +64,7 @@
 
 
 
-        <Frame x:Name="frameCliente" />
+        <Frame x:Name="frameCliente" Margin="0,0,10,0" />
     </Grid>
 </UserControl>
 

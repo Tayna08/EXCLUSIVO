@@ -20,7 +20,7 @@
 
 
         <StackPanel VerticalAlignment="Top" Margin="533,493,10,0" Height="129" Grid.ColumnSpan="2">
-            <Button x:Name="btFechar" Content="FECHAR" Background="#FFFFA4A4" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
+            <Button x:Name="btFechar" Content="CANCELAR" Background="#FFFFA4A4" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
@@ -47,7 +47,7 @@
 
 
             <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
-                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="275" Margin="0,-270,0,0" Width="522">
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="295" Margin="0,-270,300,0" Width="622">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nome}"/>

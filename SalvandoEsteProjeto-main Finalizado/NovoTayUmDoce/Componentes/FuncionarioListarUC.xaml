@@ -17,6 +17,9 @@
             <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2" Margin="-70,0,0,0">
+            <StackPanel.Background>
+                <ImageBrush/>
+            </StackPanel.Background>
             <TextBlock Text="Funcionário" VerticalAlignment="Center" FontSize="24" Margin="-0"/>
             <Button Background="#FFD18D9F" x:Name="BtnAddFuncionario" Margin="50 0 190 0" Content="Novo Funcionário" Click="BtnAddFuncionario_Click" BorderBrush="Black" Foreground="Black"/>
             <Button Background="#FFD18D9F" Margin="550, 0" Click="btImprimir_Click" VerticalAlignment="Top" Height="50" Width="60"  BorderBrush="Black" Foreground="Black">

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,10 +20,11 @@ namespace NovoTayUmDoce
     /// Lógica interna para inicio.xaml
     /// </summary>
 
-  
-    public partial class inicio : Window
+
+    public partial class Inicio : Window
     {
-        public inicio()
+        //Usuario
+        public Login()
         {
             InitializeComponent();
             Loaded += Login_Loaded;
@@ -37,7 +39,7 @@ namespace NovoTayUmDoce
 
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            string usuario = "Doce22"; // txtUsuario.Text;
+            string usuario = "joao"; // txtUsuario.Text;
             string senha = "123456"; // passBoxSenha.Password.ToString();
 
             if (Usuario.Login(usuario, senha))
@@ -55,4 +57,4 @@ namespace NovoTayUmDoce
         }
     }
 }
-       
+
