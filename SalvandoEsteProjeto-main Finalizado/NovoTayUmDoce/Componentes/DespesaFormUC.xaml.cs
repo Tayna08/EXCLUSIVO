@@ -94,23 +94,13 @@ namespace NovoTayUmDoce.Componentes
    
         private void btSalvar_Click(object sender, RoutedEventArgs e)
         {
-            _context.SwitchScreen(new PagamentoFormUC(_context));
+            //_context.SwitchScreen(new PagamentoFormUC(_context));
 
             dtpData.SelectedDate = DateTime.Now;
             dtpHora.SelectedTime = DateTime.Now;
 
             try
             {
-
-                if (tbFormaPagamento.SelectedItem.ToString() == "Sistema de Pagamentos Instantâneos - PIX")
-                {
-                  double valor = Convert.ToDouble(tbValor.Text);
-
-                  QrCodeWindow qrCodeWindow = new QrCodeWindow(_context);
-                  qrCodeWindow.Show();
-                }
-
-                //Setando informações na tabela cliente
                 Despesa despesa = new Despesa
                 {
                     NomeDespesa = tbNome.Text,

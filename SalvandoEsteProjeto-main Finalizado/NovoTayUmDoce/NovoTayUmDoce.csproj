@@ -340,6 +340,9 @@
     <Compile Include="CadastrarUsuario.xaml.cs">
       <DependentUpon>CadastrarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\AbstractDAO.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioDAO.cs" />
@@ -379,10 +382,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\PagamentoFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\PedidoFormUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -403,10 +402,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Componentes\RecebimentoFormUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Componentes\SalvarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,7 +410,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="inicio.xaml">
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -448,9 +443,6 @@
     <Compile Include="Componentes\FuncionarioListarUC.xaml.cs">
       <DependentUpon>FuncionarioListarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\PagamentoFormUC.xaml.cs">
-      <DependentUpon>PagamentoFormUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\PedidoFormUC.xaml.cs">
       <DependentUpon>PedidoFormUC.xaml</DependentUpon>
     </Compile>
@@ -466,9 +458,6 @@
     <Compile Include="Componentes\QrCodeWindow.xaml.cs">
       <DependentUpon>QrCodeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Componentes\RecebimentoFormUC.xaml.cs">
-      <DependentUpon>RecebimentoFormUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Componentes\SalvarUC.xaml.cs">
       <DependentUpon>SalvarUC.xaml</DependentUpon>
     </Compile>
@@ -479,9 +468,6 @@
     <Compile Include="Helpers\ValidacaoCPFeCNPJ.cs" />
     <Compile Include="ControleHome.xaml.cs">
       <DependentUpon>ControleHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="inicio.xaml.cs">
-      <DependentUpon>inicio.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

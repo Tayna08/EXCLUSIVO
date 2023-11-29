@@ -47,7 +47,7 @@
 
 
             <DataGrid x:Name="dataGridPedido" IsReadOnly="true"
-                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="295" Margin="0,-270,300,0" Width="622">
+                AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Cursor="Hand" Height="295" Margin="0,-270,200,0" Width="622">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Produto" Binding="{Binding Produto.Nome}"/>

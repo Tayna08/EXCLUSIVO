@@ -85,7 +85,7 @@ namespace NovoTayUmDoce.Models
                                 Datavalidade = DAOHelper.GetDateTime(reader, "validade_est"),
                                 DataFabricacao = DAOHelper.GetDateTime(reader, "data_fabricacao_est"),
                                 Insumos = DAOHelper.GetString(reader, "insumos_est"),
-                                
+                                Produto = new ProdutoDAO().GetById(DAOHelper.GetInt(reader, "id_pro_fk"))
 
                             };
 

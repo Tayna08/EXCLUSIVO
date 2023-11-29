@@ -109,7 +109,7 @@ namespace NovoTayUmDoce.Componentes
                 return;
             }
 
-            _context.SwitchScreen(new FuncionarioFormUC(cliente.Id, _context));
+            _context.SwitchScreen(new ClienteFormUC(cliente.Id, _context));
         }
 
 

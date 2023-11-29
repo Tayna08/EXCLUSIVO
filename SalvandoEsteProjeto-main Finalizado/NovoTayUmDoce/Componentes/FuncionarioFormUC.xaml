@@ -20,7 +20,6 @@
         <StackPanel VerticalAlignment="Top" Grid.ColumnSpan="2" Height="216" Margin="10,470,0,0">
             <Button x:Name="btCancelar" Content="FECHAR" Margin="10,10,400,0" Background="#FFFFA4A4" Height="52" Width="134" Foreground="#DD000000" FontWeight="Bold" Click="btCancelar_Click" Cursor="Hand"/>
             <Button x:Name="btSalvar" Content="SALVAR"  Margin="10,-50,0,0" Background="#FFFFA4A4" Height="52" Width="133" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btSalvar_Click"/>
-            <Button x:Name="btEmitirRelatorio" Content="Emitir Relatório" Margin="400,-50,0,0" Background="#FFFFA4A4" Height="52" Width="143" Foreground="#DD000000" FontWeight="Bold" Cursor="Hand" Click="btEmitirRelatorio_Click"/>
         </StackPanel>
 
         <StackPanel Margin="15,58,0,0" VerticalAlignment="Top" Grid.Column="0" Height="401">

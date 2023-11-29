@@ -79,7 +79,7 @@ foreign key (id_fun_fk) references funcionario (id_fun),
 foreign key (id_cli_fk) references cliente (id_cli),
 foreign key(id_pro_fk) references produto(id_pro)
 );
-
+INSERT INTO usuario VALUE (null, 'Doce22', '123456', 1);
 CREATE TABLE usuario (
     id_usu int not null auto_increment,
     usuario_usu varchar(255) not null,
@@ -89,16 +89,6 @@ CREATE TABLE usuario (
     foreign key (id_fun_fk) references funcionario (id_fun)
 );
 
-create table pedido_produtos (
-id_ppro int primary key auto_increment,
-quant_ppro varchar(300),
-valor_ppro varchar(300),
-total_ppro varchar(300),
-id_ped_fk int,
-id_pro_fk int,
-foreign key (id_ped_fk) references pedido (id_ped),
-foreign key (id_pro_fk) references produto (id_pro)
-);
 
 insert into Endereco values (null, 'Lino Alves Teixeira', 'Médici', 'Somenzari', 'Av.Kubcheck', 3525,'920000');
 insert into Endereco values (null, 'Lino Xeigar Maldrim', 'Calcoar', '21323', 'Av.Kubcheck', 312525,'12');
@@ -116,33 +106,17 @@ INSERT INTO Produto VALUES (null,'Café Expresso', '250g', 'Bebida Quente', 'Caf
 INSERT INTO Produto VALUES (null,'Cappuccino', '300g', 'Bebida Quente', 'Café, leite e espuma de leite', 4.50);
 INSERT INTO Produto VALUES (null,'Bolo de Chocolate', '150g', 'Doce', 'Bolo fofinho de chocolate', 5.00);
 
-INSERT INTO usuario VALUE (null, 'Doce22', '123456', 1);
+
 
 delimiter $$ 
-create procedure Campo_Endereco (bairro varchar(200), cidade varchar(200), rua varchar(200), complemento varchar(200), numero int, cep varchar(300))
-begin
-if ((bairro <> '' ) and (cidade <> '') and (rua <> '') and (numero <> '')) then
-	insert into Endereco values(null, bairro, cidade, rua, complemento, numero,cep);
-	select 'Os campos obrigatórios foram preenchidos' as Confirmação;
-else
-	select 'Os campos obrigatórios devem ser preenchidos' as Erro;
-end if;
-end;
-$$ delimiter ;
-call Campo_Endereco('Ernandes Gonçalves', 'Médici' , 'Ji-Paraná', 'Avenida', 2431,'920000');
-select * from Endereco;
-
-############################################################
-
-delimiter $$ 
-create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), fk_end int)
+create procedure Campo_Cliente (nome varchar(300), cpf varchar(50), data_nascimento date, contato varchar(250), endereco_fk int)
 begin
 declare fkEnd int;
-set fkEnd = (select id_end from endereco where (id_end = fk_end));
+set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		insert into Cliente values(null, nome, cpf, data_nascimento, contato, endereco_fk);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
@@ -153,7 +127,7 @@ end if;
 end;
 $$ delimiter ;
 call Campo_Cliente ('Samara Hespanhol', '022.420.402-51', '2023-01-01', '69992096461', 1);
-
+select * from Cliente;
 ###############################################################
 
 delimiter $$ 
@@ -168,7 +142,7 @@ end if;
 end
 $$ delimiter ;
 call Campo_Despesa ('Agua','','Pix', '2022-02-02','20:00', 1000.50, '2022-05-06');
-
+funcionario
 
 ##################################################################
 
@@ -176,11 +150,11 @@ delimiter $$
 create procedure Campo_Funcionario (nome varchar(200), data_nascimento varchar(25), cpf varchar(45), contato varchar(200), funcao varchar(200), email varchar(200), salario double, endereco_fk int)
 begin
 declare fkEnd int;
-set fkEnd = (select id_end from endereco where (id_end = fk_End));
+set fkEnd = (select id_end from endereco where (id_end = endereco_fk));
 
 if ((nome <> '') and (cpf <> '') and (contato <> '') and (funcao <> '') and (salario <> '')) then
 	if(fkEnd is not null) then
-		insert into Cliente values(null, nome, cpf, data_nascimento, contato, fk_end);
+		insert into Funcionario values(null, nome, data_nascimento, cpf, contato, funcao, email, salario, endereco_fk);
 		select 'Todos os campos foram preenchidos' as Confirmação;
 	else
 	select 'Essa fk não existe' as Erro;
@@ -190,52 +164,31 @@ select 'Preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
+call Campo_Funcionario('Funcionario 1', '1985-03-10', '444.444.444-44', '4444-4444', 'Cargo 1', 'funcionario1@email.com', 5000.00, 1);
 
 ###################################################################################
 delimiter $$
-create procedure Campo_Estoque (nome varchar(100), quantidade int, dataEst date, produto_fk int)
+create procedure Campo_Produto (nome varchar(100), peso varchar(100), tipo varchar(200), descricao varchar(200), valor_venda double)
 begin
-declare fkPro int;
-set fkPro = (select id_pro from produto where (id_pro = fk_pro));
-
-if  ((nome <> '') and (quantidade <> '') and (data <> '')) then
-	if(fkEst is not null) then
-    insert into Estoque values(null, nome,  quantidade, dataEst, fk_pro);
+if  ((nome <> '') and (valor_venda <> '')) then
+    insert into Produto values(null, nome, peso, tipo, descricao, valor_venda);
     select 'Todos os campos foram preenchidos' as Confirmação;
-    else
-    select 'Essa fk não existe' as Erro;
-    end if;
 else
-select 'preencha os campos obrigatórios' as Erro;
+select 'Preencha os campos obrigatórios' as Erro;
 end if;
 end
 $$ delimiter ;
+select * from produto;
+call Campo_Produto('Café Expresso', '250g', 'Bebida Quente', 'Café forte e encorpado', 3.50);
 
-delimiter $$
+insert into Estoque values (null, 100, '2023-01-01', '2023-01-01', 'brigadeiro e granulado', 1);
 
-DELIMITER $$
-CREATE PROCEDURE caixa_informativo()
-BEGIN
+delimiter $$					
+CREATE TRIGGER baixarEstoque AFTER INSERT ON Pedido FOR EACH ROW	
+BEGIN        
+	UPDATE estoque SET quantidade_est = quantidade_est - NEW.quantidade_ped WHERE (id_pro_fk = NEW.id_pro_fk);
+    
+END;        
+$$ delimiter ;
 
-    DECLARE caixa_id int;
-    DECLARE valor_entrada double;
-    DECLARE valor_saida double;
-
-    SET caixa_id = (SELECT id_cai FROM Caixa WHERE status_cai = "Aberto" ORDER BY data_cai DESC LIMIT 1);
-
-    SET valor_entrada = (SELECT SUM(total_ppro) FROM Pedido WHERE id_cai_fk = caixa_id);
-    SET valor_saida = (SELECT SUM(valor_des) FROM Despesa WHERE id_cai_fk = caixa_id);
-
-    IF valor_entrada IS NULL THEN
-        SET valor_entrada = 0.0;
-    END IF;
-
-    IF valor_saida IS NULL THEN
-        SET valor_saida = 0.0;
-    END IF;
-
-    SELECT valor_entrada, valor_saida;
-
-END;
-
-$$ DELIMITER ;
+call inserirPedido('2023-01-01', '10:00:00', 'pix', 30, 40.00, 'vendido', 1, 1, 1);

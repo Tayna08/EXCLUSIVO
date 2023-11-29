@@ -222,7 +222,6 @@ namespace NovoTayUmDoce.Componentes
                 _pedido.Hora = tbHora.Text;
                 _pedido.FormaRecebimento = cbFormaRec.Text;
                 _pedido.Produto = (Produto)cbProduto.SelectedItem;
-                _pedido.Total = valorTotal;
                 _pedido.Cliente = (Cliente)cbCliente.SelectedItem;
                 _pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
                 var resultado = "";

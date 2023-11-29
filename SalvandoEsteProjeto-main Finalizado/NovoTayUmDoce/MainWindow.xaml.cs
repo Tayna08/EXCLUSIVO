@@ -61,8 +61,7 @@ namespace NovoTayUmDoce
 
             var menuFinancial = new List<SubItem>();
             menuFinancial.Add(new SubItem("Despesa", new DespesaListarUC(this)));
-            menuFinancial.Add(new SubItem("Pagamento", new PagamentoFormUC(this)));
-            menuFinancial.Add(new SubItem("Recebimento", new RecebimentoFormUC(this)));
+
             var item4 = new ItemMenu("Financeiro", menuFinancial, PackIconKind.ScaleBalance);
 
             var item0 = new ItemMenu("Menu", new UserControl(), PackIconKind.ViewDashboard);
