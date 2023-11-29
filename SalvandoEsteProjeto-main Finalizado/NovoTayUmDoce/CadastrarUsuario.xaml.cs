@@ -27,59 +27,56 @@ namespace NovoTayUmDoce
         private Usuario _usuario;
         public CadastrarUsuario()
         {
-            InitializeComponent();
+
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
 
-                Usuario usuario = new Usuario();
-                {
+            //    Usuario usuario = new Usuario();
+            //    {
 
-                    UsuarioNome = txtUsuario.Text;
-                    Senha = passBoxSenha.Text;
-                }
+            //        UsuarioNome = txtUsuario.Text;
+            //        Senha = passBoxSenha.Text;
+            //    }
 
-                if (_usuario == null)
-                {
-                    _usuario = new Usuario();
-                }
-
-
-
-                _usuario.UsuarioNome = txtUsuario.Text;
-                _usuario.Senha = passBoxSenha.Text;
+            //    if (_usuario == null)
+            //    {
+            //        _usuario = new Usuario();
+            //    }
 
 
 
-
-                var resultado = "";
-
-                UsuarioDAO usuarioDAO = new UsuarioDAO();
-                resultado = usuarioDAO.Insert(usuario);
-                resultado = "Usuario inserido com sucesso.";
+            //    _usuario.UsuarioNome = txtUsuario.Text;
+            //    _usuario.Senha = passBoxSenha.Text;
 
 
 
 
-                if (!string.IsNullOrEmpty(resultado))
-                    MessageBox.Show(resultado);
+            //    var resultado = "";
 
-                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
-                if (resultado != camposObrigatoriosMsg)
-                    MessageBox.Show("Operação concluída com sucesso!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    UsuarioDAO usuarioDAO = new UsuarioDAO();
+            //    resultado = usuarioDAO.Insert(usuario);
+            //    resultado = "Usuario inserido com sucesso.";
+
+
+
+
+            //    if (!string.IsNullOrEmpty(resultado))
+            //        MessageBox.Show(resultado);
+
+            //    const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+            //    if (resultado != camposObrigatoriosMsg)
+            //        MessageBox.Show("Operação concluída com sucesso!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
 
 

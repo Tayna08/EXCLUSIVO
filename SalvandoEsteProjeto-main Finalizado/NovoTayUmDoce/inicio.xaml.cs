@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using NovoTayUmDoce.Componentes;
+using MaterialDesignThemes.Wpf;
 
 namespace NovoTayUmDoce
 {
@@ -24,23 +25,29 @@ namespace NovoTayUmDoce
 
     public partial class Inicio : Window
     {
+        MainWindow _context;
         //Usuario
-        public Inicio()
+        public Inicio(MainWindow context)
         {
-           // InitializeComponent();
+            InitializeComponent();
             Loaded += Login_Loaded;
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
 
         private void Login_Loaded(object sender, RoutedEventArgs e)
         {
             //_ = txtUsuario.Focus();
-            //new FuncionarioListWindow().Show();
+            //new FuncionarioListarUC().Show();
             //this.Close();
         }
 
         private void BtnAcessar_Click(object sender, RoutedEventArgs e)
         {
-            string usuario = "joao"; // txtUsuario.Text;
+            string usuario = "Doce"; // txtUsuario.Text;
             string senha = "123456"; // passBoxSenha.Password.ToString();
 
             if (Usuario.Login(usuario, senha))
@@ -50,12 +57,14 @@ namespace NovoTayUmDoce
                 this.Close();
             }
             else
-            //{
-            //    MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //    _ = txtUsuario.Focus();
+            {
+                
+                    MessageBox.Show("Usuario e/ou senha incorretos! Tente novamente", "Autorização negada", MessageBoxButton.OK, MessageBoxImage.Warning);
+                   // _ = txtUsuario.Focus();
             }
 
         }
     }
 }
+
 
