@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" Width="1210">
-    <Grid>
+    <Grid x:Name="print">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="273*"/>
             <ColumnDefinition Width="527*"/>
@@ -18,7 +18,10 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBlock Text="Produto" VerticalAlignment="Center" FontSize="24"/>
-            <Button x:Name="BtnAddProduto" Margin="10 0 0 0" Content="Novo Produto" Click="BtnAddProduto_Click" />
+            <Button  Background="#FFD18D9F" x:Name="BtnAddProduto" Margin="10 0 0 0" Content="Novo Produto" Click="BtnAddProduto_Click" BorderBrush="Black" Foreground="Black"/>
+            <Button Background="#FFD18D9F" Margin="750, 0" Click="btImprimir_Click" VerticalAlignment="Top" Height="50" Width="60"  BorderBrush="Black" Foreground="Black">
+                <materialDesign:PackIcon Kind="Printer" Height="34" Width="49" HorizontalAlignment="Center"/>
+            </Button>
         </StackPanel>
 
 

@@ -63,26 +63,43 @@ namespace NovoTayUmDoce.Componentes
             }
         }
 
-        //aqui que tá o atualizar pagina sozinhoo
+        private void btImprimir_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(print, " NovoTayUmDoce.Componentes");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
+            //aqui que tá o atualizar pagina sozinhoo
 
 
 
-        //private void Button_Update_Click(object sender, RoutedEventArgs e)
-        //{
+            //private void Button_Update_Click(object sender, RoutedEventArgs e)
+            //{
 
-        //    var clienteAtualizado = dataGridClientes.SelectedItem as Cliente;
-
-
-
-
-        //    //_context.SwitchScreen(new ClienteFormUC(_context, clienteAtualizado));
+            //    var clienteAtualizado = dataGridClientes.SelectedItem as Cliente;
 
 
 
 
-        //}
+            //    //_context.SwitchScreen(new ClienteFormUC(_context, clienteAtualizado));
 
-        private void EditarCliente_Click(object sender, RoutedEventArgs e)
+
+
+
+            //}
+
+            private void EditarCliente_Click(object sender, RoutedEventArgs e)
         {
             var cliente = dataGridClientes.SelectedItem as Cliente;
 
