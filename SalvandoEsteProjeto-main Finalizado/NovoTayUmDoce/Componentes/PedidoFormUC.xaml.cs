@@ -10,6 +10,8 @@ namespace NovoTayUmDoce.Componentes
     public partial class PedidoFormUC : UserControl
     {
         MainWindow _context;
+        int _id;
+        private Pedido _pedido;
 
         private List<Pedido> pedidos = new List<Pedido>();
 
@@ -17,18 +19,66 @@ namespace NovoTayUmDoce.Componentes
         {
             InitializeComponent();
             _context = context;
-            Loaded += Status_Loaded;
             CarregarData();
             ListarPedidos();
+            Loaded += Status_Loaded;
             tbTotal.IsEnabled = false;
             tbValor.IsEnabled = false;
+        }
+        public PedidoFormUC(int id, MainWindow context)
+        {
+            _id = id;
+            InitializeComponent();
+            _context = context;
+
+            _pedido = new Pedido(); // Inicializa o objeto Cliente
+
+            if (_id > 0)
+            {
+                LoadPedidoDetails();
+            }
         }
 
         private void Status_Loaded(object sender, RoutedEventArgs e)
         {
-            cbStatus.Items.Add("Em Andamento");
-            cbStatus.Items.Add("Vendido");
-            cbStatus.SelectedIndex = -1;
+
+            cbFormaRec.Items.Add("");
+            cbFormaRec.Items.Add("Dinheiro em espécie");
+            cbFormaRec.Items.Add("Cartão de crédito ou débito");
+            cbFormaRec.Items.Add("Sistema de Pagamentos Instantâneos - PIX");
+            cbFormaRec.Items.Add("Transferência bancária");
+            cbFormaRec.Items.Add("Cobrança recorrente");
+            cbFormaRec.Items.Add("Boleto bancário");
+            cbFormaRec.Items.Add("Link de pagamento");
+            cbFormaRec.Items.Add("Outro");
+            cbFormaRec.SelectedIndex = 0;
+        }
+
+        private void LoadPedidoDetails()
+        {
+            try
+            {
+                var dao = new PedidoDAO();
+                _pedido = dao.GetById(_id);
+
+                if (_pedido != null)
+                {
+                    tbQuantidade.Text = _pedido.Quantidade.ToString();
+                    tbHora.Text = _pedido.Hora.ToString();
+                    tbTotal.Text = _pedido.Total.ToString();
+                    cbFormaRec.SelectedItem = _pedido.FormaRecebimento;
+                    dtpData.SelectedDate = _pedido.Data;
+                    cbStatus.Text = _pedido.Status;
+                    cbCliente.SelectedItem = _pedido.Cliente.ToString();
+                    cbProduto.SelectedItem = _pedido.Produto.ToString();
+                    cbVendedor.SelectedItem = _pedido.Funcionario.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os detalhes do funcionário: " + ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void CarregarData()
@@ -100,8 +150,20 @@ namespace NovoTayUmDoce.Componentes
             cbProduto.SelectedIndex = -1;
             cbCliente.SelectedIndex = -1;
             cbFormaRec.SelectedIndex = -1;
-            cbStatus.SelectedIndex = -1;
+            cbStatus.Clear();
             cbVendedor.SelectedIndex = -1;
+        }
+        private void EditarPedido_Click(object sender, RoutedEventArgs e)
+        {
+            var pedido = dataGridPedido.SelectedItem as Pedido;
+
+            if (pedido == null)
+            {
+                MessageBox.Show("Selecione um estoque para editar.", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            _context.SwitchScreen(new PedidoFormUC(pedido.Id, _context));
         }
 
         private void cbProduto_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -131,18 +193,6 @@ namespace NovoTayUmDoce.Componentes
 
             try
             {
-                if (cbCliente.SelectedItem == null || cbVendedor.SelectedItem == null ||
-                    cbProduto.SelectedItem == null || string.IsNullOrEmpty(tbQuantidade.Text) ||
-                    string.IsNullOrEmpty(tbTotal.Text) || cbStatus.SelectedItem == null ||
-                    dtpData.SelectedDate == null || string.IsNullOrEmpty(tbHora.Text))
-                {
-                    MessageBox.Show("Por favor, preencha todos os campos antes de adicionar o pedido.", "Campos Incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                } else if (Convert.ToInt32(tbQuantidade.Text) <= 0)
-                {
-                    MessageBox.Show("Por favor, a quantidade não pode ser igual ou menor que zero.", "Quantidade Zero", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
 
                 double valorTotal = 0;
 
@@ -161,9 +211,47 @@ namespace NovoTayUmDoce.Componentes
                     Produto = (Produto)cbProduto.SelectedItem
                 };
 
-               PedidoDAO pedidoDAO = new PedidoDAO();
-               pedidoDAO.Insert(pedido);
-                _context.SwitchScreen(new PedidoListarUC(_context));
+                if (_pedido == null)
+                {
+                    _pedido = new Pedido();
+                }
+                // Setar informações na tabela cliente
+                _pedido.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                _pedido.Status = cbStatus.Text;
+                _pedido.Data = (DateTime)dtpData.SelectedDate;
+                _pedido.Hora = tbHora.Text;
+                _pedido.FormaRecebimento = cbFormaRec.Text;
+                _pedido.Produto = (Produto)cbProduto.SelectedItem;
+                _pedido.Total = valorTotal;
+                _pedido.Cliente = (Cliente)cbCliente.SelectedItem;
+                _pedido.Funcionario = (Funcionario)cbVendedor.SelectedItem;
+                var resultado = "";
+
+                if (_id > 0)
+                {
+                    var dao = new PedidoDAO();
+                    dao.Update(_pedido);
+
+                    resultado = "Pedido atualizado com sucesso.";
+                }
+                else
+                {
+
+                    PedidoDAO pedidoDAO = new PedidoDAO();
+                    resultado = pedidoDAO.Insert(pedido);
+                    resultado = "Pedido inserido com sucesso.";
+                }
+
+
+                if (!string.IsNullOrEmpty(resultado))
+                    MessageBox.Show(resultado);
+
+                const string camposObrigatoriosMsg = "Os campos obrigatórios devem ser preenchidos";
+                if (resultado != camposObrigatoriosMsg)
+                    MessageBox.Show("Operação concluída com sucesso!");
+
+
+                ListaPedido();
             }
             catch (Exception ex)
             {

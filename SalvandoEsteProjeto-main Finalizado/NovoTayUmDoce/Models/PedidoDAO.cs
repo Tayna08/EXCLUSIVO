@@ -155,11 +155,6 @@ namespace NovoTayUmDoce.Models
                     }
                 }
 
-                if (pedidos.Count == 0)
-                {
-                    return new List<Pedido>();
-                }
-
                 return pedidos;
             }
             catch (Exception e)
@@ -170,6 +165,33 @@ namespace NovoTayUmDoce.Models
             finally
             {
                 conn.Close();
+            }
+        }
+
+        public void Update(Pedido pedido)
+        {
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE pedido set data_ped = @data, hora_ped = @hora, quantidade_ped = @quantidade, total_ped = @total, status_ped = @status WHERE id_ped = @id";
+                query.Parameters.AddWithValue("@data", pedido.Data?.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@hora", pedido.Hora);
+                query.Parameters.AddWithValue("@quantidade", pedido.Quantidade);
+                query.Parameters.AddWithValue("@total", pedido.Total);
+                query.Parameters.AddWithValue("@status", pedido.Status);
+
+
+                query.Parameters.AddWithValue("@id", pedido.Id);
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Erro ao atualizar pedido: {e.Message}");
+
+                throw;
             }
         }
 
